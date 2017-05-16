@@ -1,0 +1,706 @@
+{
+	"auto_complete":
+	{
+		"selected_items":
+		[
+			[
+				"site",
+				"siteLogo_image"
+			],
+			[
+				"in",
+				"inlineList-icon"
+			],
+			[
+				"con",
+				"conversionArea"
+			],
+			[
+				"add",
+				"addEventListener"
+			],
+			[
+				"button",
+				"button-notEm\t(_components.scss)"
+			],
+			[
+				"button-",
+				"button-disable\t(_components.scss)"
+			],
+			[
+				"colum",
+				"columnSizer\t(index.ejs)"
+			],
+			[
+				"know",
+				"knowhowResume__button"
+			],
+			[
+				"knowhow",
+				"knowhowResume__example"
+			],
+			[
+				"sec",
+				"sectionBlock"
+			],
+			[
+				"text",
+				"textlink"
+			],
+			[
+				"block",
+				"blockquote"
+			],
+			[
+				"icon",
+				"icon-external\t(_header.ejs)"
+			],
+			[
+				"footer",
+				"footerAction_link"
+			],
+			[
+				"exa",
+				"exam_info\t(style.css)"
+			],
+			[
+				"exam",
+				"exam_img09.jpg\tw:226 h:180"
+			],
+			[
+				"tt",
+				"exam_ttl02.png\tw:377 h:45"
+			],
+			[
+				"search_content",
+				"search_content_item\t(index.html)"
+			],
+			[
+				"卒業",
+				"卒業旅行！国内で人気のエリアはここ！\t(index.html)"
+			],
+			[
+				"bg",
+				"bg_form.gif\tw:770 h:222"
+			],
+			[
+				"leave",
+				"leave_img01.jpg\tw:250 h:160"
+			],
+			[
+				"arrow",
+				"icon_arrow02.png\tw:8 h:12"
+			],
+			[
+				"tit",
+				"ico_title06.png\tw:17 h:23"
+			],
+			[
+				"ico",
+				"ico_title01.png\tw:21 h:21"
+			],
+			[
+				"card_item",
+				"card_item_box"
+			],
+			[
+				"search_list",
+				"search_list_content"
+			],
+			[
+				"subti",
+				"subtitle02"
+			],
+			[
+				"subt",
+				"subtitle02"
+			],
+			[
+				"communi",
+				"community/"
+			],
+			[
+				"list-",
+				"list-inline"
+			],
+			[
+				"com",
+				"community-panel"
+			],
+			[
+				"dum",
+				"dum_img12.jpg\tw:880 h:553"
+			]
+		]
+	},
+	"buffers":
+	[
+	],
+	"build_system": "",
+	"build_system_choices":
+	[
+	],
+	"build_varint": "",
+	"command_palette":
+	{
+		"height": 354.0,
+		"last_filter": "mater",
+		"selected_items":
+		[
+			[
+				"mater",
+				"Material Theme: Activate theme"
+			],
+			[
+				"scss",
+				"Set Syntax: SCSS"
+			],
+			[
+				"add",
+				"Project Manager: Add New Project"
+			],
+			[
+				"synhtml",
+				"Set Syntax: HTML"
+			],
+			[
+				"syntahtml",
+				"Set Syntax: HTML"
+			],
+			[
+				"mark",
+				"Set Syntax: Markdown"
+			],
+			[
+				"list",
+				"Package Control: List Packages"
+			],
+			[
+				"inst",
+				"Package Control: Install Package"
+			],
+			[
+				"remo",
+				"Package Control: Remove Package"
+			],
+			[
+				"pack",
+				"Preferences: Browse Packages"
+			],
+			[
+				"material",
+				"Material Theme: Activate theme"
+			],
+			[
+				"toggle",
+				"Word Wrap: Toggle"
+			],
+			[
+				"eme",
+				"Emmet: Next Edit Point"
+			],
+			[
+				"ins",
+				"Package Control: Install Package"
+			],
+			[
+				"remoe",
+				"Package Control: Remove Package"
+			],
+			[
+				"promare",
+				"Project Manager: Remove Project"
+			],
+			[
+				"proma",
+				"Project Manager: Add Project"
+			],
+			[
+				"pro",
+				"Project Manager"
+			],
+			[
+				"sass",
+				"Set Syntax: Sass"
+			],
+			[
+				"emme",
+				"Emmet: Reload Extensions"
+			],
+			[
+				"",
+				"Material Theme: Activate theme"
+			],
+			[
+				"insta",
+				"Package Control: Install Package"
+			]
+		],
+		"width": 575.0
+	},
+	"console":
+	{
+		"height": 126.0,
+		"history":
+		[
+			"import urllib.request,os,hashlib; h = 'df21e130d211cfc94d9b0905775a7c0f' + '1e3d39e33b79698005270310898eea76'; pf = 'Package Control.sublime-package'; ipp = sublime.installed_packages_path(); urllib.request.install_opener( urllib.request.build_opener( urllib.request.ProxyHandler()) ); by = urllib.request.urlopen( 'http://packagecontrol.io/' + pf.replace(' ', '%20')).read(); dh = hashlib.sha256(by).hexdigest(); print('Error validating download (got %s instead of %s), please try manual install' % (dh, h)) if dh != h else open(os.path.join( ipp, pf), 'wb' ).write(by)",
+			"import urllib.request,os,hashlib; h = '2915d1851351e5ee549c20394736b442' + '8bc59f460fa1548d1514676163dafc88'; pf = 'Package Control.sublime-package'; ipp = sublime.installed_packages_path(); urllib.request.install_opener( urllib.request.build_opener( urllib.request.ProxyHandler()) ); by = urllib.request.urlopen( 'http://packagecontrol.io/' + pf.replace(' ', '%20')).read(); dh = hashlib.sha256(by).hexdigest(); print('Error validating download (got %s instead of %s), please try manual install' % (dh, h)) if dh != h else open(os.path.join( ipp, pf), 'wb' ).write(by)"
+		]
+	},
+	"distraction_free":
+	{
+		"menu_visible": true,
+		"show_minimap": false,
+		"show_open_files": false,
+		"show_tabs": false,
+		"side_bar_visible": false,
+		"status_bar_visible": false
+	},
+	"expanded_folders":
+	[
+		"/Users/cksgrapes/Documents/Business/TAM/htdocs/mynavi/g-git-design/global",
+		"/Users/cksgrapes/Documents/Business/TAM/htdocs/mynavi/g-git-design/global/dev",
+		"/Users/cksgrapes/Documents/Business/TAM/htdocs/mynavi/g-git-design/global/dev/css",
+		"/Users/cksgrapes/Documents/Business/TAM/htdocs/mynavi/g-git-design/global/dev/list",
+		"/Users/cksgrapes/Documents/Business/TAM/htdocs/mynavi/g-git-design/global/dev/sp/css",
+		"/Users/cksgrapes/Documents/Business/TAM/htdocs/mynavi/g-git-design/global/dev/sp/js",
+		"/Users/cksgrapes/Documents/Business/TAM/htdocs/mynavi/g-git-design/global/public/js",
+		"/Users/cksgrapes/Documents/Business/TAM/htdocs/mynavi/g-git-design/global/public/list",
+		"/Users/cksgrapes/Documents/Business/TAM/htdocs/mynavi/g-git-design/global/public/sp",
+		"/Users/cksgrapes/Documents/Business/TAM/htdocs/mynavi/g-git-design/global/public/sp/js"
+	],
+	"file_history":
+	[
+		"/Users/cksgrapes/Documents/Business/TAM/htdocs/mynavi/g-git-design/global/dev/css/_footer.scss",
+		"/Users/cksgrapes/Documents/Business/TAM/htdocs/mynavi/g-git-design/global/dev/list/index.ejs",
+		"/Users/cksgrapes/Documents/Business/TAM/htdocs/mynavi/g-git-design/global/dev/css/gb_search.scss",
+		"/Users/cksgrapes/Documents/Business/TAM/htdocs/mynavi/g-git-design/global/dev/sp/css/_component.scss",
+		"/Users/cksgrapes/Documents/Business/TAM/htdocs/mynavi/g-git-design/global/dev/sp/css/_header.scss",
+		"/Users/cksgrapes/Documents/Business/TAM/htdocs/mynavi/g-git-design/global/dev/css/_component.scss",
+		"/Users/cksgrapes/Documents/Business/TAM/htdocs/mynavi/g-git-design/global/dev/sp/js/en_common.js",
+		"/Users/cksgrapes/Documents/Business/TAM/htdocs/mynavi/g-git-design/global/dev/css/gb_ie9.scss",
+		"/Users/cksgrapes/Documents/Business/TAM/htdocs/mynavi/g-git-design/global/dev/sp/index.ejs",
+		"/Users/cksgrapes/Documents/Business/TAM/htdocs/mynavi/g-git-design/global/dev/sp/css/_footer.scss",
+		"/Users/cksgrapes/Downloads/TAM様.txt",
+		"/Users/cksgrapes/Documents/Business/TAM/htdocs/mynavi/g-git-design/global/dev/notfound/index.ejs",
+		"/Users/cksgrapes/Documents/Business/TAM/htdocs/mynavi/g-git-design/global/dev/pageerror/index.ejs",
+		"/Users/cksgrapes/Documents/Business/TAM/htdocs/mynavi/g-git-design/global/dev/pageerror/result.ejs",
+		"/Users/cksgrapes/Documents/Business/TAM/htdocs/mynavi/g-git-design/global/dev/index.ejs",
+		"/Users/cksgrapes/Documents/Business/TAM/htdocs/mynavi/g-git-design/global/dev/sp/css/_variant.scss",
+		"/Users/cksgrapes/Documents/Business/TAM/htdocs/mynavi/g-git-design/global/dev/sp/list/index.ejs",
+		"/Users/cksgrapes/Documents/Business/TAM/htdocs/mynavi/g-git-design/global/dev/sp/css/gb_search.scss",
+		"/Users/cksgrapes/Documents/Business/TAM/htdocs/mynavi/g-git-design/global/dev/sp/pageerror/index.ejs",
+		"/Users/cksgrapes/Documents/Business/TAM/htdocs/mynavi/g-git-design/global/dev/sp/pageerror/result.ejs",
+		"/Users/cksgrapes/Documents/Business/TAM/htdocs/mynavi/g-git-design/global/dev/css/notfound.scss",
+		"/Users/cksgrapes/Documents/Business/TAM/htdocs/mynavi/g-git-design/global/dev/sp/notfound/index.ejs",
+		"/Users/cksgrapes/Documents/Business/TAM/htdocs/mynavi/g-git-design/global/dev/css/_variant.scss",
+		"/Users/cksgrapes/Documents/Business/TAM/htdocs/mynavi/g-git-design/global/dev/sp/css/pageerror.scss",
+		"/Users/cksgrapes/Documents/Business/TAM/htdocs/mynavi/g-git-design/global/dev/js/en_common.js",
+		"/Users/cksgrapes/Documents/Business/TAM/htdocs/mynavi/g-git-design/global/dev/sp/css/notfound.scss",
+		"/Users/cksgrapes/Documents/Business/TAM/htdocs/mynavi/g-git-design/global/dev/css/pageerror.scss",
+		"/Users/cksgrapes/Documents/Business/TAM/htdocs/mynavi/g-git-design/global/dev/sp/css/gb_styles.scss",
+		"/Users/cksgrapes/Documents/Business/TAM/htdocs/mynavi/g-git-design/global/dev/css/gb_top.scss",
+		"/Users/cksgrapes/Documents/Business/TAM/htdocs/mynavi/g-git-design/global/dev/sp/css/_base.scss",
+		"/Users/cksgrapes/Desktop/mahotaisho1226/root/maho/front-page.php",
+		"/Users/cksgrapes/Desktop/search/index.html",
+		"/Users/cksgrapes/Documents/Business/TAM/htdocs/mynavi/g-git-design/global/dev/css/search_gb.scss",
+		"/Users/cksgrapes/Documents/Business/TAM/htdocs/mynavi/g-git-design/global/public/scss/_footer.scss",
+		"/Users/cksgrapes/Documents/Business/TAM/htdocs/mynavi/g-git-design/global/public/scss/_header.scss",
+		"/Users/cksgrapes/Documents/Business/TAM/htdocs/mynavi/g-git-design/global/dev/js/top.js",
+		"/Users/cksgrapes/Documents/Business/TAM/htdocs/mynavi/g-git-design/global/public/sp/js/top.js",
+		"/Users/cksgrapes/Documents/Business/TAM/htdocs/mynavi/g-git-design/global/public/sp/scss/knowhow_resume.scss",
+		"/Users/cksgrapes/Documents/Business/TAM/htdocs/mynavi/g-git-design/global/public/sp/knowhow/resume/index.html",
+		"/Users/cksgrapes/Documents/Business/TAM/htdocs/mielparque/dev/js/common.js",
+		"/Users/cksgrapes/Documents/Business/TAM/htdocs/mielparque/dev/ejs/kumamoto/index.ejs",
+		"/Users/cksgrapes/Documents/Business/TAM/htdocs/mielparque/dev/js/top.js",
+		"/Users/cksgrapes/Documents/Business/TAM/htdocs/mielparque/dev/css/_variables.scss",
+		"/Users/cksgrapes/Documents/Business/TAM/htdocs/mielparque/dev/css/_base.scss",
+		"/Users/cksgrapes/Documents/Business/TAM/htdocs/mielparque/dev/css/_components.scss",
+		"/Users/cksgrapes/Documents/Business/TAM/htdocs/mielparque/dev/css/_mixin.scss",
+		"/Users/cksgrapes/Documents/Business/TAM/htdocs/mielparque/dev/css/_layout.scss",
+		"/Users/cksgrapes/Documents/Business/TAM/htdocs/mielparque/dev/data/list.json",
+		"/Users/cksgrapes/Documents/Business/TAM/htdocs/mielparque/dev/data/site.json",
+		"/Users/cksgrapes/Documents/Business/TAM/htdocs/mielparque/dev/ejs/inc/_footer.ejs",
+		"/Users/cksgrapes/Documents/Business/TAM/htdocs/mielparque/dev/ejs/inc/_meta.ejs",
+		"/Users/cksgrapes/Documents/Business/TAM/htdocs/mielparque/dev/ejs/inc/_header.ejs",
+		"/Users/cksgrapes/.bashrc",
+		"/Users/cksgrapes/Documents/Business/TAM/htdocs/mielparque/dev/ejs/index.ejs",
+		"/Users/cksgrapes/.bash_profile",
+		"/Users/cksgrapes/Documents/Business/TAM/htdocs/mielparque/mt/mt-config.cgi",
+		"/Users/cksgrapes/Documents/Business/TAM/htdocs/mielparque/mt/mt-config.cgi-original",
+		"/Users/cksgrapes/Documents/Business/TAM/htdocs/mielparque/dev/css/common.scss",
+		"/Users/cksgrapes/Documents/Business/TAM/htdocs/mielparque/gulpfile.js",
+		"/Users/cksgrapes/Documents/Business/TAM/htdocs/mielparque/node_modules/gulp-combine-media-queries/index.js",
+		"/Users/cksgrapes/Documents/Business/TAM/htdocs/mielparque/package.json",
+		"/Users/cksgrapes/Documents/Project/mashiromasaki/dev/css/_mixin.scss",
+		"/Users/cksgrapes/Documents/Project/mashiromasaki/dev/css/_components.scss",
+		"/Users/cksgrapes/Documents/Project/mashiromasaki/dev/css/_plugin.scss",
+		"/Users/cksgrapes/Documents/Project/mashiromasaki/dev/ejs/inc/_meta.ejs",
+		"/Users/cksgrapes/Documents/Project/mashiromasaki/dev/ejs/inc/_header.ejs",
+		"/Users/cksgrapes/Documents/Project/mashiromasaki/dev/ejs/archive.ejs",
+		"/Users/cksgrapes/Documents/Project/mashiromasaki/dev/ejs/inc/_footer.ejs",
+		"/Users/cksgrapes/Documents/Project/mashiromasaki/dev/ejs/index.ejs",
+		"/Users/cksgrapes/Documents/Project/mashiromasaki/dev/ejs/archive-2.ejs",
+		"/Users/cksgrapes/Documents/Project/mashiromasaki/dev/ejs/single.ejs",
+		"/Users/cksgrapes/Documents/Project/mashiromasaki/dev/ejs/archive-blog.ejs",
+		"/Users/cksgrapes/Documents/Project/mashiromasaki/dev/ejs/single-blog.ejs",
+		"/Users/cksgrapes/Documents/Project/mashiromasaki/dev/ejs/single-offline.ejs",
+		"/Users/cksgrapes/Documents/Project/mashiromasaki/dev/ejs/archive-offline.ejs",
+		"/Users/cksgrapes/Downloads/infinite-scroll-master/jquery.infinitescroll.js",
+		"/Users/cksgrapes/Documents/Project/mashiromasaki/dev/css/_variables.scss",
+		"/Users/cksgrapes/Documents/Project/mashiromasaki/dev/css/_base.scss",
+		"/Users/cksgrapes/Documents/Project/mashiromasaki/gulpfile.js",
+		"/Users/cksgrapes/Documents/Project/mashiromasaki/.htpasswd",
+		"/Users/cksgrapes/Documents/Project/mashiromasaki/dev/img/logo.svg",
+		"/Users/cksgrapes/Documents/Project/mashiromasaki/release/assets/img/logo.svg",
+		"/Users/cksgrapes/Desktop/logo.svg",
+		"/Users/cksgrapes/Documents/Project/mashiromasaki/dev/css/common.scss",
+		"/Users/cksgrapes/Documents/Project/mashiromasaki/dev/css/_layout.scss",
+		"/Users/cksgrapes/Documents/Project/mashiromasaki/dev/data/site.json",
+		"/Users/cksgrapes/Documents/Project/mashiromasaki/node_modules/gulp-combine-media-queries/index.js",
+		"/Users/cksgrapes/Documents/Business/TAM/htdocs/onward/jpresskids/static/index.html",
+		"/Users/cksgrapes/Documents/Business/TAM/htdocs/onward/jpresskids/static/collection/2016autumn-winter-04/02.html",
+		"/Users/cksgrapes/Documents/Business/TAM/htdocs/onward/jpresskids/static/collection/2016autumn-winter-04/01.html",
+		"/Users/cksgrapes/Documents/Business/TAM/htdocs/onward/jpresskids/static/collection/2016autumn-winter-03/01.html",
+		"/Users/cksgrapes/Documents/Business/TAM/htdocs/mynavi/g-git-design/global/public/sp/scss/qualification.scss",
+		"/Users/cksgrapes/Desktop/mynavi_global_source/readme.md",
+		"/Users/cksgrapes/Documents/Business/TAM/htdocs/mynavi/g-git-design/global/public/sp/scss/_bem.scss",
+		"/Users/cksgrapes/Desktop/mynavi_global_source/public/knowhow/resume/index.html",
+		"/Users/cksgrapes/Library/Application Support/Sublime Text 3/Packages/User/Preferences.sublime-settings",
+		"/Users/cksgrapes/Documents/Business/TAM/htdocs/mynavi/g-git-design/global/public/sp/qualification/index.html",
+		"/Users/cksgrapes/Documents/Business/TAM/htdocs/mynavi/g-git-design/global/public/sp/scss/top.scss",
+		"/Users/cksgrapes/Documents/Business/TAM/htdocs/mynavi/g-git-design/global/public/scss/top.scss",
+		"/Users/cksgrapes/Documents/Business/TAM/htdocs/mynavi/g-git-design/global/public/sp/index.html",
+		"/Users/cksgrapes/Documents/Business/TAM/htdocs/mynavi/g-git-design/global/public/js/expanded/gl_common.js",
+		"/Users/cksgrapes/Documents/Business/TAM/htdocs/mynavi/g-git-design/global/public/index.html",
+		"/Users/cksgrapes/Documents/Business/TAM/htdocs/pasonatech/biz/release/shared/include/goal.jsp",
+		"/Users/cksgrapes/Documents/Business/TAM/htdocs/pasonatech/biz/dev/ejs/inc/_footer_contents.ejs",
+		"/Users/cksgrapes/Documents/Business/TAM/htdocs/pasonatech/biz/dev/ejs/inc/_meta.ejs",
+		"/Users/cksgrapes/Documents/Business/TAM/htdocs/pasonatech/biz/dev/css/common.scss",
+		"/Users/cksgrapes/Documents/Business/TAM/htdocs/pasonatech/biz/dev/ejs/index.ejs",
+		"/Users/cksgrapes/Documents/Business/TAM/htdocs/pasonatech/biz/dev/data/site.json",
+		"/Users/cksgrapes/Documents/Business/TAM/htdocs/pasonatech/biz/dev/ejs/styleguide.ejs",
+		"/Users/cksgrapes/Documents/Business/TAM/htdocs/pasonatech/biz/dev/ejs/inc/_footer.ejs",
+		"/Users/cksgrapes/Documents/Business/TAM/htdocs/pasonatech/biz/dev/ejs/inc/_header.ejs",
+		"/Users/cksgrapes/Documents/Business/TAM/htdocs/pasonatech/biz/dev/css/_mixin.scss",
+		"/Users/cksgrapes/Documents/Business/TAM/htdocs/pasonatech/biz/dev/css/_plugin.scss",
+		"/Users/cksgrapes/Documents/Business/TAM/htdocs/pasonatech/biz/dev/css/_base.scss",
+		"/Users/cksgrapes/Documents/Business/TAM/htdocs/pasonatech/biz/dev/css/_variables.scss",
+		"/Users/cksgrapes/Documents/Business/TAM/htdocs/pasonatech/biz/release/.htaccess",
+		"/Users/cksgrapes/Documents/Business/TAM/htdocs/pasonatech/biz/gulpfile.js",
+		"/Users/cksgrapes/Documents/Business/TAM/htdocs/pasonatech/biz/dev/css/_components.scss",
+		"/Users/cksgrapes/Documents/Business/TAM/htdocs/pasonatech/biz/dev/css/_layout.scss",
+		"/Users/cksgrapes/Documents/Business/TAM/htdocs/pasonatech/biz/dev/js/common.js",
+		"/Users/cksgrapes/Documents/Business/TAM/htdocs/pasonatech/biz/release/shared/css/common.css",
+		"/Users/cksgrapes/Documents/Business/TAM/htdocs/pasonatech/biz/node_modules/gulp-combine-media-queries/index.js",
+		"/Users/cksgrapes/Documents/Business/TAM/htdocs/pasonatech/biz/.editorconfig",
+		"/Users/cksgrapes/Documents/Business/TAM/htdocs/pasonatech/biz/.csscomb.json",
+		"/Users/cksgrapes/Desktop/csscomb.json",
+		"/Users/cksgrapes/Documents/Business/TAM/htdocs/pasonatech/biz/dev/css/_sprite.scss",
+		"/Users/cksgrapes/Documents/Business/TAM/htdocs/pasonatech/biz/dev/css/_init.scss",
+		"/Users/cksgrapes/Downloads/dev/sass/init/_init.scss"
+	],
+	"find":
+	{
+		"height": 70.0
+	},
+	"find_in_files":
+	{
+		"height": 158.0,
+		"where_history":
+		[
+			"/Users/cksgrapes/Documents/Business/TAM/htdocs/mynavi/g-git-design/global/dev/css",
+			"/Users/cksgrapes/Documents/Business/TAM/htdocs/mynavi/g-git-design/global/dev/sp/css",
+			"/Users/cksgrapes/Documents/Business/TAM/htdocs/mynavi/g-git-design/global/dev/css",
+			"/Users/cksgrapes/Documents/Business/TAM/htdocs/mynavi/g-git-design/global/dev/sp/css",
+			"/Users/cksgrapes/Documents/Business/TAM/htdocs/mynavi/g-git-design/global/dev/css",
+			"/Users/cksgrapes/Documents/Business/TAM/htdocs/mynavi/g-git-design/global/dev/sp/css",
+			"/Users/cksgrapes/Documents/Business/TAM/htdocs/mynavi/g-git-design/global/dev/css",
+			"/Users/cksgrapes/Documents/Business/TAM/htdocs/mynavi/g-git-design/global/dev/sp/css",
+			"/Users/cksgrapes/Documents/Business/TAM/htdocs/mynavi/g-git-design/global/dev/css",
+			"/Users/cksgrapes/Documents/Business/TAM/htdocs/mynavi/g-git-design/global/public/css",
+			"/Users/cksgrapes/Documents/Business/TAM/htdocs/mynavi/g-git-design/global/dev/css",
+			"/Users/cksgrapes/Documents/Business/TAM/htdocs/mynavi/g-git-design/global/public/scss",
+			"/Users/cksgrapes/Documents/Business/TAM/htdocs/mynavi/g-git-design/global/public/css",
+			"/Users/cksgrapes/Documents/Business/TAM/htdocs/mynavi/g-git-design/global/public/scss",
+			"/Users/cksgrapes/Documents/Business/TAM/htdocs/sprix/foresta/dev/scss",
+			"/Users/cksgrapes/Documents/Business/TAM/htdocs/sprix/foresta/dev/jade",
+			"/Users/cksgrapes/Documents/Business/TAM/htdocs/sprix/foresta/dev/scss",
+			"/Users/cksgrapes/Documents/Business/TAM/htdocs/sprix/foresta/dev/jade/_include"
+		]
+	},
+	"find_state":
+	{
+		"case_sensitive": false,
+		"find_history":
+		[
+			".footerLinkArea02",
+			".footerInnerTitle",
+			"commonTourLinks",
+			"globalMenuList",
+			".goToTop",
+			"android",
+			"error",
+			"main",
+			"div",
+			"headerSearchBtn",
+			"インタビュー",
+			"notfound",
+			"crum",
+			"footer",
+			"notfound",
+			"footerLinks__item",
+			"jpg",
+			"インタビュー",
+			".jpg",
+			".footerCrumbs",
+			" class=\"current\"",
+			"simpleSearchForm",
+			"modalbox",
+			"commonTourLinksBox",
+			".pickupBox",
+			"menuOpened",
+			".header",
+			"div",
+			"_gb",
+			"modal",
+			"commonTourLinks",
+			"pickupBox",
+			"underLayer",
+			"header",
+			"headerText",
+			"height",
+			"anima",
+			"globalNavigation",
+			"rgb(255,255,255)",
+			"rgb(3,0,0)",
+			"toggle_button",
+			"toggleButton",
+			"<a href=\"\">",
+			"globalmenu",
+			"Nav",
+			"\"external\": 0",
+			"bannerArea",
+			"toggleArea",
+			"headerConversionUnit",
+			"conversionArea",
+			"\"globalMenu",
+			"globalmenu",
+			"globalMenu",
+			"globalmenu",
+			"globalMenu",
+			"globalmenu",
+			"globalMenu",
+			"\"link\": \"\"",
+			"toggleArea_button",
+			"toggleButton",
+			"toggleMenu",
+			"shared",
+			"container",
+			"changeFontSize_button",
+			"local.",
+			"ether",
+			"'active'",
+			"false",
+			"areacls",
+			"<",
+			"grid",
+			"'active'",
+			"font-fami",
+			"font",
+			"font-fami",
+			"400",
+			"70",
+			"form_parts_textarea",
+			"form_parts_input",
+			"form_parts_checkLabel",
+			"form_parts_checkInput",
+			".contactForm",
+			"class=\"contactForm",
+			"contactForm",
+			"70",
+			"20px",
+			"toggleButton",
+			".toggleButtin.active span",
+			"menu-trigger",
+			".menu-trigger span",
+			"aaa",
+			"<h2>",
+			"list",
+			"list_item",
+			"work",
+			"workList",
+			"work",
+			"<%- root %>shared",
+			"shared",
+			"workList",
+			"Fic",
+			".gnav-menu",
+			";\n",
+			"iconlist",
+			"src=\"../",
+			"href=\"../",
+			"__ja",
+			"__en",
+			" class=\"knowhowResume__exampleList__num\"",
+			"10",
+			"<span>",
+			"relatedIconList",
+			"list--table",
+			"example--list",
+			"-",
+			"_",
+			"img",
+			"src=\"../",
+			"href=\"../",
+			"thailand_image",
+			"thailand",
+			"png",
+			"thailand_image",
+			"タイで働く",
+			"heading",
+			"top",
+			"root",
+			"shared/img"
+		],
+		"highlight": true,
+		"in_selection": false,
+		"preserve_case": false,
+		"regex": false,
+		"replace_history":
+		[
+			"<h2 class=\"heading-02\">$1</h2>",
+			"<h2 class=\"heading-02\"><span>$1</span></h2>",
+			"あああああああああああああああああああああああああああああああああああああああああ",
+			"<option value=\"\">$1</option>",
+			"<optgroup label=\"$1\"></optgroup>",
+			"<dt class=\"search_list_title search_list_ico04\">アクセスが便利な駅</dt>",
+			"<dt class=\"search_list_title search_list_ico03\">イベント会場</dt>",
+			"○○○○駅",
+			"○○○○○"
+		],
+		"reverse": false,
+		"show_context": true,
+		"use_buffer2": true,
+		"whole_word": false,
+		"wrap": true
+	},
+	"groups":
+	[
+		{
+			"sheets":
+			[
+			]
+		}
+	],
+	"incremental_find":
+	{
+		"height": 30.0
+	},
+	"input":
+	{
+		"height": 66.0
+	},
+	"layout":
+	{
+		"cells":
+		[
+			[
+				0,
+				0,
+				1,
+				1
+			]
+		],
+		"cols":
+		[
+			0.0,
+			1.0
+		],
+		"rows":
+		[
+			0.0,
+			1.0
+		]
+	},
+	"menu_visible": true,
+	"output.find_results":
+	{
+		"height": 0.0
+	},
+	"pinned_build_system": "",
+	"project": "MyNavi-global.sublime-project",
+	"replace":
+	{
+		"height": 56.0
+	},
+	"save_all_on_build": true,
+	"select_file":
+	{
+		"height": 0.0,
+		"last_filter": "",
+		"selected_items":
+		[
+			[
+				"lay",
+				"dev/css/_layout.scss"
+			],
+			[
+				"optionscss",
+				"dev/scss/base/_option.scss"
+			],
+			[
+				"communi",
+				"dev/scss/project/_community.scss"
+			],
+			[
+				"list",
+				"dev/scss/components/_list.scss"
+			],
+			[
+				"scsslayout",
+				"dev/scss/layout/_contents.scss"
+			],
+			[
+				"listscss",
+				"dev/scss/components/_list.scss"
+			],
+			[
+				"scsscomm",
+				"dev/scss/project/_community.scss"
+			]
+		],
+		"width": 0.0
+	},
+	"select_project":
+	{
+		"height": 500.0,
+		"last_filter": "",
+		"selected_items":
+		[
+		],
+		"width": 380.0
+	},
+	"select_symbol":
+	{
+		"height": 0.0,
+		"last_filter": "",
+		"selected_items":
+		[
+		],
+		"width": 0.0
+	},
+	"selected_group": 0,
+	"settings":
+	{
+	},
+	"show_minimap": true,
+	"show_open_files": true,
+	"show_tabs": true,
+	"side_bar_visible": true,
+	"side_bar_width": 285.0,
+	"status_bar_visible": true,
+	"template_settings":
+	{
+	}
+}

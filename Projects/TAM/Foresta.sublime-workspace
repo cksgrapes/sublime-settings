@@ -1,0 +1,432 @@
+{
+	"auto_complete":
+	{
+		"selected_items":
+		[
+			[
+				"communi",
+				"community/"
+			],
+			[
+				"list-",
+				"list-inline"
+			],
+			[
+				"com",
+				"community-panel"
+			],
+			[
+				"block",
+				"block-l"
+			],
+			[
+				"dum",
+				"dum_img12.jpg\tw:880 h:553"
+			]
+		]
+	},
+	"buffers":
+	[
+	],
+	"build_system": "",
+	"build_system_choices":
+	[
+	],
+	"build_varint": "",
+	"command_palette":
+	{
+		"height": 354.0,
+		"last_filter": "",
+		"selected_items":
+		[
+			[
+				"list",
+				"Package Control: List Packages"
+			],
+			[
+				"inst",
+				"Package Control: Install Package"
+			],
+			[
+				"scss",
+				"Set Syntax: SCSS"
+			],
+			[
+				"remo",
+				"Package Control: Remove Package"
+			],
+			[
+				"ins",
+				"Package Control: Install Package"
+			],
+			[
+				"remoe",
+				"Package Control: Remove Package"
+			],
+			[
+				"promare",
+				"Project Manager: Remove Project"
+			],
+			[
+				"proma",
+				"Project Manager: Add Project"
+			],
+			[
+				"pro",
+				"Project Manager"
+			],
+			[
+				"sass",
+				"Set Syntax: Sass"
+			],
+			[
+				"emme",
+				"Emmet: Reload Extensions"
+			],
+			[
+				"",
+				"Material Theme: Activate theme"
+			],
+			[
+				"insta",
+				"Package Control: Install Package"
+			]
+		],
+		"width": 541.0
+	},
+	"console":
+	{
+		"height": 126.0,
+		"history":
+		[
+			"import urllib.request,os,hashlib; h = '2915d1851351e5ee549c20394736b442' + '8bc59f460fa1548d1514676163dafc88'; pf = 'Package Control.sublime-package'; ipp = sublime.installed_packages_path(); urllib.request.install_opener( urllib.request.build_opener( urllib.request.ProxyHandler()) ); by = urllib.request.urlopen( 'http://packagecontrol.io/' + pf.replace(' ', '%20')).read(); dh = hashlib.sha256(by).hexdigest(); print('Error validating download (got %s instead of %s), please try manual install' % (dh, h)) if dh != h else open(os.path.join( ipp, pf), 'wb' ).write(by)"
+		]
+	},
+	"distraction_free":
+	{
+		"menu_visible": true,
+		"show_minimap": false,
+		"show_open_files": false,
+		"show_tabs": false,
+		"side_bar_visible": false,
+		"status_bar_visible": false
+	},
+	"expanded_folders":
+	[
+	],
+	"file_history":
+	[
+		"/Users/cksgrapes/Documents/Business/TAM/htdocs/sprix/foresta/dev/scss/components/_icon.scss",
+		"/Users/cksgrapes/Documents/Business/TAM/htdocs/sprix/foresta/gulpfile.js",
+		"/Users/cksgrapes/Documents/Business/TAM/htdocs/sprix/foresta/dev/scss/components/_ttl.scss",
+		"/Users/cksgrapes/Documents/Business/TAM/htdocs/sprix/foresta/dev/scss/project/_community.scss",
+		"/Users/cksgrapes/Documents/Business/TAM/htdocs/sprix/foresta/dev/scss/components/_list.scss",
+		"/Users/cksgrapes/Documents/Business/TAM/htdocs/sprix/foresta/dev/scss/components/_btn.scss",
+		"/Users/cksgrapes/Documents/Business/TAM/htdocs/sprix/foresta/dev/jade/community/report/edit.jade",
+		"/Users/cksgrapes/Documents/Business/TAM/htdocs/sprix/foresta/dev/js/script.js",
+		"/Users/cksgrapes/Documents/Business/TAM/htdocs/sprix/foresta/dev/jade/community/news/edit.jade",
+		"/Users/cksgrapes/Documents/Business/TAM/htdocs/sprix/foresta/dev/jade/estanet/user/edit-profile/index.jade",
+		"/Users/cksgrapes/Documents/Business/TAM/htdocs/sprix/foresta/dev/scss/project/_post.scss",
+		"/Users/cksgrapes/Documents/Business/TAM/htdocs/sprix/foresta/dev/jade/estanet/essence/post/index.jade",
+		"/Users/cksgrapes/Documents/Business/TAM/htdocs/sprix/foresta/dev/jade/community/index.jade",
+		"/Users/cksgrapes/Documents/Business/TAM/htdocs/sprix/foresta/dev/scss/components/_utility.scss",
+		"/Users/cksgrapes/Documents/Business/TAM/htdocs/sprix/foresta/dev/jade/community/top.jade",
+		"/Users/cksgrapes/Documents/Business/TAM/htdocs/sprix/foresta/dev/scss/components/_plugin-custom.scss",
+		"/Users/cksgrapes/Documents/Business/TAM/htdocs/sprix/foresta/dev/jade/community/edit.jade",
+		"/Users/cksgrapes/Documents/Business/TAM/htdocs/sprix/foresta/dev/scss/components/_img.scss",
+		"/Users/cksgrapes/Documents/Business/TAM/htdocs/sprix/foresta/dev/jade/community/news/index.jade",
+		"/Users/cksgrapes/Documents/Business/TAM/htdocs/sprix/foresta/dev/jade/_include/_layout.jade",
+		"/Users/cksgrapes/Documents/Business/TAM/htdocs/sprix/foresta/dev/jade/community/thread/index.jade",
+		"/Users/cksgrapes/Documents/Business/TAM/htdocs/sprix/foresta/dev/scss/components/_grid.scss",
+		"/Users/cksgrapes/Documents/Business/TAM/htdocs/sprix/foresta/dev/scss/layout/_sidebar.scss",
+		"/Users/cksgrapes/Documents/Business/TAM/htdocs/sprix/foresta/dev/scss/components/_tab.scss",
+		"/Users/cksgrapes/Documents/Business/TAM/htdocs/sprix/foresta/dev/scss/components/_label.scss",
+		"/Users/cksgrapes/Documents/Business/TAM/htdocs/sprix/foresta/dev/jade/community/index-2.jade",
+		"/Users/cksgrapes/Documents/Business/TAM/htdocs/sprix/foresta/dev/scss/layout/_contents.scss",
+		"/Users/cksgrapes/Documents/Business/TAM/htdocs/sprix/foresta/dev/jade/_include/_footer.jade",
+		"/Users/cksgrapes/Documents/Business/TAM/htdocs/sprix/foresta/.jshintignore",
+		"/Users/cksgrapes/Documents/Business/TAM/htdocs/sprix/foresta/dev/jade/community/report/index.jade",
+		"/Users/cksgrapes/Documents/Business/TAM/htdocs/sprix/foresta/dev/scss/base/_option.scss",
+		"/Users/cksgrapes/Documents/Business/TAM/htdocs/sprix/foresta/dev/jade/estanet/essence/list/index-small.jade",
+		"/Users/cksgrapes/Documents/Business/TAM/htdocs/sprix/foresta/dev/jade/community/news/index-2.jade",
+		"/Users/cksgrapes/Documents/Business/TAM/htdocs/sprix/foresta/dev/jade/_include/_sidebar-comm-top-2.jade",
+		"/Users/cksgrapes/Documents/Business/TAM/htdocs/sprix/foresta/dev/jade/_include/_sidebar-comm-top.jade",
+		"/Users/cksgrapes/Library/Application Support/Sublime Text 3/Packages/User/Projects/TAM/Foresta.sublime-project",
+		"/Users/cksgrapes/Documents/Business/TAM/htdocs/sprix/foresta/dev/scss/components/_txt.scss",
+		"/Users/cksgrapes/Documents/Business/TAM/htdocs/sprix/foresta/dev/community/top.html",
+		"/Users/cksgrapes/Library/Application Support/Sublime Text 3/Packages/User/SCSS.sublime-settings",
+		"/Users/cksgrapes/Documents/Business/TAM/htdocs/sprix/foresta/dev/scss/components/_account.scss",
+		"/Users/cksgrapes/Library/Application Support/Sublime Text 3/Packages/User/Preferences.sublime-settings",
+		"/Users/cksgrapes/Library/Application Support/Sublime Text 3/Packages/Goto-CSS-Declaration/Default (OSX).sublime-keymap",
+		"/Users/cksgrapes/Documents/AppData/Sublime Text/TAM-Foresta.sublime-project",
+		"/Users/cksgrapes/Library/Application Support/Sublime Text 3/Packages/User/Default (OSX).sublime-keymap",
+		"/Users/cksgrapes/Library/Application Support/Sublime Text 3/Packages/Default/Default (OSX).sublime-keymap",
+		"/Users/cksgrapes/Library/Application Support/Sublime Text 3/Packages/HTML-CSS-JS Prettify/HTMLPrettify.sublime-settings",
+		"/Users/cksgrapes/Documents/Business/TAM/htdocs/sprix/foresta/dev/index.html",
+		"/Users/cksgrapes/Dropbox/Sublime/User/Preferences (しみず の Mac mini の競合コピー 2016-08-18).sublime-settings",
+		"/Users/cksgrapes/Dropbox/Sublime/User/Preferences (しみず の Mac mini の競合コピー 2016-08-22).sublime-settings"
+	],
+	"find":
+	{
+		"height": 70.0
+	},
+	"find_in_files":
+	{
+		"height": 158.0,
+		"where_history":
+		[
+			"/Users/cksgrapes/Documents/Business/TAM/htdocs/sprix/foresta/dev/scss",
+			"/Users/cksgrapes/Documents/Business/TAM/htdocs/sprix/foresta/dev/jade",
+			"/Users/cksgrapes/Documents/Business/TAM/htdocs/sprix/foresta/dev/scss",
+			"/Users/cksgrapes/Documents/Business/TAM/htdocs/sprix/foresta/dev/jade/_include"
+		]
+	},
+	"find_state":
+	{
+		"case_sensitive": false,
+		"find_history":
+		[
+			".block-s",
+			"\n                textarea.textarea.block-l(placeholder=\"キャプションを書く\")",
+			"60",
+			".post-check__item",
+			".post-check",
+			".post-check__item",
+			"input(type=\"checkbox\", name=\"middle\", value=\"3\")",
+			"input(type=\"checkbox\", name=\"middle\", value=\"2\")",
+			"input(type=\"checkbox\", name=\"middle\", value=\"1\")",
+			"input(type=\"checkbox\", name=\"low\", value=\"1\")",
+			"js-datepicker",
+			"ファイルの選択",
+			"filenamefilenamefilenamefilenamefilenamefilenamefilenamefilename.jpg",
+			"input-txt",
+			"ファイルの選択",
+			".ttl-justify",
+			".ttl-heading",
+			".btn-label",
+			".btn-favorite",
+			".btn__link",
+			".match-height",
+			".layout-card--medium",
+			".list-content__ttl",
+			"h2.ttl-main ",
+			" .",
+			".is-active",
+			"list-link-panel",
+			"small",
+			"js-small-card",
+			".list-content__item--mini",
+			"パチパチ：115",
+			".icon-clap ",
+			".community-card__info.cf",
+			".layout-card__info.",
+			"\n            p.list-content__clap.sp-hidden\n              a(href=\"#\") 拡大表示",
+			".list-content__item",
+			".layout-card",
+			"\n                .row.col-2.ttl-has-comment\n                  .col.ttl-has-comment__ttl\n                    p.ttl-heading.block-s 勉強会について語るスレッド\n                  .col.ttl-has-comment__comment\n                    .icon-comment コメント数：552",
+			".block-s",
+			".col",
+			".row.col-2",
+			".col",
+			"sidebar-info",
+			"list-link",
+			"list-",
+			"link",
+			"row",
+			"arw-right",
+			".box-link",
+			"panel",
+			"side-menu",
+			".box-s",
+			"a(href=\"\")",
+			"txt",
+			"a.account",
+			"dl",
+			"is-",
+			".list-border__item.box-m",
+			"a(href=\"\").box-image",
+			"a(href=\"\").txt",
+			".box-link-arrow",
+			"box-link",
+			"a(href=\"\").box-image",
+			"\n                      p.ttl-heading.block-s 勉強会について語るスレッド",
+			"実戦",
+			"p 1/8",
+			".ttl-heading ",
+			".btn-label-round",
+			"p.ttl-heading",
+			".list-border__item",
+			".list-border__inner",
+			"persons",
+			"icon-eye",
+			"icon-pen-b",
+			"ttl-main",
+			"btn__link",
+			" btn-fill",
+			"活動予告",
+			"<span class=\"btn-label\">活動予告</span>",
+			"999",
+			"<span class=\"btn-label\">活動予告</span>2014年度　第3回　勉強会<span>非公開</span>",
+			"panel--nopd",
+			"\n                      <div class=\"box-image__img\"><img src=\"\" alt=\"\" width=\"150\" height=\"100\"></div>",
+			"div",
+			"ul",
+			" btn-edit",
+			"h1"
+		],
+		"highlight": true,
+		"in_selection": false,
+		"preserve_case": false,
+		"regex": false,
+		"replace_history":
+		[
+		],
+		"reverse": false,
+		"show_context": true,
+		"use_buffer2": true,
+		"whole_word": false,
+		"wrap": true
+	},
+	"groups":
+	[
+		{
+			"sheets":
+			[
+			]
+		},
+		{
+			"sheets":
+			[
+			]
+		}
+	],
+	"incremental_find":
+	{
+		"height": 30.0
+	},
+	"input":
+	{
+		"height": 66.0
+	},
+	"layout":
+	{
+		"cells":
+		[
+			[
+				0,
+				0,
+				1,
+				1
+			],
+			[
+				1,
+				0,
+				2,
+				1
+			]
+		],
+		"cols":
+		[
+			0.0,
+			0.530958053064,
+			1.0
+		],
+		"rows":
+		[
+			0.0,
+			1.0
+		]
+	},
+	"menu_visible": true,
+	"output.find_results":
+	{
+		"height": 0.0
+	},
+	"pinned_build_system": "",
+	"project": "Foresta.sublime-project",
+	"replace":
+	{
+		"height": 56.0
+	},
+	"save_all_on_build": true,
+	"select_file":
+	{
+		"height": 0.0,
+		"last_filter": "",
+		"selected_items":
+		[
+			[
+				"icon",
+				"dev/scss/components/_icon.scss"
+			],
+			[
+				"ttl",
+				"dev/scss/components/_ttl.scss"
+			],
+			[
+				"communi",
+				"dev/scss/project/_community.scss"
+			],
+			[
+				"btnscs",
+				"dev/scss/components/_btn.scss"
+			],
+			[
+				"commu",
+				"dev/scss/project/_community.scss"
+			],
+			[
+				"optionscss",
+				"dev/scss/base/_option.scss"
+			],
+			[
+				"list",
+				"dev/scss/components/_list.scss"
+			],
+			[
+				"scsslayout",
+				"dev/scss/layout/_contents.scss"
+			],
+			[
+				"listscss",
+				"dev/scss/components/_list.scss"
+			],
+			[
+				"scsscomm",
+				"dev/scss/project/_community.scss"
+			]
+		],
+		"width": 0.0
+	},
+	"select_project":
+	{
+		"height": 500.0,
+		"last_filter": "",
+		"selected_items":
+		[
+		],
+		"width": 380.0
+	},
+	"select_symbol":
+	{
+		"height": 0.0,
+		"last_filter": "",
+		"selected_items":
+		[
+		],
+		"width": 0.0
+	},
+	"selected_group": 1,
+	"settings":
+	{
+	},
+	"show_minimap": true,
+	"show_open_files": true,
+	"show_tabs": true,
+	"side_bar_visible": true,
+	"side_bar_width": 220.0,
+	"status_bar_visible": true,
+	"template_settings":
+	{
+	}
+}

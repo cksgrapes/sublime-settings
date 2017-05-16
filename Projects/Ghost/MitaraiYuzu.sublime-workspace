@@ -1,0 +1,822 @@
+{
+	"auto_complete":
+	{
+		"selected_items":
+		[
+			[
+				"collection-te",
+				"collection-text-left"
+			],
+			[
+				"collection-text",
+				"collection-text-left	(styles.css)"
+			]
+		]
+	},
+	"buffers":
+	[
+		{
+			"contents": "/*=============================================================================\n  Chikashi.S Templete\n  コア設定辞書\n  Last up date: 2014/04/27\n=============================================================================*/\n\n/*-----------------------------------------------------------------------------\n  ランダムトーク処理\n-----------------------------------------------------------------------------*/\n\nRandomTalk\n{\n	'\\1\\s[10]\\0\\s[0]' //おまじない\n	--\n	DelayedTalkEval(RandomTalkEx())\n}\n\nRandomTalkEx : nonoverlap\n{\n	parallel RandomTalkArray\n}\n\nRandomTalkArray\n{\n	_talk = IARRAY\n	_talknew = TalkEval('AddNewTalk')\n	_n = ARRAYSIZE(_talknew)\n	if _n >= 2 { //1行目は日付\n		_talk ,= _talknew[1,65535] //優先トークが終わったらまぜる\n	}\n	\n	//カスタム\n	_talk ,= TalkEval('CustomTalk')\n	\n	//季節その他\n	_earray = GetEvalTalkArray\n	_n = ARRAYSIZE(_earray)\n	for _i = 0 ; _i < _n ; _i++ {\n		_talknew = TalkEval('AddNew' + _earray[_i])\n		_tnum = ARRAYSIZE(_talknew)\n		if _tnum >= 2 { //1行目は日付\n			_talk ,= _talknew[1,_tnum-1] //優先トークが終わったらまぜる\n		}\n		\n		_talk ,= TalkEval('Talk' + _earray[_i])\n	}\n\n	//そしてこれがふつう\n	_talk ,= TalkEval('Talk')\n	\n	_talk\n}\n\nGetEvalTalkArray\n{\n	_t = GETTIME()\n	_y = _t[0]\n	_m = _t[1]\n	_d = _t[2]\n	_ms = GetMonthSlot\n	_holiday = GetHolidaySlot\n	_dayofweek = GetDOWSlot\n	\n	_season = GetSeasonSlot\n	_time = GetTimeSlotList\n\n	_slots = IARRAY\n	\n	//一般的なおおざっぱなもの\n	if _argc == 0 || _argv[0] == 0 {\n		//朝,昼,夕,夜,深夜etc...\n		_slots ,= _time\n		//何時\n		_slots ,= \"%(_t[4])時\"\n		//春,夏,秋,冬\n		_slots ,= _season\n		//「春の朝」\n		_slots ,= \"%(_season)の%(_time)\"\n		//「朝食時」「昼食時」「夕食時」\n		_slots ,= GetMesiSlot\n		//?月\n		_slots ,= \"%(_m)月\"\n		//?月上旬,中旬,下旬\n		_slots ,= \"%(_m)月%(GetDaySlot)\"\n		//日曜,月曜...\n		_slots ,= \"%(_dayofweek)曜\"\n		//第?週日曜,月曜...\n		_slots ,= \"第%(((_d - 1) / 7) + 1)週%(_dayofweek)曜\"\n		//行事\n		_slots ,= _ms\n		//行事?曜\n		_slots ,= \"%(_ms)%(_dayofweek)曜\"\n		//平日休日\n		_slots ,= _holiday\n		//行事・平日休日\n		_slots ,= \"%(_ms)%(_holiday)\"\n		//季節・状態\n		_slots ,= \"%(_season)の%(_holiday)\"\n		//「平日の朝」\n		_slots ,= \"%(_holiday)の%(_time)\"\n		//自ゴーストの状態\n		_slots ,= 'シェル' + SHIORI3FW.ShellName\n		_slots ,= 'バルーン' + SHIORI3FW.BalloonName\n		_slots ,= 着せ替え有効パーツリストEX\n		_slots ,= 着せ替え有効カテゴリリストEX\n	}\n	\n	//特定の日付処理は特別\n	if _argc == 0 || _argv[0] == 1 {\n		//誕生日\n		if 今日はユーザー誕生日 {\n			_slots ,= 'ユーザー誕生日'\n		}\n		//?月?日\n		_slots ,= \"%(GetCurrentEto())年%(_m)月%(_d)日\"\n		_slots ,= \"%(_y)年%(_m)月%(_d)日\"\n		_slots ,= \"%(_m)月%(_d)日\"\n		//?月第?週日曜,月曜...\n		_slots ,= \"%(_m)月第%(((_d - 1) / 7) + 1)週%(_dayofweek)曜\"\n	}\n	\n	_slots\n}\n\nTalkEval\n{\n	_argv[0] = OnGhostEventTranslate(_argv[0])\n	\n	if ISFUNC(_argv[0]) {\n		_var = EVAL(_argv[0])\n		_type = GETTYPE(_var)\n		if _type == 4 {\n			_var\n		}\n		elseif _type == 0 {\n			IARRAY\n		}\n		else {\n			CVSTR(_var)\n			if STRLEN(_var) {\n				(_var,IARRAY)\n			}\n			else {\n				IARRAY\n			}\n		}\n	}\n	else {\n		IARRAY\n	}\n}\n\n/*-----------------------------------------------------------------------------\n  トーク高速化処理\n-----------------------------------------------------------------------------*/\nDelayedTalkEval\n{\n	_txtarray = SPLIT(_argv[0],C_CRLF)\n	_output = ''\n	\n	if GETTYPE(_txtarray) == 4 {\n		_n = ARRAYSIZE(_txtarray)\n		_inited = 0\n		for _i = 0 ; _i < _n ; _i++ {\n			if _inited {\n				_output += C_CRLF\n			}\n			_inited = 1\n			_output += EVAL(CHR(0x22) + REPLACE(_txtarray[_i],CHR(0x22),'%(CHR(0x22))') + CHR(0x22))\n		}\n	}\n	else {\n		_output += EVAL(CHR(0x22) + REPLACE(_argv[0],CHR(0x22),'%(CHR(0x22))') + CHR(0x22))\n	}\n	\n	TOSTR(_output)\n}\n\n/*-----------------------------------------------------------------------------\n  各種情報取得\n-----------------------------------------------------------------------------*/\nGetCurrentEto\n{\n	_e = ('子','丑','寅','卯','辰','巳','午','未','申','酉','戌','亥')\n	_y = GETTIME()[0]\n	_e[(_y+8) % 12]\n}\n\n/*-----------------------------------------------------------------------------\n  選択肢ジャンプ\n-----------------------------------------------------------------------------*/\nOnChoiceSelect\n{\n	_id = reference[0]\n	if ISFUNC(_id) {\n		EVAL(_id)\n	}\n}\nOnChoiceSelectEx\n{\n	_id = reference[1]\n	if ISFUNC(_id) {\n		EVAL(_id)\n	}\n}\n\n/*-----------------------------------------------------------------------------\n  アンカージャンプ\n-----------------------------------------------------------------------------*/\nOnAnchorSelect\n{\n	_id = reference[0]\n	//アンカーのIDの冒頭に「http://〜」があればWebサイトを開く。\n	//これを入れておくとRSS表示時に記事タイトルクリックでURLジャンプできます。\n	if RE_MATCH(_id, 'http://.+') {\n		_url = AYATEMPLATE.EscapeText(_id)\n		\"\\C\\j[%(_url)] \\e\"\n	//それ以外はIDと同じ名前のイベントへジャンプ\n	} elseif ISFUNC(_id) {\n		EVAL(_id)\n	}\n}\nOnAnchorSelectEx\n{\n	_id = reference[1]\n	//アンカーのIDの冒頭に「http://〜」があればWebサイトを開く。\n	//これを入れておくとRSS表示時に記事タイトルクリックでURLジャンプできます。\n	if RE_MATCH(_id, 'http://.+') {\n		_url = AYATEMPLATE.EscapeText(_id)\n		\"\\C\\j[%(_url)] \\e\"\n	//それ以外はIDと同じ名前のイベントへジャンプ\n	} elseif ISFUNC(_id) {\n		EVAL(_id)\n	}\n}\n\n/*-----------------------------------------------------------------------------\n  入力ボックス\n  InputBoxに入力したIDと同じ名前のイベントにジャンプ\n-----------------------------------------------------------------------------*/\nOnUserInput\n{\n	EVAL(reference[0])\n}\n\n/*-----------------------------------------------------------------------------\n  ゴーストのロード\n  起動毎の変数の初期化などはここで\n-----------------------------------------------------------------------------*/\nOnGhostLoad\n{\n	todaysCondition = CONDITION_CHECK\n}\n\n/*-----------------------------------------------------------------------------\n  ゴーストのアンロード\n  起動毎の変数の初期化などはここで\n-----------------------------------------------------------------------------*/\nOnGhostUnload\n{\n	//なで反応で使用する変数の削除\n	ERASEVAR('stroke')\n	ERASEVAR('prev_reference4')\n	ERASEVAR('nade_prev')\n\n	//見切れ・重なりで使用する変数の削除\n	ERASEVAR('mikireflag','mikiretimer')\n	ERASEVAR('kasanariflag','kasanaritimer')\n\n	//最終終了時刻。後で使うかもしれないので記録（省略可）\n	//（長期間起動しなかった時の反応等に）\n	LastCloseTime	= GETTIME\n}\n\n/*-----------------------------------------------------------------------------\n  ランダムトーク\n-----------------------------------------------------------------------------*/\n\nOnAITalk {\n	OnAiTalk\n}\n\nOnAiTalk\n{\n	if CHAIN.IDName == \"\" {\n		lastTalk = RandomTalk\n	}\n	else {\n		lastTalk = ChainTalk\n	}\n	lastTalk\n}\n\nOnLastTalk {\n	\"%(lastTalk)\"\n}\n\n/*-----------------------------------------------------------------------------\n  コミュニケート反応\n-----------------------------------------------------------------------------*/\nOnCommunicate\n{\n	if (reference[0]=='user') {\n		ReplyToUser\n	}\n}\n\n/*-----------------------------------------------------------------------------\n  つつき反応　（省略可）\n-----------------------------------------------------------------------------*/\nOnMouseDoubleClick\n{\n	SHIORI3FW.ResetAITalkInterval()\n	EVAL(\"Click_%(reference[3])%(reference[4])\")\n}\n\n/*-----------------------------------------------------------------------------\n  なで反応　（省略可）\n-----------------------------------------------------------------------------*/\nOnMouseMove\n{\n	//なで反応\n	//（文Wiki記載「マウス反応を自然なものにする」を改変）\n	if reference[4] != \"\" {\n\n		//----どこかが撫でられている\n		if reference[4] == prev_reference4 {\n			_nade_interval = systemuptime - nade_prev\n\n			if _nade_interval > 1 {\n				//1秒以上間隔が空いたらカウンタをリセット\n				stroke = 0\n\n			}\n			nade_prev = systemuptime\n			stroke++\n\n			//撫でられた量が一定量に達したら「なでられている」と判断\n			//（「stroke >= *」の*の値が大きいほど反応が鈍くなる）\n			if stroke >= 50 {\n				//撫でられた。撫でられた部位を見てトークする\n				SHIORI3FW.ResetAITalkInterval()\n				EVAL(\"Naderu_%(reference[3])%(reference[4])\")\n				--\n				stroke = 0\n\n			}\n		}\n		else {\n			stroke = 0\n		}\n		prev_reference4 = reference[4]\n	}\n	else {\n		// 定義された部位はどこも撫でられていない\n		stroke = 0\n	}\n}\n\n/*-----------------------------------------------------------------------------\n  見切れ・重なりイベント\n-----------------------------------------------------------------------------*/\nMikireKasanari\n{\n	//見切れ反応（メインキャラ見切れ5秒後）\n	if reference[1] && !mikireflag {\n		mikiretimer--\n		if mikiretimer < 1 {\n			mikireflag = 1\n			mikireStartTalk\n		}\n	}\n	else {\n		mikiretimer = 5\n	}\n\n	//見切れ終了反応（見切れ終了直後）\n	if mikireflag && !reference[1] {\n		mikireflag = 0\n		mikireEndTalk\n	}\n\n	//重なり反応（メインとサブキャラの重なり5秒後）\n	elseif !kasanariflag && reference[2] {\n\n		if ISVAR('kasanaritimer') == 0 {\n			kasanaritimer = 5\n		}\n\n		kasanaritimer--\n		if kasanaritimer < 1 {\n			kasanariflag = 1\n			kasanariStartTalk\n		}\n	}\n	//重なり終了反応（重なり終了直後）\n	elseif kasanariflag && !reference[2] {\n		kasanariflag = 0\n		kasanaritimer = 5\n		kasanariEndTalk\n	}\n	else {\n		kasanaritimer = 5\n	}\n}\n\n/*-----------------------------------------------------------------------------\n  サーフィス戻し\n  緩衝付き\n-----------------------------------------------------------------------------*/\nOnSurfaceRestore\n{\n	case reference[0] {\n		when 17-19,200-210 {\n			SHIORI3FW.SetDelayEvent('OnSurfaceRestore',30)\n			--\n			'\\1\\s[10]\\0\\s[6]\\e'\n		}\n		others {\n			'\\1\\s[10]\\0\\s[0]\\e'\n		}\n	}\n}\n\n/*-----------------------------------------------------------------------------\n  バルーンツールチップ　（省略可）\n-----------------------------------------------------------------------------*/\nOn_balloon_tooltip\n{\n	if ISFUNC(\"BalloonTooltip_%(reference[0])\") {\n		EVAL(\"BalloonTooltip_%(reference[0])\")\n	}\n}\n\n/*-----------------------------------------------------------------------------\n  シェルツールチップ　（省略可）\n-----------------------------------------------------------------------------*/\nAYATEMPLATE.MouseEventExec\n{\n  _fname = _argv[0] + TOSTR(reference[3]) + TOSTR(reference[4])\n  if ISFUNC(_fname) {\n    EVAL(_fname)\n    return\n  }\n\n  _fname = _argv[0] + TOSTR(reference[3])\n  if ISFUNC(_fname) {\n    EVAL(_fname)\n    return\n  }\n}\n\nOn_tooltip\n{\n  AYATEMPLATE.MouseEventExec('tooltip')\n}\n",
+			"file": "/Users/cksgrapes/Dropbox/ssp/ghost/mitaraiyuzu2/ghost/master/dic_core.txt",
+			"file_size": 10674,
+			"file_write_time": 131184928750000000,
+			"settings":
+			{
+				"buffer_size": 9300,
+				"line_ending": "Windows",
+				"scratch": true
+			}
+		},
+		{
+			"contents": "/*=============================================================================\n  Chikashi.S Templete\n  ユーティリティ辞書\n  Last up date: 2014/04/27\n=============================================================================*/\n\n/*-----------------------------------------------------------------------------\n  YAYAオプション機能郡の名前の短縮\n-----------------------------------------------------------------------------*/\nEscapeAllTags {SHIORI3FW.EscapeAllTags(_argv)}\nEscapeDangerousTags {SHIORI3FW.EscapeDangerousTags(_argv)}\nIsGhostExist {SHIORI3FW.IsGhostExist(_argv)}\nRefreshFMOTable {SHIORI3FW.RefreshFMOTable(_argv)}\nFMOCache {SHIORI3FW.FMOCache}\nSetDelayEvent {SHIORI3FW.SetDelayEvent(_argv)}\nEscapeText {AYATEMPLATE.EscapeText(_argv)}\n\n/*-----------------------------------------------------------------------------\n  エスケープ\n  さくらスクリプトの中に「]」を記述したい時等に使用\n-----------------------------------------------------------------------------*/\nAYATEMPLATE.EscapeText\n{\n	_r = _argv[0]\n	if RE_SEARCH(_r,'[,\"\\[\\]]') {\n		'\"' + REPLACE(_r,'\"','\"\"') + '\"'\n	}\n	else {\n		_r\n	}\n}\n\n/*-----------------------------------------------------------------------------\n  関数・変数・さくらスクリプト置換\n-----------------------------------------------------------------------------*/\n#globaldefine @hn \\w9\\w9\\n\\n[half]\n\n#globaldefine ◆ %*\n#globaldefine <b> \\f[bold,true]\n#globaldefine </b> \\f[bold,false]\n#globaldefine <u> \\f[underline,true]\n#globaldefine </u> \\f[underline,false]\n#globaldefine <i> \\f[italic,true]\n#globaldefine </i> \\f[italic,false]\n#globaldefine @checkOn \\_u[0x2611]\n#globaldefine @checkOff \\_u[0x2610]\n\n#globaldefine @line ----------------------------------------\n\n/*-----------------------------------------------------------------------------\n  内部トランスレート\n-----------------------------------------------------------------------------*/\nOnTranslateInternal {\n	_text = _argv[0]\n	_text = TextOnlyTranslator(_text,'TextOnlyTranslatorFunc')\n	_text\n}\n\nTextOnlyTranslator\n{\n	_string = RE_SPLIT(_argv[0],'\\\\(\\\\|q\\[.*?\\]\\[.*?\\]|[!&8cfijmpqsn]\\[.*?\\]|[-*+014567bcehntuvxz]|_[ablmsuvw]\\[.*?\\]|__(t|[qw]\\[.*?\\])|_[!?+nqsV]|[sipw][0-9])')\n	_n = ARRAYSIZE(_string)\n	_tag = RE_GETSTR()\n	_tr = ''\n	_qs = 0\n\n	for _i = 0 ; _i < _n ; _i++ {\n		_tr += EVAL(\"%(_argv[1])('%(_string[_i])',%(_qs))\")\n		_tr += _tag[_i]\n		if '\\_q' _in_ _tag[_i] {\n			_qs = ! _qs\n		}\n	}\n\n	_tr\n}\n\nTextOnlyTranslatorFunc\n{\n	//_argv[0] = 置換対象テキスト\n	//_argv[1] = クイックセクション内か否か\n\n	_text = _argv[0]\n	if ! _argv[1] {\n		_text = REPLACE(_text,\"、\",\"、\\w9\\w4\")\n		_text = REPLACE(_text,\"。\",\"。\\w9\\w9\")\n		_text = REPLACE(_text,\"…\",\"…\\w9\\w4\")\n		_text = REPLACE(_text,\"―\",\"―\\w9\\w4\")\n		_text = RE_REPLACE(_text ,'\\n(?=[^\\[])', '\\w9\\w4\\n')\n		_text = RE_REPLACE(_text ,'！(?=[^！？）」])', '！\\w9\\w9　')\n		_text = RE_REPLACE(_text ,'？(?=[^！？）」])', '？\\w9\\w9　')\n	}\n	_text\n}\n\n/*-----------------------------------------------------------------------------\n  季節を調べる\n-----------------------------------------------------------------------------*/\nGetSeasonZone\n{\n	case month {\n		when 3-5    {'春'}\n		when 6-8    {'夏'}\n		when 9-11   {'秋'}\n		when 12,1,2 {'冬'}\n	}\n}\n\n/*-----------------------------------------------------------------------------\n  時間を調べる\n-----------------------------------------------------------------------------*/\nGetTimeSlot\n{\n	case month {\n		when 1,2 {\n			case hour {\n				when 22,23,0-6 {'深夜'}\n				when 7-11      {'朝'}\n				when 12,13     {'正午'}\n				when 1-17      {'昼'}\n				when 18-21     {'夜'}\n			}\n		}\n		when 3,4,8 {\n			case hour {\n				when 22,23,0-5 {'深夜'}\n				when 6-11      {'朝'}\n				when 12,13     {'正午'}\n				when 14-18     {'昼'}\n				when 19-21     {'夜'}\n			}\n		}\n		when 5,6,7 {\n			case hour {\n				when 22,23,0-4 {'深夜'}\n				when 5-11      {'朝'}\n				when 12,13     {'正午'}\n				when 14-17     {'昼'}\n				when 18-21     {'夜'}\n			}\n		}\n		when 9,10 {\n			case hour {\n				when 22,23,0-5 {'深夜'}\n				when 6-11      {'朝'}\n				when 12,13     {'正午'}\n				when 14-18     {'昼'}\n				when 19-21     {'夜'}\n			}\n		}\n		when 11 {\n			case hour {\n				when 22,23,0-6 {'深夜'}\n				when 7-11      {'朝'}\n				when 12,13     {'正午'}\n				when 14-16     {'昼'}\n				when 17-21     {'夜'}\n			}\n		}\n		when 12 {\n			case hour {\n				when 22,23,0-7 {'深夜'}\n				when 8-11      {'朝'}\n				when 12,13     {'正午'}\n				when 14-16     {'昼'}\n				when 17-21     {'夜'}\n			}\n		}\n	}\n}\n\n/*-----------------------------------------------------------------------------\n ユーザ誕生日取得\n-----------------------------------------------------------------------------*/\nUserBirthdaySet {\n	_i = SPLIT(userbd,'/')\n	userBDmonth = _i[0]\n	userBDday = _i[1]\n}\n\n/*-----------------------------------------------------------------------------\n  トーク分岐\n-----------------------------------------------------------------------------*/\nTalkFork : nonoverlap {\n	_talkName = _argv[0]\n\n	_talkNormal       = EVAL(_talkName + '.normal')\n	_talkLove         = EVAL(_talkName + '.love')\n	_talkViolence     = EVAL(_talkName + '.violence')\n\n	_talk_array = IARRAY\n\n	if ( ARRAYSIZE(_talkNormal) > 0 ) {\n		_talk_array ,= _talkNormal\n	}\n	if ( ARRAYSIZE(_talkLove) > 0 && loveparam>500 ) {\n		_talk_array ,= _talkLove\n	}\n	if ( ARRAYSIZE(_talkViolence) > 0 && violenceparam>500 ) {\n		_talk_array ,= _talkViolence\n	}\n\n	parallel _talk_array\n}\n\nNewTalkFork : nonoverlap {\n	_talkName = _argv[0]\n\n	_talkNormal    = EVAL(_talkName + '.normal.new')\n	_talkLove      = EVAL(_talkName + '.love.new')\n	_talkViolence  = EVAL(_talkName + '.violence.new')\n\n	_talk_array = IARRAY\n\n	if ( ARRAYSIZE(_talkNormal) > 0 ) {\n		_talk_array ,= _talkNormal\n	}\n	if ( ARRAYSIZE(_talkLove) > 0 && loveparam>500 ) {\n		_talk_array ,= _talkLove\n	}\n	if ( ARRAYSIZE(_talkViolence) > 0 && violenceparam>500 ) {\n		_talk_array ,= _talkViolence\n	}\n\n	parallel _talk_array\n}\n\n/*\nRandomTalkEx {\n	_talkforknum = ARRAYSIZE(randomTalk.normal)\n	_talkforknum += ARRAYSIZE(randomTalk.love)\n	_talkforknum += ARRAYSIZE(randomTalk.violence)\n\n	_newtalkforknum = ARRAYSIZE(randomTalk.normal.new)\n	_newtalkforknum += ARRAYSIZE(randomTalk.love.new)\n	_newtalkforknum += ARRAYSIZE(randomTalk.violence.new)\n\n	_talknum = _talkforknum + _newtalkforknum\n\n	if ( _talknum - RAND(20) > _talkforknum ) {\n		NewTalkFork('randomTalk')\n	} else {\n		TalkFork('randomTalk')\n	}\n}\n*/\n\n/*\n[解説]\nTalkFork('talkname')を実行することによって、talkame.normalやtalkname.loveを拾いに行く。.normalや.loveなどには:arrayをつけるのを忘れないように。.loveと.violenceは各パラメータが500を超えたら追加される。\nRandomTalkExはNewTalkForkを一定確率で優先するあれこれ。\n*/\n\n/*-----------------------------------------------------------------------------\n  パラメータ調整\n-----------------------------------------------------------------------------*/\nParamCtrl {\n	_sort      = _argv[0]\n	_plusMinus = _argv[1]\n	_size      = _argv[2]\n	case _plusMinus {\n		when 'plus' {\n			case _size {\n				when 'S' {\n					if (_sort == 'love') {\n						loveparam += RAND(3)+1\n					} else {\n						violenceparam += RAND(3)+1\n					}\n				}\n				when 'M' {\n					if (_sort == 'love') {\n						loveparam += RAND(3)+4\n					} else {\n						violenceparam += RAND(3)+4\n					}\n				}\n				when 'L' {\n					if (_sort == 'love') {\n						loveparam += RAND(3)+7\n					} else {\n						violenceparam += RAND(3)+7\n					}\n				}\n			}\n		}\n		when 'minus' {\n			case _size {\n				when 'S' {\n					if (_sort == 'love') {\n						loveparam -= RAND(3)+1\n					} else {\n						violenceparam -= RAND(3)+1\n					}\n				}\n				when 'M' {\n					if (_sort == 'love') {\n						loveparam -= RAND(3)+4\n					} else {\n						violenceparam -= RAND(3)+4\n					}\n				}\n				when 'L' {\n					if (_sort == 'love') {\n						loveparam -= RAND(3)+7\n					} else {\n						violenceparam -= RAND(3)+7\n					}\n				}\n			}\n		}\n	}\n	if (loveparam < 0) { loveparam = 0 }\n	if (violenceparam < 0) { violenceparam = 0 }\n}\n\n/*\n_argv[0] = love/violence\n_argv[1] = plus/minus\n_argv[2] = S/M/L\n*/\n\n/*-----------------------------------------------------------------------------\n  性別によるトーク分岐 その1\n-----------------------------------------------------------------------------*/\nUserSex\n{\n	case _argv[0] {\n		when '女' {\n			if ( userSex == '女' || userSex == 'その他' ) {\n				_argv[1]\n			}\n		}\n		when '男' {\n			if ( userSex == '男' || userSex == 'その他' ) {\n				_argv[1]\n			}\n		}\n		when 'その他' {\n			if ( userSex == 'その他' ) {\n				_argv[1]\n			}\n		}\n	}\n}\n\n/*\n_argv[0] = 該当するユーザ性別\n_argv[1] = トーク\n*/\n\n/*-----------------------------------------------------------------------------\n  性別によるトーク分岐 その2\n-----------------------------------------------------------------------------*/\nUSERSEXFORK\n{\n	case userSex {\n		when '男' { _argv[0] }\n		when '女' { _argv[1] }\n		when 'その他' { _argv[2] }\n	}\n}\n\n/*\n_argv[0] = ユーザ性別が男だったときのトーク\n_argv[1] = ユーザ性別が女だったときのトーク\n_argv[2] = ユーザ性別がその他だったときのトーク\n*/\n\n/*-----------------------------------------------------------------------------\n  特定のテキスト（単語）を含むトークの、配列内の位置を調べる\n-----------------------------------------------------------------------------*/\nTalkNumFind {\n	_name  = EVAL(_argv[0])\n	_text  = _argv[1]\n	_array = RE_ASEARCHEX(_text,_name)\n	_count = ARRAYSIZE(_array)\n	_num   = ''\n	if ( _count > 0 ) {\n		for _i = 0; _i < _count; _i++ {\n			_num += _array[_i]\n			_num += ' '\n		}\n	} else {\n		_num +=　'（該当するものがありませんでした）'\n	}\n	--\n	\"\\1\\s[10]\\0\\s[0]\\_q%(_num)\\e\"\n}\n\n/*\n_argv[0] = 位置を調べたいトークの入っている関数名\n_argv[1] = 位置を調べたいトークを適当に抜き出したテキスト\n\n[備考]\n_argv[1]を'実験'などの短い単語にすれば、「実験」という言葉が含まれるトークの位置が全部返ってくる。\n何かに使えそうな気もするが、何にも使えなそうな気もする。\n*/\n\n/*-----------------------------------------------------------------------------\n  トーク数を数える\n-----------------------------------------------------------------------------*/\nTalkCount {\n	_name = EVAL(_argv[0])\n	_simpleCount = ARRAYSIZE(_name)\n	_quoteCount  = _argv[1]\n	_count       = _simpleCount - _quoteCount\n	_count\n\n/*\n_argv[0] = トーク数を知りたいトーク群の関数名\n_argv[1] = 引用しているトークがある場合、その数\n*/\n}\n",
+			"file": "/Users/cksgrapes/Dropbox/ssp/ghost/mitaraiyuzu2/ghost/master/dic_utility.txt",
+			"file_size": 10541,
+			"file_write_time": 131184616210000000,
+			"settings":
+			{
+				"buffer_size": 9538,
+				"line_ending": "Windows",
+				"scratch": true
+			}
+		},
+		{
+			"contents": "/*=============================================================================\n  Chikashi.S Templete\n  ランダムトーク辞書\n  Last up date: 2014/04/27\n=============================================================================*/\nAddNewTalk : array\n{\n	'2012/12/1-1'\n\n	'新規トーク追加'\n	'追加新規トークだね'\n	'新しいトークなんだよ'\n}\n\nTalk : array\n{\n	'通常トーク'\n	'トーク通常'\n	'通常だってばよ'\n}\n\nTalkXmas : array\n{\n	'今日はメリー・クリスマス！'\n}\n\nTalk.love : array\n{\n	'愛高いトーク'\n	'愛情あるよ'\n}\n\nTalkXmas.love : array\n{\n	'恋人たちのホワイトクリスマスだね！'\n}\n\nTalk.violance : array\n{\n	'とってもviolence'\n	'violenceだっちゃ'\n}\n\n\n\n\n/*-----------------------------------------------------------------------------\n  Beyond Normal\n-----------------------------------------------------------------------------*/\nrandomTalk.normal.new : array {\n	//新規追加トークはここに\n}\n\nrandomTalk.normal : array\n{\n	'もっと適当に扱っていいんだよ。\\e'\n	'理不尽なことなんて、数えきれないくらいあるさ。だから数えなきゃいいんだ。\\nそうすれば、ゼロになる。\\e'\n	'手足がついてるなら、大抵のことはできる。\\e'\n	'むずかしく考えないほうがいいのさ。\\nこの世界ったら、馬鹿には優しくできてるんだ。\\e'\n	'\\s[1]何もガマンしなくていい。\\nぜんぶアタシにぶつけてよ。\\e'\n	'あっという間だったよ。\\n見る見るウチに腐っておちた。\\e'\n	'しょうがないよ。\\n気持ち悪かったんだろ。\\n家族なんてそんなもんさ。\\e'\n	'もっと、ひどくしたっていいんだ。\\nただ飯食らいよりずっとマシだよ。\\e'\n	'処女じゃないさ。\\e'\n	'仕込まれたよ。売られる前に、じっくりとね。\\e'\n	'お腹すいたな。\\e'\n	'オモチャいれたまま放置とか、視姦とか、していいんだよ。\\nＡＶみたいなプレイ、興味あるだろ？\\e'\n	'疲れてるなら、慰めるよ。\\e'\n	'ハダカはもう恥ずかしくないけどさ、下の世話をされンのは、いつまで経っても恥ずかしいよ。\\e'\n	'\\s[1]見てるだけでいいの？\\e'\n	'所詮他人。そう思ってれば、だいたいなんとかなる。\\e'\n	'ホントに、芋虫みたいに転がしてくれたって、ぜんぜんいいンだからね。\\e'\n	'ご飯が食べられる。それだけで幸せ。\\e'\n	'灰皿？アタシに押し付けていいよ。\\e'\n	'軟水のほうが好き。\\e'\n	'学生だったよ。\\nありきたりな女学生だった。\\nふざけて、はしゃいで、笑ってたのさ。\\n未来は輝いてるって思ってた。\\e'\n	'いつもナニかに締め付けられてる感触って、案外悪くないね。\\e'\n	'お絵かきしたいな。\\e'\n	'美術の成績、クラスでいちばん良かったンだ。\\e'\n	'ぴったりしたカッコ、好きだったから。\\e'\n	'ほとんど毎日シてたよ。\\n自分の指で、頭真っ白になるまで。\\w9\\w9\\n\\n[half]きもちよかったンだ。\\e'\n	'学生だもの、オモチャなんて買えなかったよ。\\n興味はあったけどね。\\e'\n	'風景画が得意だったよ。\\n\\n[half]\\w9\\w9もう、見せてあげられないけどね。\\e'\n	'シないの？\\e'\n	'ショックはそんなになかったさ。\\n現実味もなかったけどね。\\e'\n	'芋虫病にかかって、家族に捨てられて、芋虫屋に拾われて、あっちもこっちも躾けられて、いやらしいカッコで売り出されて。\\n\\n[half]\\w9\\w9そういうビデオ、ありそう。\\e'\n	'あんまり丁寧にされても、困るよ。\\w9\\w9\\n\\s[1]こわれたら捨てればいい。\\e'\n	'みんな、元気にしてるかな。\\e'\n	'通学路、もう忘れちゃったよ。\\e'\n	'適応すればいい。\\nできないなら、潰れるだけさ。\\e'\n	'痛いのは、気持ちいい。\\n苦しいのも、気持ちいい。\\n体が適応したら、心も気持ちいい。\\w9\\w9\\n最高だね。\\e'\n	'オナホにして。アンタ専用の。\\e'\n	'奥のほう、ぐりぐりされると、ダメになる。\\e'\n	'胸がおおきいと感じないなんて、言うけど。\\nそんなことないさ。\\nむしろ、逆だよ。\\e'\n	'ボンテージの下、いっつもぐしょぐしょ。\\n\\n[half]\\w9\\w9期待してるンだ。\\e'\n	'こわがらなくていいよ。\\nアンタが買ったものなんだ。\\n何シたって、アンタの自由さ。\\e'\n	'美術だけじゃなくて、専科はだいたい得意だったよ。体育も結構イイ成績だったさ。\\e'\n	'眠そうな顔してる。\\w9\\s[1]抱き枕にする？\\e'\n	'アタシの胸に飛びこんでおいで。\\n\\n[half]\\w9\\w9抱きとめてあげられないけど、受けとめてあげる。\\e'\n	'夜も、朝も、変わらない。\\nアタシはずっと芋虫のまんま。\\e'\n}\n\n/* Beyond Normal End */\n\n/*-----------------------------------------------------------------------------\n  Beyond Love\n-----------------------------------------------------------------------------*/\nrandomTalk.love : array\n{\n	'アンタに買ってもらえてよかった。\\e'\n	'ね、抱っこして。\\e'\n	'挿れられてるときも、そうじゃないときも、\\w9\\w9アンタに抱きしめられてると、すごく安心する。\\e'\n	'アタシのぜんぶ、アンタに見られてる。\\w9\\nそれってちょっと、\\s[1]トクベツ、だよね。\\e'\n	'そんなにやさしく使ったら、勘違いするかもしれないよ。\\e'\n	'アンタにカラダ洗ってもらうの、すごく好き。\\e'\n}\n\n/* Beyond Love End */\n\n/*-----------------------------------------------------------------------------\n  Beyond Violence\n-----------------------------------------------------------------------------*/\nrandomTalk.violence : array\n{\n	'痕が増えるたび、嬉しくなる。\\nそんな性癖なかったのにな。\\e'\n	'瘡蓋、剥がしていいよ。\\e'\n	'\\s[1]煙草、もっと押しつけて。\\n体中、真っ黒にしてよ。\\e'\n	'殴られると痣が残るね。\\nそれが、嬉しい。\\n\\n[half]……\\s[1]アタシ、変？\\e'\n	'踏みにじってよ。\\n\\w9\\w9食べたもの全部吐いちゃうくらい。\\e'\n}\n\n/* Beyond Violence End */\n",
+			"file": "/Users/cksgrapes/Dropbox/ssp/ghost/mitaraiyuzu2/ghost/master/dic_talk.txt",
+			"file_size": 4955,
+			"file_write_time": 131184928600000000,
+			"settings":
+			{
+				"buffer_size": 3271,
+				"line_ending": "Windows",
+				"scratch": true
+			}
+		},
+		{
+			"contents": "/*---------------------------------------------------------------------\n	かんたん文スクリプト「あやりりす」\n---------------------------------------------------------------------*/\n//***************************************************************************************************\nOnSystemLoad.ﾟAYALILITH : void //ﾟはソート順序を最後にするため\n{\n	stroke = (1,1,1)\n	stroketimer = (1,1,1)\n	strokeid = ('','','')\n	half_menu_counter = 0\n	boot_init = 0\n	\n	mikire_flag_array = IARRAY\n	\n	最終マウスイベント分 = systemuptime / 60\n	ゴースト起動時刻 = systemuptime\n	\n	累積起動時間初期 = 累積起動時間\n	\n	if ISVAR('半分メニュー無効') == 0 {\n		半分メニュー無効 = 0\n	}\n	\n	_a = GETFUNCLIST('ゴースト起動前の処理')\n	foreach _a;_f {\n		EVAL(_f)\n	}\n	\n	if username == '' {\n		username = 名前入力初期WRAP()\n	}\n	\n	mousedown_time = -1\n	mousedown_reference_array = IARRAY\n	mousedown_exec_complete = 0\n	\n	mouseevent_time = IARRAY\n	mouseevent_colname = IARRAY\n	mouseevent_count = IARRAY\n	マウスイベント連続回数 = 1\n	\n	着せ替え情報 = IARRAY\n	着せ替え有効パーツリスト = IARRAY\n	着せ替え有効パーツリストEX = IARRAY\n	着せ替え有効カテゴリリスト = IARRAY\n	着せ替え有効カテゴリリストEX = IARRAY\n	\n	モード = ''\n	現在の日 = GETTIME()[2]\n	\n	_ft = <<'\n	OnChoiceSelect\n	OnAnchorSelect\n	OnBoot\n	OnClose\n	OnFirstBoot\n	OnGhostChanging\n	OnGhostChanged\n	OnGhostCalling\n	OnGhostCalled\n	OnGhostCallComplete\n	OnOtherGhostClosed\n	OnShellChanging\n	OnShellChanged\n	OnMinuteChange\n	OnOffScreen\n	OnBalloonChange\n	OnMouseMove\n	OnMouseWheel\n	OnMouseClick\n	OnMouseDoubleClick\n	OnMouseDragStart\n	OnMouseDragEnd\n	OnMouseGesture\n	OnMouseDown\n	OnMouseUp\n	OnCommunicate\n	OnRecommendsiteChoice\n	OnKeyPress\n	On_otherghostname\n	On_sakura.portalsites\n	On_sakura.recommendsites\n	On_kero.recommendsites\n	'>>\n	_fa = SPLIT(_ft,CHR(0xd,0xa))\n	\n	foreach _fa;_f {\n		if ISFUNC(_f) {\n			LOGGING(\"警告：関数/イベント %(_f) はあやりりすで上書きされます\")\n		}\n	}\n}\n\nOnSystemUnload.ﾟAYALILITH : void //ﾟはソート順序を最後にするため\n{\n	ERASEVAR('累積起動時間初期')\n	\n	ERASEVAR('stroke','stroketimer','strokeid')\n	ERASEVAR('half_menu_counter')\n	ERASEVAR('boot_init')\n	\n	ERASEVAR('mikire_flag_array')\n	\n	ERASEVAR('最終マウスイベント分')\n	ERASEVAR('ゴースト起動時刻')\n	ERASEVAR('タグなしトーク')\n	ERASEVAR('終了しない')\n	\n	ERASEVAR('installedplugin_name','installedplugin_id')\n	ERASEVAR('ghostexlist')\n	\n	ERASEVAR('mousedown_reference_array','mousedown_time','mousedown_exec_complete')\n	ERASEVAR('mouseevent_time''mouseevent_colname','mouseevent_count','マウスイベント連続回数')\n	\n	//'情報_シェル名','情報_バルーン名'は消さない\n	ERASEVAR('情報_ゴースト名','情報_キャラ名')\n	\n	ERASEVAR('情報_ユーザー名','情報_ユーザー誕生日')\n\n	ERASEVAR('情報_モニタ色数','情報_モニタ幅','情報_モニタ高さ')\n	\n	ERASEVAR('スタンプ帳動作','スタンプ帳情報')\n	\n	ERASEVAR('名前入力識別')\n	\n	ERASEVAR('着せ替え情報','着せ替え有効パーツリスト','着せ替え有効パーツリストEX','着せ替え有効カテゴリリスト','着せ替え有効カテゴリリストEX')\n	\n	ERASEVAR('今日はユーザー誕生日','現在の日')\n\n	_a = GETFUNCLIST('ゴースト終了前の処理')\n	foreach _a;_f {\n		EVAL(_f)\n	}\n}\n\nOnTranslateInternal.ﾟAYALILITH //ﾟはソート順序を最後にするため\n{\n	if SUBSTR(SHIORI3FW.Eventid,0,3) == 'On_' {\n		_argv[0] //ret\n		return\n	}\n	\n	if ! boot_init {\n		if ISFUNC('起動初期化スクリプト') {\n			_v = REPLACE(EVAL('起動初期化スクリプト'),'\\e','')\n			_v + _argv[0] //ret\n		}\n		else {\n			_argv[0] //ret\n		}\n		boot_init = 1\n	}\n	else {\n		_argv[0] //ret\n	}\n}\n\nAYL_OnTextDrop\n{\n	if TOINT(AYALilithEX) != 0 {\n		REPLACE(reference.raw[0],CHR(1),CHR(0xd,0xa))\n	}\n	else {\n		REPLACE(reference.raw[0],CHR(1),' ')\n	}\n}\n\n累積起動時間\n{\n	ghostupmin_total() / 24\n}\n\nAYL_OnSecondChange\n{\n	_mikire = TOINT(reference[1])\n	if _mikire != TOINT(mikire_flag_array[0]) {\n		mikire_flag_array[0] = _mikire\n		\n		_fname = ''\n		if _mikire {\n			_fname = OnGhostEventTranslate.AYL('見切れ0')\n		}\n		else {\n			_fname = OnGhostEventTranslate.AYL('見切れ解除0')\n		}\n		if ISFUNC(_fname) {\n			_v = EVAL(_fname)\n			if STRLEN(_v) {\n				_v\n				return\n			}\n		}\n	}\n	\n	//ホールド\n	if ARRAYSIZE(mousedown_reference_array) && (mousedown_exec_complete == 0) {\n		if (GETTICKCOUNT() - mousedown_time) > 1000 {\n			//いったんreferenceを仮保存し、擬似マウスイベントに(MouseDownのreferenceを上書き)\n			_r = reference\n			reference = mousedown_reference_array\n			\n			mousedown_exec_complete = 1\n			\n			_result = MouseEventExec('ホールド')\n			if STRLEN(_result) {\n				_result\n				return\n			}\n			\n			reference = _r\n		}\n	}\n	\n	_fname = 'OnSecondChange' + TOSTR(モード)\n	if ISFUNC(_fname) {\n		EVAL(_fname)\n		return\n	}\n}\n\nAYL_OnOffScreen\n{\n	_mikire_after = IARRAY\n	\n	_fa = SPLIT(reference[0],CHR(1))\n	foreach _fa;_f {\n		_mikire_after[TOINT(_f)] = 1\n	}\n	\n	_n = ARRAYSIZE(mikire_flag_array)\n	_n2 = ARRAYSIZE(_mikire_after)\n	if _n < _n2 {\n		_n = _n2\n	}\n	\n	for _i = 0 ; _i < _n ; _i++ {\n		if mikire_flag_array[_i] != _mikire_after[_i] {\n			_fname = ''\n			if _mikire_after[_i] {\n				_fname = OnGhostEventTranslate.AYL('見切れ' + _i)\n			}\n			else {\n				_fname = OnGhostEventTranslate.AYL('見切れ解除' + _i)\n			}\n			if ISFUNC(_fname) {\n				_v = EVAL(_fname)\n				if STRLEN(_v) {\n					_v\n					return\n				}\n			}\n			return\n		}\n	}\n	\n	mikire_flag_array = _mikire_after\n}\n\nAYL_OnKeyPress\n{\n	_fname = ''\n	if TOINT(reference[2]) >= 2 {\n		_fname = OnGhostEventTranslate.AYL('キー入力連続' + TOUPPER(reference[0]))\n	}\n	else {\n		_fname = OnGhostEventTranslate.AYL('キー入力' + TOUPPER(reference[0]))\n	}\n	if ISFUNC(_fname) {\n		_v = EVAL(_fname)\n		if STRLEN(_v) {\n			_v\n			return\n		}\n	}\n}\n\nAYL_OnMinuteChange\n{\n	_r = 累積起動時間\n	if 累積起動時間初期 != _r {\n		累積起動時間初期 = _r\n		\n		if ISFUNC('累積起動時間変化') {\n			_rs = EVAL('累積起動時間変化(_r)')\n			if _rs != '' {\n				_rs\n				return\n			}\n		}\n	}\n	\n	_t = GETTIME()\n	\n	if _t[5] == 0 {\n		if 現在の日 != _t[2] {\n			現在の日 = _t[2]\n			\n			_fname = OnGhostEventTranslate.AYL(\"日付変更%(_t[1])月%(_t[2])日\")\n			if ISFUNC(_fname) {\n				_v = EVAL(_fname)\n				if STRLEN(_v) {\n					_v\n					return\n				}\n			}\n			\n			_fname = OnGhostEventTranslate.AYL(\"日付変更\")\n			if ISFUNC(_fname) {\n				_v = EVAL(_fname)\n				if STRLEN(_v) {\n					_v\n					return\n				}\n			}\n			AYL_DateInit\n		}\n		\n		_fname = OnGhostEventTranslate.AYL(\"時報%(_t[1])月%(_t[2])日%(_t[4])時\")\n		if ISFUNC(_fname) {\n			_v = EVAL(_fname)\n			if STRLEN(_v) {\n				_v\n				return\n			}\n		}\n		\n		_fname = OnGhostEventTranslate.AYL(\"時報%(_t[4])時\")\n		if ISFUNC(_fname) {\n			_v = EVAL(_fname)\n			if STRLEN(_v) {\n				_v\n				return\n			}\n		}\n		\n		_fname = OnGhostEventTranslate.AYL(\"時報\")\n		if ISFUNC(_fname) {\n			_v = EVAL(_fname)\n			if STRLEN(_v) {\n				_v\n				return\n			}\n		}\n	}\n	\n	_fname = 'OnMinuteChangeAYALILITH' + TOSTR(モード)\n	if ISFUNC(_fname) {\n		EVAL(_fname)\n		return\n	}\n}\n\nAYL_DateInit\n{\n	if GETTYPE(SHIORI3FW.UserBirthday) != 3 {\n		今日はユーザー誕生日 = 0\n		return\n	}\n	if STRLEN(SHIORI3FW.UserBirthday) == 0 {\n		今日はユーザー誕生日 = 0\n		return\n	}\n	\n	_a1 = GETTIME()\n	_d1 = JOIN(_a1[1],_a1[2],',')\n	\n	_a2 = SPLIT(SHIORI3FW.UserBirthday,',')\n	_d2 = JOIN(TOINT(_a2[1]),TOINT(_a2[2]),',')\n	\n	if _d1 == _d2 {\n		今日はユーザー誕生日 = 1\n	}\n	else {\n		今日はユーザー誕生日 = 0\n	}\n}\n\n/*----------------------------------------------------------------------------------\n	イベント振り分け\n----------------------------------------------------------------------------------*/\n\nOnGhostEventTranslate.AYL\n{\n	_fname = 'AYL_' + _argv[0]\n	if ISFUNC(_fname) {\n		_fname\n		return\n	}\n	\n	_fname = _argv[0] + TOSTR(モード)\n	if ISFUNC(_fname) {\n		_fname\n		return\n	}\n}\n\nAYL_OnChoiceSelect\n{\n	_fn = reference[0] + TOSTR(モード)\n	if ISFUNC(_fn) {\n		EVAL(_fn)\n		return\n	}\n	\n	_fn = reference[0]\n	if ISFUNC(_fn) {\n		EVAL(_fn)\n		return\n	}\n	\n	if SUBSTR(reference[0],0,6) == '|TEST|' {\n		TOSTR(EVAL(SUBSTR(reference[0],6,10000)))\n		return\n	}\n}\n\nAYL_OnAnchorSelect\n{\n	if RE_SEARCH(reference[0],'^(http|https)://') {\n		\"\\C\\![open,browser,%(reference[0])]\"\n		return\n	}\n\n	_fn = 'アンカー' + reference[0] + TOSTR(モード)\n	if ISFUNC(_fn) {\n		EVAL(_fn)\n		return\n	}\n\n	_fn = 'アンカー' + reference[0]\n	if ISFUNC(_fn) {\n		EVAL(_fn)\n		return\n	}\n\n	if ISFUNC(reference[0]) {\n		EVAL(reference[0])\n		return\n	}\n}\n\n//***************************************************************************************************\n/*---------------------------------------------------------------------\n	コア\n---------------------------------------------------------------------*/\nDelayedTalkEval\n{\n	_txtarray = SPLIT(_argv[0],C_CRLF)\n	_output = ''\n	\n	if GETTYPE(_txtarray) == 4 {\n		_n = ARRAYSIZE(_txtarray)\n		_inited = 0\n		for _i = 0 ; _i < _n ; _i++ {\n			if _inited {\n				_output += C_CRLF\n			}\n			_inited = 1\n			_output += EVAL(CHR(0x22) + REPLACE(_txtarray[_i],CHR(0x22),'%(CHR(0x22))') + CHR(0x22))\n		}\n	}\n	else {\n		_output += EVAL(CHR(0x22) + REPLACE(_argv[0],CHR(0x22),'%(CHR(0x22))') + CHR(0x22))\n	}\n	\n	TOSTR(_output)\n}\n\nGetCurrentEto\n{\n	_e = ('子','丑','寅','卯','辰','巳','午','未','申','酉','戌','亥')\n	_y = GETTIME()[0]\n	_e[(_y+8) % 12]\n}\n\nGetEvalTalkArray\n{\n	_t = GETTIME()\n	_y = _t[0]\n	_m = _t[1]\n	_d = _t[2]\n	_ms = GetMonthSlot\n	_holiday = GetHolidaySlot\n	_dayofweek = GetDOWSlot\n	\n	_season = GetSeasonSlot\n	_time = GetTimeSlotList\n\n	_slots = IARRAY\n	\n	//一般的なおおざっぱなもの\n	if _argc == 0 || _argv[0] == 0 {\n		//朝,昼,夕,夜,深夜etc...\n		_slots ,= _time\n		//何時\n		_slots ,= \"%(_t[4])時\"\n		//春,夏,秋,冬\n		_slots ,= _season\n		//「春の朝」\n		_slots ,= \"%(_season)の%(_time)\"\n		//「朝食時」「昼食時」「夕食時」\n		_slots ,= GetMesiSlot\n		//?月\n		_slots ,= \"%(_m)月\"\n		//?月上旬,中旬,下旬\n		_slots ,= \"%(_m)月%(GetDaySlot)\"\n		//日曜,月曜...\n		_slots ,= \"%(_dayofweek)曜\"\n		//第?週日曜,月曜...\n		_slots ,= \"第%(((_d - 1) / 7) + 1)週%(_dayofweek)曜\"\n		//行事\n		_slots ,= _ms\n		//行事?曜\n		_slots ,= \"%(_ms)%(_dayofweek)曜\"\n		//平日休日\n		_slots ,= _holiday\n		//行事・平日休日\n		_slots ,= \"%(_ms)%(_holiday)\"\n		//季節・状態\n		_slots ,= \"%(_season)の%(_holiday)\"\n		//「平日の朝」\n		_slots ,= \"%(_holiday)の%(_time)\"\n		//自ゴーストの状態\n		_slots ,= 'シェル' + SHIORI3FW.ShellName\n		_slots ,= 'バルーン' + SHIORI3FW.BalloonName\n		_slots ,= 着せ替え有効パーツリストEX\n		_slots ,= 着せ替え有効カテゴリリストEX\n		//その他\n		if ISFUNC('あやりりす・日付イベントユーザー定義') {\n			_slots ,= EVAL('あやりりす・日付イベントユーザー定義')\n		}\n	}\n	\n	//特定の日付処理は特別\n	if _argc == 0 || _argv[0] == 1 {\n		//誕生日\n		if 今日はユーザー誕生日 {\n			_slots ,= 'ユーザー誕生日'\n		}\n		//?月?日\n		_slots ,= \"%(GetCurrentEto())年%(_m)月%(_d)日\"\n		_slots ,= \"%(_y)年%(_m)月%(_d)日\"\n		_slots ,= \"%(_m)月%(_d)日\"\n		//?月第?週日曜,月曜...\n		_slots ,= \"%(_m)月第%(((_d - 1) / 7) + 1)週%(_dayofweek)曜\"\n	}\n	\n	_slots\n}\n\nTalkEval\n{\n	//処理用！さわるな！！\n	_argv[0] = OnGhostEventTranslate.AYL(_argv[0])\n	\n	if ISFUNC(_argv[0]) {\n		_var = EVAL(_argv[0])\n		_type = GETTYPE(_var)\n		if _type == 4 {\n			_var\n		}\n		elseif _type == 0 {\n			IARRAY\n		}\n		else {\n			CVSTR(_var)\n			if STRLEN(_var) {\n				(_var,IARRAY)\n			}\n			else {\n				IARRAY\n			}\n		}\n	}\n	else {\n		IARRAY\n	}\n}\n\nGetBootSharedScript\n{\n	MouseEventTimeReset\n	\n	_s = ''\n	\n	_a = GETFUNCLIST('起動共通スクリプト')\n	foreach _a;_f {\n		_s += EVAL(_f)\n	}\n	\n	_s\n}\n\nGetCloseSharedScript\n{\n	_s = ''\n	\n	_a = GETFUNCLIST('終了共通スクリプト')\n	foreach _a;_f {\n		_s += EVAL(_f)\n	}\n	\n	_s\n}\n\n//***************************************************************************************************\n/*---------------------------------------------------------------------\n	ランダムトーク処理\n	元あったRandomTalkは消すこと\n---------------------------------------------------------------------*/\n\n/*=====かきかたの例============================\nランダムトーク3月 : array\n{\n	'ごにょごにょ'\n}\n\n1.かならず最後に : array とつけること！\n2.' 'でトークをかこむこと！ \" \" じゃないよ！\n=============================================*/\n\nRandomTalk\n{\n	//高速ランダムトーク処理用\n	DelayedTalkEval(RandomTalkEx())\n}\n\nGetSeasonSlot\n{\n	//3-5,6-8,9-11,12-2……でいいよね？\n	_m = month\n	if _m >= 3 && _m <= 5 { '春' }\n	elseif _m >= 6 && _m <= 8 { '夏' }\n	elseif _m >= 9 && _m <= 11 { '秋' }\n	else { '冬' }\n}\n\nGetDaySlot\n{\n	//10日,20日で区切りにしてみた\n	_d = day\n	if _d <= 10 { '上旬' }\n	elseif _d <= 20 { '中旬' }\n	else { '下旬' }\n}\n\nGetTimeSlotList\n{\n	if ISFUNC('あやりりす・時間帯定義') {\n		EVAL('あやりりす・時間帯定義')\n		return\n	}\n	\n	//おおざっぱに時間判定\n	switch hour {\n		'深夜' //0時\n		'深夜' //1時\n		'深夜' //2時\n		'深夜' //3時\n		'深夜' //4時\n		'朝' //5時\n		'朝' //6時\n		'朝' //7時\n		'朝' //8時\n		'昼' //9時\n		'昼' //10時\n		'昼' //11時\n		'昼' //12時\n		'昼' //13時\n		'昼' //14時\n		'昼' //15時\n		'夕方' //16時\n		'夕方' //17時\n		'夜' //18時\n		'夜' //19時\n		'夜' //20時\n		'夜' //21時\n		'夜' //22時\n		'深夜' //23時\n	}\n}\n\nGetMesiSlot\n{\n	_h = hour\n	if _h == 7 || _h == 8 {\n		'朝食時'\n	}\n	elseif _h == 12 {\n		'昼食時'\n	}\n	elseif _h == 18 || _h == 19 {\n		'夕食時'\n	}\n	else {\n		IARRAY\n	}\n}\n\nGetDOWSlot\n{\n	//曜日\n	switch GETTIME[3] {\n		'日'\n		'月'\n		'火'\n		'水'\n		'木'\n		'金'\n		'土'\n	}\n}\n\nGetHolidaySlot\n{\n	if ISFUNC('あやりりす・休日定義') {\n		EVAL('あやりりす・休日定義')\n		return\n	}\n	\n	//平日・休日\n	switch GETTIME[3] {\n		'休日'\n		'平日'\n		'平日'\n		'平日'\n		'平日'\n		'平日'\n		'休日'\n	}\n}\n\n\n\nGetMonthSlot\n{\n	if ISFUNC('あやりりす・行事定義') {\n		EVAL('あやりりす・行事定義')\n		return\n	}\n	\n	//月をおおざっぱに\n	_月 = GETTIME[1]\n	_日 = GETTIME[2]\n	//_曜日 = GetDOWSlot\n	//_第n週 = ((_日 - 1) / 7) + 1\n	\n	if _月 == 1 && _日 <= 3 { //正月は特別\n		'正月'\n		return\n	}\n	if _月 == 12 && _日 == 24 { //正月は特別\n		'クリスマス'\n		return\n	}\n	if _月 == 12 && _日 == 25 { //正月は特別\n		'クリスマス'\n		return\n	}	\n	if _月 == 12 && _日 <= 31 || _日 >= 26 { //正月は特別\n		'年末'\n		return\n	}	\n	//標準は仕事\n	'仕事'\n}\n\nキーワードランダムトーク\n{\n	_key = TOSTR(_argv[0])\n	_talk = DelayedTalkEval(KeywordRandomTalkExec(_key))\n	_talk = REPLACE(_talk,_key,\"\\f[bold,true]%(_key)\\f[bold,default]\")\n	_talk\n}\n\nKeywordRandomTalkExec : nonoverlap\n{\n	_text = _argv[0]\n	_array = RandomTalkArray\n	_output = IARRAY\n	\n	foreach _array ; _script {\n		if _text _in_ _script {\n			_output ,= _script\n		}\n	}\n	\n	parallel _output\n}\n\nClearRandomTalkArrayNewTalk : void\n{\n	last_new_talk_id_array = IARRAY\n	last_new_talk_array = IARRAY\n}\n\nRandomTalkArrayNewTalk\n{\n	_talknew_func = IARRAY\n	_talknew_func ,= '新規追加ランダムトーク'\n	_earray = GetEvalTalkArray\n	_n = ARRAYSIZE(_earray)\n	for _i = 0 ; _i < _n ; _i++ {\n		_talknew_func ,= '新規追加ランダムトーク' + _earray[_i]\n	}\n	\n	if ISVAR('last_new_talk_id_array') == 0 {\n		last_new_talk_id_array = IARRAY\n	}\n	if ISVAR('last_new_talk_array') == 0 {\n		last_new_talk_array = IARRAY\n	}\n	\n	_changed = 0\n	_n = ARRAYSIZE(_talknew_func)\n	for _i = 0 ; _i < _n ; _i++ {\n		_talknew = TalkEval(_talknew_func[_i])\n		\n		_tnum = ARRAYSIZE(_talknew)\n		if _tnum >= 2 { //1行目は日付\n			\n			_idx = RE_ASEARCH(\"^\\Q%(_talknew_func[_i])\\E,\",last_new_talk_id_array)\n			_date = \"%(_talknew_func[_i]),%(_talknew[0])\"\n			\n			if _idx >= 0 {\n				if last_new_talk_id_array[_idx] != _date {\n					last_new_talk_array ,= _talknew[1,_tnum-1]\n					last_new_talk_id_array[_idx] = _date\n					_changed = 1\n				}\n			}\n			else {\n				last_new_talk_array ,= _talknew[1,_tnum-1]\n				last_new_talk_id_array ,= _date\n				_changed = 1\n			}\n		}\n	}\n	\n	if _changed {\n		last_new_talk_array = UNIQUE(last_new_talk_array)\n	}\n	\n	_n = ARRAYSIZE(last_new_talk_array)\n	if _n >= 1 {\n		_rand = RAND(_n)\n		last_new_talk_array[_rand]\n		last_new_talk_array[_rand] = IARRAY\n		return\n	}\n	RandomTalkArray\n}\n\nRandomTalkArray\n{\n	_talk = IARRAY\n	_talknew = TalkEval('新規追加ランダムトーク')\n	_n = ARRAYSIZE(_talknew)\n	if _n >= 2 { //1行目は日付\n		_talk ,= _talknew[1,65535] //優先トークが終わったらまぜる\n	}\n	\n	//カスタム\n	_talk ,= TalkEval('ランダムトークカスタム')\n	\n	//季節その他\n	_earray = GetEvalTalkArray\n	_n = ARRAYSIZE(_earray)\n	for _i = 0 ; _i < _n ; _i++ {\n		_talknew = TalkEval('新規追加ランダムトーク' + _earray[_i])\n		_tnum = ARRAYSIZE(_talknew)\n		if _tnum >= 2 { //1行目は日付\n			_talk ,= _talknew[1,_tnum-1] //優先トークが終わったらまぜる\n		}\n		\n		_talk ,= TalkEval('ランダムトーク' + _earray[_i])\n	}\n\n	//そしてこれがふつう\n	_talk ,= TalkEval('ランダムトーク通常')\n	\n	_talk\n}\n\nRandomTalkEx : nonoverlap\n{\n	parallel RandomTalkArrayNewTalk\n}\n\n//***************************************************************************************************\n/*----------------------------------------------------------------------------------\n	ゴースト変更編\n----------------------------------------------------------------------------------*/\n\n/*===================================================================================\n記述方法\n\n関数名の例は以下の通りです。\n\n(名前)から変更\n(名前)へ変更\n(名前)を呼び出し\n(名前)を呼び出し完了\n(名前)から呼び出される\n(名前)が終了した\n\n(名前)の部分にはゴーストのSakura（メイン、\\0）側名、またはフルネームが入ります。\nさくらや黒姉などSakura名だけで識別できない場合はフルネームを使ってください。\n+や-、\"や'など、AYAのシステムで使われる文字はすべて _ に置換されます。\n\nAYAの制限回避のため、数字ではじまるゴーストの名前の場合は、「＊（ゴースト名）」と書いてください。\n例：＊54を呼び出し\n\n記述例。\nスクリプトは \" \" でかこってください。\n\nEmilyへ変更\n{\n	\"\\u\\s[10]\\h\\s[5]Emilyへ交代〜。\"\n}\n\n===================================================================================*/\n\nTranslateSystemChar\n{\n	SHIORI3FW.TranslateSystemChar(_argv[0],'_')\n}\n\nさくらスクリプト除去\n{\n	SHIORI3FW.RemoveAllTags(_argv[0])\n}\n\nさくらスクリプト無効化\n{\n	SHIORI3FW.EscapeAllTags(_argv[0])\n}\n\nGhostEventSearch\n{\n	_funcname = OnGhostEventTranslate.AYL(_argv[0])\n	if STRLEN(_funcname) {\n		_funcname\n		return\n	}\n	_funcname = OnGhostEventTranslate.AYL('＊' + _argv[0])\n	if STRLEN(_funcname) {\n		_funcname\n		return\n	}\n	''\n}\n\nCallChangeFuncWrapper\n{\n	_r0 = reference[0]\n	_r2 = reference[2]\n	\n	reference[0] = さくらスクリプト無効化(_r0)\n	reference[2] = さくらスクリプト無効化(_r2)\n	\n	TOSTR(EVAL(_argv[0]))\n	\n	reference[0] = _r0\n	reference[2] = _r2\n}\n\nCallChangeFunc\n{\n	//フルネームで探索\n	if reference[2] && STRLEN(TOSTR(reference[2])) {\n		_ghostname = TranslateSystemChar(reference[2])\n		_funcname = GhostEventSearch(_ghostname + _argv[0])\n		\n		if STRLEN(_funcname) {\n			_script = CallChangeFuncWrapper(_funcname)\n			if STRLEN(_script) {\n				_script\n				return\n			}\n		}\n	}\n\n	//Sakura名で探索\n	_ghostname = TranslateSystemChar(reference[0])\n	_funcname = GhostEventSearch(_ghostname + _argv[0])\n	\n	if STRLEN(_funcname) {\n		_script = CallChangeFuncWrapper(_funcname)\n		if STRLEN(_script) {\n			_script\n			return\n		}\n	}\n	\n	//ゴースト名変換\n	if ISFUNC('ゴースト名変換') {\n		_ghostname = EVAL('ゴースト名変換(TOSTR(reference[0]))')\n		_funcname = GhostEventSearch(_ghostname + _argv[0])\n		\n		if STRLEN(_funcname) {\n			_script = CallChangeFuncWrapper(_funcname)\n			if STRLEN(_script) {\n				_script\n				return\n			}\n		}\n	}\n	\n	//自分かどうか\n	if TOINT(_argv[1]) == 0 {\n		if reference[0] == selfname {\n			_funcname = GhostEventSearch('自分' + _argv[0])\n			\n			if STRLEN(_funcname) {\n				_script = CallChangeFuncWrapper(_funcname)\n				if STRLEN(_script) {\n					_script\n					return\n				}\n			}\n		}\n		\n		//汎用切り替え\n		_funcname = OnGhostEventTranslate.AYL('その他' + _argv[0])\n		if ISFUNC(_funcname) {\n			_script = CallChangeFuncWrapper(_funcname)\n			if STRLEN(_script) {\n				_script\n				return\n			}\n		}\n		\n		_funcname = OnGhostEventTranslate.AYL('他のゴースト' + _argv[0])\n		if ISFUNC(_funcname) {\n			_script = CallChangeFuncWrapper(_funcname)\n			if STRLEN(_script) {\n				_script\n				return\n			}\n		}\n	}\n\n}\n\nCallChangeFuncLastCatch\n{\n	REPLACE(CallChangeFuncWrapper(OnGhostEventTranslate.AYL(_argv[0])),'\\-','')\n}\n\nAYL_OnGhostChanging\n{\n	GetCloseSharedScript\n	--\n	_boot = SpecialBootCloseTalk('終了')\n	if STRLEN(_boot) {\n		_boot\n		return\n	}\n	\n	_script = CallChangeFunc('へ変更')\n	\n	if STRLEN(_script) == 0 {\n		_script = CallChangeFuncLastCatch('OnClose')\n	}\n	\n	_script = REPLACE(_script,'\\e','')\n	if AYALilithEX {\n		_script = _script + CHR(0xd,0xa) + \"\\w9\\w9\\e\"\n	}\n	else {\n		_script = _script + \"\\w9\\w9\\e\"\n	}\n	_script\n	\n}\n\nAYL_OnGhostChanged\n{\n	_boot = SpecialBootCloseTalk('起動')\n	if STRLEN(_boot) {\n		_boot\n		return\n	}\n	\n	タグなしトーク = さくらスクリプト除去(reference[1])\n	\n	_script = GetBootSharedScript + CallChangeFunc('から変更')\n	\n	if STRLEN(_script) == 0 {\n		_script = CallChangeFuncLastCatch('OnBoot')\n	}\n	\n	_script\n}\n\nAYL_OnGhostCalling\n{\n	_script = CallChangeFunc('を呼び出し')\n	\n	if TOINT(EVAL('呼び出し反応に切り替え反応を流用')) {\n		_script = CallChangeFunc('へ変更',1)\n	}\n	\n	_script\n}\n\nAYL_OnGhostCalled\n{\n	_boot = SpecialBootCloseTalk('起動')\n	if STRLEN(_boot) {\n		_boot\n		return\n	}\n	\n	タグなしトーク = さくらスクリプト除去(reference[1])\n\n	_script = GetBootSharedScript + CallChangeFunc('から呼び出される')\n	\n	if TOINT(EVAL('呼び出し反応に切り替え反応を流用')) {\n		_script = GetBootSharedScript + CallChangeFunc('から変更',1)\n	}\n	\n	if STRLEN(_script) == 0 {\n		_script = CallChangeFuncLastCatch('OnBoot')\n	}\n	\n	_script\n}\n\nAYL_OnGhostCallComplete\n{\n	タグなしトーク = さくらスクリプト除去(reference[1])\n\n	CallChangeFunc('を呼び出し完了')\n}\n\nAYL_OnOtherGhostClosed\n{\n	CallChangeFunc('が終了した')\n}\n\nAYL_OnShellChanging\n{\n	_r0 = reference[0]\n	reference[0] = さくらスクリプト無効化(_r0)\n	\n	_script = ''\n	if _r0 == SHIORI3FW.ShellName {\n		_funcname = OnGhostEventTranslate.AYL('シェル再読み込み前')\n		if STRLEN(_funcname) {\n			_script = TOSTR(EVAL(_funcname))\n		}\n	}\n	else {\n		_funcname = OnGhostEventTranslate.AYL('シェル' + reference[0] + '変更前')\n		if STRLEN(_funcname) {\n			_script = TOSTR(EVAL(_funcname))\n		}\n		else {\n			_funcname = OnGhostEventTranslate.AYL('シェル変更前')\n			if STRLEN(_funcname) {\n				_script = TOSTR(EVAL(_funcname))\n			}\n		}\n	}\n	\n	if _script != '' {\n		if AYALilithEX {\n			_script = _script + CHR(0xd,0xa) + \"\\w9\\w9\\e\"\n		}\n		else {\n			_script = _script + \"\\w9\\w9\\e\"\n		}\n	}\n	_script\n	\n	reference[0] = _r0\n}\n\nAYL_OnShellChanged\n{\n	_r0 = reference[0]\n	reference[0] = さくらスクリプト無効化(_r0)\n	\n	if SHIORI3FW.ShellName == SHIORI3FW.ShellNameOld {\n		_funcname = OnGhostEventTranslate.AYL('シェル再読み込み後')\n		if STRLEN(_funcname) {\n			TOSTR(EVAL(_funcname))\n		}\n	}\n	else {\n		_funcname = OnGhostEventTranslate.AYL('シェル' + reference[0] + '変更後')\n		if STRLEN(_funcname) {\n			TOSTR(EVAL(_funcname))\n		}\n		else {\n			_funcname = OnGhostEventTranslate.AYL('シェル変更後')\n			if STRLEN(_funcname) {\n				TOSTR(EVAL(_funcname))\n			}\n		}\n	}\n	\n	reference[0] = _r0\n}\n\nAYL_OnBalloonChange\n{\n	_r0 = reference[0]\n	reference[0] = さくらスクリプト無効化(_r0)\n	\n	if SHIORI3FW.BalloonName == SHIORI3FW.BalloonNameOld {\n		_funcname = OnGhostEventTranslate.AYL('バルーン再読み込み')\n		if STRLEN(_funcname) {\n			TOSTR(EVAL(_funcname))\n		}\n	}\n	else {\n		_funcname = OnGhostEventTranslate.AYL('バルーン' + reference[0] + '変更')\n		if STRLEN(_funcname) {\n			TOSTR(EVAL(_funcname))\n		}\n		else {\n			_funcname = OnGhostEventTranslate.AYL('バルーン変更')\n			if STRLEN(_funcname) {\n				TOSTR(EVAL(_funcname))\n			}\n		}\n	}\n}\n\n//***************************************************************************************************\n/*----------------------------------------------------------------------------------\n	起動編\n----------------------------------------------------------------------------------*/\n\n/*=====かきかたの例==================================================================\n春の朝に起動 : array\n{\n	\"ごにょごにょ\"\n}\n\n1.かならず最後に : array とつけること\n2.' 'でトークをかこむこと\n\n3.AYAの制限上、「7月5日に起動」というふうな数字ではじまる関数はつくれないので\n  こういう場合は「起動7月5日」と書くこと\n===================================================================================*/\n\nSpecialBootCloseTalk\n{\n	DelayedTalkEval(SpecialBootCloseTalkExec(_argv[0]))\n}\n\nSpecialBootCloseTalkExec\n{\n	_date = GETTIME[0] + '/' + GETTIME[1] + '/' + GETTIME[2]\n\n	if ISVAR(\"特殊%(_argv[0])トーク配列\") == 0 {\n		void EVAL(\"特殊%(_argv[0])トーク配列 = IARRAY\")\n	}\n	\n	_talk = (SpecialBootCloseTalkExecArray(_argv[0]),IARRAY)\n	_talk_size = ARRAYSIZE(_talk)\n	\n	if (_date != EVAL(\"特殊%(_argv[0])トーク実行日時\")) || (_talk_size != EVAL(\"特殊%(_argv[0])トーク配列数\")) {\n		void EVAL(\"特殊%(_argv[0])トーク配列 = _talk\")\n		void EVAL(\"特殊%(_argv[0])トーク実行日時 = _date\")\n		void EVAL(\"特殊%(_argv[0])トーク配列数 = _talk_size\")\n	}\n	\n	_talk_x = EVAL(\"特殊%(_argv[0])トーク配列\")\n	_n = ARRAYSIZE(_talk_x)\n	if _n {\n		_rand = RAND(_n)\n		_script = _talk_x[_rand]\n		void EVAL(\"特殊%(_argv[0])トーク配列[_rand] = IARRAY\")\n		_script\n		return\n	}\n	''\n	return\n}\n\nSpecialBootCloseTalkExecArray\n{\n	//特殊な日付トーク\n	_earray = GetEvalTalkArray(1)\n	_n = ARRAYSIZE(_earray)\n	_talk = IARRAY\n	\n	for _i = 0 ; _i < _n ; _i++ {\n		_talk_e = TalkEval(_argv[0] + _earray[_i])\n		if ARRAYSIZE(_talk_e) {\n			_talk ,= _talk_e\n		}\n	}\n	\n	_talk\n	return\n}\n\nAYL_OnBoot\n{\n	GetBootSharedScript\n	--\n	//高速処理用\n	DelayedTalkEval(BootCloseEx('起動'))\n}\n\nAYL_OnFirstBoot\n{\n	GetBootSharedScript\n	--\n	//高速処理用\n	if TOINT(reference[0]) != 0 {\n		_r = DelayedTalkEval(BootCloseEx('Vanish後初回起動'))\n		if _r == '' {\n			_r = DelayedTalkEval(BootCloseEx('初回起動'))\n		}\n		_r\n	}\n	else {\n		DelayedTalkEval(BootCloseEx('初回起動'))\n	}\n}\n\nBootCloseEx\n{\n	_talk = IARRAY\n	\n	//特殊な日付トーク\n	_result = SpecialBootCloseTalkExec(_argv[0])\n	if STRLEN(_result) {\n		_result\n		return\n	}\n	\n	//カスタム\n	_talk = IARRAY\n	_talk ,= TalkEval(_argv[0] + 'カスタム')\n	\n	//季節その他\n	_earray = GetEvalTalkArray(0)\n	_n = ARRAYSIZE(_earray)\n	for _i = 0 ; _i < _n ; _i++ {\n		if RE_SEARCH(_earray[_i],'^\\d') == 0 {\n			_talk ,= TalkEval(_earray[_i] + 'に' + _argv[0])\n		}\n		_talk ,= TalkEval(_argv[0] + _earray[_i])\n	}\n\n	//そしてこれがふつう\n	//時間帯別がないときのみ追加\n	if ARRAYSIZE(_talk) == 0 {\n		_talk ,= TalkEval(_argv[0])\n	}\n	\n	parallel _talk\n}\n\n/*----------------------------------------------------------------------------------\n	終了編\n	書き方の例は起動編といっしょ（ただし「〜に終了」になります）\n----------------------------------------------------------------------------------*/\n\nAYL_OnClose\n{\n	GetCloseSharedScript\n	--\n	_script = BootCloseEx('終了')\n	if ! 終了しない {\n		_script = REPLACE(_script,'\\e','')\n		_script = REPLACE(_script,'\\-','')\n		_script += '\\w9\\-'\n	}\n	\n	//高速処理用\n	DelayedTalkEval(_script)\n}\n\n\n//***************************************************************************************************\n/*----------------------------------------------------------------------------------\n	マウス反応編\n----------------------------------------------------------------------------------*/\n\nMouseEventTimeReset\n{\n	最終マウスイベント分 = systemuptime / 1000\n}\n\n//---- OnMouseMoveイベント --------------------------------------------------------------\nMouseEventExecSub\n{\n	_fname = _argv[0] + TOSTR(reference[3]) + _argv[1]\n	_fname = OnGhostEventTranslate.AYL(_fname)\n	if ISFUNC(_fname) {\n		EVAL(_fname)\n		return\n	}\n\n	_fname = _argv[0] + HAN2ZEN(TOSTR(reference[3])) + _argv[1]\n	_fname = OnGhostEventTranslate.AYL(_fname)\n	if ISFUNC(_fname) {\n		EVAL(_fname)\n		return\n	}\n	\n	_fname = _argv[0] + TOSTR(reference[3])\n	_fname = OnGhostEventTranslate.AYL(_fname)\n	if ISFUNC(_fname) {\n		EVAL(_fname)\n		return\n	}\n\n	_fname = _argv[0] + HAN2ZEN(TOSTR(reference[3]))\n	_fname = OnGhostEventTranslate.AYL(_fname)\n	if ISFUNC(_fname) {\n		EVAL(_fname)\n		return\n	}\n	\n	-1\n}\n\nMouseEventExecFromEventName\n{\n	if 'クリック' == _argv[0] {\n		0\n		return\n	}\n	if 'ダブルクリック' == _argv[0] {\n		1\n		return\n	}\n	if 'ころころ' _in_ _argv[0] {\n		2\n		return\n	}\n	if 'なでなで' _in_ _argv[0] {\n		-1\n		return\n	}\n	if 'ドラッグ' _in_ _argv[0] {\n		-1\n		return\n	}\n	if 'ホールド' _in_ _argv[0] {\n		-1\n		return\n	}\n	-1\n	return\n}\n\nMouseEventExec\n{\n	_fname = ''\n	\n	_m = TOINT(reference[5])\n	\n	_head = ''\n	if _m == 1 {\n		_head = '右' + _argv[0]\n	}\n	elseif _m == 2 {\n		_head = '中' + _argv[0]\n	}\n	else {\n		_head = _argv[0]\n	}\n	\n	_colname = reference[4]\n	if _argc >= 2 {\n		_colname = _argv[1]\n	}\n	\n	_col_id = MouseEventExecFromEventName(_head)\n	if _col_id >= 0 {\n		_col_id += TOINT(reference[3])*10\n		if ((GETTICKCOUNT() - mouseevent_time[_col_id]) < 3000) && (mouseevent_colname[_col_id] == _colname) {\n			mouseevent_count[_col_id] += 1\n		}\n		else {\n			mouseevent_colname[_col_id] = _colname\n			mouseevent_count[_col_id] = 1\n		}\n	}\n	\n	マウスイベント連続回数 = mouseevent_count[_col_id]\n	mouseevent_time[_col_id] = GETTICKCOUNT()\n\n	_result = -1\n	if 'talking' _in_ status {\n		_result = MouseEventExecSub('トーク中' + _head,_colname)\n	}\n	if _result == -1 {\n		_result = MouseEventExecSub(_head,_colname)\n	}\n\n	if _result != -1 {\n		MouseEventTimeReset()\n		SHIORI3FW.ResetAITalkInterval()\n		_result\n		return\n	}\n}\n\nMouseMoveWheelFunc\n{\n	_side = TOINT(reference[3])\n	if _argv[0] {\n		_side += 10\n	}\n	\n	if strokeid[_side] == reference[4] {\n		if (GETTICKCOUNT - TOINT(stroketimer[_side])) > 1500 {\n			stroke[_side] = 1\n		}\n		stroketimer[_side] = GETTICKCOUNT\n		\n		_stroke = TOINT(stroke[_side])\n		_stroke += 1\n		stroke[_side] = _stroke\n		\n		if _stroke >= _argv[1] {\n			if 'talking' !_in_ status {\n				_s = MouseEventExec(_argv[2])\n				if STRLEN(_s) == 0 {\n					if _argc >= 4 {\n						_s = MouseEventExec(_argv[3])\n					}\n				}\n				_s\n				stroke[_side] = 1\n			}\n		}\n	}\n	else {\n		stroke[_side] = 1\n		stroketimer[_side] = GETTICKCOUNT\n		strokeid[_side] = reference[4]\n	}\n}\n\nAYL_OnMouseMove\n{\n	if ISFUNC('あやりりす・マウスなで感度') {\n		MouseMoveWheelFunc(0,あやりりす・マウスなで感度,'なでなで')\n	}\n	else {\n		MouseMoveWheelFunc(0,50,'なでなで')\n	}\n}\n\nAYL_OnMouseWheel\n{\n	_script = ''\n	_sensitivity = 4\n	if ISFUNC('あやりりす・マウスホイール感度') {\n		_sensitivity = あやりりす・マウスホイール感度\n	}\n	\n	if reference[2] > 0 {\n		_script = MouseMoveWheelFunc(1,_sensitivity,'ころころ上','ころころ')\n	}\n	else {\n		_script = MouseMoveWheelFunc(1,_sensitivity,'ころころ下','ころころ')\n	}\n	\n	if STRLEN(_script) {\n		_script\n		return\n	}\n	\n}\n\nAYL_OnMouseClick\n{\n	MouseEventExec('クリック')\n}\n\nAYL_OnMouseDoubleClick\n{\n	MouseEventExec('ダブルクリック')\n}\n\nAYL_OnMouseDragStart\n{\n	//ホールド解除\n	if mousedown_exec_complete == 0 {\n		mousedown_reference_array = IARRAY\n		mousedown_time = -1\n	}\n\n	AYL_drag_start_col = reference[4]\n	MouseEventExec('ドラッグ開始',AYL_drag_start_col)\n}\n\nAYL_MouseHoldEndExec\n{\n	if 'talking' _in_ status {\n		SHIORI3FW.SetDelayEvent('OnAYLMouseHoldEndExecDelay',2)\n	}\n	else {\n		OnAYLMouseHoldEndExecDelay()\n	}\n}\n\nOnAYLMouseHoldEndExecDelay\n{\n	reference = mousedown_reference_array\n	MouseEventExec('ホールド終了')\n	\n	//ホールド解除\n	mousedown_reference_array = IARRAY\n	mousedown_time = -1\n	mousedown_exec_complete = 0\n}\n\nAYL_OnMouseDragEnd\n{\n	if mousedown_exec_complete {\n		AYL_MouseHoldEndExec()\n	}\n	else {\n		MouseEventExec('ドラッグ終了',AYL_drag_start_col)\n	}\n	void ERASEVAR('AYL_drag_start_col')\n}\n\nAYL_OnMouseDown\n{\n	if TOINT(reference[5]) == 0 {\n		//ホールド計測開始\n		mousedown_reference_array = reference\n		mousedown_time = GETTICKCOUNT()\n		mousedown_exec_complete = 0\n	}\n}\n\nAYL_OnMouseUp\n{\n	if mousedown_exec_complete {\n		AYL_MouseHoldEndExec()\n	}\n	else {\n		//ホールド解除\n		mousedown_reference_array = IARRAY\n		mousedown_time = -1\n	}\n}\n\nAYL_OnMouseGesture\n{\n	_name = ''\n	_is_end = 0\n	\n	case reference[5] {\n		when 'right_up' { _name = '右上'; }\n		when 'up' { _name = '上'; }\n		when 'left_up' { _name = '左上'; }\n		when 'left' { _name = '左'; }\n		when 'left_down' { _name = '左下'; }\n		when 'down' { _name = '下'; }\n		when 'right_down' { _name = '右下'; }\n		when 'right' { _name = '右'; }\n		when 'circle.cw' { _name = '時計回り'; }\n		when 'circle.ccw' { _name = '反時計回り'; }\n		when 'end' {\n			_is_end = 1\n			_name = '終了'\n		}\n	}\n	\n	_postfix = ''\n	_garray = IARRAY\n	_is_start = 0\n	\n	if _is_end {\n		ERASEVAR('gesture_name_array')\n		ERASEVAR('gesture_circle_array')\n		ERASEVAR('gesture_init')\n		ERASEVAR('gesture_wheel_event_raised')\n	}\n	else {\n		if ISVAR('gesture_init') == 0 {\n			gesture_init = 1\n			gesture_wheel_event_raised = ''\n			_is_start = 1\n		}\n		if '回り' _in_ _name {\n			if ISVAR('gesture_circle_array') == 0 {\n				gesture_circle_array = IARRAY\n			}\n			gesture_circle_array ,= _name\n			_postfix = '回転'\n			_garray = gesture_circle_array\n		}\n		else {\n			if ISVAR('gesture_name_array') == 0 {\n				gesture_name_array = IARRAY\n			}\n			gesture_name_array ,= _name\n			_garray = gesture_name_array\n		}\n	}\n	\n	if _is_end {\n		_fname = \"マウスジェスチャー%(reference[0])%(reference[4])終了\"\n		_fname = OnGhostEventTranslate.AYL(_fname)\n		if ISFUNC(_fname) {\n			EVAL(_fname)\n			MouseEventTimeReset\n			return\n		}\n		\n		_fname = \"マウスジェスチャー%(reference[0])終了\"\n		_fname = OnGhostEventTranslate.AYL(_fname)\n		if ISFUNC(_fname) {\n			EVAL(_fname)\n			MouseEventTimeReset\n			return\n		}\n	}\n	else {\n		if _is_start {\n			_fname = \"マウスジェスチャー%(reference[0])%(reference[4])開始\"\n			_fname = OnGhostEventTranslate.AYL(_fname)\n			if ISFUNC(_fname) {\n				EVAL(_fname)\n				MouseEventTimeReset\n			}\n			else {\n				_fname = \"マウスジェスチャー%(reference[0])開始\"\n				_fname = OnGhostEventTranslate.AYL(_fname)\n				if ISFUNC(_fname) {\n					EVAL(_fname)\n					MouseEventTimeReset\n				}\n			}\n		}\n		\n		_fname = \"マウスジェスチャー%(_postfix)%(reference[0])%(reference[4])%(JOIN(_garray,'・'))\"\n		_fname = OnGhostEventTranslate.AYL(_fname)\n		if ISFUNC(_fname) {\n			EVAL(_fname)\n			MouseEventTimeReset\n			return\n		}\n		\n		_fname = \"マウスジェスチャー%(_postfix)%(reference[0])%(reference[4])単発%(_name)\"\n		_fname = OnGhostEventTranslate.AYL(_fname)\n		if ISFUNC(_fname) {\n			EVAL(_fname + '(_garray)')\n			MouseEventTimeReset\n			return\n		}\n		\n		_fname = \"マウスジェスチャー%(_postfix)%(reference[0])%(reference[4])\"\n		_fname = OnGhostEventTranslate.AYL(_fname)\n		if ISFUNC(_fname) {\n			EVAL(_fname + '(_garray)')\n			MouseEventTimeReset\n			return\n		}\n		\n		_fname = \"マウスジェスチャー%(_postfix)%(reference[0])%(JOIN(_garray,'・'))\"\n		_fname = OnGhostEventTranslate.AYL(_fname)\n		if ISFUNC(_fname) {\n			EVAL(_fname)\n			MouseEventTimeReset\n			return\n		}\n		\n		_fname = \"マウスジェスチャー%(_postfix)%(reference[0])単発%(_name)\"\n		_fname = OnGhostEventTranslate.AYL(_fname)\n		if ISFUNC(_fname) {\n			EVAL(_fname)\n			MouseEventTimeReset\n			return\n		}\n		\n		_fname = \"マウスジェスチャー%(_postfix)%(reference[0])\"\n		_fname = OnGhostEventTranslate.AYL(_fname)\n		if ISFUNC(_fname) {\n			EVAL(_fname + '(_garray)')\n			MouseEventTimeReset\n			return\n		}\n		\n		if TOINT(EVAL('マウスジェスチャーにホイール反応を流用')) {\n			if '上' _in_ _name || '下' _in_ _name {\n				if '上' _in_ _name {\n					_name = '上'\n				}\n				elseif '下' _in_ _name {\n					_name = '下'\n				}\n				\n				if _name !_in_ gesture_wheel_event_raised {\n					reference[3] = reference[0]\n					\n					_xy = SPLIT(referece[1],CHR(1))\n					reference[0] = _xy[0]\n					reference[1] = _xy[1]\n					\n					_script = ''\n					if _name == '上' {\n						reference[2] = '20'\n						_script = MouseEventExec('ころころ上')\n					}\n					else {\n						reference[2] = '-20'\n						_script = MouseEventExec('ころころ下')\n					}\n					if STRLEN(_script) == 0 {\n						_script = MouseEventExec('ころころ')\n					}\n					if STRLEN(_script) {\n						_script\n						gesture_wheel_event_raised += _name\n						return\n					}\n				}\n			}\n		}\n	}\n}\n\n//***************************************************************************************************\n/*----------------------------------------------------------------------------------\n	プラグイン\n----------------------------------------------------------------------------------*/\n\nAYL_On_installedplugin : void\n{\n	_n = ARRAYSIZE(reference)\n	installedplugin_name = IARRAY\n	installedplugin_id = IARRAY\n	\n	for _i = 0 ; _i < _n ; _i++ {\n		_a = SPLIT(reference[_i],CHR(1))\n		\n		installedplugin_name ,= _a[0]\n		installedplugin_id ,= _a[1]\n	}\n	\n	if ISFUNC('On_installedplugin') {\n		void EVAL('On_installedplugin')\n	}\n}\n\nプラグインの存在\n{\n	if _argc == 0 {\n		0\n		return\n	}\n	\n	if ASEARCH(_argv[0],installedplugin_id) >= 0 {\n		1\n		return\n	}\n	if ASEARCH(_argv[0],installedplugin_name) >= 0 {\n		1\n		return\n	}\n	0\n}\n\n/*----------------------------------------------------------------------------------\n	通知\n----------------------------------------------------------------------------------*/\n情報_ゴースト名 {\n	さくらスクリプト無効化(SHIORI3FW.GhostName)\n}\n情報_キャラ名 {\n	_inf = (さくらスクリプト無効化(sakuraname),さくらスクリプト無効化(keroname))\n	_inf\n}\n情報_シェル名 {\n	さくらスクリプト無効化(SHIORI3FW.ShellName)\n}\n情報_バルーン名 {\n	さくらスクリプト無効化(SHIORI3FW.BalloonName)\n}\n情報_ユーザー名 {\n	さくらスクリプト無効化(SHIORI3FW.UserName)\n}\n情報_ユーザー誕生日 {\n	SHIORI3FW.UserBirthday\n}\n\nAYL_OnNotifyUserInfo : void\n{\n	if username == '' {\n		if 情報_ユーザー名 == '' {\n			username = 名前入力初期\n		}\n		else {\n			username = 情報_ユーザー名\n		}\n	}\n\n	if ISFUNC('SHIORI3EV.OnNotifyUserInfo') {\n		void EVAL('SHIORI3EV.OnNotifyUserInfo')\n	}\n	if ISFUNC('OnNotifyUserInfo') {\n		void EVAL('OnNotifyUserInfo')\n	}\n	\n	AYL_DateInit()\n}\n\nAYL_OnDisplayChange : void\n{\n	//---- 変数にディスプレイ解像度と色深度に関する情報を取得\n	//---- 使うかどうかは分からないがとりあえず保持しておく\n	情報_モニタ色数 = reference[0]\n	情報_モニタ幅   = reference[1]\n	情報_モニタ高さ = reference[2]\n	\n	if ISFUNC('SHIORI3EV.OnDisplayChange') {\n		void EVAL('SHIORI3EV.OnDisplayChange')\n	}\n	if ISFUNC('OnDisplayChange') {\n		void EVAL('OnDisplayChange')\n	}\n}\n\n/*----------------------------------------------------------------------------------\n	リンクメニュー\n----------------------------------------------------------------------------------*/\n\nあやりりす_LinkMenuConvert\n{\n	_argc_copy = _argc\n	_argv_copy = _argv\n	\n	if _argc_copy == 1 { //改行つきテキスト\n		_argv_copy = SPLIT(_argv_copy[0],CHR(0xd,0xa))\n		if GETTYPE(_argv_copy) != 4 { //本当にひとつだけだった！\n			_argv_copy = _argv\n		}\n		else {\n			_argc_copy = ARRAYSIZE(_argv_copy)\n		}\n	}\n	\n	_text = ''\n	_data = IARRAY\n	for _i = 0 ; _i < _argc_copy ; _i++ {\n	   _data = (RE_SPLIT(_argv_copy[_i],'[ \\t]*\\|[ \\t]*'),'','') //ダミー\n	   _text += \"%(_data[0])%(CHR(1))%(_data[1])%(CHR(1))%(_data[2])%(CHR(1))%(CHR(2))\"\n	}\n	_text;\n}\n\n//---- 本体側ポータルサイトのリスト -----------------------------------------------------\nAYL_On_sakura.portalsites\n{\n	あやりりす_LinkMenuConvert(ポータルサイト())\n}\n\n//---- 本体側おすすめサイトのリスト -----------------------------------------------------\nAYL_On_sakura.recommendsites\n{\n	あやりりす_LinkMenuConvert(おすすめ0())\n}\n\n//---- kero側おすすめサイトのリスト -----------------------------------------------------\nAYL_On_kero.recommendsites\n{\n	あやりりす_LinkMenuConvert(おすすめ1())\n}\n\nAYL_OnRecommendsiteChoice\n{\n	_sitename = TranslateSystemChar(reference[0])\n	\n	if reference[3] == 'recommend' {\n		if TOINT(reference[4]) > 0 {\n			_fname = 'おすすめ' + TOINT(reference[4]) + _sitename\n			if ISFUNC(_fname) {\n				EVAL(_fname)\n				return\n			}\n		}\n		else {\n			_fname = 'おすすめ0' + _sitename\n			if ISFUNC(_fname) {\n				EVAL(_fname)\n				return\n			}\n		}\n	}\n	elseif reference[3] == 'portal' {\n		_fname = 'ポータルサイト' + _sitename\n		if ISFUNC(_fname) {\n			EVAL(_fname)\n			return\n		}\n	}\n	else {\n		_fname = 'おすすめ0' + _sitename\n		if ISFUNC(_fname) {\n			EVAL(_fname)\n			return\n		}\n		_fname = 'おすすめ1' + _sitename\n		if ISFUNC(_fname) {\n			EVAL(_fname)\n			return\n		}\n		_fname = 'ポータルサイト' + _sitename\n		if ISFUNC(_fname) {\n			EVAL(_fname)\n			return\n		}\n	}\n}\n\n//**** ツールチップ *****************************************************************\nAYL_On_tooltip\n{\n	_f = 'シェルツールチップ' + TOSTR(reference[3]) + reference[4]\n	if ISFUNC(_f) {\n		EVAL(_f)\n	}\n	\n	if ISFUNC('On_tooltip') {\n		EVAL('On_tooltip')\n	}\n}\n\nAYL_On_balloon_tooltip\n{\n	reference[0] = RE_REPLACE(reference[0],'[ 　]+$','')\n	_f = 'バルーンツールチップ' + reference[1]\n	if ISFUNC(_f) {\n		_v = EVAL(_f)\n		if STRLEN(_v) {\n			_v\n			return\n		}\n	}\n	\n	if RE_SEARCH(reference[1],'^(http|https)://') {\n		'[ブラウザでURLを開く]\\n' + reference[1]\n		return\n	}\n	\n	if ISFUNC('On_balloon_tooltip') {\n		EVAL('On_balloon_tooltip')\n	}\n}\n\n/*----------------------------------------------------------------------------------\n	連続起動時間\n----------------------------------------------------------------------------------*/\nゴースト起動時間\n{\n	ghostupmin_total()\n}\n\n\n//***************************************************************************************************\n/*----------------------------------------------------------------------------------\n	名前入力補助\n----------------------------------------------------------------------------------*/\n\n/*----------------------------------------------------------------------------------\n	名前入力起動('識別子')　で入力ボックス開く\n	\n	要実装関数名\n	＊は識別子\n	\n	名前入力敬称　：敬称をテキストで返して下さい\n	名前入力開く＊：インプットボックスを開く時のスクリプト\n	名前入力空欄＊：空欄でエンターされた\n	名前入力敬称＊：敬称つけて入力された\n	名前入力終了＊：正常終了\n----------------------------------------------------------------------------------*/\n\n名前入力起動\n{\n	名前入力識別 = _argv[0]\n	名前入力空欄カウント = 0\n	\n	_script = EVAL(\"名前入力開く%(名前入力識別)\")\n	if TOINT(AYALilithEX) != 0 {\n		void EVAL('_script = ProcessSpecialSyntax(_script)')\n	}\n	_script += \"\\![open,inputbox,OnInputNameInXTNDAYL,0,%(エスケープ(敬称削除(username)))]\"\n	\n	_script\n}\n\n敬称削除\n{\n	if _argv[0] == '' {\n		''\n	}\n	else {\n		RE_REPLACE(_argv[0],'(さん|くん|ちゃん|たん|様|さま|殿)$','')\n	}\n}\n敬称探索\n{\n	if _argv[0] == '' {\n		0\n	}\n	else {\n		RE_GREP(_argv[0],'(さん|くん|ちゃん|たん|様|さま|殿)$')\n	}\n}\n名前入力敬称WRAP\n{\n	if ISFUNC('名前入力敬称') {\n		名前入力敬称\n	}\n	else {\n		'さん'\n	}\n}\n名前入力初期WRAP\n{\n	if ISFUNC('名前入力初期') {\n		名前入力初期\n	}\n	elseif SHIORI3FW.UserName != '' {\n		SHIORI3FW.UserName\n	}\n	else {\n		'ユーザ'\n	}\n}\n名前入力初期名称判定\n{\n	if username == 名前入力初期WRAP() {\n		1\n	}\n	else {\n		0\n	}\n}\n\nOnInputNameInXTNDAYL\n{\n	if 敬称削除(reference[0]) == '' {\n		_open_input = 1\n		_script = ''\n		\n		名前入力空欄カウント += 1\n		if 名前入力空欄カウント <= 1 {\n			_script = EVAL(\"名前入力空欄%(名前入力識別)\")\n		}\n		else {\n			_script = EVAL(\"名前入力空欄繰り返し%(名前入力識別)\")\n			if _script == '' {\n				_script = EVAL(\"名前入力空欄%(名前入力識別)\")\n			}\n			else {\n				_open_input = 0\n			}\n		}\n		if TOINT(AYALilithEX) != 0 {\n			void EVAL('_script = ProcessSpecialSyntax(_script)')\n		}\n		\n		if _open_input {\n			_script += \"\\![open,inputbox,OnInputNameInXTNDAYL,0,%(エスケープ(敬称削除(username)))]\"\n		}\n		else {\n			username = 名前入力初期WRAP()\n		}\n		\n		_script\n		return\n	}\n	\n	_kflag = 0\n	if ( 敬称探索(reference[0]) ) {\n		if ( 敬称削除(reference[0]) + 名前入力敬称WRAP() ) == reference[0] {\n			reference[0] = 敬称削除(reference[0])\n		}\n		else {\n			_kflag = 1\n		}\n	}\n	\n	username_saved = さくらスクリプト無効化(reference[0])\n	username_new = 敬称削除(username_saved) + 名前入力敬称WRAP()\n	\n	if username_saved == 名前入力初期WRAP() {\n		OnInputNameSpecialXTNDAYL\n		return\n	}\n	\n	if _kflag {\n		_script = EVAL(\"名前入力敬称%(名前入力識別)\")\n		if TOINT(AYALilithEX) != 0 {\n			void EVAL('_script = ProcessSpecialSyntax(_script)')\n		}\n		_script += '\\0\\n\\n[half]'\n		_script += メニュー(\"%(username_saved) と呼んでほしい\",'OnInputNameSpecialXTNDAYL')\n		_script += '\\n'\n		_script += メニュー(\"%(username_new) と呼んでほしい\",'OnInputNameEndXTNDAYL')\n		\n		_script\n		return\n	}\n	\n	OnInputNameEndXTNDAYL\n}\n\nInputNameSharedXTNDAYL\n{\n	_script = EVAL(\"名前入力終了%(名前入力識別)\")\n	if TOINT(AYALilithEX) != 0 {\n		void EVAL('_script = ProcessSpecialSyntax(_script)')\n	}\n	_script\n	\n	ERASEVAR('username_saved','username_new')\n	ERASEVAR('名前入力識別','名前入力空欄カウント')\n}\n\nOnInputNameSpecialXTNDAYL\n{\n	username = username_saved\n	InputNameSharedXTNDAYL()\n}\n\nOnInputNameEndXTNDAYL\n{\n	username = username_new	\n	InputNameSharedXTNDAYL()\n}\n\n//*****************************************************\n// 着せ替え基本データ取得\n//*****************************************************\n\nAYL_OnNotifyDressupInfo : void\n{\n	着せ替え有効パーツリスト = IARRAY\n	着せ替え有効パーツリストEX = IARRAY\n	着せ替え有効カテゴリリスト = IARRAY\n	着せ替え有効カテゴリリストEX = IARRAY\n\n	着せ替え情報 = reference\n	\n	_c1 = CHR(1)\n	_n = ARRAYSIZE(reference.raw)\n	\n	//キャラクターID [1] カテゴリー名 [1] パーツ名 [1] オプション [1] 有効1/無効0 [1] サムネイルパス\n	for _i = 0 ; _i < _n ; _i++ {\n		_v = SPLIT(reference.raw[_i],_c1)\n		\n		if TOINT(_v[4]) != 0 {\n			_p2 = TranslateSystemChar(_v[2])\n			_p = '着せ替えパーツ' + _p2\n			_c2 = TranslateSystemChar(_v[1])\n			_c = '着せ替えカテゴリ' + _c2\n			\n			if ASEARCH(_p,着せ替え有効パーツリストEX) < 0 {\n				着せ替え有効パーツリスト ,= _p2\n				着せ替え有効パーツリストEX ,= _p\n			}\n			if ASEARCH(_c,着せ替え有効カテゴリリストEX) < 0 {\n				着せ替え有効カテゴリリスト ,= _c2\n				着せ替え有効カテゴリリストEX ,= _c\n			}\n		}\n	}\n	\n	if ISFUNC('OnNotifyDressupInfo') {\n		void EVAL('OnNotifyDressupInfo')\n	}\n}\n\n//*****************************************************\n// コミュ\n//*****************************************************\n\n//------------------------------------------------------------------------------\n// こっちから話しかける\n//------------------------------------------------------------------------------\n他に話しかける\n{\n	//まず話しかける相手を決める\n	_ghostname = AYF_GetRandomSakuraName()\n	\n	if STRLEN(_ghostname) == 0 {\n		if ISFUNC('話しかけられない') {\n			EVAL('話しかけられない')\n		}\n		return\n	}\n	\n	res_reference0 = _ghostname\n	\n	//関数呼び出し\n	_fname = '＊' + TranslateSystemChar(_ghostname) + 'に話しかける'\n	if ISFUNC(_fname) {\n		EVAL(_fname)\n		return\n	}\n	\n	_fname = TranslateSystemChar(_ghostname) + 'に話しかける'\n	if ISFUNC(_fname) {\n		EVAL(_fname)\n		return\n	}\n	\n	_fname = 'その他に話しかける'\n	if ISFUNC(_fname) {\n		EVAL(_fname)\n		return\n	}\n	\n	RandomTalk\n}\n\n//話しかける相手をランダムに決定\nAYF_GetRandomSakuraName\n{\n	_ghostlist=IARRAY\n	//FMOが使える場合はFMOから読みます\n	if ISFUNC('SHIORI3FW.RefreshFMOTable') {\n		SHIORI3FW.RefreshFMOTable\n		_ghostlist=SHIORI3FW.SakuraNameList\n	}else{\n		_ghostlist=ghostexlist\n	}\n	if ARRAYSIZE(_ghostlist)>0 {\n		ANY(_ghostlist)\n	}else{\n		''\n	}\n}\n\n//起動中ゴーストリスト取得\nAYL_On_otherghostname\n{\n	// 現在起動中のゴーストのリストを作成する\n	ghostexlist = reference\n}\n\n//------------------------------------------------------------------------------\n//OnCommunicateイベント\n//------------------------------------------------------------------------------\nAYL_OnCommunicate\n{\n	if ARRAYSIZE(reference) >= 4 {\n		if STRLEN(reference[3]) {\n			if reference[2] == 'ECHO/1.0' { //台本コミュニケート(受信)\n				res_securitylevel = 'External'\n				res_reference[0] = reference[0]\n				\n				if STRLEN(marker) == 0 {\n					marker = \"Communicate from %(reference[0])\"\n				}\n				\n				reference[3]\n				return\n			}\n			elseif reference[2] == 'JPRadish' { //大根コミュニケート(受信)\n				'＊' + TranslateSystemChar(reference[0]) + '大根コミュニケート(reference[3,100])'\n				return\n			}\n		}\n	}\n	\n	_fname = 'OnCommunicateAYALILITH' + TOSTR(モード)\n	if ISFUNC(_fname) {\n		EVAL(_fname)\n		return\n	}\n	\n	if (reference[0] == \"user\") || (reference[0] == \"User\") {\n		AYF_ComParseFunc('ユーザー')\n	}\n	else {\n		_r = AYF_ComParseFunc(reference[0])\n		if STRLEN(_r) == 0 {\n			_r = AYF_ComParseFunc('その他')\n		}\n		if STRLEN(_r) > 0 {\n			_r\n		}\n	}\n}\n\nAYF_ComParseFunc\n{\n	_fname = TranslateSystemChar(_argv[0])\n	_fname += 'コミュ'\n	\n	_func_array = IARRAY\n	_func_array ,= GETFUNCLIST(_fname)\n	_func_array ,= GETFUNCLIST('＊' + _fname)\n	\n	_func_result = IARRAY\n	_ev_max = 0\n	\n	foreach _func_array ; _func {\n		if '該当なし' !_in_ _func {\n			_ev = AYF_ComSyntaxToAyaSyntaxEval(_func,_fname,reference[1])\n			if (GETTYPE(_ev) == 1) && (_ev > 0) {\n				if _ev_max < _ev {\n					_func_result = IARRAY\n					_ev_max = _ev\n				}\n				_func_result ,= _func\n			}\n		}\n	}\n	\n	if ARRAYSIZE(_func_result) > 0 {\n		EVAL(ANY(_func_result))\n	}\n	else {\n		_fname = _sname + 'コミュ該当なし'\n		if ISFUNC(_fname) {\n			EVAL(_fname)\n		}\n	}\n}\n\nAYF_ComSyntaxToAyaSyntaxEval\n{\n	_str = _argv[0]\n	\n	//ヘッダを消す\n	_str = REPLACE(_str,_argv[1],'')\n	_str = REPLACE(_str,'＊' + _argv[1],'')\n	\n	_result_and = 0\n	_arr_and = SPLIT(_str,'＆')\n	\n	foreach _arr_and ; _and {\n		_arr_or = SPLIT(_and,'｜')\n		\n		_result_or = 0\n		foreach _arr_or ; _or {\n			if _or _in_ _argv[2] {\n				_result_or = 1\n				break\n			}\n		}\n		\n		if _result_or == 0 {\n			_result_and = 0\n			break\n		}\n		else {\n			_result_and += 1\n		}\n	}\n	\n	_result_and\n}\n\n",
+			"file": "/Users/cksgrapes/Dropbox/ssp/ghost/mobilemaster/ghost/master/aya_lilith.dic",
+			"file_size": 50275,
+			"file_write_time": 131165721200000000,
+			"settings":
+			{
+				"buffer_size": 43914,
+				"line_ending": "Windows",
+				"scratch": true
+			}
+		}
+	],
+	"build_system": "",
+	"build_system_choices":
+	[
+	],
+	"build_varint": "",
+	"command_palette":
+	{
+		"height": 354.0,
+		"last_filter": "",
+		"selected_items":
+		[
+			[
+				"add",
+				"Project Manager: Add Project"
+			],
+			[
+				"pro",
+				"Project Manager: Import .sublime-project File"
+			],
+			[
+				"php",
+				"Set Syntax: PHP"
+			],
+			[
+				"emme",
+				"Emmet: Previous Edit Point"
+			],
+			[
+				"emmet",
+				"Emmet: Balance (inward)"
+			],
+			[
+				"inst",
+				"Package Control: Install Package"
+			],
+			[
+				"remo",
+				"Package Control: Remove Package"
+			],
+			[
+				"package",
+				"Package Control: List Packages"
+			],
+			[
+				"list",
+				"Package Control: List Packages"
+			],
+			[
+				"",
+				"Material Theme: Activate theme"
+			],
+			[
+				"insta",
+				"Package Control: Install Package"
+			]
+		],
+		"width": 575.0
+	},
+	"console":
+	{
+		"height": 126.0,
+		"history":
+		[
+			"import urllib.request,os,hashlib; h = '2915d1851351e5ee549c20394736b442' + '8bc59f460fa1548d1514676163dafc88'; pf = 'Package Control.sublime-package'; ipp = sublime.installed_packages_path(); urllib.request.install_opener( urllib.request.build_opener( urllib.request.ProxyHandler()) ); by = urllib.request.urlopen( 'http://packagecontrol.io/' + pf.replace(' ', '%20')).read(); dh = hashlib.sha256(by).hexdigest(); print('Error validating download (got %s instead of %s), please try manual install' % (dh, h)) if dh != h else open(os.path.join( ipp, pf), 'wb' ).write(by)"
+		]
+	},
+	"distraction_free":
+	{
+		"menu_visible": true,
+		"show_minimap": false,
+		"show_open_files": false,
+		"show_tabs": false,
+		"side_bar_visible": false,
+		"status_bar_visible": false
+	},
+	"expanded_folders":
+	[
+		"/Users/cksgrapes/Dropbox/ssp/ghost/mitaraiyuzu2",
+		"/Users/cksgrapes/Dropbox/ssp/ghost/mitaraiyuzu2/ghost",
+		"/Users/cksgrapes/Dropbox/ssp/ghost/mitaraiyuzu2/ghost/master",
+		"/Users/cksgrapes/Dropbox/ssp/ghost/mobilemaster",
+		"/Users/cksgrapes/Dropbox/ssp/ghost/mobilemaster/ghost",
+		"/Users/cksgrapes/Dropbox/ssp/ghost/mobilemaster/ghost/master"
+	],
+	"file_history":
+	[
+		"/Users/cksgrapes/Dropbox/ssp/ghost/mobilemaster/ghost/master/aya_aitalk.dic",
+		"/Users/cksgrapes/Dropbox/ssp/ghost/mitaraiyuzu2/ghost/master/dic_resource.txt",
+		"/Users/cksgrapes/Dropbox/ssp/ghost/mitaraiyuzu2/ghost/master/dic_time.txt",
+		"/Users/cksgrapes/Dropbox/ssp/ghost/mitaraiyuzu2/ghost/master/dic_comm.txt",
+		"/Users/cksgrapes/Dropbox/ssp/ghost/mobilemaster/ghost/master/aya_lilith.dic",
+		"/Users/cksgrapes/Dropbox/ssp/ghost/mobilemaster/ghost/master/aya_tips.dic",
+		"/Users/cksgrapes/Dropbox/ssp/ghost/mitaraiyuzu2/ghost/master/dic_talk.txt",
+		"/Users/cksgrapes/Dropbox/ssp/ghost/mitaraiyuzu2/ghost/master/descript.txt",
+		"/Users/cksgrapes/Library/Application Support/Sublime Text 3/Packages/User/Preferences.sublime-settings",
+		"/Users/cksgrapes/Dropbox/ssp/ghost/mitaraiyuzu2/ghost/master/dic_core.txt",
+		"/Users/cksgrapes/Dropbox/ssp/ghost/mitaraiyuzu2/ghost/master/dic_utility.txt",
+		"/Users/cksgrapes/Dropbox/ssp/ghost/mitaraiyuzu2/ghost/master/system/yaya_shiori3.dic",
+		"/Users/cksgrapes/Dropbox/ssp/ghost/mobilemaster/ghost/master/aya_lilith_ex.dic",
+		"/Users/cksgrapes/Dropbox/ssp/ghost/mitaraiyuzu2/ghost/master/yaya.txt",
+		"/Users/cksgrapes/Dropbox/ssp/ghost/mitaraiyuzu2/ghost/master/system/yaya_optional.dic",
+		"/Users/cksgrapes/Dropbox/ssp/ghost/mobilemaster/ghost/master/system/yaya_optional.dic",
+		"/Users/cksgrapes/Dropbox/ssp/ghost/mobilemaster/ghost/master/yaya_anchor.txt",
+		"/Users/cksgrapes/Dropbox/ssp/ghost/mobilemaster/ghost/master/yaya.txt",
+		"/Users/cksgrapes/Dropbox/ssp/ghost/mitaraiyuzu2/ghost/master/mitaraiyuzu.ico",
+		"/Users/cksgrapes/Dropbox/ssp/ghost/mitaraiyuzu2/ghost/master/dic_core.dic",
+		"/Users/cksgrapes/Dropbox/ssp/ghost/mobilemaster/ghost/master/aya_etc.dic",
+		"/Users/cksgrapes/Dropbox/ssp/ghost/mobilemaster/ghost/master/aya_word.dic",
+		"/Users/cksgrapes/Dropbox/ssp/ghost/mobilemaster/ghost/master/aya_string.dic",
+		"/Users/cksgrapes/Dropbox/ssp/ghost/mobilemaster/ghost/master/aya_property.dic",
+		"/Users/cksgrapes/Dropbox/ssp/ghost/mobilemaster/ghost/master/aya_menu.dic",
+		"/Users/cksgrapes/Dropbox/ssp/ghost/mobilemaster/ghost/master/aya_googlecalc.dic",
+		"/Users/cksgrapes/Dropbox/ssp/ghost/mobilemaster/ghost/master/aya_gainer.dic",
+		"/Users/cksgrapes/Dropbox/ssp/ghost/mobilemaster/ghost/master/aya_app.dic",
+		"/Users/cksgrapes/Dropbox/ssp/ghost/mobilemaster/ghost/master/aya_change.dic",
+		"/Users/cksgrapes/Dropbox/ssp/ghost/mitaraiyuzu2/ghost/master/dic_menu.dic",
+		"/Users/cksgrapes/Downloads/mobilemaster.zip フォルダ/ghost/master/yaya.txt",
+		"/Users/cksgrapes/Downloads/mobilemaster.zip フォルダ/ghost/master/aya_etc.dic",
+		"/Users/cksgrapes/Downloads/mobilemaster.zip フォルダ/ghost/master/aya_change.dic",
+		"/Users/cksgrapes/Downloads/mobilemaster.zip フォルダ/ghost/master/aya_word.dic",
+		"/Users/cksgrapes/Downloads/mobilemaster.zip フォルダ/ghost/master/yaya_anchor.txt",
+		"/Users/cksgrapes/Downloads/mobilemaster.zip フォルダ/ghost/master/aya_aitalk.dic",
+		"/Users/cksgrapes/Downloads/mobilemaster.zip フォルダ/ghost/master/system/yaya_compatible.dic",
+		"/Users/cksgrapes/Downloads/mobilemaster.zip フォルダ/ghost/master/system/yaya_shiori3.dic",
+		"/Users/cksgrapes/Dropbox/ssp/ghost/mitaraiyuzu2/ghost/master/system/yaya_config.txt",
+		"/Users/cksgrapes/Downloads/mobilemaster.zip フォルダ/ghost/master/yaya_config.txt",
+		"/Users/cksgrapes/Downloads/mobilemaster.zip フォルダ/ghost/master/system/yaya_optional.dic",
+		"/Users/cksgrapes/Library/Application Support/Sublime Text 3/Packages/User/Default (OSX).sublime-keymap",
+		"/Users/cksgrapes/Documents/Business/TAM/htdocs/onward/jpresskids/static/js/common.js",
+		"/Users/cksgrapes/Downloads/perfect-scrollbar/css/perfect-scrollbar.css",
+		"/Users/cksgrapes/Documents/Business/TAM/htdocs/onward/jpresskids/static/js/lib/perfect-scrollbar.min.js",
+		"/Users/cksgrapes/Downloads/perfect-scrollbar/js/perfect-scrollbar.jquery.js",
+		"/Users/cksgrapes/Documents/Business/TAM/htdocs/onward/jpresskids/static/js/lib/jquery.mousewheel.min.js",
+		"/Users/cksgrapes/Documents/Business/TAM/htdocs/onward/jpresskids/static/collection/2016autumn-winter-02/01.html",
+		"/Users/cksgrapes/Documents/Business/TAM/htdocs/onward/jpresskids/static/collection/2016autumn-winter/01.html",
+		"/Users/cksgrapes/Documents/Business/TAM/htdocs/onward/jpresskids/static/collection/2016autumn-winter/02.html",
+		"/Users/cksgrapes/Documents/Business/TAM/htdocs/onward/jpresskids/static/collection/2016autumn-winter/03.html",
+		"/Users/cksgrapes/Documents/Business/TAM/htdocs/onward/jpresskids/static/collection/2016autumn-winter-02/02.html",
+		"/Users/cksgrapes/Documents/Business/TAM/htdocs/onward/jpresskids/static/css/styles.css",
+		"/Users/cksgrapes/Documents/Business/TAM/Docs/オンワード樫山/J.PRESS Kids/外注コーディング/vo1下層追加_jpresskids_update0913/collection/2016autumn-winter/02.html",
+		"/Users/cksgrapes/Library/Application Support/Sublime Text 3/Packages/Default/Default (OSX).sublime-keymap",
+		"/Users/cksgrapes/Documents/Business/TAM/Docs/オンワード樫山/J.PRESS Kids/外注コーディング/vo1下層追加_jpresskids_update0913/collection/2016autumn-winter/01.html",
+		"/Users/cksgrapes/Documents/Business/TAM/Docs/オンワード樫山/J.PRESS Kids/外注コーディング/vo1下層追加_jpresskids_update0913/css/styles.css",
+		"/Users/cksgrapes/Library/Application Support/Sublime Text 3/Packages/Package Control/Package Control.sublime-settings",
+		"/Users/cksgrapes/Documents/Business/TAM/htdocs/sprix/foresta/dev/index.html",
+		"/Users/cksgrapes/Dropbox/Sublime/User/Preferences (しみず の Mac mini の競合コピー 2016-08-18).sublime-settings",
+		"/Users/cksgrapes/Dropbox/Sublime/User/Preferences (しみず の Mac mini の競合コピー 2016-08-22).sublime-settings"
+	],
+	"find":
+	{
+		"height": 70.0
+	},
+	"find_in_files":
+	{
+		"height": 158.0,
+		"where_history":
+		[
+			"/Users/cksgrapes/Dropbox/ssp/ghost/mitaraiyuzu2",
+			"/Users/cksgrapes/Dropbox/ssp/ghost/mobilemaster/ghost/master",
+			"/Users/cksgrapes/Dropbox/ssp/ghost/mitaraiyuzu2/ghost/master",
+			"/Users/cksgrapes/Dropbox/ssp/ghost/mobilemaster/ghost/master"
+		]
+	},
+	"find_state":
+	{
+		"case_sensitive": false,
+		"find_history":
+		[
+			"GetEvalTalkArray",
+			"OnGhostEventTranslate",
+			"OnGhostEventTranslate.AYL",
+			"UNIQUE",
+			"RandomTalkArrayNewTalk",
+			"OnGhostEventTranslate",
+			"talkeval",
+			"ランダムトークカスタム",
+			"GetEvalTalkArray",
+			"ClearRandomTalkArrayNewTalk",
+			"キーワードランダムトーク",
+			"RandomTalk",
+			"RandomTalkEx",
+			"DelayedTalkEval",
+			"(",
+			";",
+			"DelayedTalkEval",
+			"GetEvalTalkArray",
+			"RandomTalkArrayNewTalk",
+			"randomtalkex",
+			"randomtalk",
+			"onaitalk",
+			"GetEvalTalkArray",
+			"RandomTalkEx",
+			"gettimeslot",
+			"gettime",
+			"時間",
+			"OnChoiceSelect",
+			".dic",
+			"anchor",
+			"アンカー",
+			"アンカ",
+			"txt",
+			"perfectScrollbar",
+			"$",
+			"nav",
+			"detail-(..)-text",
+			"/2016autumn-winter/01/"
+		],
+		"highlight": true,
+		"in_selection": false,
+		"preserve_case": false,
+		"regex": true,
+		"replace_history":
+		[
+			"text-$1"
+		],
+		"reverse": false,
+		"show_context": true,
+		"use_buffer2": true,
+		"whole_word": false,
+		"wrap": true
+	},
+	"groups":
+	[
+		{
+			"selected": 0,
+			"sheets":
+			[
+				{
+					"buffer": 0,
+					"file": "/Users/cksgrapes/Dropbox/ssp/ghost/mitaraiyuzu2/ghost/master/dic_core.txt",
+					"semi_transient": false,
+					"settings":
+					{
+						"buffer_size": 9300,
+						"regions":
+						{
+						},
+						"selection":
+						[
+							[
+								989,
+								989
+							]
+						],
+						"settings":
+						{
+							"bracket_highlighter.busy": false,
+							"bracket_highlighter.locations":
+							{
+								"close":
+								{
+								},
+								"icon":
+								{
+								},
+								"open":
+								{
+								},
+								"unmatched":
+								{
+								}
+							},
+							"bracket_highlighter.regions":
+							[
+								"bh_tag",
+								"bh_tag_center",
+								"bh_tag_open",
+								"bh_tag_close",
+								"bh_tag_content",
+								"bh_double_quote",
+								"bh_double_quote_center",
+								"bh_double_quote_open",
+								"bh_double_quote_close",
+								"bh_double_quote_content",
+								"bh_default",
+								"bh_default_center",
+								"bh_default_open",
+								"bh_default_close",
+								"bh_default_content",
+								"bh_angle",
+								"bh_angle_center",
+								"bh_angle_open",
+								"bh_angle_close",
+								"bh_angle_content",
+								"bh_curly",
+								"bh_curly_center",
+								"bh_curly_open",
+								"bh_curly_close",
+								"bh_curly_content",
+								"bh_c_define",
+								"bh_c_define_center",
+								"bh_c_define_open",
+								"bh_c_define_close",
+								"bh_c_define_content",
+								"bh_square",
+								"bh_square_center",
+								"bh_square_open",
+								"bh_square_close",
+								"bh_square_content",
+								"bh_regex",
+								"bh_regex_center",
+								"bh_regex_open",
+								"bh_regex_close",
+								"bh_regex_content",
+								"bh_single_quote",
+								"bh_single_quote_center",
+								"bh_single_quote_open",
+								"bh_single_quote_close",
+								"bh_single_quote_content",
+								"bh_unmatched",
+								"bh_unmatched_center",
+								"bh_unmatched_open",
+								"bh_unmatched_close",
+								"bh_unmatched_content",
+								"bh_round",
+								"bh_round_center",
+								"bh_round_open",
+								"bh_round_close",
+								"bh_round_content"
+							],
+							"color_scheme": "Packages/User/Color Highlighter/themes/Material-Theme-Darker.tmTheme",
+							"in_converting": true,
+							"is_init_dirty_state": false,
+							"is_xml": false,
+							"origin_encoding": "SHIFT_JIS",
+							"syntax": "Packages/Text/Plain text.tmLanguage",
+							"translate_tabs_to_spaces": false
+						},
+						"translation.x": 0.0,
+						"translation.y": 581.0,
+						"zoom_level": 1.0
+					},
+					"stack_index": 0,
+					"type": "text"
+				},
+				{
+					"buffer": 1,
+					"file": "/Users/cksgrapes/Dropbox/ssp/ghost/mitaraiyuzu2/ghost/master/dic_utility.txt",
+					"semi_transient": false,
+					"settings":
+					{
+						"buffer_size": 9538,
+						"regions":
+						{
+						},
+						"selection":
+						[
+							[
+								0,
+								0
+							]
+						],
+						"settings":
+						{
+							"bracket_highlighter.busy": false,
+							"color_scheme": "Packages/User/Color Highlighter/themes/Material-Theme-Darker.tmTheme",
+							"in_converting": true,
+							"is_init_dirty_state": false,
+							"is_xml": false,
+							"origin_encoding": "SHIFT_JIS",
+							"syntax": "Packages/Text/Plain text.tmLanguage",
+							"translate_tabs_to_spaces": false
+						},
+						"translation.x": 0.0,
+						"translation.y": 0.0,
+						"zoom_level": 1.0
+					},
+					"stack_index": 2,
+					"type": "text"
+				},
+				{
+					"buffer": 2,
+					"file": "/Users/cksgrapes/Dropbox/ssp/ghost/mitaraiyuzu2/ghost/master/dic_talk.txt",
+					"semi_transient": false,
+					"settings":
+					{
+						"buffer_size": 3271,
+						"regions":
+						{
+						},
+						"selection":
+						[
+							[
+								311,
+								311
+							]
+						],
+						"settings":
+						{
+							"bracket_highlighter.busy": false,
+							"bracket_highlighter.locations":
+							{
+								"close":
+								{
+								},
+								"icon":
+								{
+								},
+								"open":
+								{
+								},
+								"unmatched":
+								{
+								}
+							},
+							"bracket_highlighter.regions":
+							[
+								"bh_tag",
+								"bh_tag_center",
+								"bh_tag_open",
+								"bh_tag_close",
+								"bh_tag_content",
+								"bh_double_quote",
+								"bh_double_quote_center",
+								"bh_double_quote_open",
+								"bh_double_quote_close",
+								"bh_double_quote_content",
+								"bh_default",
+								"bh_default_center",
+								"bh_default_open",
+								"bh_default_close",
+								"bh_default_content",
+								"bh_angle",
+								"bh_angle_center",
+								"bh_angle_open",
+								"bh_angle_close",
+								"bh_angle_content",
+								"bh_curly",
+								"bh_curly_center",
+								"bh_curly_open",
+								"bh_curly_close",
+								"bh_curly_content",
+								"bh_c_define",
+								"bh_c_define_center",
+								"bh_c_define_open",
+								"bh_c_define_close",
+								"bh_c_define_content",
+								"bh_square",
+								"bh_square_center",
+								"bh_square_open",
+								"bh_square_close",
+								"bh_square_content",
+								"bh_regex",
+								"bh_regex_center",
+								"bh_regex_open",
+								"bh_regex_close",
+								"bh_regex_content",
+								"bh_single_quote",
+								"bh_single_quote_center",
+								"bh_single_quote_open",
+								"bh_single_quote_close",
+								"bh_single_quote_content",
+								"bh_unmatched",
+								"bh_unmatched_center",
+								"bh_unmatched_open",
+								"bh_unmatched_close",
+								"bh_unmatched_content",
+								"bh_round",
+								"bh_round_center",
+								"bh_round_open",
+								"bh_round_close",
+								"bh_round_content"
+							],
+							"color_scheme": "Packages/User/Color Highlighter/themes/Material-Theme-Darker.tmTheme",
+							"in_converting": true,
+							"is_init_dirty_state": false,
+							"is_xml": false,
+							"origin_encoding": "SHIFT_JIS",
+							"syntax": "Packages/Text/Plain text.tmLanguage",
+							"translate_tabs_to_spaces": false
+						},
+						"translation.x": 0.0,
+						"translation.y": 37.0,
+						"zoom_level": 1.0
+					},
+					"stack_index": 1,
+					"type": "text"
+				}
+			]
+		},
+		{
+			"selected": 0,
+			"sheets":
+			[
+				{
+					"buffer": 3,
+					"file": "/Users/cksgrapes/Dropbox/ssp/ghost/mobilemaster/ghost/master/aya_lilith.dic",
+					"semi_transient": false,
+					"settings":
+					{
+						"buffer_size": 43914,
+						"regions":
+						{
+						},
+						"selection":
+						[
+							[
+								9995,
+								9995
+							]
+						],
+						"settings":
+						{
+							"bracket_highlighter.busy": false,
+							"bracket_highlighter.locations":
+							{
+								"close":
+								{
+								},
+								"icon":
+								{
+								},
+								"open":
+								{
+								},
+								"unmatched":
+								{
+								}
+							},
+							"bracket_highlighter.regions":
+							[
+								"bh_tag",
+								"bh_tag_center",
+								"bh_tag_open",
+								"bh_tag_close",
+								"bh_tag_content",
+								"bh_double_quote",
+								"bh_double_quote_center",
+								"bh_double_quote_open",
+								"bh_double_quote_close",
+								"bh_double_quote_content",
+								"bh_default",
+								"bh_default_center",
+								"bh_default_open",
+								"bh_default_close",
+								"bh_default_content",
+								"bh_angle",
+								"bh_angle_center",
+								"bh_angle_open",
+								"bh_angle_close",
+								"bh_angle_content",
+								"bh_curly",
+								"bh_curly_center",
+								"bh_curly_open",
+								"bh_curly_close",
+								"bh_curly_content",
+								"bh_c_define",
+								"bh_c_define_center",
+								"bh_c_define_open",
+								"bh_c_define_close",
+								"bh_c_define_content",
+								"bh_square",
+								"bh_square_center",
+								"bh_square_open",
+								"bh_square_close",
+								"bh_square_content",
+								"bh_regex",
+								"bh_regex_center",
+								"bh_regex_open",
+								"bh_regex_close",
+								"bh_regex_content",
+								"bh_single_quote",
+								"bh_single_quote_center",
+								"bh_single_quote_open",
+								"bh_single_quote_close",
+								"bh_single_quote_content",
+								"bh_unmatched",
+								"bh_unmatched_center",
+								"bh_unmatched_open",
+								"bh_unmatched_close",
+								"bh_unmatched_content",
+								"bh_round",
+								"bh_round_center",
+								"bh_round_open",
+								"bh_round_close",
+								"bh_round_content"
+							],
+							"color_scheme": "Packages/User/Color Highlighter/themes/Material-Theme-Darker.tmTheme",
+							"in_converting": true,
+							"is_init_dirty_state": false,
+							"origin_encoding": "SHIFT_JIS",
+							"syntax": "Packages/Text/Plain text.tmLanguage",
+							"translate_tabs_to_spaces": false
+						},
+						"translation.x": 0.0,
+						"translation.y": 13761.0,
+						"zoom_level": 1.0
+					},
+					"stack_index": 3,
+					"type": "text"
+				}
+			]
+		}
+	],
+	"incremental_find":
+	{
+		"height": 28.0
+	},
+	"input":
+	{
+		"height": 66.0
+	},
+	"layout":
+	{
+		"cells":
+		[
+			[
+				0,
+				0,
+				1,
+				1
+			],
+			[
+				1,
+				0,
+				2,
+				1
+			]
+		],
+		"cols":
+		[
+			0.0,
+			0.5,
+			1.0
+		],
+		"rows":
+		[
+			0.0,
+			1.0
+		]
+	},
+	"menu_visible": true,
+	"output.find_results":
+	{
+		"height": 0.0
+	},
+	"pinned_build_system": "",
+	"project": "MitaraiYuzu.sublime-project",
+	"replace":
+	{
+		"height": 52.0
+	},
+	"save_all_on_build": true,
+	"select_file":
+	{
+		"height": 0.0,
+		"last_filter": "",
+		"selected_items":
+		[
+			[
+				"yayaopt",
+				"mobilemaster/ghost/master/system/yaya_optional.dic"
+			],
+			[
+				"yayaoption",
+				"mitaraiyuzu2/ghost/master/system/yaya_optional.dic"
+			],
+			[
+				"yayao",
+				"mitaraiyuzu2/ghost/master/system/yaya_optional.dic"
+			],
+			[
+				"etc",
+				"mobilemaster.zip フォルダ/ghost/master/aya_etc.dic"
+			],
+			[
+				"change",
+				"mobilemaster.zip フォルダ/ghost/master/aya_change.dic"
+			],
+			[
+				"word",
+				"mobilemaster.zip フォルダ/ghost/master/aya_word.dic"
+			],
+			[
+				"anch",
+				"mobilemaster.zip フォルダ/ghost/master/yaya_anchor.txt"
+			],
+			[
+				"aitak",
+				"mobilemaster.zip フォルダ/ghost/master/aya_aitalk.dic"
+			],
+			[
+				"yaya.txt",
+				"mobilemaster.zip フォルダ/ghost/master/yaya.txt"
+			],
+			[
+				"yayacom",
+				"mobilemaster.zip フォルダ/ghost/master/system/yaya_compatible.dic"
+			],
+			[
+				"yayash",
+				"mobilemaster.zip フォルダ/ghost/master/system/yaya_shiori3.dic"
+			],
+			[
+				"yayaconfig",
+				"mobilemaster.zip フォルダ/ghost/master/yaya_config.txt"
+			],
+			[
+				"yayacon",
+				"mitaraiyuzu2/ghost/master/system/yaya_config.txt"
+			],
+			[
+				"yayaopti",
+				"mitaraiyuzu2/ghost/master/system/yaya_optional.dic"
+			],
+			[
+				"yayashiori",
+				"mitaraiyuzu2/ghost/master/system/yaya_shiori3.dic"
+			],
+			[
+				"staauwin01",
+				"static/collection/2016autumn-winter/01.html"
+			],
+			[
+				"css",
+				"static/css/styles.css"
+			]
+		],
+		"width": 0.0
+	},
+	"select_project":
+	{
+		"height": 500.0,
+		"last_filter": "",
+		"selected_items":
+		[
+			[
+				"",
+				"~/Documents/AppData/Sublime Text/TAM-JPressKids.sublime-project"
+			]
+		],
+		"width": 380.0
+	},
+	"select_symbol":
+	{
+		"height": 0.0,
+		"last_filter": "",
+		"selected_items":
+		[
+		],
+		"width": 0.0
+	},
+	"selected_group": 0,
+	"settings":
+	{
+	},
+	"show_minimap": true,
+	"show_open_files": true,
+	"show_tabs": true,
+	"side_bar_visible": true,
+	"side_bar_width": 276.0,
+	"status_bar_visible": true,
+	"template_settings":
+	{
+	}
+}

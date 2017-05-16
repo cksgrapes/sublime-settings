@@ -1,0 +1,882 @@
+{
+	"auto_complete":
+	{
+		"selected_items":
+		[
+			[
+				"acti",
+				"activeCls"
+			],
+			[
+				"tabCo",
+				"tabContents_block\t(_components.scss)"
+			],
+			[
+				"top",
+				"topPos"
+			],
+			[
+				"button",
+				"button-line\t(_components.scss)"
+			],
+			[
+				"guestM",
+				"guestMapData"
+			],
+			[
+				"site",
+				"siteHeading03\t(_components.scss)"
+			],
+			[
+				"siteHeading02-",
+				"siteHeading02-simple\t(index.ejs)"
+			],
+			[
+				"panel",
+				"panel-colored\t(index.ejs)"
+			],
+			[
+				"conce",
+				"conceptBanner"
+			],
+			[
+				"toggle",
+				"toggleClass\t.toggleClass()"
+			],
+			[
+				"cusi",
+				"cuisineExample"
+			],
+			[
+				"cuisine",
+				"cuisineExample"
+			],
+			[
+				"cuisi",
+				"cuisineExample"
+			],
+			[
+				"mt",
+				"mtL"
+			],
+			[
+				"siteHeading",
+				"siteHeading02\t(index.ejs)"
+			],
+			[
+				"pane",
+				"panel-colored"
+			],
+			[
+				"ex",
+				"exampleUnit"
+			],
+			[
+				"fai",
+				"fairBanner\t(_layout.scss)"
+			],
+			[
+				"faiite",
+				"fairItems"
+			],
+			[
+				"button-",
+				"button-conversion\t(_components.scss)"
+			],
+			[
+				"fair",
+				"fairDetails"
+			],
+			[
+				"siteHe",
+				"siteHeading03\t(index.ejs)"
+			],
+			[
+				"con",
+				"conceptUnit"
+			],
+			[
+				"row",
+				"row-2columns\t(_components.scss)"
+			],
+			[
+				"da",
+				"data-original"
+			],
+			[
+				"data",
+				"data-original\t(index.ejs)"
+			],
+			[
+				"reporpla",
+				"reportPlaceDetailsUnit"
+			],
+			[
+				"report",
+				"reportSection"
+			],
+			[
+				"mari",
+				"margin-top"
+			],
+			[
+				"ban",
+				"banquet"
+			],
+			[
+				"ce",
+				"ceremony"
+			],
+			[
+				"siteH",
+				"siteHeading02"
+			],
+			[
+				"footer",
+				"footerGlobalNavigation"
+			],
+			[
+				"photo",
+				"photoCollage\t(index.ejs)"
+			],
+			[
+				"siteHea",
+				"siteHeading01"
+			],
+			[
+				"siteHeain",
+				"siteHeading02"
+			],
+			[
+				"styleguide",
+				"styleguide_assets"
+			],
+			[
+				"in",
+				"inlineList-icon"
+			],
+			[
+				"add",
+				"addEventListener"
+			],
+			[
+				"colum",
+				"columnSizer\t(index.ejs)"
+			],
+			[
+				"know",
+				"knowhowResume__button"
+			],
+			[
+				"knowhow",
+				"knowhowResume__example"
+			],
+			[
+				"sec",
+				"sectionBlock"
+			],
+			[
+				"text",
+				"textlink"
+			],
+			[
+				"block",
+				"blockquote"
+			],
+			[
+				"icon",
+				"icon-external\t(_header.ejs)"
+			],
+			[
+				"exa",
+				"exam_info\t(style.css)"
+			],
+			[
+				"exam",
+				"exam_img09.jpg\tw:226 h:180"
+			],
+			[
+				"tt",
+				"exam_ttl02.png\tw:377 h:45"
+			],
+			[
+				"search_content",
+				"search_content_item\t(index.html)"
+			],
+			[
+				"卒業",
+				"卒業旅行！国内で人気のエリアはここ！\t(index.html)"
+			],
+			[
+				"bg",
+				"bg_form.gif\tw:770 h:222"
+			],
+			[
+				"leave",
+				"leave_img01.jpg\tw:250 h:160"
+			],
+			[
+				"arrow",
+				"icon_arrow02.png\tw:8 h:12"
+			],
+			[
+				"tit",
+				"ico_title06.png\tw:17 h:23"
+			],
+			[
+				"ico",
+				"ico_title01.png\tw:21 h:21"
+			],
+			[
+				"card_item",
+				"card_item_box"
+			],
+			[
+				"search_list",
+				"search_list_content"
+			],
+			[
+				"subti",
+				"subtitle02"
+			],
+			[
+				"subt",
+				"subtitle02"
+			],
+			[
+				"communi",
+				"community/"
+			],
+			[
+				"list-",
+				"list-inline"
+			],
+			[
+				"com",
+				"community-panel"
+			],
+			[
+				"dum",
+				"dum_img12.jpg\tw:880 h:553"
+			]
+		]
+	},
+	"buffers":
+	[
+	],
+	"build_system": "",
+	"build_system_choices":
+	[
+	],
+	"build_varint": "",
+	"command_palette":
+	{
+		"height": 354.0,
+		"last_filter": "",
+		"selected_items":
+		[
+			[
+				"previ",
+				"Markdown Preview: Preview in Browser"
+			],
+			[
+				"table",
+				"Table Editor: Enable for current syntax"
+			],
+			[
+				"inst",
+				"Package Control: Install Package"
+			],
+			[
+				"add",
+				"Project Manager: Add New Project"
+			],
+			[
+				"theme",
+				"Material Theme: Activate theme"
+			],
+			[
+				"html",
+				"Set Syntax: HTML"
+			],
+			[
+				"material",
+				"Material Theme: Activate theme"
+			],
+			[
+				"disa",
+				"Package Control: Disable Package"
+			],
+			[
+				"ena",
+				"Package Control: Enable Package"
+			],
+			[
+				"remo",
+				"Package Control: Remove Package"
+			],
+			[
+				"ins",
+				"Package Control: Install Package"
+			],
+			[
+				"list",
+				"Package Control: List Packages"
+			],
+			[
+				"linter",
+				"SublimeLinter: Lint This View"
+			],
+			[
+				"linte",
+				"SublimeLinter: Clear Caches"
+			],
+			[
+				"dis",
+				"Package Control: Disable Package"
+			],
+			[
+				"enable",
+				"Package Control: Enable Package"
+			],
+			[
+				"alignment",
+				"Preferences: Alignment Key Bindings – Default"
+			],
+			[
+				"synhtml",
+				"Set Syntax: HTML"
+			],
+			[
+				"syntahtml",
+				"Set Syntax: HTML"
+			],
+			[
+				"mark",
+				"Set Syntax: Markdown"
+			],
+			[
+				"pack",
+				"Preferences: Browse Packages"
+			],
+			[
+				"toggle",
+				"Word Wrap: Toggle"
+			],
+			[
+				"eme",
+				"Emmet: Next Edit Point"
+			],
+			[
+				"scss",
+				"Set Syntax: SCSS"
+			],
+			[
+				"remoe",
+				"Package Control: Remove Package"
+			],
+			[
+				"promare",
+				"Project Manager: Remove Project"
+			],
+			[
+				"proma",
+				"Project Manager: Add Project"
+			],
+			[
+				"pro",
+				"Project Manager"
+			],
+			[
+				"sass",
+				"Set Syntax: Sass"
+			],
+			[
+				"emme",
+				"Emmet: Reload Extensions"
+			],
+			[
+				"",
+				"Material Theme: Activate theme"
+			],
+			[
+				"insta",
+				"Package Control: Install Package"
+			]
+		],
+		"width": 505.0
+	},
+	"console":
+	{
+		"height": 126.0,
+		"history":
+		[
+			"import urllib.request,os,hashlib; h = 'df21e130d211cfc94d9b0905775a7c0f' + '1e3d39e33b79698005270310898eea76'; pf = 'Package Control.sublime-package'; ipp = sublime.installed_packages_path(); urllib.request.install_opener( urllib.request.build_opener( urllib.request.ProxyHandler()) ); by = urllib.request.urlopen( 'http://packagecontrol.io/' + pf.replace(' ', '%20')).read(); dh = hashlib.sha256(by).hexdigest(); print('Error validating download (got %s instead of %s), please try manual install' % (dh, h)) if dh != h else open(os.path.join( ipp, pf), 'wb' ).write(by)",
+			"import urllib.request,os,hashlib; h = '2915d1851351e5ee549c20394736b442' + '8bc59f460fa1548d1514676163dafc88'; pf = 'Package Control.sublime-package'; ipp = sublime.installed_packages_path(); urllib.request.install_opener( urllib.request.build_opener( urllib.request.ProxyHandler()) ); by = urllib.request.urlopen( 'http://packagecontrol.io/' + pf.replace(' ', '%20')).read(); dh = hashlib.sha256(by).hexdigest(); print('Error validating download (got %s instead of %s), please try manual install' % (dh, h)) if dh != h else open(os.path.join( ipp, pf), 'wb' ).write(by)"
+		]
+	},
+	"distraction_free":
+	{
+		"menu_visible": true,
+		"show_minimap": false,
+		"show_open_files": false,
+		"show_tabs": false,
+		"side_bar_visible": false,
+		"status_bar_visible": false
+	},
+	"expanded_folders":
+	[
+		"/Users/cksgrapes/Documents/Project/messism",
+		"/Users/cksgrapes/Documents/Project/messism/dev/inc"
+	],
+	"file_history":
+	[
+		"/Users/cksgrapes/Documents/Project/messism/webpack.config.js",
+		"/Users/cksgrapes/Documents/Project/messism/README.md",
+		"/Users/cksgrapes/Documents/Project/messism/hologram/index.md",
+		"/Users/cksgrapes/Documents/Project/messism/dev/inc/_variables.scss",
+		"/Users/cksgrapes/Documents/Project/messism/gulpfile.js",
+		"/Users/cksgrapes/Documents/Project/messism/dev/src/common/_footer.ejs",
+		"/Users/cksgrapes/Documents/Project/messism/dev/src/common/_header.ejs",
+		"/Users/cksgrapes/Documents/Project/messism/dev/index.ejs",
+		"/Users/cksgrapes/Documents/Project/messism/htdocs/index.html",
+		"/Users/cksgrapes/Documents/Project/messism/htdocs/index.ejs",
+		"/Users/cksgrapes/Documents/Project/messism/dev/inc/config.json",
+		"/Users/cksgrapes/Documents/Project/messism/dev/src/styles.scss",
+		"/Users/cksgrapes/Documents/Project/messism/dev/inc/_header.ejs",
+		"/Users/cksgrapes/Documents/Project/messism/dev/src/Common/Common.js",
+		"/Users/cksgrapes/Documents/Project/messism/dev/src/Common/_Common.scss",
+		"/Users/cksgrapes/Documents/Project/messism/dev/src/Common/Common.scss",
+		"/Users/cksgrapes/Documents/Project/messism/dev/inc/_mixin.scss",
+		"/Users/cksgrapes/Documents/Project/messism/Gemfile",
+		"/Users/cksgrapes/Documents/Project/messism/dev/inc/_normalize.scss",
+		"/Users/cksgrapes/Documents/Project/messism/package.json",
+		"/Users/cksgrapes/Documents/Project/messism/dev/src/home/Home.scss",
+		"/Users/cksgrapes/Documents/Project/messism/dev/src/home/Home.js",
+		"/Users/cksgrapes/Documents/Project/messism/dev/src/common/Common.scss",
+		"/Users/cksgrapes/Documents/Project/messism/dev/src/common/Common.js",
+		"/Users/cksgrapes/Documents/Project/messism/dev/hologram/index.md",
+		"/Users/cksgrapes/Documents/Project/messism/dev/hologram/_component.scss",
+		"/Users/cksgrapes/Documents/Project/messism/dev/js/test.js",
+		"/Users/cksgrapes/Documents/Project/messism/release/assets/js/test.js",
+		"/Users/cksgrapes/Documents/Project/messism/dev/js/common.js",
+		"/Users/cksgrapes/Documents/Project/messism/bower.json",
+		"/Users/cksgrapes/Documents/Project/messism/node_modules/gulp-combine-media-queries/index.js",
+		"/Users/cksgrapes/Documents/Project/messism/dev/data/list.json",
+		"/Users/cksgrapes/Documents/Project/messism/dev/data/site.json",
+		"/Users/cksgrapes/Library/Application Support/Sublime Text 3/Packages/User/Preferences.sublime-settings",
+		"/Users/cksgrapes/Documents/Project/messism/Gemfile.lock",
+		"/Users/cksgrapes/Documents/Business/TAM/htdocs/mielparque/dev/ejs/kumamoto/inc/_meta.ejs",
+		"/Users/cksgrapes/Documents/Business/TAM/htdocs/mielparque/dev/ejs/kumamoto/inc/_header.ejs",
+		"/Users/cksgrapes/Documents/Business/TAM/htdocs/mielparque/dev/ejs/kumamoto/faq/index.ejs",
+		"/Users/cksgrapes/Documents/Business/TAM/htdocs/mielparque/dev/ejs/kumamoto/fair/index.ejs",
+		"/Users/cksgrapes/Documents/Business/TAM/htdocs/mielparque/dev/ejs/kumamoto/fair/details.ejs",
+		"/Users/cksgrapes/Documents/Business/TAM/htdocs/mielparque/dev/ejs/kumamoto/cuisine/index.ejs",
+		"/Users/cksgrapes/Documents/Business/TAM/htdocs/mielparque/dev/ejs/kumamoto/concept/index.ejs",
+		"/Users/cksgrapes/Documents/Business/TAM/htdocs/mielparque/dev/ejs/kumamoto/ceremony/index.ejs",
+		"/Users/cksgrapes/Documents/Business/TAM/htdocs/mielparque/dev/ejs/kumamoto/ceremony-pattern.ejs",
+		"/Users/cksgrapes/Documents/Business/TAM/htdocs/mielparque/dev/ejs/kumamoto/blog/index.ejs",
+		"/Users/cksgrapes/Documents/Business/TAM/htdocs/mielparque/dev/ejs/kumamoto/blog/details.ejs",
+		"/Users/cksgrapes/Documents/Business/TAM/htdocs/mielparque/dev/ejs/kumamoto/banquet/index.ejs",
+		"/Users/cksgrapes/Documents/Business/TAM/htdocs/mielparque/dev/ejs/kumamoto/guest/index.ejs",
+		"/Users/cksgrapes/Documents/Business/TAM/htdocs/mielparque/dev/ejs/kumamoto/index.ejs",
+		"/Users/cksgrapes/Documents/Business/TAM/htdocs/mielparque/dev/ejs/kumamoto/plan/details.ejs",
+		"/Users/cksgrapes/Documents/Business/TAM/htdocs/mielparque/dev/ejs/kumamoto/plan/index.ejs",
+		"/Users/cksgrapes/Documents/Business/TAM/htdocs/mielparque/dev/ejs/kumamoto/report/details.ejs",
+		"/Users/cksgrapes/Documents/Business/TAM/htdocs/mielparque/dev/ejs/kumamoto/report/index.ejs",
+		"/Users/cksgrapes/Documents/Business/TAM/htdocs/mielparque/dev/ejs/kumamoto/styleguide.ejs",
+		"/Users/cksgrapes/Documents/Business/TAM/htdocs/mielparque/dev/ejs/kumamoto/team/index.ejs",
+		"/Users/cksgrapes/Documents/Business/TAM/htdocs/mielparque/dev/js/cuisine.js",
+		"/Users/cksgrapes/Documents/Business/TAM/htdocs/mielparque/dev/js/fair.js",
+		"/Users/cksgrapes/Documents/Business/TAM/htdocs/mielparque/dev/js/top.js",
+		"/Users/cksgrapes/Documents/Business/TAM/htdocs/mielparque/dev/js/guest.js",
+		"/Users/cksgrapes/Documents/Business/TAM/htdocs/mielparque/dev/js/lib/slick.min.js",
+		"/Users/cksgrapes/Documents/Business/TAM/htdocs/mielparque/dev/js/common.js",
+		"/Users/cksgrapes/Documents/Business/TAM/htdocs/mielparque/dev/css/_layout.scss",
+		"/Users/cksgrapes/Documents/Business/TAM/htdocs/mielparque/dev/css/_plugin.scss",
+		"/Users/cksgrapes/Documents/Business/TAM/htdocs/mielparque/dev/ejs/kumamoto/inc/_footer.ejs",
+		"/Users/cksgrapes/Documents/Business/TAM/htdocs/mielparque/dev/css/_base.scss",
+		"/Users/cksgrapes/Documents/Business/TAM/htdocs/mielparque/dev/css/_components.scss",
+		"/Users/cksgrapes/Documents/Business/TAM/htdocs/mielparque/gulpfile.js",
+		"/Users/cksgrapes/Documents/Business/TAM/htdocs/mielparque/dev/css/styleguide.scss",
+		"/Users/cksgrapes/Documents/Business/TAM/htdocs/mielparque/node_modules/node-sass/src/libsass/src/color_maps.cpp",
+		"/Users/cksgrapes/Documents/Business/TAM/htdocs/mielparque/dev/ejs/kumamoto/inc/_fair-banner.ejs",
+		"/Users/cksgrapes/Documents/Business/TAM/htdocs/mielparque/dev/hologram/index.md",
+		"/Users/cksgrapes/Documents/Business/TAM/htdocs/mielparque/dev/hologram/_component.scss",
+		"/Users/cksgrapes/Documents/Business/TAM/htdocs/mielparque/dev/hologram/_unit.scss",
+		"/Users/cksgrapes/Documents/Business/TAM/htdocs/mielparque/dev/hologram/_layout.scss",
+		"/Users/cksgrapes/Documents/Business/TAM/htdocs/mielparque/dev/hologram/_docs.scss",
+		"/Users/cksgrapes/Documents/Business/TAM/htdocs/mielparque/hologram_config.yml",
+		"/Users/cksgrapes/Documents/Business/TAM/htdocs/mielparque/dev/hologram/templates/_header.html",
+		"/Users/cksgrapes/Documents/Business/TAM/htdocs/mielparque/dev/hologram/templates/_footer.html",
+		"/Users/cksgrapes/Desktop/twitter.txt",
+		"/Users/cksgrapes/Documents/Business/TAM/htdocs/mielparque/dev/js/styleguide.js",
+		"/Users/cksgrapes/Documents/Business/TAM/htdocs/mielparque/bower_components/Cortana/CortanaMarkdownRenderer.rb",
+		"/Users/cksgrapes/Documents/Business/TAM/htdocs/mielparque/dev/hologram/templates/markdown_renderer.rb",
+		"/Users/cksgrapes/Desktop/hologram/example_markdown_renderer.rb",
+		"/Users/cksgrapes/Desktop/hologram/example_markdown_renderer.rb.example",
+		"/Users/cksgrapes/Documents/Business/TAM/htdocs/mielparque/bower_components/Cortana/_footer.html",
+		"/Users/cksgrapes/Documents/Business/TAM/htdocs/mielparque/bower_components/Cortana/_header.html",
+		"/Users/cksgrapes/Documents/Business/TAM/htdocs/mielparque/dev/styleguide/_component.scss",
+		"/Users/cksgrapes/Documents/Business/TAM/htdocs/mielparque/dev/styleguide/_index.scss",
+		"/Users/cksgrapes/Documents/Business/TAM/htdocs/mielparque/dev/styleguide/index.md",
+		"/Users/cksgrapes/Documents/Business/TAM/htdocs/mielparque/dev/styleguide/_heading.scss",
+		"/Users/cksgrapes/Documents/Business/TAM/htdocs/mielparque/Gemfile",
+		"/Users/cksgrapes/Documents/Business/TAM/htdocs/mielparque/dev/css/_adjustment.scss",
+		"/Users/cksgrapes/Documents/Business/TAM/htdocs/mielparque/dev/data/site.json",
+		"/Users/cksgrapes/Documents/Business/TAM/htdocs/mielparque/dev/styleguide/README.md",
+		"/Users/cksgrapes/Documents/Business/TAM/htdocs/mielparque/dev/styleguide/heading.css",
+		"/Users/cksgrapes/Documents/Business/TAM/htdocs/mielparque/dev/styleguide/source/heading.css",
+		"/Users/cksgrapes/Documents/Business/TAM/htdocs/mielparque/dev/styleguide/Cortana/CortanaMarkdownRenderer.rb",
+		"/Users/cksgrapes/Documents/Business/TAM/htdocs/mielparque/dev/styleguide/Cortana/_header.html",
+		"/Users/cksgrapes/Documents/Business/TAM/htdocs/mielparque/dev/css/kumamoto/style.scss",
+		"/Users/cksgrapes/Documents/Business/TAM/htdocs/mielparque/dev/styleguide/source",
+		"/Users/cksgrapes/Documents/Business/TAM/htdocs/mielparque/dev/styleguide/source/index.md",
+		"/Users/cksgrapes/Documents/Business/TAM/htdocs/mielparque/dev/styleguide_assets/Cortana/index.md",
+		"/Users/cksgrapes/Documents/Business/TAM/htdocs/mielparque/package.json",
+		"/Users/cksgrapes/Documents/Business/TAM/htdocs/mielparque/dev/css/styleguide/source/_heading.scss",
+		"/Users/cksgrapes/Documents/Business/TAM/htdocs/mielparque/dev/css/styleguide/Cortana/index.md",
+		"/Users/cksgrapes/Desktop/エーテル原稿.txt",
+		"/Users/cksgrapes/Documents/Business/TAM/htdocs/mielparque/dev/css/_variables.scss",
+		"/Users/cksgrapes/Documents/Business/TAM/htdocs/mielparque/dev/data/list.json",
+		"/Users/cksgrapes/Documents/Business/TAM/htdocs/mielparque/.gitignore",
+		"/Users/cksgrapes/Documents/Business/TAM/htdocs/mielparque/dev/css/common.scss",
+		"/Users/cksgrapes/Desktop/styleguide/app/stylesheets/button.css",
+		"/Users/cksgrapes/Documents/Business/TAM/htdocs/mielparque/dev/js/plan.js",
+		"/Users/cksgrapes/Documents/Business/TAM/htdocs/mielparque/dev/css/_mixin.scss",
+		"/Users/cksgrapes/Documents/Business/TAM/htdocs/mielparque/dev/ejs/kumamoto/inc/_sub-footer.ejs",
+		"/Users/cksgrapes/Documents/Business/TAM/htdocs/mielparque/release/kumamoto/banquet/index.html",
+		"/Users/cksgrapes/Documents/Business/TAM/htdocs/mielparque/dev/ejs/kumamoto/inc/_svgsprite.ejs",
+		"/Users/cksgrapes/Desktop/release/kumamoto/index.html",
+		"/Users/cksgrapes/Desktop/career.json",
+		"/Users/cksgrapes/Desktop/untitled.html",
+		"/Users/cksgrapes/Documents/Business/TAM/htdocs/mielparque/dev/js/calendar.js",
+		"/Users/cksgrapes/Library/Application Support/Sublime Text 3/Packages/HTML-CSS-JS Prettify/.jsbeautifyrc",
+		"/Users/cksgrapes/Documents/Business/TAM/htdocs/mielparque/.jsbeautifyrc",
+		"/Users/cksgrapes/Library/Application Support/Sublime Text 3/Packages/HTML-CSS-JS Prettify/HTMLPrettify.sublime-settings",
+		"/Users/cksgrapes/Documents/Business/TAM/htdocs/mielparque/mt/extlib/URI/URL.pm",
+		"/Users/cksgrapes/Desktop/logo.svg",
+		"/Users/cksgrapes/Documents/Business/TAM/htdocs/mielparque/node_modules/weinre/web/client/inspector.css",
+		"/Users/cksgrapes/Documents/Business/TAM/htdocs/mielparque/dev/ejs/kumamoto/inc/_conversion-unit.ejs",
+		"/Users/cksgrapes/Documents/Business/TAM/htdocs/mielparque/mt/mt-static/plugins/TinyMCE/tiny_mce/plugins/table/css/table.css"
+	],
+	"find":
+	{
+		"height": 70.0
+	},
+	"find_in_files":
+	{
+		"height": 158.0,
+		"where_history":
+		[
+			"/Users/cksgrapes/Documents/Business/TAM/htdocs/mielparque/dev/ejs/kumamoto",
+			"/Users/cksgrapes/Documents/Business/TAM/htdocs/mielparque/dev/ejs",
+			"/Users/cksgrapes/Documents/Business/TAM/htdocs/mielparque/dev/ejs/kumamoto",
+			"/Users/cksgrapes/Documents/Business/TAM/htdocs/mielparque/dev",
+			"/Users/cksgrapes/Documents/Business/TAM/htdocs/mielparque/dev/js",
+			"/Users/cksgrapes/Documents/Business/TAM/htdocs/mielparque/dev/ejs/kumamoto",
+			"/Users/cksgrapes/Documents/Business/TAM/htdocs/mielparque/dev/ejs",
+			"/Users/cksgrapes/Documents/Business/TAM/htdocs/mielparque/dev/ejs/kumamoto",
+			"/Users/cksgrapes/Documents/Business/TAM/htdocs/mielparque/dev/ejs",
+			"/Users/cksgrapes/Documents/Business/TAM/htdocs/mielparque/dev/ejs/kumamoto",
+			"/Users/cksgrapes/Documents/Business/TAM/htdocs/sprix/foresta/dev/scss",
+			"/Users/cksgrapes/Documents/Business/TAM/htdocs/sprix/foresta/dev/jade",
+			"/Users/cksgrapes/Documents/Business/TAM/htdocs/sprix/foresta/dev/scss",
+			"/Users/cksgrapes/Documents/Business/TAM/htdocs/sprix/foresta/dev/jade/_include"
+		]
+	},
+	"find_state":
+	{
+		"case_sensitive": false,
+		"find_history":
+		[
+			"sass-graph",
+			"buffer",
+			"seq",
+			"rimraf",
+			"merge",
+			"sprite",
+			"if",
+			"foreach",
+			"cached",
+			"dist",
+			"watch",
+			"image",
+			"base",
+			"gulp.",
+			"graph",
+			"dest.sass",
+			"watch.",
+			"htdocs",
+			"release.",
+			"develop.",
+			"release",
+			"MPQ",
+			"setHeroHeight",
+			"sass",
+			"dev/css",
+			"sprite",
+			"notify.",
+			"(plumber(",
+			"plumber",
+			"wedding/",
+			"develop.styleguide",
+			"styleguide",
+			"<head prefix=\"og: http://ogp.me/ns# fb: http://ogp.me/ns/fb# article: http://ogp.me/ns/article#\">",
+			"resp",
+			"res",
+			"js-resposiveImage",
+			"cuisine",
+			"js-resposiveImage",
+			"01",
+			"$this.children('img')",
+			"$($picture[j])",
+			"footer",
+			"main",
+			"img_07",
+			"img_06",
+			"img_05",
+			"img_04",
+			"img_03",
+			"img_",
+			"img_02",
+			"img",
+			"'active'",
+			"lineDescription",
+			"[update] ",
+			"plan",
+			"メルパルク熊本",
+			"フェア予約",
+			"banner-mini",
+			"banner-panorama",
+			"setAnchor",
+			"category: layout",
+			"category: unit",
+			"unit",
+			"conponents",
+			"category: conponent",
+			"conponent",
+			"category: CSSレイアウト",
+			"category: ユニット",
+			"CSSモジュール",
+			"g/assets/img/kumamoto/plan/",
+			"/wedding/assets/img/kumamoto/",
+			"<%- args.current_img_path %>",
+			"<%- args.global_img_path %>",
+			"cuisineExample_closeButton",
+			"setAnchor",
+			"http://aa1721ne5a.smartrelease.jp/",
+			"slider",
+			"labelList",
+			"cardList",
+			".cardList",
+			"tabNavigation",
+			"paragraphWithImage",
+			"CSSレイアウト",
+			"section",
+			"panel",
+			"\"items",
+			"linkList",
+			"inlineList-icon",
+			"\"items",
+			"items",
+			"banner-dress",
+			"banner-panorama",
+			"banner-mini",
+			"conversionUnit",
+			"textButton",
+			"buttonWrap",
+			"button-line",
+			"button-conversion",
+			"button",
+			"siteHeading04",
+			"siteHeading03",
+			"siteHeading02",
+			"siteHeading01-middle",
+			"Cortana",
+			"dev/styleguide",
+			"styleguide",
+			"bower_components",
+			"html",
+			"styleguide_assets",
+			"'ico.png'",
+			"list",
+			".em",
+			"em",
+			"plan",
+			"table",
+			"チームサポート",
+			"siteHeading02-simple",
+			"flag_body",
+			"siteHeading02-simple siteHeading02-team",
+			"siteHeading02-simple",
+			" siteHeading02-simple-b",
+			"siteHeading02-simple",
+			"width=\"600\" height=\"371\"",
+			"siteHeading02-b",
+			"選ばれる理由",
+			"href=\"/kumamoto/",
+			"original=\"/assets/img/kumamoto/",
+			"href=\"/kumamoto/"
+		],
+		"highlight": true,
+		"in_selection": false,
+		"preserve_case": false,
+		"regex": false,
+		"replace_history":
+		[
+			"dest.css",
+			"<head>",
+			"href=\"<%- args.local_path %>",
+			"src=\"$1\"",
+			"<%- args.local_img_path %>img_$1",
+			">banner_aboutBanner",
+			"aboutBanner",
+			"",
+			"<h2 class=\"heading-02\">$1</h2>",
+			"<h2 class=\"heading-02\"><span>$1</span></h2>",
+			"あああああああああああああああああああああああああああああああああああああああああ",
+			"<option value=\"\">$1</option>",
+			"<optgroup label=\"$1\"></optgroup>",
+			"<dt class=\"search_list_title search_list_ico04\">アクセスが便利な駅</dt>",
+			"<dt class=\"search_list_title search_list_ico03\">イベント会場</dt>",
+			"○○○○駅",
+			"○○○○○"
+		],
+		"reverse": false,
+		"show_context": true,
+		"use_buffer2": true,
+		"whole_word": false,
+		"wrap": true
+	},
+	"groups":
+	[
+		{
+			"sheets":
+			[
+			]
+		},
+		{
+			"sheets":
+			[
+			]
+		}
+	],
+	"incremental_find":
+	{
+		"height": 30.0
+	},
+	"input":
+	{
+		"height": 66.0
+	},
+	"layout":
+	{
+		"cells":
+		[
+			[
+				0,
+				0,
+				1,
+				1
+			],
+			[
+				1,
+				0,
+				2,
+				1
+			]
+		],
+		"cols":
+		[
+			0.0,
+			0.5,
+			1.0
+		],
+		"rows":
+		[
+			0.0,
+			1.0
+		]
+	},
+	"menu_visible": true,
+	"output.find_results":
+	{
+		"height": 0.0
+	},
+	"pinned_build_system": "",
+	"project": "messism.sublime-project",
+	"replace":
+	{
+		"height": 114.0
+	},
+	"save_all_on_build": true,
+	"select_file":
+	{
+		"height": 0.0,
+		"last_filter": "",
+		"selected_items":
+		[
+			[
+				"lay",
+				"dev/css/_layout.scss"
+			],
+			[
+				"optionscss",
+				"dev/scss/base/_option.scss"
+			],
+			[
+				"communi",
+				"dev/scss/project/_community.scss"
+			],
+			[
+				"list",
+				"dev/scss/components/_list.scss"
+			],
+			[
+				"scsslayout",
+				"dev/scss/layout/_contents.scss"
+			],
+			[
+				"listscss",
+				"dev/scss/components/_list.scss"
+			],
+			[
+				"scsscomm",
+				"dev/scss/project/_community.scss"
+			]
+		],
+		"width": 0.0
+	},
+	"select_project":
+	{
+		"height": 500.0,
+		"last_filter": "",
+		"selected_items":
+		[
+		],
+		"width": 380.0
+	},
+	"select_symbol":
+	{
+		"height": 0.0,
+		"last_filter": "",
+		"selected_items":
+		[
+		],
+		"width": 0.0
+	},
+	"selected_group": 0,
+	"settings":
+	{
+	},
+	"show_minimap": true,
+	"show_open_files": true,
+	"show_tabs": true,
+	"side_bar_visible": true,
+	"side_bar_width": 285.0,
+	"status_bar_visible": true,
+	"template_settings":
+	{
+	}
+}

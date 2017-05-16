@@ -1,0 +1,1421 @@
+{
+	"auto_complete":
+	{
+		"selected_items":
+		[
+			[
+				"back",
+				"background-size"
+			],
+			[
+				"bor",
+				"border-box\t(_common.styl)"
+			],
+			[
+				"item",
+				"itemList02\t(index.ejs)"
+			],
+			[
+				"border-",
+				"border-color"
+			],
+			[
+				"000",
+				"0,000円引き!【送料無料】"
+			],
+			[
+				"border",
+				"border-color"
+			],
+			[
+				"color",
+				"color-green"
+			],
+			[
+				"colo",
+				"color-white"
+			],
+			[
+				"max",
+				"max-width\t(_index-contents.ejs)"
+			],
+			[
+				"font",
+				"font-times\t(_common.styl)"
+			],
+			[
+				"trans",
+				"translateY"
+			],
+			[
+				"slick",
+				"slick-carousel/"
+			],
+			[
+				"hero",
+				"heroSlider\t(_home.js)"
+			],
+			[
+				"bower",
+				"bower_components/"
+			],
+			[
+				"conte",
+				"content-width\t(_footer.styl)"
+			],
+			[
+				"me",
+				"media\t(index.ejs)"
+			],
+			[
+				"conten",
+				"content-width\t(_footer.styl)"
+			],
+			[
+				"smallmin",
+				"smallMinLand\t(_variables.styl)"
+			],
+			[
+				"smallMin",
+				"smallMinLand\t(_variables.styl)"
+			],
+			[
+				"btn_",
+				"btn_top01.png\tw:60 h:60"
+			],
+			[
+				"font-",
+				"font-mincho"
+			],
+			[
+				"h",
+				"height"
+			],
+			[
+				"text",
+				"text"
+			],
+			[
+				"ac",
+				"action\tAttr"
+			],
+			[
+				"contents",
+				"contentsBox01"
+			],
+			[
+				"color-",
+				"color-gold"
+			],
+			[
+				"col",
+				"color-black\t(_variables.styl)"
+			],
+			[
+				"he",
+				"height\t(_header.ejs)"
+			],
+			[
+				"w",
+				"width\t(_header.ejs)"
+			],
+			[
+				"max-",
+				"max-window-width"
+			],
+			[
+				"content",
+				"contentWidth"
+			],
+			[
+				"footer",
+				"footerNavigation01\t(_footer.ejs)"
+			],
+			[
+				"con",
+				"contactsUnit01\t(_footer.ejs)"
+			],
+			[
+				"co",
+				"color-black\t(_variables.styl)"
+			],
+			[
+				"sm",
+				"smallMax\t(_variables.styl)"
+			],
+			[
+				"small",
+				"smallMax"
+			],
+			[
+				"mediu",
+				"mediumMin\t(_variables.styl)"
+			],
+			[
+				"site",
+				"siteLogo01\t(_header.ejs)"
+			],
+			[
+				"break",
+				"breaks"
+			],
+			[
+				"_",
+				"_variables.styl"
+			],
+			[
+				"cha",
+				"charset\t(styles.scss)"
+			],
+			[
+				"cmn-S",
+				"cmn-SearchBox_Item"
+			],
+			[
+				"cmn",
+				"cmn-ToggleContents"
+			],
+			[
+				"cmn-Toggle",
+				"cmn-ToggleButton"
+			],
+			[
+				"acti",
+				"activeCls"
+			],
+			[
+				"tabCo",
+				"tabContents_block\t(_components.scss)"
+			],
+			[
+				"top",
+				"topPos"
+			],
+			[
+				"button",
+				"button-line\t(_components.scss)"
+			],
+			[
+				"guestM",
+				"guestMapData"
+			],
+			[
+				"siteHeading02-",
+				"siteHeading02-simple\t(index.ejs)"
+			],
+			[
+				"panel",
+				"panel-colored\t(index.ejs)"
+			],
+			[
+				"conce",
+				"conceptBanner"
+			],
+			[
+				"toggle",
+				"toggleClass\t.toggleClass()"
+			],
+			[
+				"cusi",
+				"cuisineExample"
+			],
+			[
+				"cuisine",
+				"cuisineExample"
+			],
+			[
+				"cuisi",
+				"cuisineExample"
+			],
+			[
+				"mt",
+				"mtL"
+			],
+			[
+				"siteHeading",
+				"siteHeading02\t(index.ejs)"
+			],
+			[
+				"pane",
+				"panel-colored"
+			],
+			[
+				"ex",
+				"exampleUnit"
+			],
+			[
+				"fai",
+				"fairBanner\t(_layout.scss)"
+			],
+			[
+				"faiite",
+				"fairItems"
+			],
+			[
+				"button-",
+				"button-conversion\t(_components.scss)"
+			],
+			[
+				"fair",
+				"fairDetails"
+			],
+			[
+				"siteHe",
+				"siteHeading03\t(index.ejs)"
+			],
+			[
+				"row",
+				"row-2columns\t(_components.scss)"
+			],
+			[
+				"da",
+				"data-original"
+			],
+			[
+				"data",
+				"data-original\t(index.ejs)"
+			],
+			[
+				"reporpla",
+				"reportPlaceDetailsUnit"
+			],
+			[
+				"report",
+				"reportSection"
+			],
+			[
+				"mari",
+				"margin-top"
+			],
+			[
+				"ban",
+				"banquet"
+			],
+			[
+				"ce",
+				"ceremony"
+			],
+			[
+				"siteH",
+				"siteHeading02"
+			],
+			[
+				"photo",
+				"photoCollage\t(index.ejs)"
+			],
+			[
+				"siteHea",
+				"siteHeading01"
+			],
+			[
+				"siteHeain",
+				"siteHeading02"
+			],
+			[
+				"styleguide",
+				"styleguide_assets"
+			],
+			[
+				"in",
+				"inlineList-icon"
+			],
+			[
+				"add",
+				"addEventListener"
+			],
+			[
+				"colum",
+				"columnSizer\t(index.ejs)"
+			],
+			[
+				"know",
+				"knowhowResume__button"
+			],
+			[
+				"knowhow",
+				"knowhowResume__example"
+			],
+			[
+				"sec",
+				"sectionBlock"
+			],
+			[
+				"block",
+				"blockquote"
+			],
+			[
+				"icon",
+				"icon-external\t(_header.ejs)"
+			],
+			[
+				"exa",
+				"exam_info\t(style.css)"
+			],
+			[
+				"exam",
+				"exam_img09.jpg\tw:226 h:180"
+			],
+			[
+				"tt",
+				"exam_ttl02.png\tw:377 h:45"
+			],
+			[
+				"search_content",
+				"search_content_item\t(index.html)"
+			],
+			[
+				"卒業",
+				"卒業旅行！国内で人気のエリアはここ！\t(index.html)"
+			],
+			[
+				"bg",
+				"bg_form.gif\tw:770 h:222"
+			],
+			[
+				"leave",
+				"leave_img01.jpg\tw:250 h:160"
+			],
+			[
+				"arrow",
+				"icon_arrow02.png\tw:8 h:12"
+			],
+			[
+				"tit",
+				"ico_title06.png\tw:17 h:23"
+			],
+			[
+				"ico",
+				"ico_title01.png\tw:21 h:21"
+			],
+			[
+				"card_item",
+				"card_item_box"
+			],
+			[
+				"search_list",
+				"search_list_content"
+			],
+			[
+				"subti",
+				"subtitle02"
+			],
+			[
+				"subt",
+				"subtitle02"
+			],
+			[
+				"communi",
+				"community/"
+			],
+			[
+				"list-",
+				"list-inline"
+			],
+			[
+				"com",
+				"community-panel"
+			],
+			[
+				"dum",
+				"dum_img12.jpg\tw:880 h:553"
+			]
+		]
+	},
+	"buffers":
+	[
+		{
+			"file": "/Users/cksgrapes/Documents/Business/TAM/htdocs/ftc/dev/_index-contents.ejs",
+			"settings":
+			{
+				"buffer_size": 3995,
+				"encoding": "UTF-8",
+				"line_ending": "Windows"
+			}
+		},
+		{
+			"file": "/Users/cksgrapes/Documents/Business/TAM/htdocs/ftc/dev/item/_item.styl",
+			"settings":
+			{
+				"buffer_size": 7105,
+				"encoding": "UTF-8",
+				"line_ending": "Windows"
+			}
+		},
+		{
+			"file": "/Users/cksgrapes/Documents/Business/TAM/htdocs/ftc/dev/home/_home.styl",
+			"settings":
+			{
+				"buffer_size": 6300,
+				"encoding": "UTF-8",
+				"line_ending": "Windows"
+			}
+		}
+	],
+	"build_system": "",
+	"build_system_choices":
+	[
+	],
+	"build_varint": "",
+	"command_palette":
+	{
+		"height": 354.0,
+		"last_filter": "",
+		"selected_items":
+		[
+			[
+				"add",
+				"Project Manager: Add New Project"
+			],
+			[
+				"previ",
+				"Markdown Preview: Preview in Browser"
+			],
+			[
+				"table",
+				"Table Editor: Enable for current syntax"
+			],
+			[
+				"inst",
+				"Package Control: Install Package"
+			],
+			[
+				"theme",
+				"Material Theme: Activate theme"
+			],
+			[
+				"html",
+				"Set Syntax: HTML"
+			],
+			[
+				"material",
+				"Material Theme: Activate theme"
+			],
+			[
+				"disa",
+				"Package Control: Disable Package"
+			],
+			[
+				"ena",
+				"Package Control: Enable Package"
+			],
+			[
+				"remo",
+				"Package Control: Remove Package"
+			],
+			[
+				"ins",
+				"Package Control: Install Package"
+			],
+			[
+				"list",
+				"Package Control: List Packages"
+			],
+			[
+				"linter",
+				"SublimeLinter: Lint This View"
+			],
+			[
+				"linte",
+				"SublimeLinter: Clear Caches"
+			],
+			[
+				"dis",
+				"Package Control: Disable Package"
+			],
+			[
+				"enable",
+				"Package Control: Enable Package"
+			],
+			[
+				"alignment",
+				"Preferences: Alignment Key Bindings – Default"
+			],
+			[
+				"synhtml",
+				"Set Syntax: HTML"
+			],
+			[
+				"syntahtml",
+				"Set Syntax: HTML"
+			],
+			[
+				"mark",
+				"Set Syntax: Markdown"
+			],
+			[
+				"pack",
+				"Preferences: Browse Packages"
+			],
+			[
+				"toggle",
+				"Word Wrap: Toggle"
+			],
+			[
+				"eme",
+				"Emmet: Next Edit Point"
+			],
+			[
+				"scss",
+				"Set Syntax: SCSS"
+			],
+			[
+				"remoe",
+				"Package Control: Remove Package"
+			],
+			[
+				"promare",
+				"Project Manager: Remove Project"
+			],
+			[
+				"proma",
+				"Project Manager: Add Project"
+			],
+			[
+				"pro",
+				"Project Manager"
+			],
+			[
+				"sass",
+				"Set Syntax: Sass"
+			],
+			[
+				"emme",
+				"Emmet: Reload Extensions"
+			],
+			[
+				"",
+				"Material Theme: Activate theme"
+			],
+			[
+				"insta",
+				"Package Control: Install Package"
+			]
+		],
+		"width": 502.0
+	},
+	"console":
+	{
+		"height": 126.0,
+		"history":
+		[
+			"import urllib.request,os,hashlib; h = 'df21e130d211cfc94d9b0905775a7c0f' + '1e3d39e33b79698005270310898eea76'; pf = 'Package Control.sublime-package'; ipp = sublime.installed_packages_path(); urllib.request.install_opener( urllib.request.build_opener( urllib.request.ProxyHandler()) ); by = urllib.request.urlopen( 'http://packagecontrol.io/' + pf.replace(' ', '%20')).read(); dh = hashlib.sha256(by).hexdigest(); print('Error validating download (got %s instead of %s), please try manual install' % (dh, h)) if dh != h else open(os.path.join( ipp, pf), 'wb' ).write(by)",
+			"import urllib.request,os,hashlib; h = '2915d1851351e5ee549c20394736b442' + '8bc59f460fa1548d1514676163dafc88'; pf = 'Package Control.sublime-package'; ipp = sublime.installed_packages_path(); urllib.request.install_opener( urllib.request.build_opener( urllib.request.ProxyHandler()) ); by = urllib.request.urlopen( 'http://packagecontrol.io/' + pf.replace(' ', '%20')).read(); dh = hashlib.sha256(by).hexdigest(); print('Error validating download (got %s instead of %s), please try manual install' % (dh, h)) if dh != h else open(os.path.join( ipp, pf), 'wb' ).write(by)"
+		]
+	},
+	"distraction_free":
+	{
+		"menu_visible": true,
+		"show_minimap": false,
+		"show_open_files": false,
+		"show_tabs": false,
+		"side_bar_visible": false,
+		"status_bar_visible": false
+	},
+	"expanded_folders":
+	[
+		"/Users/cksgrapes/Documents/Business/TAM/htdocs/ftc",
+		"/Users/cksgrapes/Documents/Business/TAM/htdocs/ftc/dev",
+		"/Users/cksgrapes/Documents/Business/TAM/htdocs/ftc/dev/home",
+		"/Users/cksgrapes/Documents/Business/TAM/htdocs/ftc/dev/item"
+	],
+	"file_history":
+	[
+		"/Users/cksgrapes/Documents/Business/TAM/htdocs/ftc/dev/index.ejs",
+		"/Users/cksgrapes/Documents/Business/TAM/htdocs/ftc/dev/item/index.ejs",
+		"/Users/cksgrapes/Documents/Business/TAM/htdocs/ftc/dev/home/_home.styl",
+		"/Users/cksgrapes/Documents/Business/TAM/htdocs/ftc/dev/item/_item.styl",
+		"/Users/cksgrapes/Documents/Business/TAM/htdocs/ftc/dev/common/_common.styl",
+		"/Users/cksgrapes/Documents/Business/TAM/htdocs/ftc/dev/common/_common.js",
+		"/Users/cksgrapes/Documents/Business/TAM/htdocs/ftc/readme.txt",
+		"/Users/cksgrapes/Documents/Business/TAM/htdocs/ftc/gulpfile.js",
+		"/Users/cksgrapes/Documents/Business/TAM/htdocs/ftc/.csscomb.json",
+		"/Users/cksgrapes/Documents/Business/TAM/htdocs/ftc/dev/ftc.common.styl",
+		"/Users/cksgrapes/Documents/Business/TAM/htdocs/ftc/dev/include/_variables.styl",
+		"/Volumes/東京検証機/mail-address.md",
+		"/Users/cksgrapes/Documents/Business/TAM/htdocs/ftc/dev/_index-contents.ejs",
+		"/Users/cksgrapes/Desktop/icon-cart.svg",
+		"/Users/cksgrapes/Documents/Business/TAM/htdocs/ftc/dev/include/_fonts.styl",
+		"/Users/cksgrapes/Documents/Business/TAM/htdocs/ftc/dev/footer/_footer.styl",
+		"/Users/cksgrapes/Documents/Business/TAM/htdocs/ftc/dev/header/_header.ejs",
+		"/Users/cksgrapes/Documents/Business/TAM/htdocs/ftc/dev/footer/_footer.ejs",
+		"/Users/cksgrapes/Documents/Business/TAM/htdocs/ftc/dev/common/_common-search.ejs",
+		"/Users/cksgrapes/Documents/Business/TAM/htdocs/ftc/dev/index-verB.ejs",
+		"/Users/cksgrapes/Documents/Business/TAM/htdocs/ftc/dev/home/btn_slide01.svg",
+		"/Users/cksgrapes/Documents/Business/TAM/htdocs/ftc/dev/ftc.common.js",
+		"/Users/cksgrapes/Documents/Business/TAM/htdocs/ftc/dev/home/_home.js",
+		"/Users/cksgrapes/Documents/Business/TAM/htdocs/ftc/bower.json",
+		"/Users/cksgrapes/Documents/Business/TAM/htdocs/ftc/dev/header/_header.styl",
+		"/Users/cksgrapes/Documents/Business/TAM/htdocs/ftc/dev/ftc.common-ver.B.styl",
+		"/Users/cksgrapes/Documents/Business/TAM/htdocs/ftc/htdocs/contents/shop/ftc/css/ftc.common-ver.B.css",
+		"/Users/cksgrapes/Documents/Business/TAM/htdocs/ftc/htdocs/contents/shop/ftc/css/ftc.common.css",
+		"/Users/cksgrapes/Documents/Business/TAM/htdocs/ftc/package.json",
+		"/Users/cksgrapes/Desktop/btn_slide01.svg",
+		"/Users/cksgrapes/Documents/Business/TAM/htdocs/ftc/htdocs/contents/shop/ftc/js/ftc.lib.js",
+		"/Users/cksgrapes/Documents/Business/TAM/htdocs/ftc/webpack.config.js",
+		"/Users/cksgrapes/Documents/Business/TAM/htdocs/ftc/basesrc/contents/js/Project.common.js",
+		"/Users/cksgrapes/Documents/Business/TAM/htdocs/ftc/basesrc/contents/js/lib/scrollUp.js",
+		"/Users/cksgrapes/Documents/Business/TAM/Docs/FTC/icomoon/style.css",
+		"/Users/cksgrapes/Documents/Business/TAM/Docs/FTC/logo.svg",
+		"/Users/cksgrapes/Documents/Business/TAM/Docs/FTC/svg/SVG/logo.svg",
+		"/Users/cksgrapes/Documents/Business/TAM/Docs/FTC/svg/SVG/chevron.svg",
+		"/Users/cksgrapes/Documents/Business/TAM/htdocs/ftc/dev/include/_svgsprite.ejs",
+		"/Users/cksgrapes/Documents/Business/TAM/Docs/FTC/icomoon_11_icons.zip フォルダ/symbol-defs.svg",
+		"/Users/cksgrapes/Desktop/icon-lock.svg",
+		"/Users/cksgrapes/Desktop/icon-present.svg",
+		"/Users/cksgrapes/Desktop/icon-cosme.svg",
+		"/Users/cksgrapes/Desktop/icon-document.svg",
+		"/Users/cksgrapes/Desktop/icon-question.svg",
+		"/Users/cksgrapes/Desktop/icon-newly.svg",
+		"/Users/cksgrapes/Desktop/icon-freedial.svg",
+		"/Users/cksgrapes/Desktop/search.svg",
+		"/Users/cksgrapes/Desktop/chevron.svg",
+		"/Users/cksgrapes/Desktop/cart.svg",
+		"/Users/cksgrapes/Desktop/logo.svg",
+		"/Users/cksgrapes/Documents/Business/TAM/htdocs/ftc/dev/include/config.json",
+		"/Users/cksgrapes/Documents/Business/TAM/htdocs/ftc/htdocs/index.html",
+		"/Users/cksgrapes/Documents/Business/TAM/htdocs/ftc/dev/include/_meta.ejs",
+		"/Users/cksgrapes/Documents/Business/TAM/htdocs/ftc/index.html",
+		"/Users/cksgrapes/Documents/Business/TAM/htdocs/ftc/.editorconfig",
+		"/Users/cksgrapes/Documents/Business/TAM/htdocs/ftc/hologram_config.yml",
+		"/Users/cksgrapes/Documents/Project/g_ether_ds/hologram_config.yml",
+		"/Users/cksgrapes/Documents/Business/TAM/htdocs/ftc/hologram/_component.scss",
+		"/Users/cksgrapes/Documents/Business/TAM/htdocs/ftc/.gitignore",
+		"/Users/cksgrapes/Documents/Business/TAM/htdocs/ftc/dev/styles.styl",
+		"/Users/cksgrapes/Documents/Business/TAM/htdocs/ftc/dev/header/_header.js",
+		"/Users/cksgrapes/Documents/Business/TAM/htdocs/ftc/dev/inc/fonts.css",
+		"/Users/cksgrapes/Documents/Business/TAM/htdocs/ftc/dev/inc/config.json",
+		"/Users/cksgrapes/Documents/Business/TAM/htdocs/ftc/dev/inc/_variables.styl",
+		"/Users/cksgrapes/Documents/Business/TAM/htdocs/ftc/dev/structures/_structures.styl",
+		"/Users/cksgrapes/Documents/Business/TAM/htdocs/ftc/hologram/index.md",
+		"/Users/cksgrapes/Documents/Project/g_ether_ds/htdocs/assets/css/styles.css",
+		"/Users/cksgrapes/Documents/Project/g_ether_ds/htdocs/assets/js/common.js",
+		"/Users/cksgrapes/Documents/Project/g_ether_ds/dev/common.js",
+		"/Users/cksgrapes/Documents/Project/g_ether_ds/webpack.config.js",
+		"/Users/cksgrapes/Documents/Project/g_ether_ds/dev/header/_header.js",
+		"/Users/cksgrapes/Documents/Project/g_ether_ds/gulpfile.js",
+		"/Users/cksgrapes/Documents/Project/g_ether_ds/dev/structures/_structures.js",
+		"/Users/cksgrapes/Documents/Project/g_ether_ds/dev/index.ejs",
+		"/Users/cksgrapes/Documents/Project/g_ether_ds/dev/header/header.js",
+		"/Users/cksgrapes/Documents/Project/g_ether_ds/dev/styles.styl",
+		"/Users/cksgrapes/Documents/Project/g_ether_ds/htdocs/assets/js/lib.js",
+		"/Users/cksgrapes/Documents/Project/g_ether_ds/bower.json",
+		"/Users/cksgrapes/Documents/Project/g_ether_ds/dev/inc/_base.styl",
+		"/Users/cksgrapes/Documents/Project/g_ether_ds/dev/inc/_variables.styl",
+		"/Users/cksgrapes/Documents/Project/g_ether_ds/dev/footer/_footer.ejs",
+		"/Users/cksgrapes/Documents/Project/g_ether_ds/dev/structures/_structures.styl",
+		"/Users/cksgrapes/Documents/Project/g_ether_ds/dev/home/_home.styl",
+		"/Users/cksgrapes/Documents/Project/g_ether_ds/dev/header/_header.styl",
+		"/Users/cksgrapes/Documents/Project/g_ether_ds/dev/structures/_structures.scss",
+		"/Users/cksgrapes/Documents/Project/g_ether_ds/Gemfile",
+		"/Users/cksgrapes/Documents/Project/g_ether_ds/dev/styles.scss",
+		"/Users/cksgrapes/Documents/Project/g_ether_ds/dev/inc/fonts.css",
+		"/Users/cksgrapes/Documents/Project/g_ether_ds/dev/inc/_base.scss",
+		"/Users/cksgrapes/Documents/Project/g_ether_ds/package.json",
+		"/Users/cksgrapes/Documents/Project/g_ether_ds/dev/lib.js",
+		"/Users/cksgrapes/Documents/Project/g_ether_ds/dev/WorkDetails/WorkDetails.js",
+		"/Users/cksgrapes/Documents/Project/g_ether_ds/dev/inc/_sanitize.scss",
+		"/Users/cksgrapes/Documents/Project/g_ether_ds/dev/WorkDetails/index.ejs",
+		"/Users/cksgrapes/Documents/Project/g_ether_ds/dev/header/_header.ejs",
+		"/Users/cksgrapes/Documents/Project/g_ether_ds/dev/home/_home.scss",
+		"/Users/cksgrapes/Documents/Project/g_ether_ds/dev/header/_header.scss",
+		"/Users/cksgrapes/Documents/Project/g_ether_ds/dev/inc/_variables.scss",
+		"/Users/cksgrapes/Documents/Project/g_ether_ds/node_modules/html-minifier/node_modules/clean-css/lib/reader/rewrite-url.js",
+		"/Users/cksgrapes/Documents/Project/g_ether_ds/htdocs/assets/images/header/logo.svg",
+		"/Users/cksgrapes/Documents/Project/g_ether_ds/dev/header/logo.svg",
+		"/Users/cksgrapes/Documents/Project/g_ether_ds/dev/inc/_fonts.scss",
+		"/Users/cksgrapes/Downloads/icomoon (2)/style.css",
+		"/Applications/MAMP/conf/apache/extra/httpd-vhosts.conf",
+		"/Users/cksgrapes/Downloads/icomoon (1).zip フォルダ/style.css",
+		"/Users/cksgrapes/Documents/Project/g_ether_ds/dev/inc/_reset.scss",
+		"/Users/cksgrapes/Documents/Project/g_ether_ds/htdocs/index.html",
+		"/Users/cksgrapes/Documents/Project/g_ether_ds/dev/inc/config.json",
+		"/Users/cksgrapes/Documents/Project/g_ether_ds/dev/Single/index.ejs",
+		"/Users/cksgrapes/Documents/Project/g_ether_ds/dev/controllers/_controllers.ejs",
+		"/Users/cksgrapes/Documents/Project/g_ether_ds/dev/single/index.ejs",
+		"/Users/cksgrapes/Documents/Project/g_ether_ds/dev/src/single/index.ejs",
+		"/Users/cksgrapes/Documents/Project/g_ether_ds/dev/src/footer/_footer.ejs",
+		"/Users/cksgrapes/Documents/Project/g_ether_ds/dev/src/controllers/_controllers.ejs",
+		"/Users/cksgrapes/Documents/Project/g_ether_ds/dev/src/module/_header.ejs",
+		"/Users/cksgrapes/Documents/Project/g_ether_ds/dev/src/module/_footer.ejs",
+		"/Users/cksgrapes/Documents/Project/g_ether_ds/dev/src/styles.scss",
+		"/Users/cksgrapes/Documents/Project/g_ether_ds/dev/src/common/_header.ejs",
+		"/Users/cksgrapes/Documents/Project/g_ether_ds/dev/src/common/_footer.ejs",
+		"/Users/cksgrapes/Documents/Project/messism/README.md",
+		"/Users/cksgrapes/Documents/Project/messism/hologram/index.md",
+		"/Users/cksgrapes/Documents/Project/messism/dev/inc/_variables.scss",
+		"/Users/cksgrapes/Documents/Project/messism/gulpfile.js",
+		"/Users/cksgrapes/Documents/Project/messism/dev/src/common/_footer.ejs",
+		"/Users/cksgrapes/Documents/Project/messism/dev/src/common/_header.ejs",
+		"/Users/cksgrapes/Documents/Project/messism/dev/index.ejs",
+		"/Users/cksgrapes/Documents/Project/messism/htdocs/index.html"
+	],
+	"find":
+	{
+		"height": 70.0
+	},
+	"find_in_files":
+	{
+		"height": 158.0,
+		"where_history":
+		[
+			"/Users/cksgrapes/Documents/Business/TAM/htdocs/ftc/basesrc",
+			"/Users/cksgrapes/Documents/Business/TAM/htdocs/mielparque/dev/ejs/kumamoto",
+			"/Users/cksgrapes/Documents/Business/TAM/htdocs/mielparque/dev/ejs",
+			"/Users/cksgrapes/Documents/Business/TAM/htdocs/mielparque/dev/ejs/kumamoto",
+			"/Users/cksgrapes/Documents/Business/TAM/htdocs/mielparque/dev",
+			"/Users/cksgrapes/Documents/Business/TAM/htdocs/mielparque/dev/js",
+			"/Users/cksgrapes/Documents/Business/TAM/htdocs/mielparque/dev/ejs/kumamoto",
+			"/Users/cksgrapes/Documents/Business/TAM/htdocs/mielparque/dev/ejs",
+			"/Users/cksgrapes/Documents/Business/TAM/htdocs/mielparque/dev/ejs/kumamoto",
+			"/Users/cksgrapes/Documents/Business/TAM/htdocs/mielparque/dev/ejs",
+			"/Users/cksgrapes/Documents/Business/TAM/htdocs/mielparque/dev/ejs/kumamoto",
+			"/Users/cksgrapes/Documents/Business/TAM/htdocs/sprix/foresta/dev/scss",
+			"/Users/cksgrapes/Documents/Business/TAM/htdocs/sprix/foresta/dev/jade",
+			"/Users/cksgrapes/Documents/Business/TAM/htdocs/sprix/foresta/dev/scss",
+			"/Users/cksgrapes/Documents/Business/TAM/htdocs/sprix/foresta/dev/jade/_include"
+		]
+	},
+	"find_state":
+	{
+		"case_sensitive": false,
+		"find_history":
+		[
+			"itemListBox01",
+			"（税込）",
+			"15px",
+			".contentBox01_white",
+			"itemListBox01",
+			"pricenote",
+			"button",
+			"itemHeading01_withLine big",
+			"block",
+			"home",
+			"itemLeadText",
+			"leadText01",
+			"columnsBox",
+			"src=\"contents",
+			"href=\"contents",
+			".pickupUnit01",
+			".globalNavigation01",
+			"\t\t\tmargin-left 30px\nsearchLineup01",
+			"smallMAX",
+			".itemList01",
+			"vh",
+			"25.528169014vh",
+			"2.6408451vh",
+			".026408451",
+			"jpg",
+			"<section class=\"contentsBox01_beige\">\n<section class=\"contentsBox01_beige\">\nsearchBanner01",
+			") ",
+			")::before",
+			"1",
+			"content-width",
+			"bannerUnit01",
+			" alt=\"\"",
+			"\"siteHeading01\"",
+			"#fff",
+			"contentsBox01",
+			"contentBgColor01_white",
+			"scrollUp",
+			"header",
+			"cart-pc",
+			"cart-sp",
+			"large-min",
+			"medium-min",
+			"small-min",
+			"@media",
+			"@media ",
+			"description",
+			"structures",
+			"ether",
+			"common",
+			"ETHER",
+			"structures",
+			"ftc",
+			"ether",
+			"MYAPP",
+			"MPQ",
+			"ETHER",
+			"MPQ",
+			"font-size",
+			"$color-white",
+			" $color-black",
+			"hide",
+			"taskSwitch",
+			"htdocs",
+			"AUTOPREFIXER_BROWSERS",
+			"80",
+			"MYAPP",
+			"50",
+			"60px;",
+			"60px",
+			"60",
+			"main-color",
+			"path d=",
+			"text-decoration",
+			"img",
+			"font-size",
+			"html",
+			"overflow",
+			"break",
+			"no-repeat",
+			"st-Masonry",
+			"Masonry_Blick-",
+			" st-Masonry_Blick ",
+			"st-Blick",
+			"st-2Columns",
+			"sn-",
+			"wd-",
+			"FontSizeChanger",
+			"navigation",
+			"work_",
+			".js",
+			"src/",
+			"base",
+			"src",
+			"src/",
+			"button button",
+			"item",
+			"changeFontSize",
+			"controls_item",
+			"kegend",
+			"Contact_text",
+			"Contact_name",
+			"home-Contact_item",
+			"home-Form",
+			"class=\"form",
+			"form",
+			"Form",
+			"form",
+			"Form",
+			"form",
+			"content",
+			"profile",
+			"Card",
+			"md-",
+			"sg-",
+			"cmn-",
+			"HeadingJa",
+			"home-Latest_Title",
+			"cmn-",
+			"Notice",
+			"cmnFormat",
+			"cmnFormatPic",
+			"cmnFormatFic",
+			"SearchBox",
+			"cmn-SearchItem",
+			"cmn-SearchIte",
+			"CheckboxLabel",
+			"CheckboxInput",
+			"cmn-CheckBox"
+		],
+		"highlight": true,
+		"in_selection": false,
+		"preserve_case": false,
+		"regex": false,
+		"replace_history":
+		[
+			"xsmallMax",
+			"dest.css",
+			"<head>",
+			"href=\"<%- args.local_path %>",
+			"src=\"$1\"",
+			"<%- args.local_img_path %>img_$1",
+			">banner_aboutBanner",
+			"aboutBanner",
+			"",
+			"<h2 class=\"heading-02\">$1</h2>",
+			"<h2 class=\"heading-02\"><span>$1</span></h2>",
+			"あああああああああああああああああああああああああああああああああああああああああ",
+			"<option value=\"\">$1</option>",
+			"<optgroup label=\"$1\"></optgroup>",
+			"<dt class=\"search_list_title search_list_ico04\">アクセスが便利な駅</dt>",
+			"<dt class=\"search_list_title search_list_ico03\">イベント会場</dt>",
+			"○○○○駅",
+			"○○○○○"
+		],
+		"reverse": false,
+		"show_context": true,
+		"use_buffer2": true,
+		"whole_word": false,
+		"wrap": true
+	},
+	"groups":
+	[
+		{
+			"selected": 0,
+			"sheets":
+			[
+				{
+					"buffer": 0,
+					"file": "/Users/cksgrapes/Documents/Business/TAM/htdocs/ftc/dev/_index-contents.ejs",
+					"semi_transient": false,
+					"settings":
+					{
+						"buffer_size": 3995,
+						"regions":
+						{
+						},
+						"selection":
+						[
+							[
+								2372,
+								2390
+							]
+						],
+						"settings":
+						{
+							"auto_complete": false,
+							"bracket_highlighter.busy": false,
+							"bracket_highlighter.locations":
+							{
+								"close":
+								{
+									"1":
+									[
+										2390,
+										2391
+									]
+								},
+								"icon":
+								{
+									"1":
+									[
+										"Packages/BracketHighlighter/icons/double_quote.png",
+										"brackethighlighter.default"
+									]
+								},
+								"open":
+								{
+									"1":
+									[
+										2371,
+										2372
+									]
+								},
+								"unmatched":
+								{
+								}
+							},
+							"bracket_highlighter.regions":
+							[
+								"bh_c_define",
+								"bh_c_define_center",
+								"bh_c_define_open",
+								"bh_c_define_close",
+								"bh_c_define_content",
+								"bh_square",
+								"bh_square_center",
+								"bh_square_open",
+								"bh_square_close",
+								"bh_square_content",
+								"bh_regex",
+								"bh_regex_center",
+								"bh_regex_open",
+								"bh_regex_close",
+								"bh_regex_content",
+								"bh_unmatched",
+								"bh_unmatched_center",
+								"bh_unmatched_open",
+								"bh_unmatched_close",
+								"bh_unmatched_content",
+								"bh_round",
+								"bh_round_center",
+								"bh_round_open",
+								"bh_round_close",
+								"bh_round_content",
+								"bh_default",
+								"bh_default_center",
+								"bh_default_open",
+								"bh_default_close",
+								"bh_default_content",
+								"bh_tag",
+								"bh_tag_center",
+								"bh_tag_open",
+								"bh_tag_close",
+								"bh_tag_content",
+								"bh_single_quote",
+								"bh_single_quote_center",
+								"bh_single_quote_open",
+								"bh_single_quote_close",
+								"bh_single_quote_content",
+								"bh_angle",
+								"bh_angle_center",
+								"bh_angle_open",
+								"bh_angle_close",
+								"bh_angle_content",
+								"bh_curly",
+								"bh_curly_center",
+								"bh_curly_open",
+								"bh_curly_close",
+								"bh_curly_content",
+								"bh_double_quote",
+								"bh_double_quote_center",
+								"bh_double_quote_open",
+								"bh_double_quote_close",
+								"bh_double_quote_content"
+							],
+							"color_scheme": "Packages/User/Color Highlighter/themes/Material-Theme-Darker.tmTheme",
+							"editorconfig": true,
+							"ensure_newline_at_eof_on_save": true,
+							"is_init_dirty_state": false,
+							"origin_encoding": "UTF-8",
+							"syntax": "Packages/HTML/HTML.sublime-syntax",
+							"tab_size": 2,
+							"translate_tabs_to_spaces": false,
+							"trim_trailing_white_space_on_save": true
+						},
+						"translation.x": 0.0,
+						"translation.y": 2089.0,
+						"zoom_level": 1.0
+					},
+					"stack_index": 1,
+					"type": "text"
+				}
+			]
+		},
+		{
+			"selected": 1,
+			"sheets":
+			[
+				{
+					"buffer": 1,
+					"file": "/Users/cksgrapes/Documents/Business/TAM/htdocs/ftc/dev/item/_item.styl",
+					"semi_transient": false,
+					"settings":
+					{
+						"buffer_size": 7105,
+						"regions":
+						{
+						},
+						"selection":
+						[
+							[
+								4947,
+								4947
+							]
+						],
+						"settings":
+						{
+							"bracket_highlighter.busy": false,
+							"bracket_highlighter.locations":
+							{
+								"close":
+								{
+								},
+								"icon":
+								{
+								},
+								"open":
+								{
+								},
+								"unmatched":
+								{
+								}
+							},
+							"bracket_highlighter.regions":
+							[
+								"bh_curly",
+								"bh_curly_center",
+								"bh_curly_open",
+								"bh_curly_close",
+								"bh_curly_content",
+								"bh_regex",
+								"bh_regex_center",
+								"bh_regex_open",
+								"bh_regex_close",
+								"bh_regex_content",
+								"bh_tag",
+								"bh_tag_center",
+								"bh_tag_open",
+								"bh_tag_close",
+								"bh_tag_content",
+								"bh_single_quote",
+								"bh_single_quote_center",
+								"bh_single_quote_open",
+								"bh_single_quote_close",
+								"bh_single_quote_content",
+								"bh_unmatched",
+								"bh_unmatched_center",
+								"bh_unmatched_open",
+								"bh_unmatched_close",
+								"bh_unmatched_content",
+								"bh_square",
+								"bh_square_center",
+								"bh_square_open",
+								"bh_square_close",
+								"bh_square_content",
+								"bh_round",
+								"bh_round_center",
+								"bh_round_open",
+								"bh_round_close",
+								"bh_round_content",
+								"bh_angle",
+								"bh_angle_center",
+								"bh_angle_open",
+								"bh_angle_close",
+								"bh_angle_content",
+								"bh_c_define",
+								"bh_c_define_center",
+								"bh_c_define_open",
+								"bh_c_define_close",
+								"bh_c_define_content",
+								"bh_double_quote",
+								"bh_double_quote_center",
+								"bh_double_quote_open",
+								"bh_double_quote_close",
+								"bh_double_quote_content",
+								"bh_default",
+								"bh_default_center",
+								"bh_default_open",
+								"bh_default_close",
+								"bh_default_content"
+							],
+							"color_scheme": "Packages/User/Color Highlighter/themes/Material-Theme-Darker.tmTheme",
+							"editorconfig": true,
+							"ensure_newline_at_eof_on_save": true,
+							"is_init_dirty_state": false,
+							"origin_encoding": "UTF-8",
+							"syntax": "Packages/Stylus/Stylus.tmLanguage",
+							"tab_size": 2,
+							"translate_tabs_to_spaces": false,
+							"trim_trailing_white_space_on_save": true
+						},
+						"translation.x": 0.0,
+						"translation.y": 6247.0,
+						"zoom_level": 1.0
+					},
+					"stack_index": 2,
+					"type": "text"
+				},
+				{
+					"buffer": 2,
+					"file": "/Users/cksgrapes/Documents/Business/TAM/htdocs/ftc/dev/home/_home.styl",
+					"semi_transient": false,
+					"settings":
+					{
+						"buffer_size": 6300,
+						"regions":
+						{
+						},
+						"selection":
+						[
+							[
+								6101,
+								6101
+							]
+						],
+						"settings":
+						{
+							"bracket_highlighter.busy": false,
+							"bracket_highlighter.locations":
+							{
+								"close":
+								{
+								},
+								"icon":
+								{
+								},
+								"open":
+								{
+								},
+								"unmatched":
+								{
+								}
+							},
+							"bracket_highlighter.regions":
+							[
+								"bh_c_define",
+								"bh_c_define_center",
+								"bh_c_define_open",
+								"bh_c_define_close",
+								"bh_c_define_content",
+								"bh_square",
+								"bh_square_center",
+								"bh_square_open",
+								"bh_square_close",
+								"bh_square_content",
+								"bh_regex",
+								"bh_regex_center",
+								"bh_regex_open",
+								"bh_regex_close",
+								"bh_regex_content",
+								"bh_unmatched",
+								"bh_unmatched_center",
+								"bh_unmatched_open",
+								"bh_unmatched_close",
+								"bh_unmatched_content",
+								"bh_round",
+								"bh_round_center",
+								"bh_round_open",
+								"bh_round_close",
+								"bh_round_content",
+								"bh_default",
+								"bh_default_center",
+								"bh_default_open",
+								"bh_default_close",
+								"bh_default_content",
+								"bh_tag",
+								"bh_tag_center",
+								"bh_tag_open",
+								"bh_tag_close",
+								"bh_tag_content",
+								"bh_single_quote",
+								"bh_single_quote_center",
+								"bh_single_quote_open",
+								"bh_single_quote_close",
+								"bh_single_quote_content",
+								"bh_angle",
+								"bh_angle_center",
+								"bh_angle_open",
+								"bh_angle_close",
+								"bh_angle_content",
+								"bh_curly",
+								"bh_curly_center",
+								"bh_curly_open",
+								"bh_curly_close",
+								"bh_curly_content",
+								"bh_double_quote",
+								"bh_double_quote_center",
+								"bh_double_quote_open",
+								"bh_double_quote_close",
+								"bh_double_quote_content"
+							],
+							"color_scheme": "Packages/User/Color Highlighter/themes/Material-Theme-Darker.tmTheme",
+							"editorconfig": true,
+							"ensure_newline_at_eof_on_save": true,
+							"is_init_dirty_state": false,
+							"origin_encoding": "ASCII",
+							"syntax": "Packages/Stylus/Stylus.tmLanguage",
+							"tab_size": 2,
+							"translate_tabs_to_spaces": false,
+							"trim_trailing_white_space_on_save": true
+						},
+						"translation.x": 0.0,
+						"translation.y": 7030.0,
+						"zoom_level": 1.0
+					},
+					"stack_index": 0,
+					"type": "text"
+				}
+			]
+		}
+	],
+	"incremental_find":
+	{
+		"height": 30.0
+	},
+	"input":
+	{
+		"height": 66.0
+	},
+	"layout":
+	{
+		"cells":
+		[
+			[
+				0,
+				0,
+				1,
+				1
+			],
+			[
+				1,
+				0,
+				2,
+				1
+			]
+		],
+		"cols":
+		[
+			0.0,
+			0.5,
+			1.0
+		],
+		"rows":
+		[
+			0.0,
+			1.0
+		]
+	},
+	"menu_visible": true,
+	"output.find_results":
+	{
+		"height": 0.0
+	},
+	"pinned_build_system": "",
+	"project": "FTC.sublime-project",
+	"replace":
+	{
+		"height": 114.0
+	},
+	"save_all_on_build": true,
+	"select_file":
+	{
+		"height": 0.0,
+		"last_filter": "",
+		"selected_items":
+		[
+			[
+				"lay",
+				"dev/css/_layout.scss"
+			],
+			[
+				"optionscss",
+				"dev/scss/base/_option.scss"
+			],
+			[
+				"communi",
+				"dev/scss/project/_community.scss"
+			],
+			[
+				"list",
+				"dev/scss/components/_list.scss"
+			],
+			[
+				"scsslayout",
+				"dev/scss/layout/_contents.scss"
+			],
+			[
+				"listscss",
+				"dev/scss/components/_list.scss"
+			],
+			[
+				"scsscomm",
+				"dev/scss/project/_community.scss"
+			]
+		],
+		"width": 0.0
+	},
+	"select_project":
+	{
+		"height": 500.0,
+		"last_filter": "",
+		"selected_items":
+		[
+		],
+		"width": 380.0
+	},
+	"select_symbol":
+	{
+		"height": 0.0,
+		"last_filter": "",
+		"selected_items":
+		[
+		],
+		"width": 0.0
+	},
+	"selected_group": 0,
+	"settings":
+	{
+	},
+	"show_minimap": true,
+	"show_open_files": true,
+	"show_tabs": true,
+	"side_bar_visible": true,
+	"side_bar_width": 285.0,
+	"status_bar_visible": true,
+	"template_settings":
+	{
+	}
+}

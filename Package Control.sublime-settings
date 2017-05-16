@@ -1,0 +1,48 @@
+{
+	"bootstrapped": true,
+	"in_process_packages":
+	[
+	],
+	"installed_packages":
+	[
+		"Alignment",
+		"All Autocomplete",
+		"ApacheConf.tmLanguage",
+		"AutoFileName",
+		"BracketHighlighter",
+		"Codecs33",
+		"Color Highlighter",
+		"ConvertToUTF8",
+		"CSS Format",
+		"CSScomb",
+		"DataConverter",
+		"EditorConfig",
+		"Emmet",
+		"Goto-CSS-Declaration",
+		"Hayaku - tools for writing CSS faster",
+		"HTML-CSS-JS Prettify",
+		"Jade",
+		"jQuery",
+		"LineEndings",
+		"Markdown Preview",
+		"Material Theme",
+		"Package Control",
+		"Pretty JSON",
+		"ProjectManager",
+		"Quick File Open",
+		"SCSS",
+		"SideBarEnhancements",
+		"Stylus",
+		"Stylus-Snippets",
+		"SublimeCodeIntel",
+		"SublimeLinter",
+		"SublimeLinter-contrib-scss-lint",
+		"SublimeLinter-csslint",
+		"SublimeLinter-jshint",
+		"SublimeLinter-php",
+		"SublimeLinter-phplint",
+		"Sublimerge 3",
+		"Table Editor",
+		"Tag"
+	]
+}

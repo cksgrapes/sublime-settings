@@ -1,0 +1,8 @@
+{
+    "files": [
+    	"/Applications/MAMP/conf/apache/httpd.conf", 
+    	"/Applications/MAMP/conf/apache/extra/httpd-vhosts.conf",
+    	"~/.bashrc",
+    	"~/.bash_profile"
+    ]
+}

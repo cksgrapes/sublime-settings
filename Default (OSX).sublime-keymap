@@ -1,0 +1,38 @@
+[
+    // { "keys": ["shift+super+enter"], "command": "insert_snippet", "args": {"contents": "\n${TM_CURRENT_LINE/^\\s*(\\*\\s*).*$/$1/}"}},
+    { "keys": ["super+ctrl+a"], "command": "alignment" },
+    {
+        "keys": ["alt+shift+super+p"], "command": "quick_file_open"
+    },
+        { "keys": ["ctrl+t"], "command": "side_bar_new_file2" },
+        { "keys": ["f2"], "command": "side_bar_rename" },
+        { "keys": ["ctrl+alt+f"], "command": "side_bar_find_files_path_containing" },
+        {
+            "keys": [
+                    "shift+ctrl+super+r"
+            ], 
+            "args": {
+                    "action": "remove_tag"
+            }, 
+            "command": "run_emmet_action", 
+            "context": [
+                    {
+                            "key": "emmet_action_enabled.remove_tag"
+                    }
+            ]
+        },
+        {
+            "keys": [
+                    "shift+super+r"
+            ], 
+            "command": "rename_tag", 
+            "context": [
+                    {
+                            "key": "emmet_action_enabled.rename_tag"
+                    }
+            ]
+        },
+        { "keys": ["ctrl+shift+a"], "command": "sftp_upload_file" },
+        { "keys": ["ctrl+shift+alt+enter"], "command": "insert", "args": {"characters": "<br />" } },
+        { "keys": ["ctrl+shift+enter"], "command": "insert", "args": {"characters": "<br>" } }
+]

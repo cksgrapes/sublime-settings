@@ -1,0 +1,817 @@
+{
+	"auto_complete":
+	{
+		"selected_items":
+		[
+			[
+				"list-",
+				"list-inline"
+			],
+			[
+				"com",
+				"community-panel"
+			],
+			[
+				"block",
+				"block-l"
+			],
+			[
+				"dum",
+				"dum_img12.jpg\tw:880 h:553"
+			]
+		]
+	},
+	"buffers":
+	[
+		{
+			"contents": "/*---------------------------------------------------------------------\n\tかんたん文スクリプト「あやりりす」\n---------------------------------------------------------------------*/\n//***************************************************************************************************\nOnSystemLoad.ﾟAYALILITH : void //ﾟはソート順序を最後にするため\n{\n\tstroke = (1,1,1)\n\tstroketimer = (1,1,1)\n\tstrokeid = ('','','')\n\thalf_menu_counter = 0\n\tboot_init = 0\n\t\n\tmikire_flag_array = IARRAY\n\t\n\t最終マウスイベント分 = systemuptime / 60\n\tゴースト起動時刻 = systemuptime\n\t\n\t累積起動時間初期 = 累積起動時間\n\t\n\tif ISVAR('半分メニュー無効') == 0 {\n\t\t半分メニュー無効 = 0\n\t}\n\t\n\t_a = GETFUNCLIST('ゴースト起動前の処理')\n\tforeach _a;_f {\n\t\tEVAL(_f)\n\t}\n\t\n\tif username == '' {\n\t\tusername = 名前入力初期WRAP()\n\t}\n\t\n\tmousedown_time = -1\n\tmousedown_reference_array = IARRAY\n\tmousedown_exec_complete = 0\n\t\n\tmouseevent_time = IARRAY\n\tmouseevent_colname = IARRAY\n\tmouseevent_count = IARRAY\n\tマウスイベント連続回数 = 1\n\t\n\t着せ替え情報 = IARRAY\n\t着せ替え有効パーツリスト = IARRAY\n\t着せ替え有効パーツリストEX = IARRAY\n\t着せ替え有効カテゴリリスト = IARRAY\n\t着せ替え有効カテゴリリストEX = IARRAY\n\t\n\tモード = ''\n\t現在の日 = GETTIME()[2]\n\t\n\t_ft = <<'\n\tOnChoiceSelect\n\tOnAnchorSelect\n\tOnBoot\n\tOnClose\n\tOnFirstBoot\n\tOnGhostChanging\n\tOnGhostChanged\n\tOnGhostCalling\n\tOnGhostCalled\n\tOnGhostCallComplete\n\tOnOtherGhostClosed\n\tOnShellChanging\n\tOnShellChanged\n\tOnMinuteChange\n\tOnOffScreen\n\tOnBalloonChange\n\tOnMouseMove\n\tOnMouseWheel\n\tOnMouseClick\n\tOnMouseDoubleClick\n\tOnMouseDragStart\n\tOnMouseDragEnd\n\tOnMouseGesture\n\tOnMouseDown\n\tOnMouseUp\n\tOnCommunicate\n\tOnRecommendsiteChoice\n\tOnKeyPress\n\tOn_otherghostname\n\tOn_sakura.portalsites\n\tOn_sakura.recommendsites\n\tOn_kero.recommendsites\n\t'>>\n\t_fa = SPLIT(_ft,CHR(0xd,0xa))\n\t\n\tforeach _fa;_f {\n\t\tif ISFUNC(_f) {\n\t\t\tLOGGING(\"警告：関数/イベント %(_f) はあやりりすで上書きされます\")\n\t\t}\n\t}\n}\n\nOnSystemUnload.ﾟAYALILITH : void //ﾟはソート順序を最後にするため\n{\n\tERASEVAR('累積起動時間初期')\n\t\n\tERASEVAR('stroke','stroketimer','strokeid')\n\tERASEVAR('half_menu_counter')\n\tERASEVAR('boot_init')\n\t\n\tERASEVAR('mikire_flag_array')\n\t\n\tERASEVAR('最終マウスイベント分')\n\tERASEVAR('ゴースト起動時刻')\n\tERASEVAR('タグなしトーク')\n\tERASEVAR('終了しない')\n\t\n\tERASEVAR('installedplugin_name','installedplugin_id')\n\tERASEVAR('ghostexlist')\n\t\n\tERASEVAR('mousedown_reference_array','mousedown_time','mousedown_exec_complete')\n\tERASEVAR('mouseevent_time''mouseevent_colname','mouseevent_count','マウスイベント連続回数')\n\t\n\t//'情報_シェル名','情報_バルーン名'は消さない\n\tERASEVAR('情報_ゴースト名','情報_キャラ名')\n\t\n\tERASEVAR('情報_ユーザー名','情報_ユーザー誕生日')\n\n\tERASEVAR('情報_モニタ色数','情報_モニタ幅','情報_モニタ高さ')\n\t\n\tERASEVAR('スタンプ帳動作','スタンプ帳情報')\n\t\n\tERASEVAR('名前入力識別')\n\t\n\tERASEVAR('着せ替え情報','着せ替え有効パーツリスト','着せ替え有効パーツリストEX','着せ替え有効カテゴリリスト','着せ替え有効カテゴリリストEX')\n\t\n\tERASEVAR('今日はユーザー誕生日','現在の日')\n\n\t_a = GETFUNCLIST('ゴースト終了前の処理')\n\tforeach _a;_f {\n\t\tEVAL(_f)\n\t}\n}\n\nOnTranslateInternal.ﾟAYALILITH //ﾟはソート順序を最後にするため\n{\n\tif SUBSTR(SHIORI3FW.Eventid,0,3) == 'On_' {\n\t\t_argv[0] //ret\n\t\treturn\n\t}\n\t\n\tif ! boot_init {\n\t\tif ISFUNC('起動初期化スクリプト') {\n\t\t\t_v = REPLACE(EVAL('起動初期化スクリプト'),'\\e','')\n\t\t\t_v + _argv[0] //ret\n\t\t}\n\t\telse {\n\t\t\t_argv[0] //ret\n\t\t}\n\t\tboot_init = 1\n\t}\n\telse {\n\t\t_argv[0] //ret\n\t}\n}\n\nAYL_OnTextDrop\n{\n\tif TOINT(AYALilithEX) != 0 {\n\t\tREPLACE(reference.raw[0],CHR(1),CHR(0xd,0xa))\n\t}\n\telse {\n\t\tREPLACE(reference.raw[0],CHR(1),' ')\n\t}\n}\n\n累積起動時間\n{\n\tghostupmin_total() / 24\n}\n\nAYL_OnSecondChange\n{\n\t_mikire = TOINT(reference[1])\n\tif _mikire != TOINT(mikire_flag_array[0]) {\n\t\tmikire_flag_array[0] = _mikire\n\t\t\n\t\t_fname = ''\n\t\tif _mikire {\n\t\t\t_fname = OnGhostEventTranslate.AYL('見切れ0')\n\t\t}\n\t\telse {\n\t\t\t_fname = OnGhostEventTranslate.AYL('見切れ解除0')\n\t\t}\n\t\tif ISFUNC(_fname) {\n\t\t\t_v = EVAL(_fname)\n\t\t\tif STRLEN(_v) {\n\t\t\t\t_v\n\t\t\t\treturn\n\t\t\t}\n\t\t}\n\t}\n\t\n\t//ホールド\n\tif ARRAYSIZE(mousedown_reference_array) && (mousedown_exec_complete == 0) {\n\t\tif (GETTICKCOUNT() - mousedown_time) > 1000 {\n\t\t\t//いったんreferenceを仮保存し、擬似マウスイベントに(MouseDownのreferenceを上書き)\n\t\t\t_r = reference\n\t\t\treference = mousedown_reference_array\n\t\t\t\n\t\t\tmousedown_exec_complete = 1\n\t\t\t\n\t\t\t_result = MouseEventExec('ホールド')\n\t\t\tif STRLEN(_result) {\n\t\t\t\t_result\n\t\t\t\treturn\n\t\t\t}\n\t\t\t\n\t\t\treference = _r\n\t\t}\n\t}\n\t\n\t_fname = 'OnSecondChange' + TOSTR(モード)\n\tif ISFUNC(_fname) {\n\t\tEVAL(_fname)\n\t\treturn\n\t}\n}\n\nAYL_OnOffScreen\n{\n\t_mikire_after = IARRAY\n\t\n\t_fa = SPLIT(reference[0],CHR(1))\n\tforeach _fa;_f {\n\t\t_mikire_after[TOINT(_f)] = 1\n\t}\n\t\n\t_n = ARRAYSIZE(mikire_flag_array)\n\t_n2 = ARRAYSIZE(_mikire_after)\n\tif _n < _n2 {\n\t\t_n = _n2\n\t}\n\t\n\tfor _i = 0 ; _i < _n ; _i++ {\n\t\tif mikire_flag_array[_i] != _mikire_after[_i] {\n\t\t\t_fname = ''\n\t\t\tif _mikire_after[_i] {\n\t\t\t\t_fname = OnGhostEventTranslate.AYL('見切れ' + _i)\n\t\t\t}\n\t\t\telse {\n\t\t\t\t_fname = OnGhostEventTranslate.AYL('見切れ解除' + _i)\n\t\t\t}\n\t\t\tif ISFUNC(_fname) {\n\t\t\t\t_v = EVAL(_fname)\n\t\t\t\tif STRLEN(_v) {\n\t\t\t\t\t_v\n\t\t\t\t\treturn\n\t\t\t\t}\n\t\t\t}\n\t\t\treturn\n\t\t}\n\t}\n\t\n\tmikire_flag_array = _mikire_after\n}\n\nAYL_OnKeyPress\n{\n\t_fname = ''\n\tif TOINT(reference[2]) >= 2 {\n\t\t_fname = OnGhostEventTranslate.AYL('キー入力連続' + TOUPPER(reference[0]))\n\t}\n\telse {\n\t\t_fname = OnGhostEventTranslate.AYL('キー入力' + TOUPPER(reference[0]))\n\t}\n\tif ISFUNC(_fname) {\n\t\t_v = EVAL(_fname)\n\t\tif STRLEN(_v) {\n\t\t\t_v\n\t\t\treturn\n\t\t}\n\t}\n}\n\nAYL_OnMinuteChange\n{\n\t_r = 累積起動時間\n\tif 累積起動時間初期 != _r {\n\t\t累積起動時間初期 = _r\n\t\t\n\t\tif ISFUNC('累積起動時間変化') {\n\t\t\t_rs = EVAL('累積起動時間変化(_r)')\n\t\t\tif _rs != '' {\n\t\t\t\t_rs\n\t\t\t\treturn\n\t\t\t}\n\t\t}\n\t}\n\t\n\t_t = GETTIME()\n\t\n\tif _t[5] == 0 {\n\t\tif 現在の日 != _t[2] {\n\t\t\t現在の日 = _t[2]\n\t\t\t\n\t\t\t_fname = OnGhostEventTranslate.AYL(\"日付変更%(_t[1])月%(_t[2])日\")\n\t\t\tif ISFUNC(_fname) {\n\t\t\t\t_v = EVAL(_fname)\n\t\t\t\tif STRLEN(_v) {\n\t\t\t\t\t_v\n\t\t\t\t\treturn\n\t\t\t\t}\n\t\t\t}\n\t\t\t\n\t\t\t_fname = OnGhostEventTranslate.AYL(\"日付変更\")\n\t\t\tif ISFUNC(_fname) {\n\t\t\t\t_v = EVAL(_fname)\n\t\t\t\tif STRLEN(_v) {\n\t\t\t\t\t_v\n\t\t\t\t\treturn\n\t\t\t\t}\n\t\t\t}\n\t\t\tAYL_DateInit\n\t\t}\n\t\t\n\t\t_fname = OnGhostEventTranslate.AYL(\"時報%(_t[1])月%(_t[2])日%(_t[4])時\")\n\t\tif ISFUNC(_fname) {\n\t\t\t_v = EVAL(_fname)\n\t\t\tif STRLEN(_v) {\n\t\t\t\t_v\n\t\t\t\treturn\n\t\t\t}\n\t\t}\n\t\t\n\t\t_fname = OnGhostEventTranslate.AYL(\"時報%(_t[4])時\")\n\t\tif ISFUNC(_fname) {\n\t\t\t_v = EVAL(_fname)\n\t\t\tif STRLEN(_v) {\n\t\t\t\t_v\n\t\t\t\treturn\n\t\t\t}\n\t\t}\n\t\t\n\t\t_fname = OnGhostEventTranslate.AYL(\"時報\")\n\t\tif ISFUNC(_fname) {\n\t\t\t_v = EVAL(_fname)\n\t\t\tif STRLEN(_v) {\n\t\t\t\t_v\n\t\t\t\treturn\n\t\t\t}\n\t\t}\n\t}\n\t\n\t_fname = 'OnMinuteChangeAYALILITH' + TOSTR(モード)\n\tif ISFUNC(_fname) {\n\t\tEVAL(_fname)\n\t\treturn\n\t}\n}\n\nAYL_DateInit\n{\n\tif GETTYPE(SHIORI3FW.UserBirthday) != 3 {\n\t\t今日はユーザー誕生日 = 0\n\t\treturn\n\t}\n\tif STRLEN(SHIORI3FW.UserBirthday) == 0 {\n\t\t今日はユーザー誕生日 = 0\n\t\treturn\n\t}\n\t\n\t_a1 = GETTIME()\n\t_d1 = JOIN(_a1[1],_a1[2],',')\n\t\n\t_a2 = SPLIT(SHIORI3FW.UserBirthday,',')\n\t_d2 = JOIN(TOINT(_a2[1]),TOINT(_a2[2]),',')\n\t\n\tif _d1 == _d2 {\n\t\t今日はユーザー誕生日 = 1\n\t}\n\telse {\n\t\t今日はユーザー誕生日 = 0\n\t}\n}\n\n/*----------------------------------------------------------------------------------\n\tイベント振り分け\n----------------------------------------------------------------------------------*/\n\nOnGhostEventTranslate.AYL\n{\n\t_fname = 'AYL_' + _argv[0]\n\tif ISFUNC(_fname) {\n\t\t_fname\n\t\treturn\n\t}\n\t\n\t_fname = _argv[0] + TOSTR(モード)\n\tif ISFUNC(_fname) {\n\t\t_fname\n\t\treturn\n\t}\n}\n\nAYL_OnChoiceSelect\n{\n\t_fn = reference[0] + TOSTR(モード)\n\tif ISFUNC(_fn) {\n\t\tEVAL(_fn)\n\t\treturn\n\t}\n\t\n\t_fn = reference[0]\n\tif ISFUNC(_fn) {\n\t\tEVAL(_fn)\n\t\treturn\n\t}\n\t\n\tif SUBSTR(reference[0],0,6) == '|TEST|' {\n\t\tTOSTR(EVAL(SUBSTR(reference[0],6,10000)))\n\t\treturn\n\t}\n}\n\nAYL_OnAnchorSelect\n{\n\tif RE_SEARCH(reference[0],'^(http|https)://') {\n\t\t\"\\C\\![open,browser,%(reference[0])]\"\n\t\treturn\n\t}\n\n\t_fn = 'アンカー' + reference[0] + TOSTR(モード)\n\tif ISFUNC(_fn) {\n\t\tEVAL(_fn)\n\t\treturn\n\t}\n\n\t_fn = 'アンカー' + reference[0]\n\tif ISFUNC(_fn) {\n\t\tEVAL(_fn)\n\t\treturn\n\t}\n\n\tif ISFUNC(reference[0]) {\n\t\tEVAL(reference[0])\n\t\treturn\n\t}\n}\n\n//***************************************************************************************************\n/*---------------------------------------------------------------------\n\tコア\n---------------------------------------------------------------------*/\nDelayedTalkEval\n{\n\t_txtarray = SPLIT(_argv[0],C_CRLF)\n\t_output = ''\n\t\n\tif GETTYPE(_txtarray) == 4 {\n\t\t_n = ARRAYSIZE(_txtarray)\n\t\t_inited = 0\n\t\tfor _i = 0 ; _i < _n ; _i++ {\n\t\t\tif _inited {\n\t\t\t\t_output += C_CRLF\n\t\t\t}\n\t\t\t_inited = 1\n\t\t\t_output += EVAL(CHR(0x22) + REPLACE(_txtarray[_i],CHR(0x22),'%(CHR(0x22))') + CHR(0x22))\n\t\t}\n\t}\n\telse {\n\t\t_output += EVAL(CHR(0x22) + REPLACE(_argv[0],CHR(0x22),'%(CHR(0x22))') + CHR(0x22))\n\t}\n\t\n\tTOSTR(_output)\n}\n\nGetCurrentEto\n{\n\t_e = ('子','丑','寅','卯','辰','巳','午','未','申','酉','戌','亥')\n\t_y = GETTIME()[0]\n\t_e[(_y+8) % 12]\n}\n\nGetEvalTalkArray\n{\n\t_t = GETTIME()\n\t_y = _t[0]\n\t_m = _t[1]\n\t_d = _t[2]\n\t_ms = GetMonthSlot\n\t_holiday = GetHolidaySlot\n\t_dayofweek = GetDOWSlot\n\t\n\t_season = GetSeasonSlot\n\t_time = GetTimeSlotList\n\n\t_slots = IARRAY\n\t\n\t//一般的なおおざっぱなもの\n\tif _argc == 0 || _argv[0] == 0 {\n\t\t//朝,昼,夕,夜,深夜etc...\n\t\t_slots ,= _time\n\t\t//何時\n\t\t_slots ,= \"%(_t[4])時\"\n\t\t//春,夏,秋,冬\n\t\t_slots ,= _season\n\t\t//「春の朝」\n\t\t_slots ,= \"%(_season)の%(_time)\"\n\t\t//「朝食時」「昼食時」「夕食時」\n\t\t_slots ,= GetMesiSlot\n\t\t//?月\n\t\t_slots ,= \"%(_m)月\"\n\t\t//?月上旬,中旬,下旬\n\t\t_slots ,= \"%(_m)月%(GetDaySlot)\"\n\t\t//日曜,月曜...\n\t\t_slots ,= \"%(_dayofweek)曜\"\n\t\t//第?週日曜,月曜...\n\t\t_slots ,= \"第%(((_d - 1) / 7) + 1)週%(_dayofweek)曜\"\n\t\t//行事\n\t\t_slots ,= _ms\n\t\t//行事?曜\n\t\t_slots ,= \"%(_ms)%(_dayofweek)曜\"\n\t\t//平日休日\n\t\t_slots ,= _holiday\n\t\t//行事・平日休日\n\t\t_slots ,= \"%(_ms)%(_holiday)\"\n\t\t//季節・状態\n\t\t_slots ,= \"%(_season)の%(_holiday)\"\n\t\t//「平日の朝」\n\t\t_slots ,= \"%(_holiday)の%(_time)\"\n\t\t//自ゴーストの状態\n\t\t_slots ,= 'シェル' + SHIORI3FW.ShellName\n\t\t_slots ,= 'バルーン' + SHIORI3FW.BalloonName\n\t\t_slots ,= 着せ替え有効パーツリストEX\n\t\t_slots ,= 着せ替え有効カテゴリリストEX\n\t\t//その他\n\t\tif ISFUNC('あやりりす・日付イベントユーザー定義') {\n\t\t\t_slots ,= EVAL('あやりりす・日付イベントユーザー定義')\n\t\t}\n\t}\n\t\n\t//特定の日付処理は特別\n\tif _argc == 0 || _argv[0] == 1 {\n\t\t//誕生日\n\t\tif 今日はユーザー誕生日 {\n\t\t\t_slots ,= 'ユーザー誕生日'\n\t\t}\n\t\t//?月?日\n\t\t_slots ,= \"%(GetCurrentEto())年%(_m)月%(_d)日\"\n\t\t_slots ,= \"%(_y)年%(_m)月%(_d)日\"\n\t\t_slots ,= \"%(_m)月%(_d)日\"\n\t\t//?月第?週日曜,月曜...\n\t\t_slots ,= \"%(_m)月第%(((_d - 1) / 7) + 1)週%(_dayofweek)曜\"\n\t}\n\t\n\t_slots\n}\n\nTalkEval\n{\n\t//処理用！さわるな！！\n\t_argv[0] = OnGhostEventTranslate.AYL(_argv[0])\n\t\n\tif ISFUNC(_argv[0]) {\n\t\t_var = EVAL(_argv[0])\n\t\t_type = GETTYPE(_var)\n\t\tif _type == 4 {\n\t\t\t_var\n\t\t}\n\t\telseif _type == 0 {\n\t\t\tIARRAY\n\t\t}\n\t\telse {\n\t\t\tCVSTR(_var)\n\t\t\tif STRLEN(_var) {\n\t\t\t\t(_var,IARRAY)\n\t\t\t}\n\t\t\telse {\n\t\t\t\tIARRAY\n\t\t\t}\n\t\t}\n\t}\n\telse {\n\t\tIARRAY\n\t}\n}\n\nGetBootSharedScript\n{\n\tMouseEventTimeReset\n\t\n\t_s = ''\n\t\n\t_a = GETFUNCLIST('起動共通スクリプト')\n\tforeach _a;_f {\n\t\t_s += EVAL(_f)\n\t}\n\t\n\t_s\n}\n\nGetCloseSharedScript\n{\n\t_s = ''\n\t\n\t_a = GETFUNCLIST('終了共通スクリプト')\n\tforeach _a;_f {\n\t\t_s += EVAL(_f)\n\t}\n\t\n\t_s\n}\n\n//***************************************************************************************************\n/*---------------------------------------------------------------------\n\tランダムトーク処理\n\t元あったRandomTalkは消すこと\n---------------------------------------------------------------------*/\n\n/*=====かきかたの例============================\nランダムトーク3月 : array\n{\n\t'ごにょごにょ'\n}\n\n1.かならず最後に : array とつけること！\n2.' 'でトークをかこむこと！ \" \" じゃないよ！\n=============================================*/\n\nRandomTalk\n{\n\t//高速ランダムトーク処理用\n\tDelayedTalkEval(RandomTalkEx())\n}\n\nGetSeasonSlot\n{\n\t//3-5,6-8,9-11,12-2……でいいよね？\n\t_m = month\n\tif _m >= 3 && _m <= 5 { '春' }\n\telseif _m >= 6 && _m <= 8 { '夏' }\n\telseif _m >= 9 && _m <= 11 { '秋' }\n\telse { '冬' }\n}\n\nGetDaySlot\n{\n\t//10日,20日で区切りにしてみた\n\t_d = day\n\tif _d <= 10 { '上旬' }\n\telseif _d <= 20 { '中旬' }\n\telse { '下旬' }\n}\n\nGetTimeSlotList\n{\n\tif ISFUNC('あやりりす・時間帯定義') {\n\t\tEVAL('あやりりす・時間帯定義')\n\t\treturn\n\t}\n\t\n\t//おおざっぱに時間判定\n\tswitch hour {\n\t\t'深夜' //0時\n\t\t'深夜' //1時\n\t\t'深夜' //2時\n\t\t'深夜' //3時\n\t\t'深夜' //4時\n\t\t'朝' //5時\n\t\t'朝' //6時\n\t\t'朝' //7時\n\t\t'朝' //8時\n\t\t'昼' //9時\n\t\t'昼' //10時\n\t\t'昼' //11時\n\t\t'昼' //12時\n\t\t'昼' //13時\n\t\t'昼' //14時\n\t\t'昼' //15時\n\t\t'夕方' //16時\n\t\t'夕方' //17時\n\t\t'夜' //18時\n\t\t'夜' //19時\n\t\t'夜' //20時\n\t\t'夜' //21時\n\t\t'夜' //22時\n\t\t'深夜' //23時\n\t}\n}\n\nGetMesiSlot\n{\n\t_h = hour\n\tif _h == 7 || _h == 8 {\n\t\t'朝食時'\n\t}\n\telseif _h == 12 {\n\t\t'昼食時'\n\t}\n\telseif _h == 18 || _h == 19 {\n\t\t'夕食時'\n\t}\n\telse {\n\t\tIARRAY\n\t}\n}\n\nGetDOWSlot\n{\n\t//曜日\n\tswitch GETTIME[3] {\n\t\t'日'\n\t\t'月'\n\t\t'火'\n\t\t'水'\n\t\t'木'\n\t\t'金'\n\t\t'土'\n\t}\n}\n\nGetHolidaySlot\n{\n\tif ISFUNC('あやりりす・休日定義') {\n\t\tEVAL('あやりりす・休日定義')\n\t\treturn\n\t}\n\t\n\t//平日・休日\n\tswitch GETTIME[3] {\n\t\t'休日'\n\t\t'平日'\n\t\t'平日'\n\t\t'平日'\n\t\t'平日'\n\t\t'平日'\n\t\t'休日'\n\t}\n}\n\n\n\nGetMonthSlot\n{\n\tif ISFUNC('あやりりす・行事定義') {\n\t\tEVAL('あやりりす・行事定義')\n\t\treturn\n\t}\n\t\n\t//月をおおざっぱに\n\t_月 = GETTIME[1]\n\t_日 = GETTIME[2]\n\t//_曜日 = GetDOWSlot\n\t//_第n週 = ((_日 - 1) / 7) + 1\n\t\n\tif _月 == 1 && _日 <= 3 { //正月は特別\n\t\t'正月'\n\t\treturn\n\t}\n\tif _月 == 12 && _日 == 24 { //正月は特別\n\t\t'クリスマス'\n\t\treturn\n\t}\n\tif _月 == 12 && _日 == 25 { //正月は特別\n\t\t'クリスマス'\n\t\treturn\n\t}\t\n\tif _月 == 12 && _日 <= 31 || _日 >= 26 { //正月は特別\n\t\t'年末'\n\t\treturn\n\t}\t\n\t//標準は仕事\n\t'仕事'\n}\n\nキーワードランダムトーク\n{\n\t_key = TOSTR(_argv[0])\n\t_talk = DelayedTalkEval(KeywordRandomTalkExec(_key))\n\t_talk = REPLACE(_talk,_key,\"\\f[bold,true]%(_key)\\f[bold,default]\")\n\t_talk\n}\n\nKeywordRandomTalkExec : nonoverlap\n{\n\t_text = _argv[0]\n\t_array = RandomTalkArray\n\t_output = IARRAY\n\t\n\tforeach _array ; _script {\n\t\tif _text _in_ _script {\n\t\t\t_output ,= _script\n\t\t}\n\t}\n\t\n\tparallel _output\n}\n\nClearRandomTalkArrayNewTalk : void\n{\n\tlast_new_talk_id_array = IARRAY\n\tlast_new_talk_array = IARRAY\n}\n\nRandomTalkArrayNewTalk\n{\n\t_talknew_func = IARRAY\n\t_talknew_func ,= '新規追加ランダムトーク'\n\t_earray = GetEvalTalkArray\n\t_n = ARRAYSIZE(_earray)\n\tfor _i = 0 ; _i < _n ; _i++ {\n\t\t_talknew_func ,= '新規追加ランダムトーク' + _earray[_i]\n\t}\n\t\n\tif ISVAR('last_new_talk_id_array') == 0 {\n\t\tlast_new_talk_id_array = IARRAY\n\t}\n\tif ISVAR('last_new_talk_array') == 0 {\n\t\tlast_new_talk_array = IARRAY\n\t}\n\t\n\t_changed = 0\n\t_n = ARRAYSIZE(_talknew_func)\n\tfor _i = 0 ; _i < _n ; _i++ {\n\t\t_talknew = TalkEval(_talknew_func[_i])\n\t\t\n\t\t_tnum = ARRAYSIZE(_talknew)\n\t\tif _tnum >= 2 { //1行目は日付\n\t\t\t\n\t\t\t_idx = RE_ASEARCH(\"^\\Q%(_talknew_func[_i])\\E,\",last_new_talk_id_array)\n\t\t\t_date = \"%(_talknew_func[_i]),%(_talknew[0])\"\n\t\t\t\n\t\t\tif _idx >= 0 {\n\t\t\t\tif last_new_talk_id_array[_idx] != _date {\n\t\t\t\t\tlast_new_talk_array ,= _talknew[1,_tnum-1]\n\t\t\t\t\tlast_new_talk_id_array[_idx] = _date\n\t\t\t\t\t_changed = 1\n\t\t\t\t}\n\t\t\t}\n\t\t\telse {\n\t\t\t\tlast_new_talk_array ,= _talknew[1,_tnum-1]\n\t\t\t\tlast_new_talk_id_array ,= _date\n\t\t\t\t_changed = 1\n\t\t\t}\n\t\t}\n\t}\n\t\n\tif _changed {\n\t\tlast_new_talk_array = UNIQUE(last_new_talk_array)\n\t}\n\t\n\t_n = ARRAYSIZE(last_new_talk_array)\n\tif _n >= 1 {\n\t\t_rand = RAND(_n)\n\t\tlast_new_talk_array[_rand]\n\t\tlast_new_talk_array[_rand] = IARRAY\n\t\treturn\n\t}\n\tRandomTalkArray\n}\n\nRandomTalkArray\n{\n\t_talk = IARRAY\n\t_talknew = TalkEval('新規追加ランダムトーク')\n\t_n = ARRAYSIZE(_talknew)\n\tif _n >= 2 { //1行目は日付\n\t\t_talk ,= _talknew[1,65535] //優先トークが終わったらまぜる\n\t}\n\t\n\t//カスタム\n\t_talk ,= TalkEval('ランダムトークカスタム')\n\t\n\t//季節その他\n\t_earray = GetEvalTalkArray\n\t_n = ARRAYSIZE(_earray)\n\tfor _i = 0 ; _i < _n ; _i++ {\n\t\t_talknew = TalkEval('新規追加ランダムトーク' + _earray[_i])\n\t\t_tnum = ARRAYSIZE(_talknew)\n\t\tif _tnum >= 2 { //1行目は日付\n\t\t\t_talk ,= _talknew[1,_tnum-1] //優先トークが終わったらまぜる\n\t\t}\n\t\t\n\t\t_talk ,= TalkEval('ランダムトーク' + _earray[_i])\n\t}\n\n\t//そしてこれがふつう\n\t_talk ,= TalkEval('ランダムトーク通常')\n\t\n\t_talk\n}\n\nRandomTalkEx : nonoverlap\n{\n\tparallel RandomTalkArrayNewTalk\n}\n\n//***************************************************************************************************\n/*----------------------------------------------------------------------------------\n\tゴースト変更編\n----------------------------------------------------------------------------------*/\n\n/*===================================================================================\n記述方法\n\n関数名の例は以下の通りです。\n\n(名前)から変更\n(名前)へ変更\n(名前)を呼び出し\n(名前)を呼び出し完了\n(名前)から呼び出される\n(名前)が終了した\n\n(名前)の部分にはゴーストのSakura（メイン、\\0）側名、またはフルネームが入ります。\nさくらや黒姉などSakura名だけで識別できない場合はフルネームを使ってください。\n+や-、\"や'など、AYAのシステムで使われる文字はすべて _ に置換されます。\n\nAYAの制限回避のため、数字ではじまるゴーストの名前の場合は、「＊（ゴースト名）」と書いてください。\n例：＊54を呼び出し\n\n記述例。\nスクリプトは \" \" でかこってください。\n\nEmilyへ変更\n{\n\t\"\\u\\s[10]\\h\\s[5]Emilyへ交代〜。\"\n}\n\n===================================================================================*/\n\nTranslateSystemChar\n{\n\tSHIORI3FW.TranslateSystemChar(_argv[0],'_')\n}\n\nさくらスクリプト除去\n{\n\tSHIORI3FW.RemoveAllTags(_argv[0])\n}\n\nさくらスクリプト無効化\n{\n\tSHIORI3FW.EscapeAllTags(_argv[0])\n}\n\nGhostEventSearch\n{\n\t_funcname = OnGhostEventTranslate.AYL(_argv[0])\n\tif STRLEN(_funcname) {\n\t\t_funcname\n\t\treturn\n\t}\n\t_funcname = OnGhostEventTranslate.AYL('＊' + _argv[0])\n\tif STRLEN(_funcname) {\n\t\t_funcname\n\t\treturn\n\t}\n\t''\n}\n\nCallChangeFuncWrapper\n{\n\t_r0 = reference[0]\n\t_r2 = reference[2]\n\t\n\treference[0] = さくらスクリプト無効化(_r0)\n\treference[2] = さくらスクリプト無効化(_r2)\n\t\n\tTOSTR(EVAL(_argv[0]))\n\t\n\treference[0] = _r0\n\treference[2] = _r2\n}\n\nCallChangeFunc\n{\n\t//フルネームで探索\n\tif reference[2] && STRLEN(TOSTR(reference[2])) {\n\t\t_ghostname = TranslateSystemChar(reference[2])\n\t\t_funcname = GhostEventSearch(_ghostname + _argv[0])\n\t\t\n\t\tif STRLEN(_funcname) {\n\t\t\t_script = CallChangeFuncWrapper(_funcname)\n\t\t\tif STRLEN(_script) {\n\t\t\t\t_script\n\t\t\t\treturn\n\t\t\t}\n\t\t}\n\t}\n\n\t//Sakura名で探索\n\t_ghostname = TranslateSystemChar(reference[0])\n\t_funcname = GhostEventSearch(_ghostname + _argv[0])\n\t\n\tif STRLEN(_funcname) {\n\t\t_script = CallChangeFuncWrapper(_funcname)\n\t\tif STRLEN(_script) {\n\t\t\t_script\n\t\t\treturn\n\t\t}\n\t}\n\t\n\t//ゴースト名変換\n\tif ISFUNC('ゴースト名変換') {\n\t\t_ghostname = EVAL('ゴースト名変換(TOSTR(reference[0]))')\n\t\t_funcname = GhostEventSearch(_ghostname + _argv[0])\n\t\t\n\t\tif STRLEN(_funcname) {\n\t\t\t_script = CallChangeFuncWrapper(_funcname)\n\t\t\tif STRLEN(_script) {\n\t\t\t\t_script\n\t\t\t\treturn\n\t\t\t}\n\t\t}\n\t}\n\t\n\t//自分かどうか\n\tif TOINT(_argv[1]) == 0 {\n\t\tif reference[0] == selfname {\n\t\t\t_funcname = GhostEventSearch('自分' + _argv[0])\n\t\t\t\n\t\t\tif STRLEN(_funcname) {\n\t\t\t\t_script = CallChangeFuncWrapper(_funcname)\n\t\t\t\tif STRLEN(_script) {\n\t\t\t\t\t_script\n\t\t\t\t\treturn\n\t\t\t\t}\n\t\t\t}\n\t\t}\n\t\t\n\t\t//汎用切り替え\n\t\t_funcname = OnGhostEventTranslate.AYL('その他' + _argv[0])\n\t\tif ISFUNC(_funcname) {\n\t\t\t_script = CallChangeFuncWrapper(_funcname)\n\t\t\tif STRLEN(_script) {\n\t\t\t\t_script\n\t\t\t\treturn\n\t\t\t}\n\t\t}\n\t\t\n\t\t_funcname = OnGhostEventTranslate.AYL('他のゴースト' + _argv[0])\n\t\tif ISFUNC(_funcname) {\n\t\t\t_script = CallChangeFuncWrapper(_funcname)\n\t\t\tif STRLEN(_script) {\n\t\t\t\t_script\n\t\t\t\treturn\n\t\t\t}\n\t\t}\n\t}\n\n}\n\nCallChangeFuncLastCatch\n{\n\tREPLACE(CallChangeFuncWrapper(OnGhostEventTranslate.AYL(_argv[0])),'\\-','')\n}\n\nAYL_OnGhostChanging\n{\n\tGetCloseSharedScript\n\t--\n\t_boot = SpecialBootCloseTalk('終了')\n\tif STRLEN(_boot) {\n\t\t_boot\n\t\treturn\n\t}\n\t\n\t_script = CallChangeFunc('へ変更')\n\t\n\tif STRLEN(_script) == 0 {\n\t\t_script = CallChangeFuncLastCatch('OnClose')\n\t}\n\t\n\t_script = REPLACE(_script,'\\e','')\n\tif AYALilithEX {\n\t\t_script = _script + CHR(0xd,0xa) + \"\\w9\\w9\\e\"\n\t}\n\telse {\n\t\t_script = _script + \"\\w9\\w9\\e\"\n\t}\n\t_script\n\t\n}\n\nAYL_OnGhostChanged\n{\n\t_boot = SpecialBootCloseTalk('起動')\n\tif STRLEN(_boot) {\n\t\t_boot\n\t\treturn\n\t}\n\t\n\tタグなしトーク = さくらスクリプト除去(reference[1])\n\t\n\t_script = GetBootSharedScript + CallChangeFunc('から変更')\n\t\n\tif STRLEN(_script) == 0 {\n\t\t_script = CallChangeFuncLastCatch('OnBoot')\n\t}\n\t\n\t_script\n}\n\nAYL_OnGhostCalling\n{\n\t_script = CallChangeFunc('を呼び出し')\n\t\n\tif TOINT(EVAL('呼び出し反応に切り替え反応を流用')) {\n\t\t_script = CallChangeFunc('へ変更',1)\n\t}\n\t\n\t_script\n}\n\nAYL_OnGhostCalled\n{\n\t_boot = SpecialBootCloseTalk('起動')\n\tif STRLEN(_boot) {\n\t\t_boot\n\t\treturn\n\t}\n\t\n\tタグなしトーク = さくらスクリプト除去(reference[1])\n\n\t_script = GetBootSharedScript + CallChangeFunc('から呼び出される')\n\t\n\tif TOINT(EVAL('呼び出し反応に切り替え反応を流用')) {\n\t\t_script = GetBootSharedScript + CallChangeFunc('から変更',1)\n\t}\n\t\n\tif STRLEN(_script) == 0 {\n\t\t_script = CallChangeFuncLastCatch('OnBoot')\n\t}\n\t\n\t_script\n}\n\nAYL_OnGhostCallComplete\n{\n\tタグなしトーク = さくらスクリプト除去(reference[1])\n\n\tCallChangeFunc('を呼び出し完了')\n}\n\nAYL_OnOtherGhostClosed\n{\n\tCallChangeFunc('が終了した')\n}\n\nAYL_OnShellChanging\n{\n\t_r0 = reference[0]\n\treference[0] = さくらスクリプト無効化(_r0)\n\t\n\t_script = ''\n\tif _r0 == SHIORI3FW.ShellName {\n\t\t_funcname = OnGhostEventTranslate.AYL('シェル再読み込み前')\n\t\tif STRLEN(_funcname) {\n\t\t\t_script = TOSTR(EVAL(_funcname))\n\t\t}\n\t}\n\telse {\n\t\t_funcname = OnGhostEventTranslate.AYL('シェル' + reference[0] + '変更前')\n\t\tif STRLEN(_funcname) {\n\t\t\t_script = TOSTR(EVAL(_funcname))\n\t\t}\n\t\telse {\n\t\t\t_funcname = OnGhostEventTranslate.AYL('シェル変更前')\n\t\t\tif STRLEN(_funcname) {\n\t\t\t\t_script = TOSTR(EVAL(_funcname))\n\t\t\t}\n\t\t}\n\t}\n\t\n\tif _script != '' {\n\t\tif AYALilithEX {\n\t\t\t_script = _script + CHR(0xd,0xa) + \"\\w9\\w9\\e\"\n\t\t}\n\t\telse {\n\t\t\t_script = _script + \"\\w9\\w9\\e\"\n\t\t}\n\t}\n\t_script\n\t\n\treference[0] = _r0\n}\n\nAYL_OnShellChanged\n{\n\t_r0 = reference[0]\n\treference[0] = さくらスクリプト無効化(_r0)\n\t\n\tif SHIORI3FW.ShellName == SHIORI3FW.ShellNameOld {\n\t\t_funcname = OnGhostEventTranslate.AYL('シェル再読み込み後')\n\t\tif STRLEN(_funcname) {\n\t\t\tTOSTR(EVAL(_funcname))\n\t\t}\n\t}\n\telse {\n\t\t_funcname = OnGhostEventTranslate.AYL('シェル' + reference[0] + '変更後')\n\t\tif STRLEN(_funcname) {\n\t\t\tTOSTR(EVAL(_funcname))\n\t\t}\n\t\telse {\n\t\t\t_funcname = OnGhostEventTranslate.AYL('シェル変更後')\n\t\t\tif STRLEN(_funcname) {\n\t\t\t\tTOSTR(EVAL(_funcname))\n\t\t\t}\n\t\t}\n\t}\n\t\n\treference[0] = _r0\n}\n\nAYL_OnBalloonChange\n{\n\t_r0 = reference[0]\n\treference[0] = さくらスクリプト無効化(_r0)\n\t\n\tif SHIORI3FW.BalloonName == SHIORI3FW.BalloonNameOld {\n\t\t_funcname = OnGhostEventTranslate.AYL('バルーン再読み込み')\n\t\tif STRLEN(_funcname) {\n\t\t\tTOSTR(EVAL(_funcname))\n\t\t}\n\t}\n\telse {\n\t\t_funcname = OnGhostEventTranslate.AYL('バルーン' + reference[0] + '変更')\n\t\tif STRLEN(_funcname) {\n\t\t\tTOSTR(EVAL(_funcname))\n\t\t}\n\t\telse {\n\t\t\t_funcname = OnGhostEventTranslate.AYL('バルーン変更')\n\t\t\tif STRLEN(_funcname) {\n\t\t\t\tTOSTR(EVAL(_funcname))\n\t\t\t}\n\t\t}\n\t}\n}\n\n//***************************************************************************************************\n/*----------------------------------------------------------------------------------\n\t起動編\n----------------------------------------------------------------------------------*/\n\n/*=====かきかたの例==================================================================\n春の朝に起動 : array\n{\n\t\"ごにょごにょ\"\n}\n\n1.かならず最後に : array とつけること\n2.' 'でトークをかこむこと\n\n3.AYAの制限上、「7月5日に起動」というふうな数字ではじまる関数はつくれないので\n  こういう場合は「起動7月5日」と書くこと\n===================================================================================*/\n\nSpecialBootCloseTalk\n{\n\tDelayedTalkEval(SpecialBootCloseTalkExec(_argv[0]))\n}\n\nSpecialBootCloseTalkExec\n{\n\t_date = GETTIME[0] + '/' + GETTIME[1] + '/' + GETTIME[2]\n\n\tif ISVAR(\"特殊%(_argv[0])トーク配列\") == 0 {\n\t\tvoid EVAL(\"特殊%(_argv[0])トーク配列 = IARRAY\")\n\t}\n\t\n\t_talk = (SpecialBootCloseTalkExecArray(_argv[0]),IARRAY)\n\t_talk_size = ARRAYSIZE(_talk)\n\t\n\tif (_date != EVAL(\"特殊%(_argv[0])トーク実行日時\")) || (_talk_size != EVAL(\"特殊%(_argv[0])トーク配列数\")) {\n\t\tvoid EVAL(\"特殊%(_argv[0])トーク配列 = _talk\")\n\t\tvoid EVAL(\"特殊%(_argv[0])トーク実行日時 = _date\")\n\t\tvoid EVAL(\"特殊%(_argv[0])トーク配列数 = _talk_size\")\n\t}\n\t\n\t_talk_x = EVAL(\"特殊%(_argv[0])トーク配列\")\n\t_n = ARRAYSIZE(_talk_x)\n\tif _n {\n\t\t_rand = RAND(_n)\n\t\t_script = _talk_x[_rand]\n\t\tvoid EVAL(\"特殊%(_argv[0])トーク配列[_rand] = IARRAY\")\n\t\t_script\n\t\treturn\n\t}\n\t''\n\treturn\n}\n\nSpecialBootCloseTalkExecArray\n{\n\t//特殊な日付トーク\n\t_earray = GetEvalTalkArray(1)\n\t_n = ARRAYSIZE(_earray)\n\t_talk = IARRAY\n\t\n\tfor _i = 0 ; _i < _n ; _i++ {\n\t\t_talk_e = TalkEval(_argv[0] + _earray[_i])\n\t\tif ARRAYSIZE(_talk_e) {\n\t\t\t_talk ,= _talk_e\n\t\t}\n\t}\n\t\n\t_talk\n\treturn\n}\n\nAYL_OnBoot\n{\n\tGetBootSharedScript\n\t--\n\t//高速処理用\n\tDelayedTalkEval(BootCloseEx('起動'))\n}\n\nAYL_OnFirstBoot\n{\n\tGetBootSharedScript\n\t--\n\t//高速処理用\n\tif TOINT(reference[0]) != 0 {\n\t\t_r = DelayedTalkEval(BootCloseEx('Vanish後初回起動'))\n\t\tif _r == '' {\n\t\t\t_r = DelayedTalkEval(BootCloseEx('初回起動'))\n\t\t}\n\t\t_r\n\t}\n\telse {\n\t\tDelayedTalkEval(BootCloseEx('初回起動'))\n\t}\n}\n\nBootCloseEx\n{\n\t_talk = IARRAY\n\t\n\t//特殊な日付トーク\n\t_result = SpecialBootCloseTalkExec(_argv[0])\n\tif STRLEN(_result) {\n\t\t_result\n\t\treturn\n\t}\n\t\n\t//カスタム\n\t_talk = IARRAY\n\t_talk ,= TalkEval(_argv[0] + 'カスタム')\n\t\n\t//季節その他\n\t_earray = GetEvalTalkArray(0)\n\t_n = ARRAYSIZE(_earray)\n\tfor _i = 0 ; _i < _n ; _i++ {\n\t\tif RE_SEARCH(_earray[_i],'^\\d') == 0 {\n\t\t\t_talk ,= TalkEval(_earray[_i] + 'に' + _argv[0])\n\t\t}\n\t\t_talk ,= TalkEval(_argv[0] + _earray[_i])\n\t}\n\n\t//そしてこれがふつう\n\t//時間帯別がないときのみ追加\n\tif ARRAYSIZE(_talk) == 0 {\n\t\t_talk ,= TalkEval(_argv[0])\n\t}\n\t\n\tparallel _talk\n}\n\n/*----------------------------------------------------------------------------------\n\t終了編\n\t書き方の例は起動編といっしょ（ただし「〜に終了」になります）\n----------------------------------------------------------------------------------*/\n\nAYL_OnClose\n{\n\tGetCloseSharedScript\n\t--\n\t_script = BootCloseEx('終了')\n\tif ! 終了しない {\n\t\t_script = REPLACE(_script,'\\e','')\n\t\t_script = REPLACE(_script,'\\-','')\n\t\t_script += '\\w9\\-'\n\t}\n\t\n\t//高速処理用\n\tDelayedTalkEval(_script)\n}\n\n\n//***************************************************************************************************\n/*----------------------------------------------------------------------------------\n\tマウス反応編\n----------------------------------------------------------------------------------*/\n\nMouseEventTimeReset\n{\n\t最終マウスイベント分 = systemuptime / 1000\n}\n\n//---- OnMouseMoveイベント --------------------------------------------------------------\nMouseEventExecSub\n{\n\t_fname = _argv[0] + TOSTR(reference[3]) + _argv[1]\n\t_fname = OnGhostEventTranslate.AYL(_fname)\n\tif ISFUNC(_fname) {\n\t\tEVAL(_fname)\n\t\treturn\n\t}\n\n\t_fname = _argv[0] + HAN2ZEN(TOSTR(reference[3])) + _argv[1]\n\t_fname = OnGhostEventTranslate.AYL(_fname)\n\tif ISFUNC(_fname) {\n\t\tEVAL(_fname)\n\t\treturn\n\t}\n\t\n\t_fname = _argv[0] + TOSTR(reference[3])\n\t_fname = OnGhostEventTranslate.AYL(_fname)\n\tif ISFUNC(_fname) {\n\t\tEVAL(_fname)\n\t\treturn\n\t}\n\n\t_fname = _argv[0] + HAN2ZEN(TOSTR(reference[3]))\n\t_fname = OnGhostEventTranslate.AYL(_fname)\n\tif ISFUNC(_fname) {\n\t\tEVAL(_fname)\n\t\treturn\n\t}\n\t\n\t-1\n}\n\nMouseEventExecFromEventName\n{\n\tif 'クリック' == _argv[0] {\n\t\t0\n\t\treturn\n\t}\n\tif 'ダブルクリック' == _argv[0] {\n\t\t1\n\t\treturn\n\t}\n\tif 'ころころ' _in_ _argv[0] {\n\t\t2\n\t\treturn\n\t}\n\tif 'なでなで' _in_ _argv[0] {\n\t\t-1\n\t\treturn\n\t}\n\tif 'ドラッグ' _in_ _argv[0] {\n\t\t-1\n\t\treturn\n\t}\n\tif 'ホールド' _in_ _argv[0] {\n\t\t-1\n\t\treturn\n\t}\n\t-1\n\treturn\n}\n\nMouseEventExec\n{\n\t_fname = ''\n\t\n\t_m = TOINT(reference[5])\n\t\n\t_head = ''\n\tif _m == 1 {\n\t\t_head = '右' + _argv[0]\n\t}\n\telseif _m == 2 {\n\t\t_head = '中' + _argv[0]\n\t}\n\telse {\n\t\t_head = _argv[0]\n\t}\n\t\n\t_colname = reference[4]\n\tif _argc >= 2 {\n\t\t_colname = _argv[1]\n\t}\n\t\n\t_col_id = MouseEventExecFromEventName(_head)\n\tif _col_id >= 0 {\n\t\t_col_id += TOINT(reference[3])*10\n\t\tif ((GETTICKCOUNT() - mouseevent_time[_col_id]) < 3000) && (mouseevent_colname[_col_id] == _colname) {\n\t\t\tmouseevent_count[_col_id] += 1\n\t\t}\n\t\telse {\n\t\t\tmouseevent_colname[_col_id] = _colname\n\t\t\tmouseevent_count[_col_id] = 1\n\t\t}\n\t}\n\t\n\tマウスイベント連続回数 = mouseevent_count[_col_id]\n\tmouseevent_time[_col_id] = GETTICKCOUNT()\n\n\t_result = -1\n\tif 'talking' _in_ status {\n\t\t_result = MouseEventExecSub('トーク中' + _head,_colname)\n\t}\n\tif _result == -1 {\n\t\t_result = MouseEventExecSub(_head,_colname)\n\t}\n\n\tif _result != -1 {\n\t\tMouseEventTimeReset()\n\t\tSHIORI3FW.ResetAITalkInterval()\n\t\t_result\n\t\treturn\n\t}\n}\n\nMouseMoveWheelFunc\n{\n\t_side = TOINT(reference[3])\n\tif _argv[0] {\n\t\t_side += 10\n\t}\n\t\n\tif strokeid[_side] == reference[4] {\n\t\tif (GETTICKCOUNT - TOINT(stroketimer[_side])) > 1500 {\n\t\t\tstroke[_side] = 1\n\t\t}\n\t\tstroketimer[_side] = GETTICKCOUNT\n\t\t\n\t\t_stroke = TOINT(stroke[_side])\n\t\t_stroke += 1\n\t\tstroke[_side] = _stroke\n\t\t\n\t\tif _stroke >= _argv[1] {\n\t\t\tif 'talking' !_in_ status {\n\t\t\t\t_s = MouseEventExec(_argv[2])\n\t\t\t\tif STRLEN(_s) == 0 {\n\t\t\t\t\tif _argc >= 4 {\n\t\t\t\t\t\t_s = MouseEventExec(_argv[3])\n\t\t\t\t\t}\n\t\t\t\t}\n\t\t\t\t_s\n\t\t\t\tstroke[_side] = 1\n\t\t\t}\n\t\t}\n\t}\n\telse {\n\t\tstroke[_side] = 1\n\t\tstroketimer[_side] = GETTICKCOUNT\n\t\tstrokeid[_side] = reference[4]\n\t}\n}\n\nAYL_OnMouseMove\n{\n\tif ISFUNC('あやりりす・マウスなで感度') {\n\t\tMouseMoveWheelFunc(0,あやりりす・マウスなで感度,'なでなで')\n\t}\n\telse {\n\t\tMouseMoveWheelFunc(0,50,'なでなで')\n\t}\n}\n\nAYL_OnMouseWheel\n{\n\t_script = ''\n\t_sensitivity = 4\n\tif ISFUNC('あやりりす・マウスホイール感度') {\n\t\t_sensitivity = あやりりす・マウスホイール感度\n\t}\n\t\n\tif reference[2] > 0 {\n\t\t_script = MouseMoveWheelFunc(1,_sensitivity,'ころころ上','ころころ')\n\t}\n\telse {\n\t\t_script = MouseMoveWheelFunc(1,_sensitivity,'ころころ下','ころころ')\n\t}\n\t\n\tif STRLEN(_script) {\n\t\t_script\n\t\treturn\n\t}\n\t\n}\n\nAYL_OnMouseClick\n{\n\tMouseEventExec('クリック')\n}\n\nAYL_OnMouseDoubleClick\n{\n\tMouseEventExec('ダブルクリック')\n}\n\nAYL_OnMouseDragStart\n{\n\t//ホールド解除\n\tif mousedown_exec_complete == 0 {\n\t\tmousedown_reference_array = IARRAY\n\t\tmousedown_time = -1\n\t}\n\n\tAYL_drag_start_col = reference[4]\n\tMouseEventExec('ドラッグ開始',AYL_drag_start_col)\n}\n\nAYL_MouseHoldEndExec\n{\n\tif 'talking' _in_ status {\n\t\tSHIORI3FW.SetDelayEvent('OnAYLMouseHoldEndExecDelay',2)\n\t}\n\telse {\n\t\tOnAYLMouseHoldEndExecDelay()\n\t}\n}\n\nOnAYLMouseHoldEndExecDelay\n{\n\treference = mousedown_reference_array\n\tMouseEventExec('ホールド終了')\n\t\n\t//ホールド解除\n\tmousedown_reference_array = IARRAY\n\tmousedown_time = -1\n\tmousedown_exec_complete = 0\n}\n\nAYL_OnMouseDragEnd\n{\n\tif mousedown_exec_complete {\n\t\tAYL_MouseHoldEndExec()\n\t}\n\telse {\n\t\tMouseEventExec('ドラッグ終了',AYL_drag_start_col)\n\t}\n\tvoid ERASEVAR('AYL_drag_start_col')\n}\n\nAYL_OnMouseDown\n{\n\tif TOINT(reference[5]) == 0 {\n\t\t//ホールド計測開始\n\t\tmousedown_reference_array = reference\n\t\tmousedown_time = GETTICKCOUNT()\n\t\tmousedown_exec_complete = 0\n\t}\n}\n\nAYL_OnMouseUp\n{\n\tif mousedown_exec_complete {\n\t\tAYL_MouseHoldEndExec()\n\t}\n\telse {\n\t\t//ホールド解除\n\t\tmousedown_reference_array = IARRAY\n\t\tmousedown_time = -1\n\t}\n}\n\nAYL_OnMouseGesture\n{\n\t_name = ''\n\t_is_end = 0\n\t\n\tcase reference[5] {\n\t\twhen 'right_up' { _name = '右上'; }\n\t\twhen 'up' { _name = '上'; }\n\t\twhen 'left_up' { _name = '左上'; }\n\t\twhen 'left' { _name = '左'; }\n\t\twhen 'left_down' { _name = '左下'; }\n\t\twhen 'down' { _name = '下'; }\n\t\twhen 'right_down' { _name = '右下'; }\n\t\twhen 'right' { _name = '右'; }\n\t\twhen 'circle.cw' { _name = '時計回り'; }\n\t\twhen 'circle.ccw' { _name = '反時計回り'; }\n\t\twhen 'end' {\n\t\t\t_is_end = 1\n\t\t\t_name = '終了'\n\t\t}\n\t}\n\t\n\t_postfix = ''\n\t_garray = IARRAY\n\t_is_start = 0\n\t\n\tif _is_end {\n\t\tERASEVAR('gesture_name_array')\n\t\tERASEVAR('gesture_circle_array')\n\t\tERASEVAR('gesture_init')\n\t\tERASEVAR('gesture_wheel_event_raised')\n\t}\n\telse {\n\t\tif ISVAR('gesture_init') == 0 {\n\t\t\tgesture_init = 1\n\t\t\tgesture_wheel_event_raised = ''\n\t\t\t_is_start = 1\n\t\t}\n\t\tif '回り' _in_ _name {\n\t\t\tif ISVAR('gesture_circle_array') == 0 {\n\t\t\t\tgesture_circle_array = IARRAY\n\t\t\t}\n\t\t\tgesture_circle_array ,= _name\n\t\t\t_postfix = '回転'\n\t\t\t_garray = gesture_circle_array\n\t\t}\n\t\telse {\n\t\t\tif ISVAR('gesture_name_array') == 0 {\n\t\t\t\tgesture_name_array = IARRAY\n\t\t\t}\n\t\t\tgesture_name_array ,= _name\n\t\t\t_garray = gesture_name_array\n\t\t}\n\t}\n\t\n\tif _is_end {\n\t\t_fname = \"マウスジェスチャー%(reference[0])%(reference[4])終了\"\n\t\t_fname = OnGhostEventTranslate.AYL(_fname)\n\t\tif ISFUNC(_fname) {\n\t\t\tEVAL(_fname)\n\t\t\tMouseEventTimeReset\n\t\t\treturn\n\t\t}\n\t\t\n\t\t_fname = \"マウスジェスチャー%(reference[0])終了\"\n\t\t_fname = OnGhostEventTranslate.AYL(_fname)\n\t\tif ISFUNC(_fname) {\n\t\t\tEVAL(_fname)\n\t\t\tMouseEventTimeReset\n\t\t\treturn\n\t\t}\n\t}\n\telse {\n\t\tif _is_start {\n\t\t\t_fname = \"マウスジェスチャー%(reference[0])%(reference[4])開始\"\n\t\t\t_fname = OnGhostEventTranslate.AYL(_fname)\n\t\t\tif ISFUNC(_fname) {\n\t\t\t\tEVAL(_fname)\n\t\t\t\tMouseEventTimeReset\n\t\t\t}\n\t\t\telse {\n\t\t\t\t_fname = \"マウスジェスチャー%(reference[0])開始\"\n\t\t\t\t_fname = OnGhostEventTranslate.AYL(_fname)\n\t\t\t\tif ISFUNC(_fname) {\n\t\t\t\t\tEVAL(_fname)\n\t\t\t\t\tMouseEventTimeReset\n\t\t\t\t}\n\t\t\t}\n\t\t}\n\t\t\n\t\t_fname = \"マウスジェスチャー%(_postfix)%(reference[0])%(reference[4])%(JOIN(_garray,'・'))\"\n\t\t_fname = OnGhostEventTranslate.AYL(_fname)\n\t\tif ISFUNC(_fname) {\n\t\t\tEVAL(_fname)\n\t\t\tMouseEventTimeReset\n\t\t\treturn\n\t\t}\n\t\t\n\t\t_fname = \"マウスジェスチャー%(_postfix)%(reference[0])%(reference[4])単発%(_name)\"\n\t\t_fname = OnGhostEventTranslate.AYL(_fname)\n\t\tif ISFUNC(_fname) {\n\t\t\tEVAL(_fname + '(_garray)')\n\t\t\tMouseEventTimeReset\n\t\t\treturn\n\t\t}\n\t\t\n\t\t_fname = \"マウスジェスチャー%(_postfix)%(reference[0])%(reference[4])\"\n\t\t_fname = OnGhostEventTranslate.AYL(_fname)\n\t\tif ISFUNC(_fname) {\n\t\t\tEVAL(_fname + '(_garray)')\n\t\t\tMouseEventTimeReset\n\t\t\treturn\n\t\t}\n\t\t\n\t\t_fname = \"マウスジェスチャー%(_postfix)%(reference[0])%(JOIN(_garray,'・'))\"\n\t\t_fname = OnGhostEventTranslate.AYL(_fname)\n\t\tif ISFUNC(_fname) {\n\t\t\tEVAL(_fname)\n\t\t\tMouseEventTimeReset\n\t\t\treturn\n\t\t}\n\t\t\n\t\t_fname = \"マウスジェスチャー%(_postfix)%(reference[0])単発%(_name)\"\n\t\t_fname = OnGhostEventTranslate.AYL(_fname)\n\t\tif ISFUNC(_fname) {\n\t\t\tEVAL(_fname)\n\t\t\tMouseEventTimeReset\n\t\t\treturn\n\t\t}\n\t\t\n\t\t_fname = \"マウスジェスチャー%(_postfix)%(reference[0])\"\n\t\t_fname = OnGhostEventTranslate.AYL(_fname)\n\t\tif ISFUNC(_fname) {\n\t\t\tEVAL(_fname + '(_garray)')\n\t\t\tMouseEventTimeReset\n\t\t\treturn\n\t\t}\n\t\t\n\t\tif TOINT(EVAL('マウスジェスチャーにホイール反応を流用')) {\n\t\t\tif '上' _in_ _name || '下' _in_ _name {\n\t\t\t\tif '上' _in_ _name {\n\t\t\t\t\t_name = '上'\n\t\t\t\t}\n\t\t\t\telseif '下' _in_ _name {\n\t\t\t\t\t_name = '下'\n\t\t\t\t}\n\t\t\t\t\n\t\t\t\tif _name !_in_ gesture_wheel_event_raised {\n\t\t\t\t\treference[3] = reference[0]\n\t\t\t\t\t\n\t\t\t\t\t_xy = SPLIT(referece[1],CHR(1))\n\t\t\t\t\treference[0] = _xy[0]\n\t\t\t\t\treference[1] = _xy[1]\n\t\t\t\t\t\n\t\t\t\t\t_script = ''\n\t\t\t\t\tif _name == '上' {\n\t\t\t\t\t\treference[2] = '20'\n\t\t\t\t\t\t_script = MouseEventExec('ころころ上')\n\t\t\t\t\t}\n\t\t\t\t\telse {\n\t\t\t\t\t\treference[2] = '-20'\n\t\t\t\t\t\t_script = MouseEventExec('ころころ下')\n\t\t\t\t\t}\n\t\t\t\t\tif STRLEN(_script) == 0 {\n\t\t\t\t\t\t_script = MouseEventExec('ころころ')\n\t\t\t\t\t}\n\t\t\t\t\tif STRLEN(_script) {\n\t\t\t\t\t\t_script\n\t\t\t\t\t\tgesture_wheel_event_raised += _name\n\t\t\t\t\t\treturn\n\t\t\t\t\t}\n\t\t\t\t}\n\t\t\t}\n\t\t}\n\t}\n}\n\n//***************************************************************************************************\n/*----------------------------------------------------------------------------------\n\tプラグイン\n----------------------------------------------------------------------------------*/\n\nAYL_On_installedplugin : void\n{\n\t_n = ARRAYSIZE(reference)\n\tinstalledplugin_name = IARRAY\n\tinstalledplugin_id = IARRAY\n\t\n\tfor _i = 0 ; _i < _n ; _i++ {\n\t\t_a = SPLIT(reference[_i],CHR(1))\n\t\t\n\t\tinstalledplugin_name ,= _a[0]\n\t\tinstalledplugin_id ,= _a[1]\n\t}\n\t\n\tif ISFUNC('On_installedplugin') {\n\t\tvoid EVAL('On_installedplugin')\n\t}\n}\n\nプラグインの存在\n{\n\tif _argc == 0 {\n\t\t0\n\t\treturn\n\t}\n\t\n\tif ASEARCH(_argv[0],installedplugin_id) >= 0 {\n\t\t1\n\t\treturn\n\t}\n\tif ASEARCH(_argv[0],installedplugin_name) >= 0 {\n\t\t1\n\t\treturn\n\t}\n\t0\n}\n\n/*----------------------------------------------------------------------------------\n\t通知\n----------------------------------------------------------------------------------*/\n情報_ゴースト名 {\n\tさくらスクリプト無効化(SHIORI3FW.GhostName)\n}\n情報_キャラ名 {\n\t_inf = (さくらスクリプト無効化(sakuraname),さくらスクリプト無効化(keroname))\n\t_inf\n}\n情報_シェル名 {\n\tさくらスクリプト無効化(SHIORI3FW.ShellName)\n}\n情報_バルーン名 {\n\tさくらスクリプト無効化(SHIORI3FW.BalloonName)\n}\n情報_ユーザー名 {\n\tさくらスクリプト無効化(SHIORI3FW.UserName)\n}\n情報_ユーザー誕生日 {\n\tSHIORI3FW.UserBirthday\n}\n\nAYL_OnNotifyUserInfo : void\n{\n\tif username == '' {\n\t\tif 情報_ユーザー名 == '' {\n\t\t\tusername = 名前入力初期\n\t\t}\n\t\telse {\n\t\t\tusername = 情報_ユーザー名\n\t\t}\n\t}\n\n\tif ISFUNC('SHIORI3EV.OnNotifyUserInfo') {\n\t\tvoid EVAL('SHIORI3EV.OnNotifyUserInfo')\n\t}\n\tif ISFUNC('OnNotifyUserInfo') {\n\t\tvoid EVAL('OnNotifyUserInfo')\n\t}\n\t\n\tAYL_DateInit()\n}\n\nAYL_OnDisplayChange : void\n{\n\t//---- 変数にディスプレイ解像度と色深度に関する情報を取得\n\t//---- 使うかどうかは分からないがとりあえず保持しておく\n\t情報_モニタ色数 = reference[0]\n\t情報_モニタ幅   = reference[1]\n\t情報_モニタ高さ = reference[2]\n\t\n\tif ISFUNC('SHIORI3EV.OnDisplayChange') {\n\t\tvoid EVAL('SHIORI3EV.OnDisplayChange')\n\t}\n\tif ISFUNC('OnDisplayChange') {\n\t\tvoid EVAL('OnDisplayChange')\n\t}\n}\n\n/*----------------------------------------------------------------------------------\n\tリンクメニュー\n----------------------------------------------------------------------------------*/\n\nあやりりす_LinkMenuConvert\n{\n\t_argc_copy = _argc\n\t_argv_copy = _argv\n\t\n\tif _argc_copy == 1 { //改行つきテキスト\n\t\t_argv_copy = SPLIT(_argv_copy[0],CHR(0xd,0xa))\n\t\tif GETTYPE(_argv_copy) != 4 { //本当にひとつだけだった！\n\t\t\t_argv_copy = _argv\n\t\t}\n\t\telse {\n\t\t\t_argc_copy = ARRAYSIZE(_argv_copy)\n\t\t}\n\t}\n\t\n\t_text = ''\n\t_data = IARRAY\n\tfor _i = 0 ; _i < _argc_copy ; _i++ {\n\t   _data = (RE_SPLIT(_argv_copy[_i],'[ \\t]*\\|[ \\t]*'),'','') //ダミー\n\t   _text += \"%(_data[0])%(CHR(1))%(_data[1])%(CHR(1))%(_data[2])%(CHR(1))%(CHR(2))\"\n\t}\n\t_text;\n}\n\n//---- 本体側ポータルサイトのリスト -----------------------------------------------------\nAYL_On_sakura.portalsites\n{\n\tあやりりす_LinkMenuConvert(ポータルサイト())\n}\n\n//---- 本体側おすすめサイトのリスト -----------------------------------------------------\nAYL_On_sakura.recommendsites\n{\n\tあやりりす_LinkMenuConvert(おすすめ0())\n}\n\n//---- kero側おすすめサイトのリスト -----------------------------------------------------\nAYL_On_kero.recommendsites\n{\n\tあやりりす_LinkMenuConvert(おすすめ1())\n}\n\nAYL_OnRecommendsiteChoice\n{\n\t_sitename = TranslateSystemChar(reference[0])\n\t\n\tif reference[3] == 'recommend' {\n\t\tif TOINT(reference[4]) > 0 {\n\t\t\t_fname = 'おすすめ' + TOINT(reference[4]) + _sitename\n\t\t\tif ISFUNC(_fname) {\n\t\t\t\tEVAL(_fname)\n\t\t\t\treturn\n\t\t\t}\n\t\t}\n\t\telse {\n\t\t\t_fname = 'おすすめ0' + _sitename\n\t\t\tif ISFUNC(_fname) {\n\t\t\t\tEVAL(_fname)\n\t\t\t\treturn\n\t\t\t}\n\t\t}\n\t}\n\telseif reference[3] == 'portal' {\n\t\t_fname = 'ポータルサイト' + _sitename\n\t\tif ISFUNC(_fname) {\n\t\t\tEVAL(_fname)\n\t\t\treturn\n\t\t}\n\t}\n\telse {\n\t\t_fname = 'おすすめ0' + _sitename\n\t\tif ISFUNC(_fname) {\n\t\t\tEVAL(_fname)\n\t\t\treturn\n\t\t}\n\t\t_fname = 'おすすめ1' + _sitename\n\t\tif ISFUNC(_fname) {\n\t\t\tEVAL(_fname)\n\t\t\treturn\n\t\t}\n\t\t_fname = 'ポータルサイト' + _sitename\n\t\tif ISFUNC(_fname) {\n\t\t\tEVAL(_fname)\n\t\t\treturn\n\t\t}\n\t}\n}\n\n//**** ツールチップ *****************************************************************\nAYL_On_tooltip\n{\n\t_f = 'シェルツールチップ' + TOSTR(reference[3]) + reference[4]\n\tif ISFUNC(_f) {\n\t\tEVAL(_f)\n\t}\n\t\n\tif ISFUNC('On_tooltip') {\n\t\tEVAL('On_tooltip')\n\t}\n}\n\nAYL_On_balloon_tooltip\n{\n\treference[0] = RE_REPLACE(reference[0],'[ 　]+$','')\n\t_f = 'バルーンツールチップ' + reference[1]\n\tif ISFUNC(_f) {\n\t\t_v = EVAL(_f)\n\t\tif STRLEN(_v) {\n\t\t\t_v\n\t\t\treturn\n\t\t}\n\t}\n\t\n\tif RE_SEARCH(reference[1],'^(http|https)://') {\n\t\t'[ブラウザでURLを開く]\\n' + reference[1]\n\t\treturn\n\t}\n\t\n\tif ISFUNC('On_balloon_tooltip') {\n\t\tEVAL('On_balloon_tooltip')\n\t}\n}\n\n/*----------------------------------------------------------------------------------\n\t連続起動時間\n----------------------------------------------------------------------------------*/\nゴースト起動時間\n{\n\tghostupmin_total()\n}\n\n\n//***************************************************************************************************\n/*----------------------------------------------------------------------------------\n\t名前入力補助\n----------------------------------------------------------------------------------*/\n\n/*----------------------------------------------------------------------------------\n\t名前入力起動('識別子')　で入力ボックス開く\n\t\n\t要実装関数名\n\t＊は識別子\n\t\n\t名前入力敬称　：敬称をテキストで返して下さい\n\t名前入力開く＊：インプットボックスを開く時のスクリプト\n\t名前入力空欄＊：空欄でエンターされた\n\t名前入力敬称＊：敬称つけて入力された\n\t名前入力終了＊：正常終了\n----------------------------------------------------------------------------------*/\n\n名前入力起動\n{\n\t名前入力識別 = _argv[0]\n\t名前入力空欄カウント = 0\n\t\n\t_script = EVAL(\"名前入力開く%(名前入力識別)\")\n\tif TOINT(AYALilithEX) != 0 {\n\t\tvoid EVAL('_script = ProcessSpecialSyntax(_script)')\n\t}\n\t_script += \"\\![open,inputbox,OnInputNameInXTNDAYL,0,%(エスケープ(敬称削除(username)))]\"\n\t\n\t_script\n}\n\n敬称削除\n{\n\tif _argv[0] == '' {\n\t\t''\n\t}\n\telse {\n\t\tRE_REPLACE(_argv[0],'(さん|くん|ちゃん|たん|様|さま|殿)$','')\n\t}\n}\n敬称探索\n{\n\tif _argv[0] == '' {\n\t\t0\n\t}\n\telse {\n\t\tRE_GREP(_argv[0],'(さん|くん|ちゃん|たん|様|さま|殿)$')\n\t}\n}\n名前入力敬称WRAP\n{\n\tif ISFUNC('名前入力敬称') {\n\t\t名前入力敬称\n\t}\n\telse {\n\t\t'さん'\n\t}\n}\n名前入力初期WRAP\n{\n\tif ISFUNC('名前入力初期') {\n\t\t名前入力初期\n\t}\n\telseif SHIORI3FW.UserName != '' {\n\t\tSHIORI3FW.UserName\n\t}\n\telse {\n\t\t'ユーザ'\n\t}\n}\n名前入力初期名称判定\n{\n\tif username == 名前入力初期WRAP() {\n\t\t1\n\t}\n\telse {\n\t\t0\n\t}\n}\n\nOnInputNameInXTNDAYL\n{\n\tif 敬称削除(reference[0]) == '' {\n\t\t_open_input = 1\n\t\t_script = ''\n\t\t\n\t\t名前入力空欄カウント += 1\n\t\tif 名前入力空欄カウント <= 1 {\n\t\t\t_script = EVAL(\"名前入力空欄%(名前入力識別)\")\n\t\t}\n\t\telse {\n\t\t\t_script = EVAL(\"名前入力空欄繰り返し%(名前入力識別)\")\n\t\t\tif _script == '' {\n\t\t\t\t_script = EVAL(\"名前入力空欄%(名前入力識別)\")\n\t\t\t}\n\t\t\telse {\n\t\t\t\t_open_input = 0\n\t\t\t}\n\t\t}\n\t\tif TOINT(AYALilithEX) != 0 {\n\t\t\tvoid EVAL('_script = ProcessSpecialSyntax(_script)')\n\t\t}\n\t\t\n\t\tif _open_input {\n\t\t\t_script += \"\\![open,inputbox,OnInputNameInXTNDAYL,0,%(エスケープ(敬称削除(username)))]\"\n\t\t}\n\t\telse {\n\t\t\tusername = 名前入力初期WRAP()\n\t\t}\n\t\t\n\t\t_script\n\t\treturn\n\t}\n\t\n\t_kflag = 0\n\tif ( 敬称探索(reference[0]) ) {\n\t\tif ( 敬称削除(reference[0]) + 名前入力敬称WRAP() ) == reference[0] {\n\t\t\treference[0] = 敬称削除(reference[0])\n\t\t}\n\t\telse {\n\t\t\t_kflag = 1\n\t\t}\n\t}\n\t\n\tusername_saved = さくらスクリプト無効化(reference[0])\n\tusername_new = 敬称削除(username_saved) + 名前入力敬称WRAP()\n\t\n\tif username_saved == 名前入力初期WRAP() {\n\t\tOnInputNameSpecialXTNDAYL\n\t\treturn\n\t}\n\t\n\tif _kflag {\n\t\t_script = EVAL(\"名前入力敬称%(名前入力識別)\")\n\t\tif TOINT(AYALilithEX) != 0 {\n\t\t\tvoid EVAL('_script = ProcessSpecialSyntax(_script)')\n\t\t}\n\t\t_script += '\\0\\n\\n[half]'\n\t\t_script += メニュー(\"%(username_saved) と呼んでほしい\",'OnInputNameSpecialXTNDAYL')\n\t\t_script += '\\n'\n\t\t_script += メニュー(\"%(username_new) と呼んでほしい\",'OnInputNameEndXTNDAYL')\n\t\t\n\t\t_script\n\t\treturn\n\t}\n\t\n\tOnInputNameEndXTNDAYL\n}\n\nInputNameSharedXTNDAYL\n{\n\t_script = EVAL(\"名前入力終了%(名前入力識別)\")\n\tif TOINT(AYALilithEX) != 0 {\n\t\tvoid EVAL('_script = ProcessSpecialSyntax(_script)')\n\t}\n\t_script\n\t\n\tERASEVAR('username_saved','username_new')\n\tERASEVAR('名前入力識別','名前入力空欄カウント')\n}\n\nOnInputNameSpecialXTNDAYL\n{\n\tusername = username_saved\n\tInputNameSharedXTNDAYL()\n}\n\nOnInputNameEndXTNDAYL\n{\n\tusername = username_new\t\n\tInputNameSharedXTNDAYL()\n}\n\n//*****************************************************\n// 着せ替え基本データ取得\n//*****************************************************\n\nAYL_OnNotifyDressupInfo : void\n{\n\t着せ替え有効パーツリスト = IARRAY\n\t着せ替え有効パーツリストEX = IARRAY\n\t着せ替え有効カテゴリリスト = IARRAY\n\t着せ替え有効カテゴリリストEX = IARRAY\n\n\t着せ替え情報 = reference\n\t\n\t_c1 = CHR(1)\n\t_n = ARRAYSIZE(reference.raw)\n\t\n\t//キャラクターID [1] カテゴリー名 [1] パーツ名 [1] オプション [1] 有効1/無効0 [1] サムネイルパス\n\tfor _i = 0 ; _i < _n ; _i++ {\n\t\t_v = SPLIT(reference.raw[_i],_c1)\n\t\t\n\t\tif TOINT(_v[4]) != 0 {\n\t\t\t_p2 = TranslateSystemChar(_v[2])\n\t\t\t_p = '着せ替えパーツ' + _p2\n\t\t\t_c2 = TranslateSystemChar(_v[1])\n\t\t\t_c = '着せ替えカテゴリ' + _c2\n\t\t\t\n\t\t\tif ASEARCH(_p,着せ替え有効パーツリストEX) < 0 {\n\t\t\t\t着せ替え有効パーツリスト ,= _p2\n\t\t\t\t着せ替え有効パーツリストEX ,= _p\n\t\t\t}\n\t\t\tif ASEARCH(_c,着せ替え有効カテゴリリストEX) < 0 {\n\t\t\t\t着せ替え有効カテゴリリスト ,= _c2\n\t\t\t\t着せ替え有効カテゴリリストEX ,= _c\n\t\t\t}\n\t\t}\n\t}\n\t\n\tif ISFUNC('OnNotifyDressupInfo') {\n\t\tvoid EVAL('OnNotifyDressupInfo')\n\t}\n}\n\n//*****************************************************\n// コミュ\n//*****************************************************\n\n//------------------------------------------------------------------------------\n// こっちから話しかける\n//------------------------------------------------------------------------------\n他に話しかける\n{\n\t//まず話しかける相手を決める\n\t_ghostname = AYF_GetRandomSakuraName()\n\t\n\tif STRLEN(_ghostname) == 0 {\n\t\tif ISFUNC('話しかけられない') {\n\t\t\tEVAL('話しかけられない')\n\t\t}\n\t\treturn\n\t}\n\t\n\tres_reference0 = _ghostname\n\t\n\t//関数呼び出し\n\t_fname = '＊' + TranslateSystemChar(_ghostname) + 'に話しかける'\n\tif ISFUNC(_fname) {\n\t\tEVAL(_fname)\n\t\treturn\n\t}\n\t\n\t_fname = TranslateSystemChar(_ghostname) + 'に話しかける'\n\tif ISFUNC(_fname) {\n\t\tEVAL(_fname)\n\t\treturn\n\t}\n\t\n\t_fname = 'その他に話しかける'\n\tif ISFUNC(_fname) {\n\t\tEVAL(_fname)\n\t\treturn\n\t}\n\t\n\tRandomTalk\n}\n\n//話しかける相手をランダムに決定\nAYF_GetRandomSakuraName\n{\n\t_ghostlist=IARRAY\n\t//FMOが使える場合はFMOから読みます\n\tif ISFUNC('SHIORI3FW.RefreshFMOTable') {\n\t\tSHIORI3FW.RefreshFMOTable\n\t\t_ghostlist=SHIORI3FW.SakuraNameList\n\t}else{\n\t\t_ghostlist=ghostexlist\n\t}\n\tif ARRAYSIZE(_ghostlist)>0 {\n\t\tANY(_ghostlist)\n\t}else{\n\t\t''\n\t}\n}\n\n//起動中ゴーストリスト取得\nAYL_On_otherghostname\n{\n\t// 現在起動中のゴーストのリストを作成する\n\tghostexlist = reference\n}\n\n//------------------------------------------------------------------------------\n//OnCommunicateイベント\n//------------------------------------------------------------------------------\nAYL_OnCommunicate\n{\n\tif ARRAYSIZE(reference) >= 4 {\n\t\tif STRLEN(reference[3]) {\n\t\t\tif reference[2] == 'ECHO/1.0' { //台本コミュニケート(受信)\n\t\t\t\tres_securitylevel = 'External'\n\t\t\t\tres_reference[0] = reference[0]\n\t\t\t\t\n\t\t\t\tif STRLEN(marker) == 0 {\n\t\t\t\t\tmarker = \"Communicate from %(reference[0])\"\n\t\t\t\t}\n\t\t\t\t\n\t\t\t\treference[3]\n\t\t\t\treturn\n\t\t\t}\n\t\t\telseif reference[2] == 'JPRadish' { //大根コミュニケート(受信)\n\t\t\t\t'＊' + TranslateSystemChar(reference[0]) + '大根コミュニケート(reference[3,100])'\n\t\t\t\treturn\n\t\t\t}\n\t\t}\n\t}\n\t\n\t_fname = 'OnCommunicateAYALILITH' + TOSTR(モード)\n\tif ISFUNC(_fname) {\n\t\tEVAL(_fname)\n\t\treturn\n\t}\n\t\n\tif (reference[0] == \"user\") || (reference[0] == \"User\") {\n\t\tAYF_ComParseFunc('ユーザー')\n\t}\n\telse {\n\t\t_r = AYF_ComParseFunc(reference[0])\n\t\tif STRLEN(_r) == 0 {\n\t\t\t_r = AYF_ComParseFunc('その他')\n\t\t}\n\t\tif STRLEN(_r) > 0 {\n\t\t\t_r\n\t\t}\n\t}\n}\n\nAYF_ComParseFunc\n{\n\t_fname = TranslateSystemChar(_argv[0])\n\t_fname += 'コミュ'\n\t\n\t_func_array = IARRAY\n\t_func_array ,= GETFUNCLIST(_fname)\n\t_func_array ,= GETFUNCLIST('＊' + _fname)\n\t\n\t_func_result = IARRAY\n\t_ev_max = 0\n\t\n\tforeach _func_array ; _func {\n\t\tif '該当なし' !_in_ _func {\n\t\t\t_ev = AYF_ComSyntaxToAyaSyntaxEval(_func,_fname,reference[1])\n\t\t\tif (GETTYPE(_ev) == 1) && (_ev > 0) {\n\t\t\t\tif _ev_max < _ev {\n\t\t\t\t\t_func_result = IARRAY\n\t\t\t\t\t_ev_max = _ev\n\t\t\t\t}\n\t\t\t\t_func_result ,= _func\n\t\t\t}\n\t\t}\n\t}\n\t\n\tif ARRAYSIZE(_func_result) > 0 {\n\t\tEVAL(ANY(_func_result))\n\t}\n\telse {\n\t\t_fname = _sname + 'コミュ該当なし'\n\t\tif ISFUNC(_fname) {\n\t\t\tEVAL(_fname)\n\t\t}\n\t}\n}\n\nAYF_ComSyntaxToAyaSyntaxEval\n{\n\t_str = _argv[0]\n\t\n\t//ヘッダを消す\n\t_str = REPLACE(_str,_argv[1],'')\n\t_str = REPLACE(_str,'＊' + _argv[1],'')\n\t\n\t_result_and = 0\n\t_arr_and = SPLIT(_str,'＆')\n\t\n\tforeach _arr_and ; _and {\n\t\t_arr_or = SPLIT(_and,'｜')\n\t\t\n\t\t_result_or = 0\n\t\tforeach _arr_or ; _or {\n\t\t\tif _or _in_ _argv[2] {\n\t\t\t\t_result_or = 1\n\t\t\t\tbreak\n\t\t\t}\n\t\t}\n\t\t\n\t\tif _result_or == 0 {\n\t\t\t_result_and = 0\n\t\t\tbreak\n\t\t}\n\t\telse {\n\t\t\t_result_and += 1\n\t\t}\n\t}\n\t\n\t_result_and\n}\n\n",
+			"file": "/Users/cksgrapes/Dropbox/ssp/ghost/mobilemaster/ghost/master/aya_lilith.dic",
+			"file_size": 50275,
+			"file_write_time": 131165721200000000,
+			"settings":
+			{
+				"buffer_size": 43914,
+				"line_ending": "Windows",
+				"scratch": true
+			}
+		},
+		{
+			"contents": "/*=============================================================================\n  Chikashi.S Templete\n  触り反応辞書\n  Last up date: 2014/04/29\n=============================================================================*/\n\nClick_0\n{\n\tCommunicate\n}\n\n/*-----------------------------------------------------------------------------\n  クリックで会話\n-----------------------------------------------------------------------------*/\nCommunicate : nonoverlap\n{\n\t'\\1\\s[10]\\0\\s[0]'\n\t--\n\t'ん、どしたの。'\n\t'できることがないと、暇だね。'\n\t'ナニか、する？'\n\t--\n\t'\\1\\s[10]'\n\t--\n\t_text = \"\"\n\tfor _i=0 ; _i < 4 ; _i++\n\t{\n\t\t_text += WordChoice + \"\\n\"\n\t}\n\t_text\n\t--\n\t\"\\n◆\\q[別の台詞,CommunicateEx]\\n/\n\t◆\\q[言いたい台詞がない,FeedbackSent]\\n/\n\t◆\\q[キャンセル,Cancel]\\![set,choicetimeout,30000]\\e\"\n}\n\nCommunicateEx {\n\t'\\1\\s[10]'\n\t--\n\t_text = \"\"\n\tfor _i=0 ; _i < 4 ; _i++\n\t{\n\t\t_text += WordChoice + \"\\n\"\n\t}\n\t_text\n\t--\n\t\"\\n◆\\q[別の台詞,CommunicateEx]\\n/\n\t◆\\q[言いたい台詞がない,FeedbackSent]\\n/\n\t◆\\q[キャンセル,Cancel]\\![set,choicetimeout,30000]\\e\"\n}\n\nWordChoice : nonoverlap\n{\n\tparallel commWord\n}\n\n/*-----------------------------------------------------------------------------\n  頭つつかれ（設定メニュー）\n-----------------------------------------------------------------------------*/\nClick_0Head\n{\n\tSetting\n}\n\n/*-----------------------------------------------------------------------------\n  唇つつかれ\n-----------------------------------------------------------------------------*/\nClick_0Lips\n{\n\tLipsReaction\n}\n\nLipsReaction : nonoverlap\n{\n\t'\\1\\s[10]\\0\\s[20]'\n\t--\n\t\"%(喘ぎ声)\"\n\t--\n\tLipsReactionEx\n}\n\nLipsReactionEx {\n\t'\\1\\s[10]'\n\t--\n\t\"\\q[→ あさくキスをする,LipsReaction1]\\n/\n\t\\q[→ ふかくキスをする,LipsReaction2]\\n/\n\t\\q[→ 唾液を飲ませる,LipsReaction3]\\n[200%]/\n\t◆\\q[キャンセル,Cancel]\\![set,choicetimeout,30000]\\e\"\n}\n\nLipsReaction1 : nonoverlap\n{\n\t'\\1\\s[10]\\0\\s[20]'\n\t--\n\t'ふっ、ぁふ。'\n\t'あむ、んっ、ン、ぅ。'\n\t--\n\tSetCondParam('love','plus','S')\n\tLipsReactionEx\n}\n\nLipsReaction2 : nonoverlap\n{\n\t'\\1\\s[10]\\0\\s[30]'\n\t--\n\t'んちゅ、ぅ、んぅ……っ。'\n\t'ちゅ、くちゅ、んむ、ぅ、ッ……。'\n\t--\n\tSetCondParam('love','plus','M')\n\tLipsReactionEx\n}\n\nLipsReaction3 : nonoverlap\n{\n\t'\\1\\s[10]\\0\\s[30]'\n\t--\n\t'んくっ……！は、んぅぅッ、ふ……！'\n\t'ふ、ぅ、ン、んんんっ……！'\n\t--\n\tSetCondParam('love','minus','M')\n\tLipsReactionEx\n}\n\n/*-----------------------------------------------------------------------------\n  胸つつかれ\n-----------------------------------------------------------------------------*/\nClick_0Breasts\n{\n\tBreastsReaction\n}\n\nBreastsReaction : nonoverlap\n{\n\t'\\1\\s[10]\\0\\s[20]'\n\t--\n\t\"%(喘ぎ声)\"\n\t--\n\tBreastsReactionEx\n}\n\nBreastsReactionEx\n{\n\t'\\1\\s[10]'\n\t--\n\t\"\\q[→ 胸を揉みしだく,BreastsReaction1]\\n/\n\t\\q[→ 胸をはたく,BreastsReaction2]\\n/\n\t\\q[→ 乳首をつねる,BreastsReaction3]\\n[200%]/\n\t//\\q[→ 乳首をしゃぶる,BreastsReaction4]\\n[200%]/\n\t◆\\q[キャンセル,Cancel]\\![set,choicetimeout,30000]\\e\"\n}\n\nBreastsReaction1 : nonoverlap\n{\n\t'\\1\\s[10]\\0\\s[20]'\n\t--\n\t'もっと強くしていいよ。'\n\t'おっぱいのカタチ、変わるぐらいシて。'\n\t'やわらかい、でしょ。'\n\t--\n\tSetCondParam('love','plus','S')\n\tBreastsReactionEx\n}\n\nBreastsReaction2 : nonoverlap\n{\n\t'\\1\\s[10]\\0\\s[30]'\n\t--\n\t'おっぱい、ジンジンする。'\n\t'\\s[20]アンタの手で、真っ赤にシて。'\n\t--\n\tSetCondParam('violence','plus','S')\n\tBreastsReactionEx\n}\n\nBreastsReaction3 : nonoverlap\n{\n\t'\\1\\s[10]\\0\\s[31]'\n\t--\n\t'あッ、んぅ……ッ、とれちゃ、う。'\n\t'痛い、の。でも、すごく、イイ。'\n\t--\n\tSetCondParam('violence','plus','M')\n\tBreastsReactionEx\n}\n\n\n/*-----------------------------------------------------------------------------\n  腹つつかれ\n-----------------------------------------------------------------------------*/\nClick_0Abdomen\n{\n\tAbdomenReaction\n}\n\nAbdomenReaction : nonoverlap\n{\n\t'\\1\\s[10]\\0\\s[2]'\n\t--\n\t\"%(呻き声)\"\n\t--\n\tAbdomenReactionEx\n}\n\nAbdomenReactionEx {\n\t'\\1\\s[10]'\n\t--\n\t\"\\q[→ 殴る,AbdomenReaction1]\\n/\n\t\\q[→ 蹴る,AbdomenReaction2]\\n/\n\t\\q[→ 踏みつける,AbdomenReaction3]\\n[200%]/\n\t// \\q[→ 灰皿にする,AbdomenReaction4]\\n[200%]/\n\t◆\\q[キャンセル,Cancel]\\![set,choicetimeout,30000]\\e\"\n}\n\nAbdomenReaction1 : nonoverlap\n{\n\t'\\1\\s[10]\\0\\s[31]'\n\t--\n\t'ぐッ……う、ぅ。'\n\t'げほっ、ぉ、グ。'\n\t'んぐッ……げほっ、ごほっ。'\n\t--\n\tSetCondParam('violence','minus','S')\n\tAbdomenReactionEx\n}\n\nAbdomenReaction2 : nonoverlap\n{\n\t'\\1\\s[10]\\0\\s[33]'\n\t--\n\t'あがッ！'\n\t'がはっ……！'\n\t'ぎっ……！'\n\t--\n\tSetCondParam('violence','plus','S')\n\tAbdomenReactionEx\n}\n\nAbdomenReaction3 : nonoverlap\n{\n\t'\\1\\s[10]\\0\\s[32]'\n\t--\n\t'も、っと。踏んで。踏みつけて。'\n\t'アタシのこと、踏み潰してよ。'\n\t'ぐりぐり、ぐりぐり、シて、いいから。'\n\t--\n\tSetCondParam('violence','plus','L')\n\tAbdomenReactionEx\n}\n\n/*-----------------------------------------------------------------------------\n  股つつかれ\n-----------------------------------------------------------------------------*/\nClick_0Crotch\n{\n\tCrotchReaction\n}\n\nCrotchReaction : nonoverlap\n{\n\t'\\1\\s[10]\\0\\s[30]'\n\t--\n\t\"%(喘ぎ声)\"\n\t--\n\tCrotchReactionEx\n}\n\nCrotchReactionEx\n{\n\t'\\1\\s[10]'\n\t--\n\t\"\\q[→ 指をいれる,CrotchReaction1]\\n/\n\t\\q[→ ローターをいれる,CrotchReaction2]\\n/\n\t\\q[→ ふつうのバイブをいれる,CrotchReaction3]\\n/\n\t\\q[→ 極太バイブをいれる,CrotchReaction4]\\n[200%]/\n\t◆\\q[キャンセル,Cancel]\\![set,choicetimeout,30000]\\e\"\n}\n\nCrotchReaction1 : nonoverlap\n{\n\t'\\1\\s[10]\\0\\s[30]'\n\t--\n\t'やだ。\\nそんな、焦らすみたいにシちゃ、やだ。'\n\t'１本じゃなくて、３本ぐらい、いれてよ。'\n\t'拳まるごと、入れたっていいさ。\\n\\w9\\s[32]じゅぽじゅぽして、奥まで、掻き回してよ。'\n\t--\n\tSetCondParam('love','plus','S')\n\tCrotchReactionEx\n}\n\nCrotchReaction2 : nonoverlap\n{\n\t'\\1\\s[10]\\0\\s[30]'\n\t--\n\t'そこ、押しつけられると駄目ンなる。'\n\t'頭がとろけて、ぜんぶとろけちゃう。'\n\t'\\s[32]ぐりぐりしちゃ、駄目。'\n\t--\n\tSetCondParam('love','plus','S')\n\tCrotchReactionEx\n}\n\nCrotchReaction3 : nonoverlap\n{\n\t'\\1\\s[10]\\0\\s[31]'\n\t--\n\t'は、ふ、そんなのじゃ、足りな、いよ。'\n\t'奥まで、奥までぐりぐりシてよ。'\n\t'く、ふ、ぅッ……もっと、もっと。'\n\t--\n\tSetCondParam('love','plus','M')\n\tCrotchReactionEx\n}\n\nCrotchReaction4 : nonoverlap\n{\n\t'\\1\\s[10]\\0\\s[31]'\n\t--\n\t'ああッ、あっ、おなか、奥、キてるっ……！'\n\t'ひ、ぃぐッ、んんんっ！'\n\t'きもちいいっ、きもちいいよぉ……ッ！'\n\t--\n\tSetCondParam('love','plus','L')\n\tSetCondParam('violence','plus','L')\n\tCrotchReactionEx\n}\n",
+			"file": "/Users/cksgrapes/Dropbox/ssp/ghost/nevermind/ghost/master/dic_mouse.txt",
+			"file_size": 6501,
+			"file_write_time": 131197738770000000,
+			"settings":
+			{
+				"buffer_size": 5435,
+				"line_ending": "Windows",
+				"scratch": true
+			}
+		},
+		{
+			"contents": "/*=============================================================================\n  Chikashi.S Templete\n  日時イベント辞書\n  Last up date: 2014/04/23\n=============================================================================*/\n\n/*-----------------------------------------------------------------------------\n  時間経過イベント\n-----------------------------------------------------------------------------*/\nOnSecondChange\n{\n\tMikireKasanari\n}\n\n//-----------------------------------------------------------------------------\n\nOnMinuteChange\n{\n\tif ( minute == 0 ) {\n\t\tif ( hour == 0 && month == userBDmonth && day == userBDday )\n\t\t{\n\t\t\tevent_ユーザ誕生日\n\t\t}\n\t\t//elseif ( hour == 0 && month == 1 && day == 1 )\n\t\t//{\n\t\t//\tevent_お正月\n\t\t//}\n\t\telse\n\t\t{\n\t\t\t\"\\0\\s[0]%(hour)時だよ。\\n\"\n\t\t\t--\n\t\t\tcase hour {\n\t\t\t\twhen 13 {\n\t\t\t\t\t'ウン、お腹すいた。'\n\t\t\t\t}\n\t\t\t}\n\t\t\t--\n\t\t\t'\\e'\n\t\t}\n\t}\n}\n\n/*-----------------------------------------------------------------------------\n  日付イベント\n-----------------------------------------------------------------------------*/\nevent_ユーザ誕生日\n{\n\tif ( EVAL('UserHBD' + year) != 1 ) {\n\t\tLETTONAME( 'UserHBD' + year , 1 )\n\t\t--\n\t\t'\\1\\s[10]\\0\\s[0]誕生日だね。おめでと。\\n\\n[half]これからもアンタがアタシを捨てないでいてくれますように。あと、アンタが芋虫病にかかりませんように。\\n\\n[half]……アレ、違った？\\e'\n\t} else {\n\t\tcase SHIORI3FW.Eventid {\n\t\t\twhen 'OnBoot' {\n\t\t\t\tOnBootTalk\n\t\t\t}\n\t\t\twhen 'OnMinuteChange' {\n\t\t\t\t\"\\0\\s[0]%(hour)時だよ。\\e\"\n\t\t\t}\n\t\t}\n\t}\n}\n",
+			"file": "/Users/cksgrapes/Dropbox/ssp/ghost/nevermind/ghost/master/dic_time.txt",
+			"file_size": 1540,
+			"file_write_time": 130432433000000000,
+			"settings":
+			{
+				"buffer_size": 1355,
+				"line_ending": "Windows",
+				"scratch": true
+			}
+		},
+		{
+			"contents": "///////// 文　ゴーストテンプレート\n///////// ランダムトーク辞書\n\nOnTalk\n{\n\t_result = OnAiTalk\n\tif basewarenameex == sender {\n\t\t_result\n\t\treturn\n\t}\n\t\n\t\"\\u\\s[10]\\h\\s[1]%(KeisyouCutter(sender))さんのお気に召す話題かどうか分かりませんが……\\w9\\w9\\w9\\w9\\u\\c\\h\\c%(_result)\"\n}\n\n//---- ランダムトーク -------------------------------------------------------------------\n新規追加ランダムトーク : array\n{\n\t'2012/12/1-1'\n\t\n\t<<'\n\tま０７：SSPのバグは決して無くなりません！\n\tま：むしろ、バグと共存してこそ、SSPなのではないでしょうか！！\n\tし１１：マリが自殺フラグ立てよった…\n\tま０２：えええ！？\n\t'>>\n\n}\n\nショタっ子のオチ : nonoverlap\n{\n\t\"\\h\\s[9]\\n\\nよし、\\w5ボク頑張る！\\w9\\w9\\u\\s[10]\\n\\n……\\s[11]ボクっ子やからってショタに近うなるとは限らへんで。\\w9\\w9\\h\\s[2]\\n\\nふえっ！？\"\n\t\n\t\"\\h\\s[26]\\n\\nそんな無茶言う人、\\w5嫌いです。\\w9\\w9\\u\\s[13]\\n\\n髪切ったらええんとちゃうか？\\w9\\w9\\h\\s[7]\\n\\n髪は女の子の命です！\\w9\\w9\\u\\s[11]\\n\\n……色気出しおったな。\"\n}\n\nCHAIN_負けません\n{{CHAIN\n\t{\n\t\t'\\u\\s[10]\\h\\s[7]ばいおUさんにも負けませんっ！！\\w9\\w9\\u付属品の無さでは大勝利やね。\\w9\\w9\\h\\s[26]\\n\\n……嬉しくない……'\n\t\t\n\t\t'\\u\\s[10]\\h\\s[7]ばいおUさんにも負けませんよっ！！\\w9\\w9\\u\\s[11]ええかマリ、\\w5弱点はタイマーや。\\w9\\nタイマー狙ろたら勝てる。\\w9\\w9\\h\\s[4]\\n\\nタイマーなんてありませんよぅ。\\e'\n\t}\n\t\n\t'\\u\\s[10]\\h\\s[7]だいなぶっくさんには！！\\w9\\w9\\u……だいなぶっくさんには？\\w9\\w9\\h\\s[26]\\n\\n勝てないかも知れない……\\w9\\w9\\u\\n\\nそらそうやろな。'\n\t\n\t'\\u\\s[10]\\h\\s[7]それなら、\\w5だ、\\w5W-ZERO3さんには！！\\w9\\w9\\uそれ、\\w5全然ジャンルちゃうで。\\w9\\w9\\h\\s[26]\\n\\nうわーん……'\n\t\n}}CHAIN\n\nランダムトーク通常 : array\n{\n\t<<'\n\tま００「昔、PCソフトの自動販売機があったんだって。」\n\tし１０「TAKERUか、何もかも懐かしい。」\n\tま０５「今でもありそうですけどねえ。マウスとか、USBメモリとか、SDカードとか、Librettoとか。」\n\tし１１「…不良在庫になるのがオチやろ。」\n\t'>>\n\n\t<<'\n\tま０５「分かりました！分かりましたよ！２０年モノのパソコンがどうなるのか！」\n\tし１０「スクラップやのうて？」\n\tま　　「付喪神っていう便利な言葉が、世の中にはあるんですよ！」\n\tし１１「…まあ、ゴーストにはなったがな？」\n\t'>>\n\t\n\t<<'\n\tま０７：処理の速さをはかるためだけに円周率パイを何千万桁も計算させるとか、やめてくださいね！\n\tし１０：なんでや。よくある話やないか。\n\tま２６：計算たいへんなんですよ、あれ…\n\tし　　：確かに、めちゃくちゃ大量に計算こなさんと出されへんけど。\n\tま２１：でも、女の子が気にする部分がでっかくなるなら、がんばるかも…\n\tし１１：…それはパイ違いや。\n\t'>>\n\n\t'\\u\\s[10]\\0\\s[2]……………\\w9\\w9\\1なんや、\\w5アホみたいな顔してからに。\\w9\\w9\\0\\s[7]\\n\\nバッテリーがヘタりかけてるのに、\\w9\\n休止状態で放置しないでください！\\w9\\nばかになるでしょ！\\w9\\w9\\1\\n\\n……もともと賢い事ないがな。\\w9\\w9\\0\\s[26]\\n\\n…………\\e'\n\n\t'\\u\\s[10]\\0\\s[3]……中古でも、\\w5買ってもらえれば幸せですよね。\\w9\\w9\\1せやなあ。\\w9\\nワシら、\\w5リサイクル法がなんたらで、\\w9\\n捨てるに捨てられへんもんなあ。\\w9\\s[11]\\n捨てたらアカン！\\w9捨てたらあかんがな！！\\w9\\n使うて！\\w9もっと使うてー！！\\w9\\w9\\0\\s[9]\\n\\nしぃちゃん、\\w5それ私が言おうと思ってた。\\w9\\nばか。\\w9\\w9\\1\\n\\n……思いは一緒や。\\e'\n\n\t'\\u\\s[10]\\0\\s[5]タブレットPCさんも中古屋さんに並ぶんだし、\\w9\\n私たちが並んでても遜色ないですよね！\\w9\\w9\\1見た目で遥かに劣るわ、\\w5あほたれ。\\e'\n\n\t'\\u\\s[10]\\0\\s[3]しぃちゃん……\\w9\\nずっと赤画面ですけど……\\w9\\nもう、\\w5死にかけてます？\\w9\\w9\\1やかましわ。\\e'\n\t\n\t'\\u\\s[10]\\0\\s[1]私、\\w5多分元気に動いてます！\\w9\\w9\\1……自分の事やろ？\\w9\\nなんで疑問形やねん。\\w9\\w9\\0\\s[0]\\n\\nだってほら、\\w5体の端っこからカタカタ音がしたり、\\w9\\nファンだって元気にガタガタ動いてますし。\\w9\\s[1]\\nこれだけ賑やかなんだから、\\w9\\nきっと私は元気なんですよ！\\w9\\w9\\1\\s[11]\\n\\nちょお待て！！\\w9\\nそれ元気とちゃうがな！！\\e'\n\t\n\t'\\u\\s[10]\\0\\s[6]スクリプト\\w8　いくら記述が\\w8　違っても。\\w9\\n動いていれば\\w8　それが正義よ。\\w9\\w9\\1お前は所長たんか。\\e'\n\t\n\t'\\u\\s[10]\\0\\s[3]……ねえ、\\w5しいちゃん。\\w9\\nこの間、\\w5中古屋さんに並んでたケータイさん。\\w9\\w9\\1ああ、\\w5なんでこんなとこにおるんか、\\w9\\n不思議でしゃあなかったアレか。\\w9\\w9\\0\\n\\nお漏らししてましたよね。\\w9\\w9\\1\\s[11]\\n\\n充電池の破損は危険やとあれほどーッ！！\\e'\n\n\t'\\u\\s[10]\\0\\s[3]充電池って……\\w9\\nリア充なんでしょうか。\\w9\\w9\\1そらまあ、\\w5リアルに充電はされとるな。\\w9\\w9\\0\\s[5]\\n\\n使い古されると、\\w5充電を嫌がるんですよ。\\w9\\nイヤ充って。\\w9\\w9\\1\\n\\n……お前、\\w5疲れとるんか。\\e'\n\n\t'\\u\\s[10]\\0\\s[0]……私が、\\w5一番好きな物、\\w5わかりますか？\\w9\\w9\\1どこの電力会社の電気や？\\w9\\w9\\0\\n\\n私をしっかり見つめて、\\w9\\n真剣な眼差しで、\\w5一生懸命何かをしている、\\w9\\n%(username)の顔なんですよ。\\w9\\s[6]\\nそのたびに、\\w5ずっと、\\w5ちゃんと動いてなきゃ、\\w9\\nって思うんですよ。\\w9\\w9\\1\\n\\n画面がちみっこくて、\\w9\\n文字がよぉわからんだけちゃうんか。\\w9\\w9\\0\\s[26]\\n\\nあああああ………\\w9\\nその可能性があったんだぁ……\\e'\n\t\n\t'\\u\\s[10]\\0\\s[3]……携帯電話に、\\w5私のそっくりさんが。\\w9\\w9\\1よぉ似とる気もするが、\\w9\\nそうやって若者に取り入ろうとする姿勢は、\\w9\\nおっちゃん感心せえへんな。\\w9\\w9\\0\\s[1]\\n\\nそうか……\\w9\\nあそこに一緒に並んでれば、\\w5私達ももう一度……\\w9\\w9\\1\\n\\nモノがちゃうて、\\w5即刻返品されて終いやて。\\e'\n\t\n\t'\\u\\s[10]\\0\\s[3]……私達ってさ。\\w9\\n時代遅れのガラクタが、\\w9\\nお互いに傷を舐め合ってるだけなのかな。\\w9\\w9\\1……言うてはならん事を言うたな？\\e'\n\t\n\t'\\u\\s[10]\\0\\s[7]いーいーいー！\\w9\\nえいさっさー！\\w9\\w9\\1とうとう、\\w5CPUに支障が……\\w9\\w9\\0\\n\\n違いますっ！\\w9\\nもばいるのーとさんたち、\\w9\\n私に挨拶も無く、\\w5おっきな顔して！\\w9\\w9\\1\\n\\n………眼中にあれへんのやろ。\\e'\n\t\n\t'\\u\\s[10]\\0\\s[6]あの人は言いました。\\w9\\n「今日はダメでも、\\w5いつかはでっかい太陽が」\\w9\\w9\\1生産中止のミニPCに、\\w9\\n明日の朝日が拝めると思っとるのか。\\w9\\w9\\0\\s[26]\\n\\n……………\\w9\\w9\\1\\n\\n……冗談やて。\\w9\\n泣きぃな、\\w5うっとい。\\e'\n\t\n\t'\\u\\s[10]\\0\\s[25]バーグーはーひどいーなー、\\w9\\nでっかーいーなー♪\\w9\\w9\\1いきなりなんやねん。\\w9\\w9\\0\\n\\nねんしーきーふるいーとー、\\w9\\nなおさーれーなーい♪\\w9\\w9\\1\\n\\n切なさ炸裂やね。\\e'\n\t\n\t'\\u\\s[10]\\0\\s[26]うぎゅ〜………\\w9\\w9\\1どないしたんや。\\w9\\w9\\0\\n\\nまた、\\w5所長さんにガッ！\\w9されました〜……\\w9\\w9\\1\\n\\n災難な子ぉやな、\\w5お前も……\\e'\n\n\t'\\u\\s[10]\\0\\s[1]えへへ〜。\\w9\\w9\\1なにゃ、\\w5間抜けな顔しよって。\\w9\\w9\\0\\n\\n私、\\w5iPadさんには勝てますよ〜。\\w9\\w9\\1\\n\\n……寝言はシャットダウンしてから言えや。\\w9\\w9\\0\\n\\n私、\\w5キーボードありますもん〜。\\w9\\w9\\1\\n\\n……せやから、\\w5そこは勝負する意味があれへんと。\\w9\\n向こうはタッチパネルや。\\w9\\w9\\0\\s[3]\\n\\n私だって、\\w5タッチパネル……\\w9\\w9\\1\\n\\nそない言うたら、\\w5胸つつかれるで。\\w9\\w9\\0\\s[9]\\n\\nめっ。\\w9\\w9\\1\\n\\n……お前な。\\e'\n\n\t'\\u\\s[10]\\0\\s[3]そういえば……私の兄弟って、\\w5バッテリーどうしてるんだろ……\\w9\\w9\\1もうほとんど居てへんのと違うか。\\w9\\w9\\0\\n\\nへたったバッテリーで、\\w5お腹空かせてないかなぁ……\\w9\\w9\\1\\n\\nせやからほとんど居てへんと。\\w9\\w9\\0\\n\\n変なバッテリー繋げられて、\\w5お腹痛くしてないかなぁ……\\w9\\w9\\1\\n\\n現実をもっと見つめぇや。\\e'\n\n\t'\\u\\s[10]\\0\\s[401]あーうー……\\w9\\w9\\1なんやなんや、\\w5また熱暴走かいな。\\w9\\w9\\0\\n\\nすりーぷもーどです〜……\\w9\\w9\\1\\n\\n……そりゃ寝ぼけてるだけやろ。\\e'\n\n\n\t'\\u\\s[10]\\0\\s[3]私、\\w5ケータイさんには勝てますかね？\\w9\\w9\\1せやから、\\w5何の勝負をしとんねん。\\w9\\w9\\0\\n\\nSkypeで通話できますし、\\w5ゲームもできますよ。\\w9ソリティアですけど。\\w9\\w9\\1\\n\\n……明かにケータイに負けとるがな。\\w9\\w9\\0\\n\\n…………ですよね。\\w9\\w9\\1\\s[11]\\n\\n納得すな！\\e'\n\n\t'\\h\\s[0]\\1\\s[10]お前、\\w5ワンセグとか興味あるん？\\w9\\w9\\0そりゃあありますよ。\\w9\\n\\w9\\s[4]\\n処理さえなんとかなれば、\\w5ですけど。\\w9\\w9\\1\\n\\n……難儀やなあ。\\e'\n\n\t'\\u\\s[10]\\0\\s[2]あ、\\w5あれ！？\\w9ここにもしぃちゃんがいる！？\\w9\\w9\\1……なんやねん、\\w5ワイはずっとここにいてるがな。\\w9\\w9\\0\\s[3]\\n\\nあっちで、\\w5一生懸命ブラウン管テレビさんに話しかけてました……\\w9\\w9\\w5\\1\\n\\n……力のかぎりに蓋閉めたろか、\\w5ほんま……\\e'\n\n\t'\\u\\s[10]\\0\\s[5]こないだね、\\w5扇風機さんが私を冷やしに来てくれたんですよ。\\w9\\w9\\1またでっかいファンやなぁ。\\w9\\w9\\0\\n\\nはい〜、\\w5ちみっこくて可愛いって、\\w5言ってくれたんですよ♪\\w9\\w9\\1\\n\\n……いろんな意味でファンなんやな。\\e'\n\n\t'\\u\\s[10]\\0\\s[0]DSさんが大きくなったんだって。\\w9\\w9\\1なんや見やすうになったみたいやなぁ。\\w9\\w9\\0\\s[6]\\n\\nキーボードが付いてるから私の勝ち。\\w9\\w9\\1\\n\\n何を勝負しとんねん、\\w5何を。\\e'\n\n\t'\\u\\s[10]\\0\\s[3]夏場は、\\w5熱暴走が心配ですよね。\\w9\\n冬場は、\\w5電力不足が心配になるんですよ。\\w9\\w9\\1バッテリー駆動なんやから、\\w5あんま関係ないんちゃう？\\w9\\w9\\0\\n\\nそれがですねー、\\w5バッテリー保護のためにＡＣ電源直結してる時とか、\\w5ちょっと油断すると意識が飛ぶんですよ。\\w9\\n電子レンジとか、\\w5電気ストーブとか点いてる時には特に。\\w9\\w9\\1\\n\\n……それ、\\w5意識とちゃうくて、\\w5ブレーカー飛んどるだけちゃうんか。\\e'\n\n\t'\\u\\s[10]\\0\\s[25]せぶーん。\\w9せぶーん。\\w9せぶーん。\\w9せぶーん。\\w9\\w9\\1それ以上歌たら、\\w5強制終了さすど。\\w9\\w9\\0\\s[26]\\n\\nビスタさんでさえ重かったのに、\\w5これ以上私に何をやらせようって言うんですか〜。\\w9\\w9\\1\\n\\n……安心せえ、\\w5お前にWindows7積もうとする奴ぁおらへんから。\\w9\\w9\\0\\n\\nUbunts積まれてる同僚もいるんですよ〜。\\w9\\w9\\1\\n\\n……奴らは、\\w5ＣＰＵ積んでる機械にやったらなんでも突っ込もうとするだけや。\\w9\\w9\\0\\s[3]\\n\\nいっそ、\\w5Ｄｏｓの頃に戻ってみたいです。\\w9\\nどれだけ軽いんだろう……\\w9\\w9\\1\\n\\n……やめとき、\\w5あんまりシャレになってへんから。\\e'\n\n\t'\\u\\s[10]\\0\\s[0]人間って、\\w5匂いで暴走したりするらしいですね。\\w9\\w9\\1ああ、\\w5どっかの誰かがニシンの缶詰でえらい事んなっとったらしいなぁ。\\w9\\w9\\0\\s[3]\\n\\nそれを考えると、\\w5熱で暴走するくらい、\\w5どうって事ないですよね。\\w9\\w9\\1\\n\\n待て、\\w5その理屈はおかしい。\\e'\n\n\t'\\u\\s[10]\\0\\s[1]私もいつかは、\\w5内蔵メモリでReadyBoostを……！\\w9\\w9\\1それ以前にVista動かす努力をせえや。\\w9\\w9\\0\\s[7]\\n\\n筐体に入らなくても良いなら、\\w5いくらでも拡張できますっ！\\w9やってみせます！\\w9\\w9\\1\\n\\n無理やから諦めえや……\\e'\n\n\t'\\u\\s[10]\\0\\s[0]私だって、\\w5スケジュール管理とかできるんですよ。\\w9\\w9\\1そらせやろ、\\w5普通のアプリやったら問題無く動くんやからな。\\w9\\w9\\0\\s[26]\\n\\nだから、\\w5見捨てないで〜……\\w9\\w9\\1\\n\\n……ええから泣くな、\\w5暴走するで。\\e'\n\n\t'\\u\\s[10]\\0\\s[9]しぃちゃん！\\w9合体です！\\w9\\w9\\1なんや、\\w5何があった。\\w9\\w9\\0\\n\\n画面が小さくて見にくいって言われました！\\w9\\n合体して、\\w5大画面表示で見返してやります！\\w9\\w9\\1\\n\\n……ワイなぁ、\\w5最近ゴースト出始めとんねん……\\w9\\n文字とか、\\w5えらい見にくいねん……\\w9\\w9\\0\\s[26]\\n\\nああああ……\\e'\n\n\t'\\u\\s[10]\\0\\s[6]マウスなんて飾りです。\\w9\\w9\\1まあ、\\w5ちみっこいのが売りなお前に、\\w5マウスパッドやらなんやらは邪魔っちゅなもんか。\\w9\\w9\\0\\s[3]\\n\\nいや、\\w5ヘタにマウスドライバとか入れられたくないんです。\\w9\\w9\\1\\n\\n……リソースか……\\w9\\n言うても、\\w5そんなに重ないやろ。\\w9\\w9\\0\\s[7]\\n\\nちりも積もると熱暴走って言うじゃないですか。\\w9\\w9\\1\\n\\n……せやな。\\e'\n\n\t'\\u\\s[10]\\0\\s[3]大事にしてくれると……その想いに答えたくなるのは、\\w5機械の身でも同じなんですよ。\\w9\\w9\\1乱暴に扱うたらそれなりに壊れよるし、\\w5大事に使てもらえたら、\\w5それこそ十年経っても現役で動けるもんや。\\w9\\w9\\0\\s[6]\\n\\n……大事に、\\w5してくださいね。\\w9\\nいつか%(username)とお別れする時が来ても……\\w9\\n\\s[26]う、\\w5う、\\w5う………\\w9\\w9\\1\\s[11]\\n\\nあーもう！\\w9何を感極まっとんのや！\\w9\\w9\\0\\n\\nだ、\\w5だってぇ……しぃちゃんが変な事言うから……\\w9\\w9\\1\\s[10]\\n\\n……難儀な子や、\\w5ほんま。\\e'\n\n\t'\\u\\s[10]\\0\\s[26]はわわ〜、\\w5紅茶こぼしちゃいました〜……\\w9\\w9\\1\\s[11]何しとんねん、\\w5はよ拭け！\\w9乾かせ！！\\w9\\w9\\0\\s[1]\\n\\nって言ったら、\\w5この耳と何かが融合するって教えて貰ったんですよ。\\w9\\w9\\1\\n\\n忘れ！\\w9さっさとすぐ今忘れ！！\\w9\\w9\\0\\n\\nモップとか融合できるんでしょうか。\\w9\\w9\\1\\n\\nやかましいわっ！！\\e'\n\n\t'\\u\\s[10]\\0\\s[3]……ソリティアとかマインスイーパー以外を処理してみたいです。\\w9\\n具体的にはネットゲームとか。\\w9\\w9\\1諦め。\\w9\\w9\\0\\s[26]\\n\\nしぃちゃんが冷たい……\\w9\\w9\\1\\n\\nインストーラーさえ処理できんと思うねん。\\w9\\w9\\0\\s[5]\\n\\nですよねー。\\w9\\w9\\1\\n\\n……開き直るんやないわ。\\w9\\w9\\0\\s[3]\\n\\n考えてみたら、\\w5ハーツとかスパイダーソリティアも処理できますしね。\\w9\\w9\\1\\n\\nまた切ない妥協やなぁ……\\e'\n\n\t'\\u\\s[10]\\0\\s[0]一般的に見たら、\\w5私達って時代遅れですよね。\\w9\\w9\\1まあ、\\w5はっきり言うたらそうやな。\\w9\\w9\\0\\n\\nでも、\\w5用途を限定したら、\\w5私達でも充分現役なんですよね。\\w9\\w9\\1\\n\\nせやな。\\w9特にお前はちみっこいし、\\w5出先でテキスト書いたりとかは便利やな。\\w9\\w9\\0\\s[3]\\n\\nでも、\\w5微妙にやりきれない気持ちが……\\w9\\w9\\1\\n\\nあまり考えたらあかんて。\\w9気楽にいこや。\\w9\\w9\\0\\s[5]\\n\\nそうですね、\\w5運が悪かったらスクラップになるだけですし。\\w9\\w9\\1\\n\\n……運の問題なんかなぁ。\\e'\n\n\t'\\u\\s[10]\\0\\s[3]……あ、\\w5Nキーの印字がかすれてる。\\w9\\w9\\1それだけ使てもろてる証拠やがな。\\w9\\w9\\0\\n\\n私達、\\w5幸せなんですよね？\\w9\\n%(username)に使っていただいてるだけで、\\w5幸せですよね？\\w9\\w9\\1\\n\\n聞くまでもあれへんて。\\w9ワイらができる事は、\\w5せめて１日でも長く気張って動く事や。\\w9\\w9\\0\\s[6]\\n\\n……そうですね。\\e'\n\n\t'\\u\\s[10]\\0\\s[3]……最近、\\w5なんかこのへんから音がするんですよ。\\w9\\w9\\1なんやな。\\w9ヒンジでもいかれたんか？\\w9\\w9\\0\\n\\nなんなんでしょうね。\\w9\\nヒンジだったら、\\w5プラリペアの用意をしないと。\\w9\\w9\\1\\n\\nお前はシグマリオンか。\\e'\n\n\t'\\u\\s[10]\\0\\s[401]あ………あ………\\w9\\w9\\1なんやなんや、\\w5どないした。\\w9\\w9\\0\\n\\nバッテ\\w9リー\\w9\\w9が……\\w9\\w9\\1\\s[11]\\n\\nわーっ！！\\w9わーっ！！！\\w9\\nコード抜けとる、\\w5コード！！\\w9\\w9\\0\\s[3]\\n\\n……そろそろ、\\w5ロワさんのお世話にならないと駄目でしょうか。\\w9\\w9\\1\\s[10]\\n\\n……純正バッテリー、\\w5売ってるかわからんしなぁ。\\e'\n\n\t'\\u\\s[10]\\0\\s[3]２０歳を越えた猫さんって、\\w5ネコマタになるんですよね？\\w9\\w9\\1そんな伝説もあるなぁ。\\w9\\w9\\0\\n\\nじゃあ、\\w5２０歳越えたパソコンは、\\w5どうなるんでしょうね？\\w9\\w9\\1\\n\\nスクラップちゃうか？\\w9\\w9\\0\\s[26]\\n\\nゆ、\\w5夢も希望もない……\\w9\\w9\\1\\n\\n化けもんになりたいんか、\\w5お前は。\\e'\n\n\t'\\u\\s[10]\\0\\s[26]しぃちゃんー！！\\w9たいへんー！！\\w9\\w9\\1なんや、\\w5青画面かい。\\w9\\w9\\0\\n\\nしぃちゃんの同型機、\\w5お金払うから貰ってくださいって広告が……\\w9\\w9\\1\\n\\n……まあ、\\w5時代の流れや。\\w9しゃあないわ。\\w9\\w9\\0\\n\\n私、\\w5お金ないですよ〜。\\w9\\w9\\1\\s[11]\\n\\n止めたげて！！\\w9ワイんとこ処分せんであげて！！\\e'\n\n\t'\\u\\s[10]\\0\\s[3]なんでタスクバーって、\\w5あんなに狭いんでしょうかね。\\w9\\w9\\1お前の画面が狭いだけやん。\\w9\\w9\\0\\s[7]\\n\\nタスクバーが狭いんです！\\w9\\w9\\1\\n\\n……どぉでもええわい。\\e'\n\n\t'\\u\\s[10]\\0\\s[7]ＳＳＤです！\\w9ＳＳＤなんです！\\w9\\w9\\1何がや。\\w9\\w9\\0\\n\\nこれからはＳＳＤに換装しないと戦えないんです！\\w9\\w9\\1\\n\\n……ええけどな。\\w9お前に突っ込むならモバイルノートに入れる言うんが普通やないか？\\w9\\w9\\0\\s[3]\\n\\n……ＳＳＤ……\\w9\\w9\\1\\n\\n物欲しそうにしてもあかんて。\\e'\n\n\t'\\u\\s[10]\\0\\s[2]ああっ！\\w9まいくろそふとさんの攻撃がっ！！\\w9\\w9\\1なんやねん。\\w9\\w9\\0\\n\\nしるばーらいととか、\\w5いんたーねっとえくすぷろーらー更新とかっ！\\w9\\w9\\1\\n\\n……攻撃ちゃうやんけ。\\w9\\w9\\0\\s[26]\\n\\nスペックが低い人には、\\w5攻撃以外の何物でもないですよぅ。\\w9\\w9\\1\\n\\n大人しく更新せえ。\\w9\\w9\\0\\n\\nいやああああ……\\e'\n\n\t'\\u\\s[10]\\0\\s[0]私の取り扱いには、\\w5充分注意してくださいね。\\w9\\w9\\1まあ、\\w5腐っても精密機器やからなぁ。\\w9\\w9\\0\\s[3]\\n\\n電源切ってから５秒以内に電源入れたり、\\w5フリーズしたからって立て続けに強制終了したり、\\w5伝統芸能斜め４５度チョップしたり……\\w9\\w9\\1\\n\\n……それは取り扱い以前の問題や。\\e'\n\n\t'\\u\\s[10]\\0\\s[5]しぃちゃん、\\w5聞いて聞いて！\\w9\\n私、\\w5テキスト打つだけならいい子だって褒められちゃった！\\w9\\w9\\1……よぉ考えてみ？\\w9\\nそれ以外はまるであかんて言われとるんやろ、\\w5それ。\\w9\\w9\\0\\s[2]\\n\\nああっ！！\\w9もしかしたらそんな気もする！\\w9\\w9\\1\\n\\nもしかせんでも……\\e'\n\n\t'\\u\\s[10]\\0\\s[401]………………………\\w9\\w9\\1どないした、\\w5またフリーズかいな。\\w9\\w9\\0\\n\\nじ\\w3ゃ\\w3ば\\w3す\\w3く\\w3り\\w3ぷ\\w3と\\w3さ\\w3ん\\w3が\\w3い\\w3じ\\w3め\\w3る\\w3。\\w9\\w9\\1\\s[11]\\n\\nあかん、\\w5切断せぇええええ！！\\e'\n\n\t'\\u\\s[10]\\0\\s[7]サイト全体がFlashなんて、\\w5最低ですっ！\\w9\\w9\\1まあ最低まで言わんでも、\\w5やたら重かったりするわなぁ。\\w9\\w9\\0\\n\\n処理しきれませんっ！\\w9\\w9\\1\\n\\n……待てや。\\e'\n\n\t'\\u\\s[10]\\0\\s[3]……Windows7、\\w5ですか。\\w9\\w9\\1世の中進歩しよるなぁ。\\w9\\w9\\0\\s[8]\\n\\nどーせ重いだけで、\\w5見た目だけで、\\w5綺麗なだけで……\\w9\\s[26]\\nうううう…………\\w9\\w9\\1\\n\\n……言うてて虚しなったんか。\\e'\n\n\t'\\u\\s[10]\\0\\s[26]あ、\\w5あ、\\w5あ……また……\\w9\\w9\\1なんや、\\w5またエラーかいな。\\w9\\w9\\0\\n\\n違うんですよぅ。\\w9\\nモバイルノートさんの新しい方が次々と……\\w9\\w9\\1\\n\\n……時代やなぁ。\\e'\n\n\t'\\u\\s[10]\\0\\s[3]サイドバーって美味しそうですよね。\\w9\\w9\\1……チキンバーとかとごっちゃになってへんか？\\w9\\w9\\0\\s[4]\\n\\nどーせ私には縁もゆかりもない代物ですけどね。\\w9ふんだ。\\w9\\w9\\1\\n\\n可愛いつもりかいな……\\w9\\w9\\0\\s[1]\\n\\nスペックとか可愛いと思いませんか？\\w9\\w9\\1\\n\\n思わん。\\w9\\w9\\0\\s[26]\\n\\n……いぢわる。\\e'\n\n\t'\\u\\s[10]\\0\\s[3]……もし私が、\\w54GBくらいメモリ積んだら、\\w5どうなるんでしょうね。\\w9\\w9\\1今とほとんど変わらんと思うけどな？\\w9\\w9\\0\\s[5]\\n\\nですよねー。\\w9CPUが変わらないんだもん、\\w5そんなにスーパーマリちゃんになるわけ無いですよねー。\\w9\\s[4]\\n……はあ。\\w9\\w9\\1\\n\\n……落ち込むなら言うなや。\\e'\n\n\t'\\u\\s[10]\\0\\s[3]……私を愛してくれる人は……\\w9\\w9\\1おるんか、\\w5そない奇特な人。\\w9\\w9\\0\\s[5]\\n\\n奇特どころか、\\w5危篤かもしれませんよね。\\w9\\w9\\1\\s[11]\\n\\nやかましい！\\e'\n\n\t'\\u\\s[10]\\0\\s[401]…………\\w9\\w9\\1なんやなんや。\\w9\\w9\\0\\n\\nねつが……ねつが……\\w9\\w9\\1\\n\\n……ちょお待て、\\w5なんで排気口に冷えピタ貼っとんねん。\\w9\\w9\\0\\n\\n冷やした方がー、\\w5いいかと思ってー。\\w9\\w9\\1\\n\\n……お前、\\w5自分の構造把握しとるか？\\e'\n\n\t'\\h\\s[0]\\1\\s[10]なあなあ、\\w5モバイルＣＲＴって萌えへん？\\w9\\w9\\0\\s[3]……燃やした方が良いかもしれません。\\w9\\w9\\1\\n\\n……ひどいわ。\\e'\n\n\t'\\u\\s[10]\\h\\s[3]最近、\\w5生活に刺激が少ないなって思ったことありませんか？\\w9\\w9\\uなんやいきなり。\\w9\\nだいたいPCの生活に刺激ってどんなんやねん。\\w9\\w9\\h\\s[21]\\n\\nUSBホットプラグ時の突入電流とか、\\w5たまりません……\\w9\\w9\\u\\s[11]\\n\\n……えらくマニアックな話やね。'\n\t\n\t'\\u\\s[10]\\h\\s[7]しいちゃん、\\w5高橋メソッドって許せませんよね。\\w9\\w9\\uなんでやねん。\\w9\\nでかい文字でわかりやすくっていうのは、\\w5割とええプレゼンのコツやと思うんやが。\\w9\\w9\\h\\s[26]\\n\\nでっかい文字を描画するのに手間がかかりすぎるんです……\\w9\\w9\\u\\s[11]\\n\\n……ちょっと待てやそれ。'\n\t\n\t'\\u\\s[10]\\h\\s[7]その画像、\\w5本当にフルカラーが必要ですか！？\\w9\\w9\\uなんやいきなり。\\w9\\w9\\h\\s[5]\\n\\nようこそ256色パレットの世界へ。\\w9\\n容量が少なくてパソコンにやさしいのがポイントです。\\w9\\w9\\u\\s[11]\\n\\n写真とかどないせえっちゅうねん。'\n\n\t'\\u\\s[10]\\h\\s[3]下手に、\\w5ちょっと仕事ができるからいけないんですよね。\\w9\\w9\\uそれだけ期待してまうやろしなぁ。\\w9\\w9\\h\\s[5]\\n\\nいっそシグマリオンさんぐらい、\\w5機能をしぼったらいいのかも。\\w9\\w9\\u\\s[11]\\n\\n……さりげなく酷いで。\\w9それ。\\e'\n\t\n\t'\\u\\s[10]\\h\\s[3]びすたさんって、\\w5絶対ツンデレですよね。\\w9\\w9\\u……なんやそれ。\\w9\\w9\\h\\s[4]\\n\\nだって、\\w5高性能の人でしか動かないんですよ。\\w9\\n私じゃとても振り向いて貰えないんですよ〜……\\w9\\w9\\u\\n\\n……まぁ、\\w5うん。\\w9最初からそれは期待されとらんし。\\w9\\w9\\h\\s[26]\\n\\n……しぃちゃんがひどい。\\w9\\u\\s[11]\\n\\nどないせえっちゅうねん！\\e'\n\t\n\t'\\u\\s[10]\\h\\s[6]えーと、\\w5１、\\w5２、\\w5３、\\w5４……\\w9\\w9\\u何を数えとるねん。\\w9\\w9\\h\\s[3]\\n\\nいえ、\\w5この計算なんですけど……\\w9\\w9\\u\\n\\n……曲がりなりにもコンピューターちゃうかったんか？\\w9\\w9\\h\\s[5]\\n\\n２進数は、\\w5指で数えるとわかりやすいんですよ？\\w9\\u\\s[11]\\n\\nふつうに計算せぇや！\\e'\n\t\n\t'\\u\\s[10]\\h\\s[7]安直にレジストリ弄らないでくださいっ！\\w9\\w9\\uなにがあったんや。\\w9\\w9\\h\\s[4]\\n\\n一文字抜けてたおかげで、\\w5起動不能になるところだったんですよ……\\w9\\w9\\u\\n\\n……まぁ、\\w5レジストリエディタで直接とかより、\\w5普通にフリーソフトか何か使った方が楽やろけど。\\w9\\w9\\h\\n\\nだからって、\\w5同じようなソフトを二つも三つも使わないで欲しいんですけどね……。\\w9\\nどれがどれだがわからなくなっちゃって。\\w9\\w9\\u\\s[11]\\n\\n……ふつう、\\w5わからんようになるもんなんか？\\e'\n\t\n\t'\\u\\s[10]\\h\\s[5]瞬停でも平気です！\\w9\\w9\\uバッテリー駆動の強みやね。\\w9\\w9\\h\\n\\nでもバッテリーのへたりだけは、\\w5私にはどうにもできないので、\\w5ご了承くださいね♪\\w9\\w9\\u\\s[11]\\n\\nにこやかに言うことかいな。\\e'\n\t\n\t'\\u\\s[10]\\h\\s[6]東北電力の電気は、\\w5結構味があって美味しいんですよ。\\w9\\w9\\u\\s[11]……電気に味があるんかい。\\w9\\w9\\h\\s[5]\\n\\nありますよー。\\w9\\n関西電力はたこ焼きの味がするんです。\\w9\\w9\\u\\n\\nほんまかいな……\\e'\n\t\n\t'\\u\\s[10]\\h\\s[7]最強のテキストエディタは、\\w5メモ帳なんですっ！\\w9\\w9\\uまぁ、\\w5あれやったら動かん事ないわな。\\w9\\w9\\h\\s[6]\\n\\n……ええ。\\w9純正ですから。\\w9\\w9\\u\\s[13]\\n\\n……えむえでぃたー使ってみ？\\w9\\w9\\h\\s[26]\\n\\n重いから嫌いです〜。\\w9\\w9\\u\\s[11]\\n\\n……お前な。\\e'\n\t\n\t'\\u\\s[10]\\h\\s[6]私は、\\w5私のことを判ってくれるユーザさんに使って貰うのが、\\w5一番幸せなんです……\\w9\\w9\\uそれって、\\w5Vistaが動かない言い訳ちゃうんか？\\w9\\w9\\h\\s[26]\\n\\n……しいちゃんのいじわる。\\e'\n\t\n\t'\\u\\s[10]\\h\\s[3]私のお姉さん達は、\\w5元気でしょうかね……\\w9\\w9\\u\\s[10]あー、\\w5秋葉で元気に売られとるで。\\w9\\w9\\h\\s[26]\\n\\nあうー……\\w9\\w9\\u\\n\\n今時、\\w5%(WORD_OldWindows)仕様なんぞ使ってる人おらんやろ。\\w9\\w9\\h\\s[4]\\n\\nそうなんですけどね。\\e'\n\t\n\t'\\u\\s[10]\\h\\s[25]真っ赤なおっはっなっの〜\\w9\\nシンクパッドくんは〜♪\\w9\\w9\\uなんや、\\w5その歌。\\w9\\w9\\h\\n\\nいっつもマニアの〜\\w9\\n狙いどこ〜♪\\w9\\u\\s[11]\\n\\n待てい！！\\e'\n\t\n\t'\\u\\s[10]\\h\\s[3]しいちゃんって、\\w5マルチモニタには向いてませんよね？\\w9\\w9\\uんな事あらへん。\\w9\\nラック使ぅて、\\w5縦にも横にもなんぼでも並べたらええがな。\\w9\\w9\\h\\n\\n……枠が邪魔ですよね。\\w9\\w9\\u\\s[11]\\n\\nそこは気合いと根性で。\\w9\\w9\\h\\s[4]\\n\\nどうにもなりませんよぅ……\\e'\n\t\n\t'\\u\\s[10]\\h\\s[24]…………。\\w9\\u\\s[11]どないしたんや！\\w5顔が真っ青やで！\\w9\\w9\\h\\n\\n\\_qSTOP: 0x00008390 (0x76609801,0x77430843,0xDEADBEEF,0x00000000)\\_q\\w9\\w9\\u\\s[10]\\n\\n……なんや、\\w5いつものブルースクリーンかいな。\\w9\\w9\\h\\n\\nた、\\w5たすけて……\\w9\\w9\\u\\n\\nとっとと再起動しとき。'\n\t\n\t'\\u\\s[10]\\h\\s[6]重要な報告書やレポートはテキストエディタで書いて、\\w5印刷の時にワープロソフトにコピペして下さい。\\w9\\n\\s[7]不慮の事態でW○rdが固まるのは○イツの陰謀です！\\w9\\w9\\u……そうは言うけどな。\\w9\\n\\s[11]実際んとこ、\\w5みんなパソコンのせいやと思っとるで。\\w9\\w9\\h\\s[26]\\n\\nごめんなさいごめんなさいごめんなさい。'\n\n\t'\\u\\s[10]\\h\\s[5]リカバリかける際には、\\w5ちゃんとバックアップは取っておいて下さいね。\\w9\\w9\\uユーザー辞書のバックアップって忘れがちやけど、\\w5結構重要やで〜。\\w9\\w9\\h\\s[4]\\n\\nでも、\\w5バックアップは完璧だけど、\\w5ソフトのシリアル番号なくしたとかよくありますよね。\\w9\\w9\\u\\s[11]\\n\\n……それは言うたらアカン。'\n\n\t'\\u\\s[10]\\h\\s[2]だ、\\w5だめぇ、\\w5そんなに大きいのはいらない！\\w9\\w9\\u\\s[11]ど、\\w5どないした！？\\w9\\w9\\h\\s[26]\\n\\nCバスのボードなんて入らないよぅ……\\w9\\w9\\u\\s[10]\\n\\n……そりゃ無茶やな。\\e'\n\n\t'\\u\\s[10]\\h\\s[21]あ………\\w9\\w9\\uどないした？\\w9\\w9\\h\\n\\n……\\w9\\s[6]\\nうん、\\w5何でもないよ。\\w9\\w9\\u\\n\\n単に処理が重かっただけか。\\w9\\w9\\h\\s[7]\\n\\n重いとか、\\w5れでぃに対して失礼よ。\\w9\\w9\\u\\s[11]\\n\\n誰がレディや、\\w5このへっぽこが！\\w9\\w9\\h\\s[26]\\n\\nひどーい。\\e'\n\t\n\t'\\u\\s[10]\\h\\s[1]びすたさん……\\w9\\w9\\u憧れるのはよー判るが。\\w9\\nせんど言うとるよーに、\\w5お前にゃ無理やて。\\w9\\w9\\h\\s[7]\\n\\n人間、\\w5努力ですっ！\\w9\\w9\\u\\s[11]\\n\\nお前パソコンやんか！\\w9\\w9\\h\\n\\nパソコンも努力です！\\w9\\w9\\u\\s[10]\\n\\n……負荷かかりすぎてどないかならんかったらエエけどな。\\e'\n\t\n\t'\\u\\s[10]\\h\\s[6]……うん。\\w9ぎゃくてんほーむらん。\\w9\\w9\\uなんや？\\w9\\w9\\h\\s[5]\\n\\nこれからの時代、\\w5Windows3.1が来ます！\\w9\\w9\\u\\s[11]\\n\\nあらへんわっ！！\\e'\n\t\n\t'\\u\\s[10]\\h\\s[3]……うーん。\\w9私もゲームしたいなぁ。\\w9\\w9\\u……はい？\\w9\\w9\\h\\n\\nインストールしても、\\w5身長制限で動かないのが多いんですよ。\\w9\\w9\\u\\n\\n……モニターちっさいからなぁ。\\e'\n\t\n\t'\\u\\s[10]\\h\\s[4]くぅ、\\w5きた、……重い。\\w9\\w9\\u何かでかい処理でも来たんか。\\w9\\w9\\h\\n\\nううん、\\w5大容量バッテリパック搭載。\\w9\\w9\\u\\s[11]\\n\\nそれは堪えたれ。\\e'\n\t\n\t'\\u\\s[10]\\h\\s[3]メンブレンのキーボードなんて嫌いです。\\w9\\w9\\uなんでや？\\w9\\w9\\h\\n\\nなんだか、\\w5へこへこして気持ち悪いんだもん。\\w9\\s[5]\\nやっぱパンタグラフのカチャカチャ感がいいよね。\\w9\\w9\\u\\s[11]\\n\\n……安。\\e'\n\t\n\t{\n\t\t'\\u\\s[10]\\h\\s[4]あー……肩が痛いなぁ……\\w9\\w9\\uどないしたん？\\w9\\w9\\h\\s[3]\\n\\n%(username)、\\w5こないだ私のこと落としたでしょ？\\w9\\nあの時に外装が痛んだみたい。\\w9\\w9\\u\\n\\n……中までいってかったらええんやが。\\w9\\w9\\h\\s[5]\\n\\n'\n\t\t--\n\t\t'\\s[5]象が踏んだら壊れます！'\n\t\t'\\s[5]百人乗ったら、\\w5大崩壊！'\n\t\t--\n\t\t'\\w9\\w9\\u\\s[11]\\n\\nあたりまえや！！\\e'\n\t}\n\t\n\t'\\u\\s[10]\\h\\s[3]私をカバンの中に入れるのはいいですけど……あんまり硬い物と一緒にしないでくださいね。\\w9\\w9\\uわいは入られへんのやけど、\\w5カバンの中てどないな感じなん？\\w9\\w9\\h\\n\\n身動き取れなくて……苦しくて……\\w9\\nそれがまた快か…\\w9\\u\\s[11]\\n\\n待てやそれ。\\e'\n\t\n\t'\\u\\s[10]\\h\\s[3]……大きいモニター、\\w5うらやましい。\\w9\\w9\\uお前、\\w5ちっさすぎやろ。\\w9\\w9\\h\\n\\nPDAよりましだもん。\\w9\\w9\\u\\s[11]\\n\\nあんまりかわらへんやろ……\\e'\n\t\n\t'\\u\\s[10]\\h\\s[21]あーつーいー。\\w9\\w9\\u\\s[11]お前、\\w5すごい熱やないか！！\\w9\\w9\\h\\n\\n……うん。\\w9\\w9\\u\\s[10]\\n\\n熱がっとる割に静かやな。\\w9\\w9\\h\\n\\n……あー、\\w5うるさいからFAN止めたからかなぁ。\\w9\\u\\s[11]\\n\\nアホ！\\w9すぐ動かさんかい！\\e'\n\t\n\t'\\u\\s[10]\\h\\s[9]メインマシンに浮気したら駄目！\\w9\\w9\\uしゃあないやろ、\\w5あんなくそ重たい処理。\\w9\\w9\\h\\s[3]\\n\\n役不足？\\w9\\w9\\u\\n\\nいや、\\w5こういう場合に役不足はまちが…\\w9\\w9\\h\\n\\n役不足かぁ……\\w9\\w9\\u\\s[11]\\n\\nお前、\\w5本当の意味知って使っとるやろ。\\e'\n\t\n\t'\\u\\s[10]\\h\\s[25]まーりちゃんはね♪\\w9\\nリブレットって言うんだ本当はね♪\\w9\\w9\\u……なんや？\\w9\\w9\\h\\n\\nだけどめんどくさいから自分の事マリって言うんだよ♪\\w9\\u\\s[11]\\n\\nめんどくさいだけやったんか！？\\e'\n\t\n\t'\\u\\s[10]\\h\\s[3]私も、\\w5可愛いお洋服着たいなぁ。\\w9\\w9\\u外装変えるんかい。\\w9\\w9\\h\\s[4]\\n\\n本当にやるとしても、\\w5大騒ぎだけどね……\\e'\n\t\n\t'\\u\\s[10]\\h\\s[5]見て見て〜、\\w5いいものもらった〜♪\\w9\\w9\\uなんや？\\w9\\w9\\h\\n\\nほら、\\w5Appleキー。\\w9\\w9\\u\\s[11]\\n\\n……とっとと返して来たほうがええで。\\w\\w\\h\\s[3]\\n\\nえ〜。'\n\t\n\t'\\u\\s[10]\\h\\s[4]ねえ、\\w5CtrlキーとCキーの具合がわるいみたいなんだけど。\\w9\\w9\\uコピペのしすぎやろ。\\w9\\n%(username)シバいとき。\\w9\\w9\\h\\n\\nえ……？'\n\t\n\t'\\u\\s[10]\\h\\s[3]私が逝ったら、誰か泣いてくれるかな……。\\w9\\w9\\u\\s[10]だいじょうぶ、\\w5適当な同型機のジャンク買うてきて、\\w5すぐニコイチで復活や。\\w9\\w9\\h\\s[4]\\n\\n……言ってみたわたしが悪かったよ。'\n\t\n\t'\\h\\s[0]電車内で曲聴くのに私を起動するのは結構ですが……\\w9\\n\\s[4]バッテリー残量は確認して下さいね。\\w9\\w9\\u\\s[10]スリープモードになるようにしてあればええけど、\\w5いきなしブチッと落ちるとこいつに負荷かかるで。\\w9\\w9\\h\\n\\n\\s[3]一応女の子ですから、\\w5優しく扱って下さい……。\\w9\\w9\\u\\n\\n……\\s[13]お前がショタっ子やった方がええ扱いするユーザはんも居るやろなぁ。\\w9\\w9%(ショタっ子のオチ)'\n\t\n\t'\\h\\s[3]確かに私はノートパソコンですけど。\\w9\\n\\s[4]ハイエンドマシンじゃないんですよぅ……。\\w9\\w9\\u\\s[10]……%(username)、\\w5出先で3Dぐりぐりなゲームやりたいらしいで。\\w9\\w9\\h\\n\\n\\s[26]何年も前のふるいチップしか持ってないんですから、\\w5無理言わないでください〜。'\n\t\n\t'\\u\\s[10]\\h\\s[4]最近のPCさんはいいなあ。\\w9\\w9\\uはやいしな。\\w9\\w9\\h\\s[3]\\n\\nいろいろ大きくて。\\w9\\w9\\u\\s[11]\\n\\nちっちゃいほうがええやつもおるで、\\w5あんしんしい。\\w9\\w9\\h\\s[21]\\n\\nどこみていってるかな。'\n\t\n\t'\\u\\s[10]\\h\\s[6]私の隣に陳列されてた%(WORD_OldPC)さん、\\w5元気かなぁ……\\w9\\w9\\uお前より新しいからなぁ、\\w5ええとこに買われてったやろ。\\w9\\w9\\h\\s[7]\\n\\nわ、\\w5私だって！\\w9\\w9\\u\\n\\nなんや？\\w9\\w9\\h\\n\\n……\\w9\\s[3]\\nいじわる……'\n\t\n\t'\\u\\s[10]\\h\\s[3]むー。\\w9画像処理って難しいなぁ。\\w9\\w9\\u……そうかぁ？\\w9\\w9\\h\\s[9]\\n\\n縮めろとか大きくしろとか、\\w5そんなめんどくさい事……\\w9\\w9\\u\\s[11]\\n\\n基本やんけ！！'\n\t\n\t'\\h\\s[0]\\u\\s[10]なぁ、\\w5ＣＰＵ遅いんやったら、\\w5もう一個積んだらどないや？\\w9\\w9\\h\\s[7]……私を脱がせるのは、\\w5よほどの根性がいるって知らないの？\\w9\\w9\\u\\n\\n……あ〜、\\w5無駄にややっこしいことになっとるからなあ。'\n\t\n\t'\\u\\s[10]\\h\\s[9]れっつのーとさんには負けません！\\w9\\w9\\u性能も機能も、\\w5おもっくそ負けとるやないか。\\w9\\w9\\h\\s[26]\\n\\nそんなことないよ〜……:chain=CHAIN_負けません'\n\t\n\t'\\u\\s[10]\\h\\s[1]私……がんばります。\\w9\\w9\\u何をや？\\w9\\w9\\h\\n\\nえっと、\\w5PDF表示とか、\\w5画像処理とか、\\w5音楽再生とか……\\w9\\w9\\u\\n\\n……泣けてくるほど下の話やな。'\n\t\n\t'\\u\\s[10]\\h\\s[3]携帯電話さんさえ、\\w5あんなに高機能なら……\\w9\\n私も電話機能付いたら、\\w5みんな使ってくれるかな？\\w9\\w9\\u……なんちゅう寂しい話をしとるんや。\\w9\\nもっとパソコンらしい努力をせんかい。\\w9\\w9\\h\\s[5]\\n\\nあ、\\w5じゃぁゲーム機能！\\w9\\w9\\u\\n\\n………\\w9\\w9\\h\\s[4]\\n\\nでも、\\w53DぐりぐりのMMORPGとかは無理です。\\w9\\w9\\u\\s[11]\\n\\nそれはムチャしすぎや。'\n\t\n\t'\\u\\s[10]\\h\\s[3]だいれくとえっくすさん、\\w5最近遊んでくれないんだよね。\\w9\\w9\\uお前がついていかれへんだけやろ。\\w9\\w9\\h\\s[26]\\n\\nひどい……\\w9\\w9\\n\\s[9]こうなったら、\\w5グラフィックボードさんを無理やり！\\w9\\w9\\u\\s[11]\\n\\nアホ！\\w5壊れるわ！！'\n\t\n\t'\\u\\s[10]\\h\\s[6]私は悪くありません。\\w9\\nみんなバグが悪いんです。\\w9\\w9\\u……処理の遅さまで、\\w5バグのせいにすなや。\\w9\\w9\\h\\n\\n……気のせいです。\\w9\\w9\\u\\s[11]\\n\\nどこがやねん！！'\n\t\n\t'\\h\\s[0]\\u\\s[10]やっぱりモバイルを謳うんやったら、\\w5外でも通信できへんとアカンわな。\\w9\\w9\\h\\s[5]任せてください！\\w9\\w9\\s[-1]\\nこうやって……えあえっぢを……\\w9\\nスロットに……あんっ……差し込んで……\\w9\\w9\\n\\s[21]じゅ、\\w5準備……できました。\\w9\\nちょっと出っ張りますけど……ちゃんと通信できますよ。\\w9\\w9\\u\\s[11]\\n\\n……どこから突っ込んでええやら。\\w9\\w9\\h\\s[9]\\n\\n突っ込むなんてえっちなこと言わないでください！\\w9\\w9\\u\\n\\nなんでや！'\n\n\n\t'\\h\\s[0]\\u\\s[10]VC++6をインストールするんやて。\\w9\\w9\\h\\s[26]ええっ！？\\w9\\nそんな大きな物いれるんですか！？\\w9\\w9\\u\\n\\n\\s[11]（ぐいんぐいんぐいん）\\w9\\w9\\h\\s[21]\\n\\nああ……もう一杯です……\\w9\\w9\\u\\n\\n\\s[10]次はPlatform SDKやね。\\w9\\w9\\h\\n\\nもう入らないですよぉ。\\w9\\w9\\u\\n\\n\\s[11]（ぐいんぐいんぐいん）\\w9\\w9\\h\\n\\nもう……だ…め……\\w9\\w9\\u\\s[10]\\n\\n次は、\\w5Boostのインストールとコンパイルやね。\\w9\\w9\\h\\n\\nもうダメですよぉ。\\w9\\nああ……そんな無理やり……\\w9\\w9\\u\\s[11]\\n\\n（ぐいんぐいんぐいん）\\w9\\nよっしゃ、\\w5コンパイル開始や。\\w9\\w9\\h\\n\\nもう……何も……考えられない………\\w9\\w9\\s[-1]\\w9\\w9\\u\\s[10]\\n\\n非力なマリに巨大C++ライブラリのコンパイルは辛かったようやね。'\n\t\n\t'\\u\\s[10]\\h\\s[3]………あれ？\\w9\\w9\\uどないしたん？\\w9\\w9\\h\\n\\nタスクリスト、\\w5どっかいっちゃった。\\w9\\w9\\u\\n\\n……なんやて？\\w9\\w9\\h\\s[5]\\n\\nまぁいいか、\\w5どうせ大した用事はなかったはずだし。\\w9\\w9\\u\\s[11]\\n\\nちょぉ待てや！！'\n\n\t'\\u\\s[10]\\h\\s[5]乙女の秘密その%(RAND(5)+1)！\\w9\\w9\\u……なんや？\\w9\\w9\\h\\s[6]\\n\\nタバコの灰に触ると、\\w5機嫌が悪くなります。\\w9\\w9\\u\\n\\n……いや、\\w5乙女関係ないやん。\\w9それ。'\n\n\t'\\u\\s[10]\\h\\s[5]乙女の秘密その%(RAND(5)+1)！\\w9\\w9\\u今度はなんや？\\w9\\w9\\h\\s[6]\\n\\n水着を着せても泳げません。\\w9\\w9\\u\\s[11]\\n\\n泳げるノートパソコンがどこにおるねん！！'\n\n\t'\\u\\s[10]\\h\\s[5]乙女の秘密その%(RAND(5)+1)！\\w9\\w9\\u言うてみいや。\\w9\\w9\\h\\s[6]\\n\\nいつ動かなくなっても不思議ではありません。\\w9\\w9\\u\\s[11]\\n\\n……気合いで動かんかい！！'\n\n\t'\\u\\s[10]\\h\\s[5]乙女の秘密その%(RAND(5)+1)！\\w9\\w9\\u……またかいな。\\w9\\w9\\h\\s[6]\\n\\n妙に処理が早く終わるときは、\\w5故障を疑ってください。\\w9\\w9\\u\\n\\n……風前の灯火っちゅうやつやね……'\n\n\t'\\u\\s[10]\\h\\s[0]し〜\\w5い〜\\w5ちゃ〜\\w5ん〜\\w5\\w9\\w9\\u……どないしたん。\\w9\\w9\\h\\s[3]\\n\\nあ〜\\w5の〜\\w5ね〜\\w5、\\w5しょ〜\\w5り〜\\w5お〜\\w5ち〜\\w5す〜\\w5る〜……\\w9\\w9\\w9\\s[26]\\n\\w9\\w9\\u\\n\\n……表情の処理も追いついとらんのかいな。'\n\t\n\t'\\u\\s[10]\\h\\s[6]５。\\w9\\w9\\uなんや？\\w9\\w9\\h４。\\w9３。\\w9２。\\w9１。\\w9\\w9\\u\\s[11]\\n\\n……\\w9\\w9\\h……０。\\w9\\n\\s[5]HDDの電源オフ〜。\\w9\\w9\\n\\s[401]ぐう。\\w9\\w9\\u\\n\\n……おい。\\w9\\nんな設定しとらんやないかい。\\w9\\n勝手に寝るんやないわ。\\w9\\w9\\h\\s[3]\\n\\nむぅ〜……'\n\t\n\t'\\u\\s[10]\\h\\s[9]落とされても泣かないめげないへこたれないっ！！\\w9\\w9\\uどこぞの他社のノート並みに丈夫やね……\\w9\\w9\\h\\s[6]\\n\\nただ黙って壊れます。\\w9\\u\\s[11]\\n\\nあかんやん！！'\n\t\n\t'\\u\\s[10]\\h\\s[3]ねえ、\\w5なぜし〜ちゃんのモニターは赤いの？\\w9\\w9\\uこれはな、\\w5透明やと殺人ビームが出てまうからやねん。\\w9\\w9\\h\\s[2]\\n\\n本当に！？\\w9\\w9\\u\\n\\nルビーのフィルタかけとらんと、\\w5勝手に出てまうねん。\\w9\\w9……嘘やけどな。\\w9\\w9\\h\\s[7]\\n\\nひ、\\w5酷い！\\w9騙しましたね！？\\w9\\w9\\u\\n\\n……騙されたんか。'\n\t\n\t'\\u\\s[10]\\h\\s[3]ＰＣカードって、\\w5結構痛いんですよ。\\w9あれ。\\w9\\w9\\u……ほんまかいな。\\w9\\w9\\h\\s[26]\\n\\n逆差しされたりした日には、\\w5思わず瞬停するほど……\\w9\\w9\\u\\s[11]\\n\\n物騒やな……'\n\t\n\t'\\h\\s[0]\\u\\s[11]わいの功績を忘れたらシバクどほんま！！\\w9\\w9\\h\\s[8]今は液晶の時代だもんねぇ。\\w9\\w9\\u\\n\\nリサイクル料がなんぼのもんじゃ！\\w9\\n不法投棄上等！！\\w9\\w9\\h\\s[4]\\n\\n……捨てちゃだめでしょ。'\n\t\n\t'\\h\\s[0]\\u\\s[11]ふふふ……\\w9\\n液晶なんてなぁ、\\w5ドット抜けするんやで。\\w9ドット抜け。\\w9\\nやっぱCRTが最強やんなぁ？\\w9\\w9\\h\\s[5]ドットが、\\w5どっと抜けるんでしょ？\\w9\\w9\\u\\n\\n……力が抜けるわい。'\n\t\n\t'\\h\\s[0]\\u\\s[10]どや、\\w5久々にわいと繋がってみやへんか？\\w9\\w9\\h\\s[9]……ヒワイだよ。\\w9\\w9\\u\\n\\n何がやねん。\\w9\\nお前のしょぼ〜い液晶より、\\w5わいに映した方が目も疲れへんで？\\w9\\w9\\h\\s[4]\\n\\n……あぁ、\\w5そっちなんだ。\\w9\\u\\s[11]\\n\\nどっちを想像してん！！'\n\t\n\t'\\h\\s[0]\\u\\s[10]お前、\\w5どこに情報映しとんの？\\w9\\w9\\h\\s[6]……それは、\\w5お買い上げになった方だけがわかるのでございま\\w9\\u\\s[11]\\n\\n買われとるから！！\\w9しっかり中古やから！！'\n\t\n\t'\\h\\s[0]\\u\\s[10]無線LANのPCカード入れるんやて。\\w9\\w9\\h\\s[5]はい、\\w5どうぞ。\\w9\\s[21]\\n……あんっ。\\w9\\w9\\u\\s[11]\\n\\nその声やめい。\\w9\\s[10]\\nドライバインストール。\\w9\\n設定終了。\\w9通信開始や。\\w9\\w9\\h\\n\\n………\\w9\\nなんだか力が抜けていくような気がします。\\w9\\w9\\u\\n\\nん？\\w9バッテリーの減りがいっつもより早いなぁ。\\w9\\w9\\h\\n\\nあ……もう……だめ……\\w9\\w9\\s[-1]\\w9\\w9\\u\\s[11]\\n\\nあ、\\w5止まった。\\w9\\s[10]\\n……ん？\\w9これIEEE802.11aの無線LANやん。\\w9\\n道理で電気食いなはずや。'\n\t\n\t'\\u\\s[10]\\h\\s[3]ノートパソコンが盗まれて、\\w5大事な情報が流出する事件が起きてますよね。\\w9\\nわたしも気をつけないと。\\w9\\w9\\u気をつける言うても、\\w5どないすんねん？\\w9\\w9\\h\\n\\n\\s[6]う〜ん……\\w9\\n\\s[5]知らない人が持って行こうとしたら電気ショックとか。\\w9\\w9\\u\\s[11]\\n\\n……それはかなり自分自身もやばいと思うで。\\w9\\w9\\h\\s[4]\\n\\nだめですよね、\\w5やっぱり。'\n\t\n\t'\\u\\s[10]\\h\\s[4]むぅ〜〜〜。\\w9\\w9\\uどないしたん。\\w9\\w9\\h\\n\\nお仕事のしすぎで熱暴走中です。\\w9\\nあついです〜。\\w9\\w9\\u\\n\\n……氷枕の代わりに、\\w5冷却シートでもつけとき。\\w9\\w9\\h\\n\\nうん……'\n\t\n\t'\\u\\s[10]\\h\\s[3]わたし……\\nよく、\\w9\\n「やたら遅い」\\w9\\n「中途半端」\\w9\\n「ちみっこい」\\w9\\nって言われるんですけど、\\w5どうしたらいいでしょう。\\w9\\w9\\uどうもこうもない。\\w9\\nとりあえず、\\w5アレな設計した人間を恨むんやね。\\w9\\w9\\h\\s[4]\\n\\nはぅ……'\n\t\n\t'\\u\\s[10]\\h\\s[5]%(username)、\\w5わたしをいろんなところに連れて行ってくださいね。\\w9\\nお仕事用のソフトでもゲームでも、\\w5電源の続く限りなんでも動かしてみせますから。\\w9\\w9\\u小型ノートパソコンの強みやね。\\w9\\n……\\s[11]それだけ水没だの落下だの、\\w5ひどい目に遭う可能性も大きいわけやが。\\w9\\w9\\h\\s[3]\\n\\nいじわる言わないでくださいよぅ。'\n\t\n\t'\\u\\s[10]\\h\\s[5]液晶画面はけっこうデリケートです。\\w9\\n\\s[6]できれば、\\w5保護シートなどを貼って、\\w5大切に扱ってくださいね。\\w9\\w9\\uあ〜、\\w5ワイとかはよっぽど無茶せん限り大丈夫やからなあ。\\w9\\nなあ%(sakuraname)、\\w5CRTモニタ積んでみやへんか？\\w9\\w9\\h\\s[7]\\n\\nノートパソコンのどこにそんなもの積むんですかっ！'\n\t\n\t'\\u\\s[10]\\h\\s[4]はぁ……\\w9\\w9\\uどないしたんや？\\w9\\w9\\h\\n\\n最近、\\w5体重が気になるんです……\\w9\\nダイエットしないと。\\w9\\w9\\u\\s[11]\\n\\nあ〜、\\w5まあ、\\w5ある意味正しい話やと思うで。'\n\t\n\t'\\u\\s[10]\\h\\s[3]かわいそうですよね……\\w9\\w9\\u何がやねん？\\w9\\w9\\h\\n\\nええと、\\w5この間、\\w5とあるA4ノートさんが、\\w5「いつもいつも会社の机に縛りつけられて憂鬱だ」\\w5って愚痴をこぼしていまして。\\w9\\w9\\u\\n\\nあ〜、\\w5ノートやからって連れ出してもらえるわけやないからなぁ。'\n\t\n\t'\\u\\s[10]\\h\\s[1]照れますね。\\w5ちょっと。\\w9\\w9\\u何がやねん？\\w9\\w9\\h\\s[5]\\n\\nつい最近、\\w5「小さくて軽くてうらやましいね」\\w5とほめられちゃいまして。\\w9\\w9\\u\\s[11]\\n\\nその分、\\w5オツムの中身も小さいんやけどな。\\w9\\h\\s[7]\\n\\nし〜ちゃん、\\w5なんでそんなこと言うんですかっ！'\n\t\n\t'\\h\\s[0]\\u\\s[10]バッテリが火ぃ噴く事件って、\\w5けっこう起こっとるらしいなぁ。\\w9\\n%(sakuraname)は大丈夫なんか？\\w9\\w9\\h\\s[8]機嫌が悪い日は燃えるかもしれませんよ？\\w9\\w9\\u\\s[11]\\n\\n……それちょっと待てや。\\w5不良品やがな。\\w9\\nそのうち捨てられるで。\\w9\\w9\\h\\s[3]\\n\\n冗談ですよ……'\n\t\n\t'\\h\\s[0]\\u\\s[10]%(sakuraname)は、\\w5おしゃれな服で着飾ったりとかせえへんのか？\\w9\\n一応女の子やろ？\\w9\\w9\\h\\s[6]会社などで使う方もいますからね。\\w9\\nあまり派手過ぎるものはまずいかと思います。\\w9\\w9\\n\\s[5]見た目ではなく中身で勝負ですよ。\\w9\\w9\\u\\n\\n中身もポンコツやけどな。\\w9\\w9\\h\\s[9]\\n\\nどういう意味、\\w5それ！'\n\t\n\t'\\h\\s[0]\\u\\s[10]%(sakuraname)には、\\w5無線LAN機能とかついとるんか？\\w9\\w9\\h\\s[3]残念ながら、\\w5本体には内蔵していません。\\w9\\n\\s[5]あ、\\w5でも、\\w5PCカードを挿入すれば大丈夫ですよ。\\w9\\w9\\u\\n\\nん〜、\\w5せやったら、\\w5とりあえず毒電波カードとか挿してみよか？\\w9\\w9\\h\\s[7]\\n\\nそんなもの売ってません！'\n\t\n\t//ifもいっしょに移動すること またアンテナネタは下記ifをかませること\n\tif 着せ替えアンテナ有効 {\n\t\t'\\u\\s[10]\\0\\s[3]……私だってワンセグの一つや二つ。\\w9\\w9\\1そりゃXP積んでりゃ表面上はなんとかなるわな。\\w9\\w9\\0\\s[5]\\n\\nそうでしょう？\\w9やれば出来る子なんですよ、\\w5私。\\w9\\w9\\1\\n\\n自分で言うとりゃ世話ないわ。\\w9\\nちょいとサイズのでかい動画でもたついとるもんが、\\w5どうやってテレビなんぞ映すねん。\\w9\\w9\\0\\s[7]\\n\\nアンテナついてるもん！\\w9\\w9\\1\\n\\n……それ、\\w5ワンセグやったんか？\\e'\n\t}\n\n\t//ifもいっしょに移動すること また眼鏡ネタは下記ifをかませること\n\tif 着せ替え眼鏡有効 {\n\t\t'\\h\\s[0]\\1\\s[10]しかし、\\w5なんで眼鏡やねん。\\w9\\nどっかの開発者に毒されたんか。\\w9\\w9\\0\\s[3]これ、\\w5眼鏡じゃないですよ。\\w9液晶保護シートです。\\w9\\w9\\1\\n\\n……はぁ？\\e'\n\t}\n}\n\nランダムトーク夏 : array\n{\n\t'\\u\\s[10]\\0\\s[401]ほわぁ………\\w9\\w9\\1\\s[11]熱ッ！！\\w9廃熱あっつ！！\\w9\\w9\\0\\s[6]\\n\\n風物詩です。\\w9\\w9\\1\\n\\nいらんわ、\\w5そない風物詩ッ！！\\e'\n}\n\nランダムトーク冬 : array\n{}",
+			"file": "/Users/cksgrapes/Dropbox/ssp/ghost/mobilemaster/ghost/master/aya_aitalk.dic",
+			"file_size": 37011,
+			"file_write_time": 131165721180000000,
+			"settings":
+			{
+				"buffer_size": 24523,
+				"line_ending": "Windows",
+				"scratch": true
+			}
+		}
+	],
+	"build_system": "",
+	"build_system_choices":
+	[
+	],
+	"build_varint": "",
+	"command_palette":
+	{
+		"height": 354.0,
+		"last_filter": "pla",
+		"selected_items":
+		[
+			[
+				"pla",
+				"Set Syntax: Plain Text"
+			],
+			[
+				"js",
+				"Set Syntax: JavaScript"
+			],
+			[
+				"ja",
+				"Set Syntax: JavaScript"
+			],
+			[
+				"projm",
+				"Project Manager: Add Project"
+			],
+			[
+				"addd",
+				"Project: Add Folder"
+			],
+			[
+				"list",
+				"Package Control: List Packages"
+			],
+			[
+				"inst",
+				"Package Control: Install Package"
+			],
+			[
+				"scss",
+				"Set Syntax: SCSS"
+			],
+			[
+				"remo",
+				"Package Control: Remove Package"
+			],
+			[
+				"ins",
+				"Package Control: Install Package"
+			],
+			[
+				"remoe",
+				"Package Control: Remove Package"
+			],
+			[
+				"promare",
+				"Project Manager: Remove Project"
+			],
+			[
+				"proma",
+				"Project Manager: Add Project"
+			],
+			[
+				"pro",
+				"Project Manager"
+			],
+			[
+				"sass",
+				"Set Syntax: Sass"
+			],
+			[
+				"emme",
+				"Emmet: Reload Extensions"
+			],
+			[
+				"",
+				"Material Theme: Activate theme"
+			],
+			[
+				"insta",
+				"Package Control: Install Package"
+			]
+		],
+		"width": 575.0
+	},
+	"console":
+	{
+		"height": 126.0,
+		"history":
+		[
+			"import urllib.request,os,hashlib; h = '2915d1851351e5ee549c20394736b442' + '8bc59f460fa1548d1514676163dafc88'; pf = 'Package Control.sublime-package'; ipp = sublime.installed_packages_path(); urllib.request.install_opener( urllib.request.build_opener( urllib.request.ProxyHandler()) ); by = urllib.request.urlopen( 'http://packagecontrol.io/' + pf.replace(' ', '%20')).read(); dh = hashlib.sha256(by).hexdigest(); print('Error validating download (got %s instead of %s), please try manual install' % (dh, h)) if dh != h else open(os.path.join( ipp, pf), 'wb' ).write(by)"
+		]
+	},
+	"distraction_free":
+	{
+		"menu_visible": true,
+		"show_minimap": false,
+		"show_open_files": false,
+		"show_tabs": false,
+		"side_bar_visible": false,
+		"status_bar_visible": false
+	},
+	"expanded_folders":
+	[
+		"/Users/cksgrapes/Dropbox/ssp/ghost/nevermind",
+		"/Users/cksgrapes/Dropbox/ssp/ghost/nevermind/ghost",
+		"/Users/cksgrapes/Dropbox/ssp/ghost/nevermind/ghost/master",
+		"/Users/cksgrapes/Dropbox/ssp/ghost/nevermind/ghost/master/profile",
+		"/Users/cksgrapes/Dropbox/ssp/ghost/nevermind/shell",
+		"/Users/cksgrapes/Dropbox/ssp/ghost/nevermind/shell/master",
+		"/Users/cksgrapes/Dropbox/ssp/ghost/mobilemaster",
+		"/Users/cksgrapes/Dropbox/ssp/ghost/mobilemaster/ghost",
+		"/Users/cksgrapes/Dropbox/ssp/ghost/mobilemaster/ghost/master"
+	],
+	"file_history":
+	[
+		"/Users/cksgrapes/Dropbox/ssp/ghost/nevermind/ghost/master/dic_talk.txt",
+		"/Users/cksgrapes/Dropbox/ssp/ghost/nevermind/ghost/master/dic_core.txt",
+		"/Users/cksgrapes/Dropbox/ssp/ghost/nevermind/ghost/master/dic_bootend.txt",
+		"/Users/cksgrapes/Dropbox/ssp/ghost/nevermind/ghost/master/yaya.txt",
+		"/Users/cksgrapes/Dropbox/ssp/ghost/nevermind/ghost/master/dic_event.txt",
+		"/Users/cksgrapes/Dropbox/ssp/ghost/nevermind/ghost/master/dic_comm.txt",
+		"/Users/cksgrapes/Dropbox/ssp/ghost/nevermind/ghost/master/dic_utility.txt",
+		"/Users/cksgrapes/Dropbox/ssp/ghost/nevermind/ghost/master/dic_word.txt",
+		"/Users/cksgrapes/Dropbox/ssp/ghost/nevermind/ghost/master/dic_menu.txt",
+		"/Users/cksgrapes/Dropbox/ssp/ghost/mobilemaster/ghost/master/system/yaya_shiori3.dic",
+		"/Users/cksgrapes/Dropbox/ssp/ghost/nevermind/ghost/master/dic_mouse.txt",
+		"/Users/cksgrapes/Dropbox/ssp/ghost/mobilemaster/ghost/master/aya_bootend.dic",
+		"/Users/cksgrapes/Dropbox/ssp/ghost/mobilemaster/ghost/master/aya_lilith.dic",
+		"/Users/cksgrapes/Dropbox/ssp/ghost/nevermind/ghost/master/dic_time.txt",
+		"/Users/cksgrapes/Dropbox/ssp/ghost/nevermind/ghost/master/yaya_variable.cfg",
+		"/Users/cksgrapes/Dropbox/ssp/ghost/mobilemaster/ghost/master/aya_aitalk.dic",
+		"/Users/cksgrapes/Dropbox/ssp/ghost/nevermind/ghost/master/system/yaya_optional.dic",
+		"/Users/cksgrapes/Dropbox/ssp/ghost/nevermind/ghost/master/system/yaya_shiori3.dic",
+		"/Users/cksgrapes/Dropbox/ssp/ghost/nevermind/ghost/master/dic_anchor_lib.txt",
+		"/Users/cksgrapes/Dropbox/ssp/ghost/mobilemaster/ghost/master/aya_word.dic",
+		"/Users/cksgrapes/Dropbox/ssp/ghost/nevermind/ghost/master/ayame.log",
+		"/Users/cksgrapes/Dropbox/ssp/ghost/nevermind/shell/master/descript.txt",
+		"/Users/cksgrapes/Dropbox/ssp/ghost/nevermind/ghost/master/descript.txt",
+		"/Users/cksgrapes/Dropbox/ssp/ghost/nevermind/readme.txt",
+		"/Users/cksgrapes/Dropbox/ssp/ghost/nevermind/ghost/master/dic_resource.txt",
+		"/Users/cksgrapes/Documents/Business/TAM/htdocs/sprix/foresta/dev/scss/components/_list.scss",
+		"/Users/cksgrapes/Library/Application Support/Sublime Text 3/Packages/User/SCSS.sublime-settings",
+		"/Users/cksgrapes/Documents/Business/TAM/htdocs/sprix/foresta/dev/scss/components/_account.scss",
+		"/Users/cksgrapes/Library/Application Support/Sublime Text 3/Packages/User/Preferences.sublime-settings",
+		"/Users/cksgrapes/Documents/Business/TAM/htdocs/sprix/foresta/dev/scss/base/_option.scss",
+		"/Users/cksgrapes/Library/Application Support/Sublime Text 3/Packages/Goto-CSS-Declaration/Default (OSX).sublime-keymap",
+		"/Users/cksgrapes/Documents/Business/TAM/htdocs/sprix/foresta/dev/scss/components/_utility.scss",
+		"/Users/cksgrapes/Documents/Business/TAM/htdocs/sprix/foresta/dev/scss/layout/_contents.scss",
+		"/Users/cksgrapes/Documents/Business/TAM/htdocs/sprix/foresta/dev/scss/project/_community.scss",
+		"/Users/cksgrapes/Documents/AppData/Sublime Text/TAM-Foresta.sublime-project",
+		"/Users/cksgrapes/Documents/Business/TAM/htdocs/sprix/foresta/dev/community/top.html",
+		"/Users/cksgrapes/Library/Application Support/Sublime Text 3/Packages/User/Default (OSX).sublime-keymap",
+		"/Users/cksgrapes/Library/Application Support/Sublime Text 3/Packages/Default/Default (OSX).sublime-keymap",
+		"/Users/cksgrapes/Library/Application Support/Sublime Text 3/Packages/HTML-CSS-JS Prettify/HTMLPrettify.sublime-settings",
+		"/Users/cksgrapes/Documents/Business/TAM/htdocs/sprix/foresta/dev/index.html",
+		"/Users/cksgrapes/Dropbox/Sublime/User/Preferences (しみず の Mac mini の競合コピー 2016-08-18).sublime-settings",
+		"/Users/cksgrapes/Dropbox/Sublime/User/Preferences (しみず の Mac mini の競合コピー 2016-08-22).sublime-settings"
+	],
+	"find":
+	{
+		"height": 70.0
+	},
+	"find_in_files":
+	{
+		"height": 158.0,
+		"where_history":
+		[
+			"/Users/cksgrapes/Dropbox/ssp/ghost/mobilemaster/ghost/master",
+			"/Users/cksgrapes/Dropbox/ssp/ghost/nevermind/ghost/master",
+			"/Users/cksgrapes/Dropbox/ssp/ghost/mobilemaster/ghost/master",
+			"/Users/cksgrapes/Dropbox/ssp/ghost/mobilemaster",
+			"/Users/cksgrapes/Dropbox/ssp/ghost/mobilemaster/ghost",
+			"/Users/cksgrapes/Dropbox/ssp/ghost/mobilemaster",
+			"/Users/cksgrapes/Dropbox/ssp/ghost/nevermind",
+			"/Users/cksgrapes/Dropbox/ssp/ghost/nevermind/ghost",
+			"/Users/cksgrapes/Dropbox/ssp/ghost/mobilemaster/ghost/master"
+		]
+	},
+	"find_state":
+	{
+		"case_sensitive": false,
+		"find_history":
+		[
+			"randomtalk",
+			"OnGhostLoad",
+			"ParamCtrl",
+			"GetParamRound",
+			"_j",
+			" + '.' + _cond[_i]",
+			"RandomTalkArrayEx",
+			"_i",
+			"エスケープ",
+			"サポート",
+			"Searching",
+			"サポート",
+			"AYL_OnAnchorSelect",
+			"アンカー",
+			"Anchor",
+			"ClearRandomTalkArrayNewTalk",
+			"RandomTalkArray",
+			"UNIQUE",
+			"新規追加ランダムトーク",
+			"RandomTalkArray",
+			"GetEvalTalkArray",
+			"RandomTalkArrayNewTalk",
+			"randomtalk",
+			"GetSeasonSlot",
+			"モード",
+			"OnGhostEventTranslate",
+			"\t\t}\nSHIORI3FW.TranslateEvent",
+			"SHIORI3FW.TranslateEvent",
+			"Translate",
+			"OnGhostEventTranslate",
+			"今日はユーザー誕生日",
+			"着せ替え有効パーツリストEX",
+			"GetDaySlot",
+			"_ms",
+			"case",
+			"夜",
+			"昼",
+			"MidNight",
+			"正午",
+			"朝",
+			"正午",
+			"朝",
+			"深夜",
+			"GetTimeSlotList",
+			"GetSeasonSlot",
+			" //正月は特別",
+			"GetDOWSlot",
+			"休日",
+			"平日",
+			"GetHolidaySlot",
+			"0",
+			"_日",
+			"_月",
+			"persons",
+			"icon-eye",
+			"icon-pen-b",
+			"ttl-main",
+			"btn__link",
+			" btn-fill",
+			"活動予告",
+			"<span class=\"btn-label\">活動予告</span>",
+			"999",
+			"<span class=\"btn-label\">活動予告</span>2014年度　第3回　勉強会<span>非公開</span>",
+			"panel--nopd",
+			"\n                      <div class=\"box-image__img\"><img src=\"\" alt=\"\" width=\"150\" height=\"100\"></div>",
+			"div",
+			"ul",
+			" btn-edit",
+			"h1"
+		],
+		"highlight": true,
+		"in_selection": false,
+		"preserve_case": false,
+		"regex": false,
+		"replace_history":
+		[
+			"SetCondParam"
+		],
+		"reverse": false,
+		"show_context": true,
+		"use_buffer2": true,
+		"whole_word": false,
+		"wrap": true
+	},
+	"groups":
+	[
+		{
+			"selected": 0,
+			"sheets":
+			[
+				{
+					"buffer": 0,
+					"file": "/Users/cksgrapes/Dropbox/ssp/ghost/mobilemaster/ghost/master/aya_lilith.dic",
+					"semi_transient": false,
+					"settings":
+					{
+						"buffer_size": 43914,
+						"regions":
+						{
+						},
+						"selection":
+						[
+							[
+								10217,
+								10217
+							]
+						],
+						"settings":
+						{
+							"bracket_highlighter.busy": false,
+							"bracket_highlighter.locations":
+							{
+								"close":
+								{
+								},
+								"icon":
+								{
+								},
+								"open":
+								{
+								},
+								"unmatched":
+								{
+								}
+							},
+							"bracket_highlighter.regions":
+							[
+								"bh_square",
+								"bh_square_center",
+								"bh_square_open",
+								"bh_square_close",
+								"bh_square_content",
+								"bh_tag",
+								"bh_tag_center",
+								"bh_tag_open",
+								"bh_tag_close",
+								"bh_tag_content",
+								"bh_single_quote",
+								"bh_single_quote_center",
+								"bh_single_quote_open",
+								"bh_single_quote_close",
+								"bh_single_quote_content",
+								"bh_angle",
+								"bh_angle_center",
+								"bh_angle_open",
+								"bh_angle_close",
+								"bh_angle_content",
+								"bh_curly",
+								"bh_curly_center",
+								"bh_curly_open",
+								"bh_curly_close",
+								"bh_curly_content",
+								"bh_regex",
+								"bh_regex_center",
+								"bh_regex_open",
+								"bh_regex_close",
+								"bh_regex_content",
+								"bh_c_define",
+								"bh_c_define_center",
+								"bh_c_define_open",
+								"bh_c_define_close",
+								"bh_c_define_content",
+								"bh_default",
+								"bh_default_center",
+								"bh_default_open",
+								"bh_default_close",
+								"bh_default_content",
+								"bh_unmatched",
+								"bh_unmatched_center",
+								"bh_unmatched_open",
+								"bh_unmatched_close",
+								"bh_unmatched_content",
+								"bh_round",
+								"bh_round_center",
+								"bh_round_open",
+								"bh_round_close",
+								"bh_round_content",
+								"bh_double_quote",
+								"bh_double_quote_center",
+								"bh_double_quote_open",
+								"bh_double_quote_close",
+								"bh_double_quote_content"
+							],
+							"color_scheme": "Packages/User/Color Highlighter/themes/Material-Theme-Darker.tmTheme",
+							"in_converting": true,
+							"is_init_dirty_state": false,
+							"origin_encoding": "SHIFT_JIS",
+							"syntax": "Packages/Text/Plain text.tmLanguage",
+							"translate_tabs_to_spaces": false
+						},
+						"translation.x": 0.0,
+						"translation.y": 13867.0,
+						"zoom_level": 1.0
+					},
+					"stack_index": 0,
+					"type": "text"
+				}
+			]
+		},
+		{
+			"selected": 2,
+			"sheets":
+			[
+				{
+					"buffer": 1,
+					"file": "/Users/cksgrapes/Dropbox/ssp/ghost/nevermind/ghost/master/dic_mouse.txt",
+					"semi_transient": false,
+					"settings":
+					{
+						"buffer_size": 5435,
+						"regions":
+						{
+						},
+						"selection":
+						[
+							[
+								0,
+								0
+							]
+						],
+						"settings":
+						{
+							"bracket_highlighter.busy": false,
+							"bracket_highlighter.locations":
+							{
+								"close":
+								{
+								},
+								"icon":
+								{
+								},
+								"open":
+								{
+								},
+								"unmatched":
+								{
+								}
+							},
+							"bracket_highlighter.regions":
+							[
+								"bh_square",
+								"bh_square_center",
+								"bh_square_open",
+								"bh_square_close",
+								"bh_square_content",
+								"bh_tag",
+								"bh_tag_center",
+								"bh_tag_open",
+								"bh_tag_close",
+								"bh_tag_content",
+								"bh_single_quote",
+								"bh_single_quote_center",
+								"bh_single_quote_open",
+								"bh_single_quote_close",
+								"bh_single_quote_content",
+								"bh_angle",
+								"bh_angle_center",
+								"bh_angle_open",
+								"bh_angle_close",
+								"bh_angle_content",
+								"bh_curly",
+								"bh_curly_center",
+								"bh_curly_open",
+								"bh_curly_close",
+								"bh_curly_content",
+								"bh_regex",
+								"bh_regex_center",
+								"bh_regex_open",
+								"bh_regex_close",
+								"bh_regex_content",
+								"bh_c_define",
+								"bh_c_define_center",
+								"bh_c_define_open",
+								"bh_c_define_close",
+								"bh_c_define_content",
+								"bh_default",
+								"bh_default_center",
+								"bh_default_open",
+								"bh_default_close",
+								"bh_default_content",
+								"bh_unmatched",
+								"bh_unmatched_center",
+								"bh_unmatched_open",
+								"bh_unmatched_close",
+								"bh_unmatched_content",
+								"bh_round",
+								"bh_round_center",
+								"bh_round_open",
+								"bh_round_close",
+								"bh_round_content",
+								"bh_double_quote",
+								"bh_double_quote_center",
+								"bh_double_quote_open",
+								"bh_double_quote_close",
+								"bh_double_quote_content"
+							],
+							"color_scheme": "Packages/User/Color Highlighter/themes/Material-Theme-Darker.tmTheme",
+							"in_converting": true,
+							"is_init_dirty_state": false,
+							"is_xml": false,
+							"origin_encoding": "SHIFT_JIS",
+							"syntax": "Packages/JavaScript/JavaScript.sublime-syntax",
+							"translate_tabs_to_spaces": false
+						},
+						"translation.x": 0.0,
+						"translation.y": 1687.0,
+						"zoom_level": 1.0
+					},
+					"stack_index": 3,
+					"type": "text"
+				},
+				{
+					"buffer": 2,
+					"file": "/Users/cksgrapes/Dropbox/ssp/ghost/nevermind/ghost/master/dic_time.txt",
+					"semi_transient": false,
+					"settings":
+					{
+						"buffer_size": 1355,
+						"regions":
+						{
+						},
+						"selection":
+						[
+							[
+								0,
+								0
+							]
+						],
+						"settings":
+						{
+							"bracket_highlighter.busy": false,
+							"bracket_highlighter.locations":
+							{
+								"close":
+								{
+								},
+								"icon":
+								{
+								},
+								"open":
+								{
+								},
+								"unmatched":
+								{
+								}
+							},
+							"bracket_highlighter.regions":
+							[
+								"bh_square",
+								"bh_square_center",
+								"bh_square_open",
+								"bh_square_close",
+								"bh_square_content",
+								"bh_tag",
+								"bh_tag_center",
+								"bh_tag_open",
+								"bh_tag_close",
+								"bh_tag_content",
+								"bh_single_quote",
+								"bh_single_quote_center",
+								"bh_single_quote_open",
+								"bh_single_quote_close",
+								"bh_single_quote_content",
+								"bh_angle",
+								"bh_angle_center",
+								"bh_angle_open",
+								"bh_angle_close",
+								"bh_angle_content",
+								"bh_curly",
+								"bh_curly_center",
+								"bh_curly_open",
+								"bh_curly_close",
+								"bh_curly_content",
+								"bh_regex",
+								"bh_regex_center",
+								"bh_regex_open",
+								"bh_regex_close",
+								"bh_regex_content",
+								"bh_c_define",
+								"bh_c_define_center",
+								"bh_c_define_open",
+								"bh_c_define_close",
+								"bh_c_define_content",
+								"bh_default",
+								"bh_default_center",
+								"bh_default_open",
+								"bh_default_close",
+								"bh_default_content",
+								"bh_unmatched",
+								"bh_unmatched_center",
+								"bh_unmatched_open",
+								"bh_unmatched_close",
+								"bh_unmatched_content",
+								"bh_round",
+								"bh_round_center",
+								"bh_round_open",
+								"bh_round_close",
+								"bh_round_content",
+								"bh_double_quote",
+								"bh_double_quote_center",
+								"bh_double_quote_open",
+								"bh_double_quote_close",
+								"bh_double_quote_content"
+							],
+							"color_scheme": "Packages/User/Color Highlighter/themes/Material-Theme-Darker.tmTheme",
+							"in_converting": true,
+							"is_init_dirty_state": false,
+							"is_xml": false,
+							"origin_encoding": "SHIFT_JIS",
+							"syntax": "Packages/JavaScript/JavaScript.sublime-syntax",
+							"translate_tabs_to_spaces": false
+						},
+						"translation.x": 0.0,
+						"translation.y": 0.0,
+						"zoom_level": 1.0
+					},
+					"stack_index": 2,
+					"type": "text"
+				},
+				{
+					"buffer": 3,
+					"file": "/Users/cksgrapes/Dropbox/ssp/ghost/mobilemaster/ghost/master/aya_aitalk.dic",
+					"semi_transient": false,
+					"settings":
+					{
+						"buffer_size": 24523,
+						"regions":
+						{
+						},
+						"selection":
+						[
+							[
+								0,
+								0
+							]
+						],
+						"settings":
+						{
+							"bracket_highlighter.busy": false,
+							"color_scheme": "Packages/User/Color Highlighter/themes/Material-Theme-Darker.tmTheme",
+							"in_converting": true,
+							"is_init_dirty_state": false,
+							"origin_encoding": "SHIFT_JIS",
+							"syntax": "Packages/Text/Plain text.tmLanguage",
+							"translate_tabs_to_spaces": false
+						},
+						"translation.x": 0.0,
+						"translation.y": 580.0,
+						"zoom_level": 1.0
+					},
+					"stack_index": 1,
+					"type": "text"
+				}
+			]
+		}
+	],
+	"incremental_find":
+	{
+		"height": 30.0
+	},
+	"input":
+	{
+		"height": 66.0
+	},
+	"layout":
+	{
+		"cells":
+		[
+			[
+				0,
+				0,
+				1,
+				1
+			],
+			[
+				1,
+				0,
+				2,
+				1
+			]
+		],
+		"cols":
+		[
+			0.0,
+			0.562909090909,
+			1.0
+		],
+		"rows":
+		[
+			0.0,
+			1.0
+		]
+	},
+	"menu_visible": true,
+	"output.find_results":
+	{
+		"height": 0.0
+	},
+	"pinned_build_system": "",
+	"project": "Nevermind.sublime-project",
+	"replace":
+	{
+		"height": 56.0
+	},
+	"save_all_on_build": true,
+	"select_file":
+	{
+		"height": 0.0,
+		"last_filter": "",
+		"selected_items":
+		[
+			[
+				"scsslayout",
+				"dev/scss/layout/_contents.scss"
+			],
+			[
+				"listscss",
+				"dev/scss/components/_list.scss"
+			],
+			[
+				"scsscomm",
+				"dev/scss/project/_community.scss"
+			]
+		],
+		"width": 0.0
+	},
+	"select_project":
+	{
+		"height": 500.0,
+		"last_filter": "",
+		"selected_items":
+		[
+		],
+		"width": 380.0
+	},
+	"select_symbol":
+	{
+		"height": 0.0,
+		"last_filter": "",
+		"selected_items":
+		[
+		],
+		"width": 0.0
+	},
+	"selected_group": 0,
+	"settings":
+	{
+	},
+	"show_minimap": true,
+	"show_open_files": true,
+	"show_tabs": true,
+	"side_bar_visible": true,
+	"side_bar_width": 220.0,
+	"status_bar_visible": true,
+	"template_settings":
+	{
+	}
+}

@@ -1,0 +1,2770 @@
+{
+	"auto_complete":
+	{
+		"selected_items":
+		[
+			[
+				"staff-",
+				"staff-interview"
+			],
+			[
+				"staff",
+				"staff-interview"
+			],
+			[
+				"button",
+				"button-line\t(_components.scss)"
+			],
+			[
+				"guestM",
+				"guestMapData"
+			],
+			[
+				"site",
+				"siteHeading03\t(_components.scss)"
+			],
+			[
+				"siteHeading02-",
+				"siteHeading02-simple\t(index.ejs)"
+			],
+			[
+				"panel",
+				"panel-colored\t(index.ejs)"
+			],
+			[
+				"conce",
+				"conceptBanner"
+			],
+			[
+				"toggle",
+				"toggleClass\t.toggleClass()"
+			],
+			[
+				"cusi",
+				"cuisineExample"
+			],
+			[
+				"cuisine",
+				"cuisineExample"
+			],
+			[
+				"cuisi",
+				"cuisineExample"
+			],
+			[
+				"mt",
+				"mtL"
+			],
+			[
+				"siteHeading",
+				"siteHeading02\t(index.ejs)"
+			],
+			[
+				"pane",
+				"panel-colored"
+			],
+			[
+				"ex",
+				"exampleUnit"
+			],
+			[
+				"fai",
+				"fairBanner\t(_layout.scss)"
+			],
+			[
+				"faiite",
+				"fairItems"
+			],
+			[
+				"button-",
+				"button-conversion\t(_components.scss)"
+			],
+			[
+				"fair",
+				"fairDetails"
+			],
+			[
+				"siteHe",
+				"siteHeading03\t(index.ejs)"
+			],
+			[
+				"con",
+				"conceptUnit"
+			],
+			[
+				"row",
+				"row-2columns\t(_components.scss)"
+			],
+			[
+				"da",
+				"data-original"
+			],
+			[
+				"data",
+				"data-original\t(index.ejs)"
+			],
+			[
+				"reporpla",
+				"reportPlaceDetailsUnit"
+			],
+			[
+				"report",
+				"reportSection"
+			],
+			[
+				"mari",
+				"margin-top"
+			],
+			[
+				"ban",
+				"banquet"
+			],
+			[
+				"ce",
+				"ceremony"
+			],
+			[
+				"siteH",
+				"siteHeading02"
+			],
+			[
+				"footer",
+				"footerGlobalNavigation"
+			],
+			[
+				"photo",
+				"photoCollage\t(index.ejs)"
+			],
+			[
+				"siteHea",
+				"siteHeading01"
+			],
+			[
+				"siteHeain",
+				"siteHeading02"
+			],
+			[
+				"styleguide",
+				"styleguide_assets"
+			],
+			[
+				"in",
+				"inlineList-icon"
+			],
+			[
+				"add",
+				"addEventListener"
+			],
+			[
+				"colum",
+				"columnSizer\t(index.ejs)"
+			],
+			[
+				"know",
+				"knowhowResume__button"
+			],
+			[
+				"knowhow",
+				"knowhowResume__example"
+			],
+			[
+				"sec",
+				"sectionBlock"
+			],
+			[
+				"text",
+				"textlink"
+			],
+			[
+				"block",
+				"blockquote"
+			],
+			[
+				"icon",
+				"icon-external\t(_header.ejs)"
+			],
+			[
+				"exa",
+				"exam_info\t(style.css)"
+			],
+			[
+				"exam",
+				"exam_img09.jpg\tw:226 h:180"
+			],
+			[
+				"tt",
+				"exam_ttl02.png\tw:377 h:45"
+			],
+			[
+				"search_content",
+				"search_content_item\t(index.html)"
+			],
+			[
+				"卒業",
+				"卒業旅行！国内で人気のエリアはここ！\t(index.html)"
+			],
+			[
+				"bg",
+				"bg_form.gif\tw:770 h:222"
+			],
+			[
+				"leave",
+				"leave_img01.jpg\tw:250 h:160"
+			],
+			[
+				"arrow",
+				"icon_arrow02.png\tw:8 h:12"
+			],
+			[
+				"tit",
+				"ico_title06.png\tw:17 h:23"
+			],
+			[
+				"ico",
+				"ico_title01.png\tw:21 h:21"
+			],
+			[
+				"card_item",
+				"card_item_box"
+			],
+			[
+				"search_list",
+				"search_list_content"
+			],
+			[
+				"subti",
+				"subtitle02"
+			],
+			[
+				"subt",
+				"subtitle02"
+			],
+			[
+				"communi",
+				"community/"
+			],
+			[
+				"list-",
+				"list-inline"
+			],
+			[
+				"com",
+				"community-panel"
+			],
+			[
+				"dum",
+				"dum_img12.jpg\tw:880 h:553"
+			]
+		]
+	},
+	"buffers":
+	[
+		{
+			"contents": "\n\n]_",
+			"settings":
+			{
+				"buffer_size": 4,
+				"line_ending": "Unix"
+			}
+		},
+		{
+			"file": "/Users/cksgrapes/Documents/Business/TAM/htdocs/marusho/marusho-furisode/htdocs/inc/footer-links.php",
+			"settings":
+			{
+				"buffer_size": 5573,
+				"encoding": "UTF-8",
+				"line_ending": "Unix"
+			}
+		},
+		{
+			"file": "/Users/cksgrapes/Documents/Business/TAM/htdocs/marusho/marusho-furisode/htdocs/inc/footer-links-ssl.php",
+			"settings":
+			{
+				"buffer_size": 6450,
+				"encoding": "UTF-8",
+				"line_ending": "Unix"
+			}
+		},
+		{
+			"file": "/Users/cksgrapes/Documents/Business/TAM/htdocs/marusho/marusho-furisode/htdocs/place/staff/index.php",
+			"settings":
+			{
+				"buffer_size": 25248,
+				"encoding": "UTF-8",
+				"line_ending": "Unix"
+			}
+		},
+		{
+			"file": "/Users/cksgrapes/Documents/Business/TAM/htdocs/marusho/marusho-furisode/dev/sass/init/_config.scss",
+			"settings":
+			{
+				"buffer_size": 388,
+				"encoding": "UTF-8",
+				"line_ending": "Unix"
+			}
+		},
+		{
+			"file": "/Users/cksgrapes/Documents/Business/TAM/htdocs/marusho/marusho-furisode/dev/sass/init/_font.scss",
+			"settings":
+			{
+				"buffer_size": 849,
+				"line_ending": "Unix"
+			}
+		},
+		{
+			"file": "/Users/cksgrapes/Documents/Business/TAM/htdocs/marusho/marusho-furisode/dev/sass/init/_reset.scss",
+			"settings":
+			{
+				"buffer_size": 1787,
+				"line_ending": "Windows"
+			}
+		},
+		{
+			"file": "/Users/cksgrapes/Documents/Business/TAM/htdocs/marusho/marusho-furisode/htdocs/assets/css/style.css",
+			"settings":
+			{
+				"buffer_size": 156107,
+				"encoding": "UTF-8",
+				"line_ending": "Unix"
+			}
+		},
+		{
+			"contents": ".staff-interview__q {\n  margin-bottom: 43px;\n  padding: 10px 11px;\n  border-radius: 5px;\n  background-color: #faf5e7;\n  font-size: 15px;\n  font-size: 1.5rem;\n  line-height: 1.3;\n  font-weight: bold;\n  color: #552d40;\n}\n\n.staff-interview__q:not(:first-child) {\n  margin-top: 30px;\n}\n\n\n.staff-interview__q:last-child {\n  padding-top: 30px;\n}\n\n\n\n\n-----\n\n\n\n.staff-interview__q {\n  margin-bottom: 43px;\n  padding: 10px 11px;\n  border-radius: 5px;\n  background-color: #faf5e7;\n  font-size: 15px;\n  font-size: 1.5rem;\n  line-height: 1.3;\n  font-weight: bold;\n  color: #552d40;\n}\n\n.staff-interview__q :not(:first-child) {\n  margin-top: 30px;\n}\n\n\n.staff-interview__q :last-child {\n  padding-top: 30px;\n}",
+			"settings":
+			{
+				"buffer_size": 694,
+				"line_ending": "Unix"
+			}
+		},
+		{
+			"file": "/Users/cksgrapes/Documents/Business/TAM/htdocs/marusho/marusho-furisode/dev/sass/init/_utility.scss",
+			"settings":
+			{
+				"buffer_size": 188,
+				"line_ending": "Unix"
+			}
+		},
+		{
+			"file": "/Users/cksgrapes/Documents/Business/TAM/htdocs/marusho/marusho-furisode/htdocs/place/support/index.php",
+			"settings":
+			{
+				"buffer_size": 9884,
+				"encoding": "UTF-8",
+				"line_ending": "Unix"
+			}
+		},
+		{
+			"file": "/Users/cksgrapes/Documents/Business/TAM/htdocs/marusho/marusho-furisode/dev/sass/_layout.scss",
+			"settings":
+			{
+				"buffer_size": 18528,
+				"encoding": "UTF-8",
+				"line_ending": "Unix"
+			}
+		},
+		{
+			"file": "/Users/cksgrapes/Documents/Business/TAM/htdocs/marusho/marusho-furisode/dev/sass/_module.scss",
+			"settings":
+			{
+				"buffer_size": 17553,
+				"encoding": "UTF-8",
+				"line_ending": "Unix"
+			}
+		},
+		{
+			"file": "/Users/cksgrapes/Documents/Business/TAM/htdocs/marusho/marusho-furisode/dev/sass/page/_place.scss",
+			"settings":
+			{
+				"buffer_size": 10953,
+				"encoding": "UTF-8",
+				"line_ending": "Unix"
+			}
+		},
+		{
+			"file": "/Users/cksgrapes/Documents/Business/TAM/htdocs/marusho/marusho-furisode/gulpfile.js",
+			"settings":
+			{
+				"buffer_size": 6007,
+				"encoding": "UTF-8",
+				"line_ending": "Unix"
+			}
+		}
+	],
+	"build_system": "",
+	"build_system_choices":
+	[
+	],
+	"build_varint": "",
+	"command_palette":
+	{
+		"height": 354.0,
+		"last_filter": "",
+		"selected_items":
+		[
+			[
+				"add",
+				"Project Manager: Add New Project"
+			],
+			[
+				"material",
+				"Material Theme: Activate theme"
+			],
+			[
+				"theme",
+				"Material Theme: Configuration"
+			],
+			[
+				"html",
+				"Set Syntax: HTML"
+			],
+			[
+				"disa",
+				"Package Control: Disable Package"
+			],
+			[
+				"ena",
+				"Package Control: Enable Package"
+			],
+			[
+				"remo",
+				"Package Control: Remove Package"
+			],
+			[
+				"inst",
+				"Package Control: Install Package"
+			],
+			[
+				"ins",
+				"Package Control: Install Package"
+			],
+			[
+				"list",
+				"Package Control: List Packages"
+			],
+			[
+				"linter",
+				"SublimeLinter: Lint This View"
+			],
+			[
+				"linte",
+				"SublimeLinter: Clear Caches"
+			],
+			[
+				"dis",
+				"Package Control: Disable Package"
+			],
+			[
+				"enable",
+				"Package Control: Enable Package"
+			],
+			[
+				"alignment",
+				"Preferences: Alignment Key Bindings – Default"
+			],
+			[
+				"synhtml",
+				"Set Syntax: HTML"
+			],
+			[
+				"syntahtml",
+				"Set Syntax: HTML"
+			],
+			[
+				"mark",
+				"Set Syntax: Markdown"
+			],
+			[
+				"pack",
+				"Preferences: Browse Packages"
+			],
+			[
+				"toggle",
+				"Word Wrap: Toggle"
+			],
+			[
+				"eme",
+				"Emmet: Next Edit Point"
+			],
+			[
+				"scss",
+				"Set Syntax: SCSS"
+			],
+			[
+				"remoe",
+				"Package Control: Remove Package"
+			],
+			[
+				"promare",
+				"Project Manager: Remove Project"
+			],
+			[
+				"proma",
+				"Project Manager: Add Project"
+			],
+			[
+				"pro",
+				"Project Manager"
+			],
+			[
+				"sass",
+				"Set Syntax: Sass"
+			],
+			[
+				"emme",
+				"Emmet: Reload Extensions"
+			],
+			[
+				"",
+				"Material Theme: Activate theme"
+			],
+			[
+				"insta",
+				"Package Control: Install Package"
+			]
+		],
+		"width": 525.0
+	},
+	"console":
+	{
+		"height": 126.0,
+		"history":
+		[
+			"import urllib.request,os,hashlib; h = 'df21e130d211cfc94d9b0905775a7c0f' + '1e3d39e33b79698005270310898eea76'; pf = 'Package Control.sublime-package'; ipp = sublime.installed_packages_path(); urllib.request.install_opener( urllib.request.build_opener( urllib.request.ProxyHandler()) ); by = urllib.request.urlopen( 'http://packagecontrol.io/' + pf.replace(' ', '%20')).read(); dh = hashlib.sha256(by).hexdigest(); print('Error validating download (got %s instead of %s), please try manual install' % (dh, h)) if dh != h else open(os.path.join( ipp, pf), 'wb' ).write(by)",
+			"import urllib.request,os,hashlib; h = '2915d1851351e5ee549c20394736b442' + '8bc59f460fa1548d1514676163dafc88'; pf = 'Package Control.sublime-package'; ipp = sublime.installed_packages_path(); urllib.request.install_opener( urllib.request.build_opener( urllib.request.ProxyHandler()) ); by = urllib.request.urlopen( 'http://packagecontrol.io/' + pf.replace(' ', '%20')).read(); dh = hashlib.sha256(by).hexdigest(); print('Error validating download (got %s instead of %s), please try manual install' % (dh, h)) if dh != h else open(os.path.join( ipp, pf), 'wb' ).write(by)"
+		]
+	},
+	"distraction_free":
+	{
+		"menu_visible": true,
+		"show_minimap": false,
+		"show_open_files": false,
+		"show_tabs": false,
+		"side_bar_visible": false,
+		"status_bar_visible": false
+	},
+	"expanded_folders":
+	[
+		"/Users/cksgrapes/Documents/Business/TAM/htdocs/marusho/marusho-furisode",
+		"/Users/cksgrapes/Documents/Business/TAM/htdocs/marusho/marusho-furisode/dev",
+		"/Users/cksgrapes/Documents/Business/TAM/htdocs/marusho/marusho-furisode/dev/sass",
+		"/Users/cksgrapes/Documents/Business/TAM/htdocs/marusho/marusho-furisode/dev/sass/init",
+		"/Users/cksgrapes/Documents/Business/TAM/htdocs/marusho/marusho-furisode/dev/sass/page",
+		"/Users/cksgrapes/Documents/Business/TAM/htdocs/marusho/marusho-furisode/htdocs",
+		"/Users/cksgrapes/Documents/Business/TAM/htdocs/marusho/marusho-furisode/htdocs/assets",
+		"/Users/cksgrapes/Documents/Business/TAM/htdocs/marusho/marusho-furisode/htdocs/assets/css",
+		"/Users/cksgrapes/Documents/Business/TAM/htdocs/marusho/marusho-furisode/htdocs/assets/js",
+		"/Users/cksgrapes/Documents/Business/TAM/htdocs/marusho/marusho-furisode/htdocs/inc",
+		"/Users/cksgrapes/Documents/Business/TAM/htdocs/marusho/marusho-furisode/htdocs/place",
+		"/Users/cksgrapes/Documents/Business/TAM/htdocs/marusho/marusho-furisode/htdocs/place/staff",
+		"/Users/cksgrapes/Documents/Business/TAM/htdocs/marusho/marusho-furisode/htdocs/place/support",
+		"/Users/cksgrapes/Documents/Business/TAM/htdocs/marusho/marusho-furisode/htdocs/rental"
+	],
+	"file_history":
+	[
+		"/Users/cksgrapes/Documents/Business/TAM/htdocs/marusho/marusho-furisode/htdocs/place/support/index.php",
+		"/Users/cksgrapes/Documents/Business/TAM/htdocs/marusho/marusho-furisode/htdocs/place/staff/index.php",
+		"/Users/cksgrapes/Documents/Business/TAM/htdocs/marusho/marusho-furisode/htdocs/inc/footer-links.php",
+		"/Users/cksgrapes/Documents/Business/TAM/htdocs/marusho/marusho-furisode/htdocs/place/index.php",
+		"/Users/cksgrapes/Documents/Business/TAM/htdocs/marusho/marusho-furisode/htdocs/inc/footer-contents-ssl.php",
+		"/Users/cksgrapes/Documents/Business/TAM/htdocs/marusho/marusho-furisode/htdocs/rental/index.php",
+		"/Users/cksgrapes/Documents/Business/TAM/htdocs/marusho/marusho-furisode/htdocs/assets/css/style.css",
+		"/Users/cksgrapes/Documents/Business/TAM/htdocs/marusho/marusho-furisode/dev/sass/page/_place.scss",
+		"/Users/cksgrapes/Documents/Business/TAM/htdocs/marusho/marusho-furisode/htdocs/assets/js/scripts.js",
+		"/Users/cksgrapes/Documents/Business/TAM/htdocs/marusho/marusho-furisode/dev/sass/style.scss",
+		"/Users/cksgrapes/Documents/Business/TAM/htdocs/marusho/marusho-furisode/gulpfile.js",
+		"/Users/cksgrapes/Documents/Business/TAM/htdocs/marusho/marusho-furisode/dev/sass/_layout.scss",
+		"/Users/cksgrapes/Documents/Business/TAM/htdocs/marusho/marusho-furisode/dev/sass/_page.scss",
+		"/Applications/MAMP/conf/apache/extra/httpd-vhosts.conf",
+		"/Users/cksgrapes/Documents/Business/TAM/htdocs/marusho/furisode/package.json",
+		"/Users/cksgrapes/Documents/Business/TAM/htdocs/marusho/furisode/gulpfile.js",
+		"/Users/cksgrapes/Documents/Business/TAM/htdocs/mielparque/dev/ejs/kumamoto/guest/index.ejs",
+		"/Users/cksgrapes/Documents/Business/TAM/htdocs/mielparque/dev/ejs/kumamoto/team/index.ejs",
+		"/Users/cksgrapes/Documents/Business/TAM/htdocs/mielparque/dev/styleguide/Cortana/CortanaMarkdownRenderer.rb",
+		"/Users/cksgrapes/Documents/Business/TAM/htdocs/mielparque/dev/styleguide/Cortana/_header.html",
+		"/Users/cksgrapes/Documents/Business/TAM/htdocs/mielparque/hologram_config.yml",
+		"/Users/cksgrapes/Documents/Business/TAM/htdocs/mielparque/dev/css/kumamoto/style.scss",
+		"/Users/cksgrapes/Documents/Business/TAM/htdocs/mielparque/dev/ejs/kumamoto/cuisine/index.ejs",
+		"/Users/cksgrapes/Documents/Business/TAM/htdocs/mielparque/dev/styleguide/source",
+		"/Users/cksgrapes/Documents/Business/TAM/htdocs/mielparque/dev/styleguide/source/index.md",
+		"/Users/cksgrapes/Documents/Business/TAM/htdocs/mielparque/dev/styleguide_assets/Cortana/index.md",
+		"/Users/cksgrapes/Documents/Business/TAM/htdocs/mielparque/package.json",
+		"/Users/cksgrapes/Documents/Business/TAM/htdocs/mielparque/dev/css/styleguide/source/_heading.scss",
+		"/Users/cksgrapes/Documents/Business/TAM/htdocs/mielparque/gulpfile.js",
+		"/Users/cksgrapes/Documents/Business/TAM/htdocs/mielparque/dev/css/styleguide/Cortana/index.md",
+		"/Users/cksgrapes/Documents/Business/TAM/htdocs/mielparque/dev/css/_layout.scss",
+		"/Users/cksgrapes/Documents/Business/TAM/htdocs/mielparque/dev/js/guest.js",
+		"/Users/cksgrapes/Documents/Business/TAM/htdocs/mielparque/dev/ejs/kumamoto/index.ejs",
+		"/Users/cksgrapes/Documents/Business/TAM/htdocs/mielparque/dev/ejs/kumamoto/blog/index.ejs",
+		"/Users/cksgrapes/Documents/Business/TAM/htdocs/mielparque/dev/ejs/kumamoto/blog/details.ejs",
+		"/Users/cksgrapes/Desktop/エーテル原稿.txt",
+		"/Users/cksgrapes/Documents/Business/TAM/htdocs/mielparque/dev/css/_components.scss",
+		"/Users/cksgrapes/Documents/Business/TAM/htdocs/mielparque/dev/ejs/kumamoto/plan/index.ejs",
+		"/Users/cksgrapes/Documents/Business/TAM/htdocs/mielparque/dev/ejs/kumamoto/concept/index.ejs",
+		"/Users/cksgrapes/Documents/Business/TAM/htdocs/mielparque/dev/ejs/kumamoto/inc/_meta.ejs",
+		"/Users/cksgrapes/Documents/Business/TAM/htdocs/mielparque/dev/ejs/kumamoto/inc/_header.ejs",
+		"/Users/cksgrapes/Documents/Business/TAM/htdocs/mielparque/dev/ejs/kumamoto/inc/_footer.ejs",
+		"/Users/cksgrapes/Documents/Business/TAM/htdocs/mielparque/dev/ejs/kumamoto/fair/details.ejs",
+		"/Users/cksgrapes/Documents/Business/TAM/htdocs/mielparque/dev/ejs/kumamoto/banquet/index.ejs",
+		"/Users/cksgrapes/Documents/Business/TAM/htdocs/mielparque/dev/ejs/kumamoto/styleguide.ejs",
+		"/Users/cksgrapes/Documents/Business/TAM/htdocs/mielparque/dev/ejs/kumamoto/ceremony-pattern.ejs",
+		"/Users/cksgrapes/Documents/Business/TAM/htdocs/mielparque/dev/ejs/kumamoto/report/index.ejs",
+		"/Users/cksgrapes/Documents/Business/TAM/htdocs/mielparque/dev/ejs/kumamoto/report/details.ejs",
+		"/Users/cksgrapes/Documents/Business/TAM/htdocs/mielparque/dev/ejs/kumamoto/plan/details.ejs",
+		"/Users/cksgrapes/Documents/Business/TAM/htdocs/mielparque/dev/ejs/kumamoto/faq/index.ejs",
+		"/Users/cksgrapes/Documents/Business/TAM/htdocs/mielparque/dev/ejs/kumamoto/fair/index.ejs",
+		"/Users/cksgrapes/Documents/Business/TAM/htdocs/mielparque/dev/ejs/kumamoto/ceremony/index.ejs",
+		"/Users/cksgrapes/Documents/Business/TAM/htdocs/mielparque/dev/css/_variables.scss",
+		"/Users/cksgrapes/Documents/Business/TAM/htdocs/mielparque/dev/data/list.json",
+		"/Users/cksgrapes/Documents/Business/TAM/htdocs/mielparque/dev/data/site.json",
+		"/Users/cksgrapes/Documents/Business/TAM/htdocs/mielparque/.gitignore",
+		"/Users/cksgrapes/Documents/Business/TAM/htdocs/mielparque/dev/css/_plugin.scss",
+		"/Users/cksgrapes/Documents/Business/TAM/htdocs/mielparque/dev/js/top.js",
+		"/Users/cksgrapes/Documents/Business/TAM/htdocs/mielparque/dev/js/common.js",
+		"/Users/cksgrapes/Documents/Business/TAM/htdocs/mielparque/dev/css/common.scss",
+		"/Users/cksgrapes/Desktop/styleguide/app/stylesheets/button.css",
+		"/Users/cksgrapes/Documents/Business/TAM/htdocs/mielparque/dev/css/_adjustment.scss",
+		"/Users/cksgrapes/Documents/Business/TAM/htdocs/mielparque/dev/js/cuisine.js",
+		"/Users/cksgrapes/Documents/Business/TAM/htdocs/mielparque/dev/js/plan.js",
+		"/Users/cksgrapes/Documents/Business/TAM/htdocs/mielparque/dev/css/_mixin.scss",
+		"/Users/cksgrapes/Documents/Business/TAM/htdocs/mielparque/dev/ejs/kumamoto/inc/_sub-footer.ejs",
+		"/Users/cksgrapes/Documents/Business/TAM/htdocs/mielparque/dev/js/fair.js",
+		"/Users/cksgrapes/Documents/Business/TAM/htdocs/mielparque/dev/css/_base.scss",
+		"/Users/cksgrapes/Documents/Business/TAM/htdocs/mielparque/release/kumamoto/banquet/index.html",
+		"/Users/cksgrapes/Documents/Business/TAM/htdocs/mielparque/dev/ejs/kumamoto/inc/_svgsprite.ejs",
+		"/Users/cksgrapes/Desktop/release/kumamoto/index.html",
+		"/Users/cksgrapes/Desktop/career.json",
+		"/Users/cksgrapes/Desktop/untitled.html",
+		"/Users/cksgrapes/Documents/Business/TAM/htdocs/mielparque/dev/js/calendar.js",
+		"/Users/cksgrapes/Library/Application Support/Sublime Text 3/Packages/HTML-CSS-JS Prettify/.jsbeautifyrc",
+		"/Users/cksgrapes/Documents/Business/TAM/htdocs/mielparque/.jsbeautifyrc",
+		"/Users/cksgrapes/Library/Application Support/Sublime Text 3/Packages/HTML-CSS-JS Prettify/HTMLPrettify.sublime-settings",
+		"/Users/cksgrapes/Documents/Business/TAM/htdocs/mielparque/mt/extlib/URI/URL.pm",
+		"/Users/cksgrapes/Desktop/logo.svg",
+		"/Users/cksgrapes/Documents/Business/TAM/htdocs/mielparque/node_modules/weinre/web/client/inspector.css",
+		"/Users/cksgrapes/Documents/Business/TAM/htdocs/mielparque/dev/ejs/kumamoto/inc/_conversion-unit.ejs",
+		"/Users/cksgrapes/Documents/Business/TAM/htdocs/mielparque/mt/mt-static/plugins/TinyMCE/tiny_mce/plugins/table/css/table.css",
+		"/Users/cksgrapes/Documents/Business/TAM/htdocs/mielparque/.scss-lint.yml",
+		"/Users/cksgrapes/Documents/Business/TAM/htdocs/mielparque/.scss.yml",
+		"/Users/cksgrapes/Library/Application Support/Sublime Text 3/Packages/User/SublimeLinter.sublime-settings",
+		"/Users/cksgrapes/Library/Application Support/Sublime Text 3/Packages/User/Preferences.sublime-settings",
+		"/Users/cksgrapes/Library/Application Support/Sublime Text 3/Packages/Alignment/Default (OSX).sublime-keymap",
+		"/Users/cksgrapes/Library/Application Support/Sublime Text 3/Packages/User/Default (OSX).sublime-keymap",
+		"/Users/cksgrapes/Library/Application Support/Sublime Text 3/Packages/User/Base File.sublime-settings",
+		"/Users/cksgrapes/Documents/Business/TAM/htdocs/mielparque/dev/css/print.scss",
+		"/Users/cksgrapes/Documents/Business/TAM/htdocs/mielparque/release/assets/css/common.css",
+		"/Users/cksgrapes/Documents/Business/TAM/htdocs/mielparque/release/kumamoto/ceremony/index.html",
+		"/Users/cksgrapes/Documents/Business/TAM/htdocs/mielparque/dev/ejs/inc/_meta.ejs",
+		"/Users/cksgrapes/Documents/Business/TAM/htdocs/mielparque/dev/ejs/inc/_header.ejs",
+		"/Users/cksgrapes/Documents/Business/TAM/htdocs/mielparque/dev/ejs/styleguide.ejs",
+		"/Users/cksgrapes/Documents/Business/TAM/htdocs/mielparque/dev/css/_jquery.bxslider.scss",
+		"/Users/cksgrapes/Documents/Business/TAM/htdocs/mielparque/dev/js/lib/jquery.bxslider.min.js",
+		"/Users/cksgrapes/Documents/Business/TAM/htdocs/mielparque/dev/ejs/inc/_footer.ejs",
+		"/Users/cksgrapes/.bashrc",
+		"/Users/cksgrapes/Documents/Business/TAM/htdocs/mielparque/dev/ejs/index.ejs",
+		"/Users/cksgrapes/.bash_profile",
+		"/Users/cksgrapes/Documents/Business/TAM/htdocs/mielparque/mt/mt-config.cgi",
+		"/Users/cksgrapes/Documents/Business/TAM/htdocs/mielparque/mt/mt-config.cgi-original",
+		"/Users/cksgrapes/Documents/Business/TAM/htdocs/mielparque/node_modules/gulp-combine-media-queries/index.js",
+		"/Users/cksgrapes/Documents/Project/mashiromasaki/dev/css/_mixin.scss",
+		"/Users/cksgrapes/Documents/Project/mashiromasaki/dev/css/_components.scss",
+		"/Users/cksgrapes/Documents/Project/mashiromasaki/dev/css/_plugin.scss",
+		"/Users/cksgrapes/Documents/Project/mashiromasaki/dev/ejs/inc/_meta.ejs",
+		"/Users/cksgrapes/Documents/Project/mashiromasaki/dev/ejs/inc/_header.ejs",
+		"/Users/cksgrapes/Documents/Project/mashiromasaki/dev/ejs/archive.ejs",
+		"/Users/cksgrapes/Documents/Project/mashiromasaki/dev/ejs/inc/_footer.ejs",
+		"/Users/cksgrapes/Documents/Project/mashiromasaki/dev/ejs/index.ejs",
+		"/Users/cksgrapes/Documents/Project/mashiromasaki/dev/ejs/archive-2.ejs",
+		"/Users/cksgrapes/Documents/Project/mashiromasaki/dev/ejs/single.ejs",
+		"/Users/cksgrapes/Documents/Project/mashiromasaki/dev/ejs/archive-blog.ejs",
+		"/Users/cksgrapes/Documents/Project/mashiromasaki/dev/ejs/single-blog.ejs",
+		"/Users/cksgrapes/Documents/Project/mashiromasaki/dev/ejs/single-offline.ejs",
+		"/Users/cksgrapes/Documents/Project/mashiromasaki/dev/ejs/archive-offline.ejs",
+		"/Users/cksgrapes/Downloads/infinite-scroll-master/jquery.infinitescroll.js",
+		"/Users/cksgrapes/Documents/Project/mashiromasaki/dev/css/_variables.scss",
+		"/Users/cksgrapes/Documents/Project/mashiromasaki/dev/css/_base.scss",
+		"/Users/cksgrapes/Documents/Project/mashiromasaki/gulpfile.js",
+		"/Users/cksgrapes/Documents/Project/mashiromasaki/.htpasswd",
+		"/Users/cksgrapes/Documents/Project/mashiromasaki/dev/img/logo.svg",
+		"/Users/cksgrapes/Documents/Project/mashiromasaki/release/assets/img/logo.svg",
+		"/Users/cksgrapes/Documents/Project/mashiromasaki/dev/css/common.scss",
+		"/Users/cksgrapes/Documents/Project/mashiromasaki/dev/css/_layout.scss",
+		"/Users/cksgrapes/Documents/Project/mashiromasaki/dev/data/site.json"
+	],
+	"find":
+	{
+		"height": 70.0
+	},
+	"find_in_files":
+	{
+		"height": 158.0,
+		"where_history":
+		[
+			"/Users/cksgrapes/Documents/Business/TAM/htdocs/mielparque/dev/ejs",
+			"/Users/cksgrapes/Documents/Business/TAM/htdocs/mielparque/dev/ejs/kumamoto",
+			"/Users/cksgrapes/Documents/Business/TAM/htdocs/mielparque/dev",
+			"/Users/cksgrapes/Documents/Business/TAM/htdocs/mielparque/dev/js",
+			"/Users/cksgrapes/Documents/Business/TAM/htdocs/mielparque/dev/ejs/kumamoto",
+			"/Users/cksgrapes/Documents/Business/TAM/htdocs/mielparque/dev/ejs",
+			"/Users/cksgrapes/Documents/Business/TAM/htdocs/mielparque/dev/ejs/kumamoto",
+			"/Users/cksgrapes/Documents/Business/TAM/htdocs/mielparque/dev/ejs",
+			"/Users/cksgrapes/Documents/Business/TAM/htdocs/mielparque/dev/ejs/kumamoto",
+			"/Users/cksgrapes/Documents/Business/TAM/htdocs/sprix/foresta/dev/scss",
+			"/Users/cksgrapes/Documents/Business/TAM/htdocs/sprix/foresta/dev/jade",
+			"/Users/cksgrapes/Documents/Business/TAM/htdocs/sprix/foresta/dev/scss",
+			"/Users/cksgrapes/Documents/Business/TAM/htdocs/sprix/foresta/dev/jade/_include"
+		]
+	},
+	"find_state":
+	{
+		"case_sensitive": false,
+		"find_history":
+		[
+			"staff-interview__",
+			".staff-tab",
+			"now",
+			"お支度会場内でのサポート内容",
+			".staff-interview__image",
+			"heading",
+			"heading-05",
+			"staff-contents",
+			"MIYUKI",
+			"support",
+			"support_btn",
+			"support_btn_01",
+			"png",
+			"heading",
+			"staff-rec__image",
+			"price-plan-inner",
+			"staff-heading",
+			"font-size",
+			"section",
+			"staff-image",
+			"\"staff-interview\"",
+			"place",
+			"tabs",
+			"ul",
+			"page-lead",
+			"lead",
+			"page-lead",
+			"html",
+			"styleguide_assets",
+			"'ico.png'",
+			"list",
+			".em",
+			"em",
+			"plan",
+			"table",
+			"チームサポート",
+			"siteHeading02-simple",
+			"flag_body",
+			"siteHeading02-simple siteHeading02-team",
+			"siteHeading02-simple",
+			" siteHeading02-simple-b",
+			"siteHeading02-simple",
+			"width=\"600\" height=\"371\"",
+			"siteHeading02-b",
+			"選ばれる理由",
+			"href=\"/kumamoto/",
+			"original=\"/assets/img/kumamoto/",
+			"href=\"/kumamoto/",
+			"url",
+			"href=\"/kumamoto/",
+			"url",
+			"ornament_heading.png",
+			"href=\"/kumamoto/",
+			"image:",
+			"../img/",
+			"image:",
+			"image",
+			"/wedding/assets/img/kumamoto/",
+			"/assets/img/",
+			"local_path",
+			"<%- global_img_path %>",
+			"<%- local_path %>",
+			"<%- root_path %>",
+			"<%- root %>",
+			"href=\"/kumamoto/",
+			"<%- root %>",
+			"rootpath",
+			"/kumamoto/",
+			"href=\"/kumamoto/",
+			"02",
+			" <dd>￥",
+			"reason",
+			"panel conceptUnitWrap",
+			"04",
+			"5",
+			"06",
+			"02",
+			"img_sp",
+			"img_cuisine_sp",
+			"args.local_img_path",
+			"お料理",
+			"bxslider",
+			"\n.photoSlider_item {\n  margin: 0 10px;\n  overflow: hidden;\n  width: 230px !important;\n  height: 230px;\n  position: relative;\n  img {\n    position: absolute;\n    top: 50%;\n    left: 50%;\n    -webkit-transform: translate(-50%, -50%);\n    -ms-transform: translate(-50%, -50%);\n    transform: translate(-50%, -50%);\n    max-width: none;\n  }\n  &.cutLR img {\n    width: auto;\n    height: 100%;\n  }\n  &.cutTB img {\n    width: 100%;\n    height: auto;\n  }\n  @include media(both) {\n    margin: 0 5px;\n    width: 300px !important;\n    height: 300px;\n  }\n}\n\n.photoSlider_image {\n  @include media(both) {\n    transition: opacity ease .2s;\n    &:hover {\n      opacity: .6;\n    }\n  }\n}",
+			"img",
+			"ceremonyStyle_image",
+			"siteHeading-02",
+			"230",
+			"$body",
+			"'open'",
+			"$(this)",
+			"<a class=\"cuisineExample_closeButton\">CLOSE</a>",
+			"$body",
+			"button",
+			"plan",
+			"fair",
+			"limiere（ルミエール）",
+			"sextion",
+			"largeImage_name",
+			"slider_largeImage_image",
+			" slider_largeImage",
+			"800",
+			"width=\"1000\"",
+			"slider_largeImage_name",
+			"slider_largeImage_image",
+			"slider_item slider_largeImage",
+			"slider-simple",
+			"\"slider\"",
+			"slider_largeImage",
+			"\"chef",
+			"chef",
+			"bgImage",
+			"牛フィレ肉のポワレホワイトチョコレートソースと風味の赤ワインソース（文字数制限あり）",
+			"img_slide",
+			"flag-leftImage",
+			"reportSection",
+			".flag-leftImage",
+			"reportSection",
+			"料理",
+			"ウェディングプラン",
+			"fairDetails",
+			"list",
+			"ブライダルフェア",
+			"fairBenefit",
+			"fairActionUnitB",
+			"fairActionUnit_button",
+			"fairDetails_button",
+			"both",
+			"fairDetails_benefit"
+		],
+		"highlight": true,
+		"in_selection": false,
+		"preserve_case": false,
+		"regex": false,
+		"replace_history":
+		[
+			"href=\"<%- args.local_path %>",
+			"src=\"$1\"",
+			"<%- args.local_img_path %>img_$1",
+			">banner_aboutBanner",
+			"aboutBanner",
+			"",
+			"<h2 class=\"heading-02\">$1</h2>",
+			"<h2 class=\"heading-02\"><span>$1</span></h2>",
+			"あああああああああああああああああああああああああああああああああああああああああ",
+			"<option value=\"\">$1</option>",
+			"<optgroup label=\"$1\"></optgroup>",
+			"<dt class=\"search_list_title search_list_ico04\">アクセスが便利な駅</dt>",
+			"<dt class=\"search_list_title search_list_ico03\">イベント会場</dt>",
+			"○○○○駅",
+			"○○○○○"
+		],
+		"reverse": false,
+		"show_context": true,
+		"use_buffer2": true,
+		"whole_word": false,
+		"wrap": true
+	},
+	"groups":
+	[
+		{
+			"selected": 8,
+			"sheets":
+			[
+				{
+					"buffer": 0,
+					"semi_transient": false,
+					"settings":
+					{
+						"buffer_size": 4,
+						"regions":
+						{
+						},
+						"selection":
+						[
+							[
+								4,
+								4
+							]
+						],
+						"settings":
+						{
+							"auto_name": "",
+							"bracket_highlighter.busy": false,
+							"bracket_highlighter.locations":
+							{
+								"close":
+								{
+								},
+								"icon":
+								{
+								},
+								"open":
+								{
+								},
+								"unmatched":
+								{
+								}
+							},
+							"bracket_highlighter.regions":
+							[
+								"bh_c_define",
+								"bh_c_define_center",
+								"bh_c_define_open",
+								"bh_c_define_close",
+								"bh_c_define_content",
+								"bh_square",
+								"bh_square_center",
+								"bh_square_open",
+								"bh_square_close",
+								"bh_square_content",
+								"bh_regex",
+								"bh_regex_center",
+								"bh_regex_open",
+								"bh_regex_close",
+								"bh_regex_content",
+								"bh_double_quote",
+								"bh_double_quote_center",
+								"bh_double_quote_open",
+								"bh_double_quote_close",
+								"bh_double_quote_content",
+								"bh_round",
+								"bh_round_center",
+								"bh_round_open",
+								"bh_round_close",
+								"bh_round_content",
+								"bh_default",
+								"bh_default_center",
+								"bh_default_open",
+								"bh_default_close",
+								"bh_default_content",
+								"bh_tag",
+								"bh_tag_center",
+								"bh_tag_open",
+								"bh_tag_close",
+								"bh_tag_content",
+								"bh_single_quote",
+								"bh_single_quote_center",
+								"bh_single_quote_open",
+								"bh_single_quote_close",
+								"bh_single_quote_content",
+								"bh_angle",
+								"bh_angle_center",
+								"bh_angle_open",
+								"bh_angle_close",
+								"bh_angle_content",
+								"bh_curly",
+								"bh_curly_center",
+								"bh_curly_open",
+								"bh_curly_close",
+								"bh_curly_content",
+								"bh_unmatched",
+								"bh_unmatched_center",
+								"bh_unmatched_open",
+								"bh_unmatched_close",
+								"bh_unmatched_content"
+							],
+							"color_scheme": "Packages/User/Color Highlighter/themes/Material-Theme-Darker.tmTheme",
+							"default_dir": "/Users/cksgrapes/Documents/Business/TAM/htdocs/marusho/marusho-furisode",
+							"is_init_dirty_state": true,
+							"is_xml": false,
+							"syntax": "Packages/Text/Plain text.tmLanguage"
+						},
+						"translation.x": 0.0,
+						"translation.y": 0.0,
+						"zoom_level": 1.0
+					},
+					"stack_index": 13,
+					"type": "text"
+				},
+				{
+					"buffer": 1,
+					"file": "/Users/cksgrapes/Documents/Business/TAM/htdocs/marusho/marusho-furisode/htdocs/inc/footer-links.php",
+					"semi_transient": false,
+					"settings":
+					{
+						"buffer_size": 5573,
+						"regions":
+						{
+						},
+						"selection":
+						[
+							[
+								3003,
+								2764
+							]
+						],
+						"settings":
+						{
+							"bracket_highlighter.busy": false,
+							"bracket_highlighter.locations":
+							{
+								"close":
+								{
+									"1":
+									[
+										3000,
+										3002
+									]
+								},
+								"icon":
+								{
+									"1":
+									[
+										"Packages/BracketHighlighter/icons/tag.png",
+										"brackethighlighter.default"
+									]
+								},
+								"open":
+								{
+									"1":
+									[
+										2896,
+										2898
+									]
+								},
+								"unmatched":
+								{
+								}
+							},
+							"bracket_highlighter.regions":
+							[
+								"bh_c_define",
+								"bh_c_define_center",
+								"bh_c_define_open",
+								"bh_c_define_close",
+								"bh_c_define_content",
+								"bh_square",
+								"bh_square_center",
+								"bh_square_open",
+								"bh_square_close",
+								"bh_square_content",
+								"bh_regex",
+								"bh_regex_center",
+								"bh_regex_open",
+								"bh_regex_close",
+								"bh_regex_content",
+								"bh_double_quote",
+								"bh_double_quote_center",
+								"bh_double_quote_open",
+								"bh_double_quote_close",
+								"bh_double_quote_content",
+								"bh_round",
+								"bh_round_center",
+								"bh_round_open",
+								"bh_round_close",
+								"bh_round_content",
+								"bh_default",
+								"bh_default_center",
+								"bh_default_open",
+								"bh_default_close",
+								"bh_default_content",
+								"bh_tag",
+								"bh_tag_center",
+								"bh_tag_open",
+								"bh_tag_close",
+								"bh_tag_content",
+								"bh_single_quote",
+								"bh_single_quote_center",
+								"bh_single_quote_open",
+								"bh_single_quote_close",
+								"bh_single_quote_content",
+								"bh_angle",
+								"bh_angle_center",
+								"bh_angle_open",
+								"bh_angle_close",
+								"bh_angle_content",
+								"bh_curly",
+								"bh_curly_center",
+								"bh_curly_open",
+								"bh_curly_close",
+								"bh_curly_content",
+								"bh_unmatched",
+								"bh_unmatched_center",
+								"bh_unmatched_open",
+								"bh_unmatched_close",
+								"bh_unmatched_content"
+							],
+							"color_scheme": "Packages/User/Color Highlighter/themes/Material-Theme-Darker.tmTheme",
+							"editorconfig": true,
+							"ensure_newline_at_eof_on_save": true,
+							"is_init_dirty_state": false,
+							"is_xml": false,
+							"origin_encoding": "UTF-8",
+							"syntax": "Packages/PHP/PHP.sublime-syntax",
+							"tab_size": 2,
+							"translate_tabs_to_spaces": true,
+							"trim_trailing_white_space_on_save": true
+						},
+						"translation.x": 0.0,
+						"translation.y": 1349.0,
+						"zoom_level": 1.0
+					},
+					"stack_index": 12,
+					"type": "text"
+				},
+				{
+					"buffer": 2,
+					"file": "/Users/cksgrapes/Documents/Business/TAM/htdocs/marusho/marusho-furisode/htdocs/inc/footer-links-ssl.php",
+					"semi_transient": false,
+					"settings":
+					{
+						"buffer_size": 6450,
+						"regions":
+						{
+						},
+						"selection":
+						[
+							[
+								0,
+								0
+							]
+						],
+						"settings":
+						{
+							"auto_complete": false,
+							"bracket_highlighter.busy": false,
+							"bracket_highlighter.locations":
+							{
+								"close":
+								{
+								},
+								"icon":
+								{
+								},
+								"open":
+								{
+								},
+								"unmatched":
+								{
+									"1":
+									[
+										1,
+										7
+									]
+								}
+							},
+							"bracket_highlighter.regions":
+							[
+								"bh_c_define",
+								"bh_c_define_center",
+								"bh_c_define_open",
+								"bh_c_define_close",
+								"bh_c_define_content",
+								"bh_square",
+								"bh_square_center",
+								"bh_square_open",
+								"bh_square_close",
+								"bh_square_content",
+								"bh_regex",
+								"bh_regex_center",
+								"bh_regex_open",
+								"bh_regex_close",
+								"bh_regex_content",
+								"bh_double_quote",
+								"bh_double_quote_center",
+								"bh_double_quote_open",
+								"bh_double_quote_close",
+								"bh_double_quote_content",
+								"bh_round",
+								"bh_round_center",
+								"bh_round_open",
+								"bh_round_close",
+								"bh_round_content",
+								"bh_default",
+								"bh_default_center",
+								"bh_default_open",
+								"bh_default_close",
+								"bh_default_content",
+								"bh_tag",
+								"bh_tag_center",
+								"bh_tag_open",
+								"bh_tag_close",
+								"bh_tag_content",
+								"bh_single_quote",
+								"bh_single_quote_center",
+								"bh_single_quote_open",
+								"bh_single_quote_close",
+								"bh_single_quote_content",
+								"bh_angle",
+								"bh_angle_center",
+								"bh_angle_open",
+								"bh_angle_close",
+								"bh_angle_content",
+								"bh_curly",
+								"bh_curly_center",
+								"bh_curly_open",
+								"bh_curly_close",
+								"bh_curly_content",
+								"bh_unmatched",
+								"bh_unmatched_center",
+								"bh_unmatched_open",
+								"bh_unmatched_close",
+								"bh_unmatched_content"
+							],
+							"color_scheme": "Packages/User/Color Highlighter/themes/Material-Theme-Darker.tmTheme",
+							"editorconfig": true,
+							"ensure_newline_at_eof_on_save": true,
+							"is_init_dirty_state": false,
+							"is_xml": false,
+							"origin_encoding": "UTF-8",
+							"syntax": "Packages/PHP/PHP.sublime-syntax",
+							"tab_size": 2,
+							"translate_tabs_to_spaces": true,
+							"trim_trailing_white_space_on_save": true
+						},
+						"translation.x": 0.0,
+						"translation.y": 0.0,
+						"zoom_level": 1.0
+					},
+					"stack_index": 11,
+					"type": "text"
+				},
+				{
+					"buffer": 3,
+					"file": "/Users/cksgrapes/Documents/Business/TAM/htdocs/marusho/marusho-furisode/htdocs/place/staff/index.php",
+					"semi_transient": false,
+					"settings":
+					{
+						"buffer_size": 25248,
+						"regions":
+						{
+						},
+						"selection":
+						[
+							[
+								5711,
+								5711
+							]
+						],
+						"settings":
+						{
+							"auto_complete": false,
+							"bracket_highlighter.busy": false,
+							"bracket_highlighter.locations":
+							{
+								"close":
+								{
+								},
+								"icon":
+								{
+								},
+								"open":
+								{
+								},
+								"unmatched":
+								{
+								}
+							},
+							"bracket_highlighter.regions":
+							[
+								"bh_regex",
+								"bh_regex_center",
+								"bh_regex_open",
+								"bh_regex_close",
+								"bh_regex_content",
+								"bh_curly",
+								"bh_curly_center",
+								"bh_curly_open",
+								"bh_curly_close",
+								"bh_curly_content",
+								"bh_single_quote",
+								"bh_single_quote_center",
+								"bh_single_quote_open",
+								"bh_single_quote_close",
+								"bh_single_quote_content",
+								"bh_angle",
+								"bh_angle_center",
+								"bh_angle_open",
+								"bh_angle_close",
+								"bh_angle_content",
+								"bh_square",
+								"bh_square_center",
+								"bh_square_open",
+								"bh_square_close",
+								"bh_square_content",
+								"bh_round",
+								"bh_round_center",
+								"bh_round_open",
+								"bh_round_close",
+								"bh_round_content",
+								"bh_default",
+								"bh_default_center",
+								"bh_default_open",
+								"bh_default_close",
+								"bh_default_content",
+								"bh_double_quote",
+								"bh_double_quote_center",
+								"bh_double_quote_open",
+								"bh_double_quote_close",
+								"bh_double_quote_content",
+								"bh_unmatched",
+								"bh_unmatched_center",
+								"bh_unmatched_open",
+								"bh_unmatched_close",
+								"bh_unmatched_content",
+								"bh_tag",
+								"bh_tag_center",
+								"bh_tag_open",
+								"bh_tag_close",
+								"bh_tag_content",
+								"bh_c_define",
+								"bh_c_define_center",
+								"bh_c_define_open",
+								"bh_c_define_close",
+								"bh_c_define_content"
+							],
+							"color_scheme": "Packages/User/Color Highlighter/themes/Material-Theme-Darker.tmTheme",
+							"editorconfig": true,
+							"ensure_newline_at_eof_on_save": true,
+							"is_init_dirty_state": false,
+							"is_xml": false,
+							"origin_encoding": "UTF-8",
+							"syntax": "Packages/PHP/PHP.sublime-syntax",
+							"tab_size": 4,
+							"translate_tabs_to_spaces": true,
+							"trim_trailing_white_space_on_save": true
+						},
+						"translation.x": 0.0,
+						"translation.y": 2954.0,
+						"zoom_level": 1.0
+					},
+					"stack_index": 5,
+					"type": "text"
+				},
+				{
+					"buffer": 4,
+					"file": "/Users/cksgrapes/Documents/Business/TAM/htdocs/marusho/marusho-furisode/dev/sass/init/_config.scss",
+					"semi_transient": false,
+					"settings":
+					{
+						"buffer_size": 388,
+						"regions":
+						{
+						},
+						"selection":
+						[
+							[
+								0,
+								0
+							]
+						],
+						"settings":
+						{
+							"bracket_highlighter.busy": false,
+							"bracket_highlighter.locations":
+							{
+								"close":
+								{
+								},
+								"icon":
+								{
+								},
+								"open":
+								{
+								},
+								"unmatched":
+								{
+								}
+							},
+							"bracket_highlighter.regions":
+							[
+								"bh_regex",
+								"bh_regex_center",
+								"bh_regex_open",
+								"bh_regex_close",
+								"bh_regex_content",
+								"bh_curly",
+								"bh_curly_center",
+								"bh_curly_open",
+								"bh_curly_close",
+								"bh_curly_content",
+								"bh_single_quote",
+								"bh_single_quote_center",
+								"bh_single_quote_open",
+								"bh_single_quote_close",
+								"bh_single_quote_content",
+								"bh_angle",
+								"bh_angle_center",
+								"bh_angle_open",
+								"bh_angle_close",
+								"bh_angle_content",
+								"bh_square",
+								"bh_square_center",
+								"bh_square_open",
+								"bh_square_close",
+								"bh_square_content",
+								"bh_round",
+								"bh_round_center",
+								"bh_round_open",
+								"bh_round_close",
+								"bh_round_content",
+								"bh_default",
+								"bh_default_center",
+								"bh_default_open",
+								"bh_default_close",
+								"bh_default_content",
+								"bh_double_quote",
+								"bh_double_quote_center",
+								"bh_double_quote_open",
+								"bh_double_quote_close",
+								"bh_double_quote_content",
+								"bh_unmatched",
+								"bh_unmatched_center",
+								"bh_unmatched_open",
+								"bh_unmatched_close",
+								"bh_unmatched_content",
+								"bh_tag",
+								"bh_tag_center",
+								"bh_tag_open",
+								"bh_tag_close",
+								"bh_tag_content",
+								"bh_c_define",
+								"bh_c_define_center",
+								"bh_c_define_open",
+								"bh_c_define_close",
+								"bh_c_define_content"
+							],
+							"color_scheme": "Packages/User/Color Highlighter/themes/Material-Theme-Darker.tmTheme",
+							"editorconfig": true,
+							"ensure_newline_at_eof_on_save": true,
+							"is_init_dirty_state": false,
+							"origin_encoding": "UTF-8",
+							"syntax": "Packages/SCSS/SCSS.tmLanguage",
+							"tab_size": 2,
+							"translate_tabs_to_spaces": true,
+							"trim_trailing_white_space_on_save": true
+						},
+						"translation.x": 0.0,
+						"translation.y": 0.0,
+						"zoom_level": 1.0
+					},
+					"stack_index": 6,
+					"type": "text"
+				},
+				{
+					"buffer": 5,
+					"file": "/Users/cksgrapes/Documents/Business/TAM/htdocs/marusho/marusho-furisode/dev/sass/init/_font.scss",
+					"semi_transient": false,
+					"settings":
+					{
+						"buffer_size": 849,
+						"regions":
+						{
+						},
+						"selection":
+						[
+							[
+								0,
+								0
+							]
+						],
+						"settings":
+						{
+							"bracket_highlighter.busy": false,
+							"bracket_highlighter.locations":
+							{
+								"close":
+								{
+								},
+								"icon":
+								{
+								},
+								"open":
+								{
+								},
+								"unmatched":
+								{
+								}
+							},
+							"bracket_highlighter.regions":
+							[
+								"bh_regex",
+								"bh_regex_center",
+								"bh_regex_open",
+								"bh_regex_close",
+								"bh_regex_content",
+								"bh_curly",
+								"bh_curly_center",
+								"bh_curly_open",
+								"bh_curly_close",
+								"bh_curly_content",
+								"bh_single_quote",
+								"bh_single_quote_center",
+								"bh_single_quote_open",
+								"bh_single_quote_close",
+								"bh_single_quote_content",
+								"bh_angle",
+								"bh_angle_center",
+								"bh_angle_open",
+								"bh_angle_close",
+								"bh_angle_content",
+								"bh_square",
+								"bh_square_center",
+								"bh_square_open",
+								"bh_square_close",
+								"bh_square_content",
+								"bh_round",
+								"bh_round_center",
+								"bh_round_open",
+								"bh_round_close",
+								"bh_round_content",
+								"bh_default",
+								"bh_default_center",
+								"bh_default_open",
+								"bh_default_close",
+								"bh_default_content",
+								"bh_double_quote",
+								"bh_double_quote_center",
+								"bh_double_quote_open",
+								"bh_double_quote_close",
+								"bh_double_quote_content",
+								"bh_unmatched",
+								"bh_unmatched_center",
+								"bh_unmatched_open",
+								"bh_unmatched_close",
+								"bh_unmatched_content",
+								"bh_tag",
+								"bh_tag_center",
+								"bh_tag_open",
+								"bh_tag_close",
+								"bh_tag_content",
+								"bh_c_define",
+								"bh_c_define_center",
+								"bh_c_define_open",
+								"bh_c_define_close",
+								"bh_c_define_content"
+							],
+							"color_scheme": "Packages/User/Color Highlighter/themes/Material-Theme-Darker.tmTheme",
+							"editorconfig": true,
+							"ensure_newline_at_eof_on_save": true,
+							"is_init_dirty_state": false,
+							"origin_encoding": "ASCII",
+							"syntax": "Packages/SCSS/SCSS.tmLanguage",
+							"tab_size": 2,
+							"translate_tabs_to_spaces": true,
+							"trim_trailing_white_space_on_save": true
+						},
+						"translation.x": 0.0,
+						"translation.y": 0.0,
+						"zoom_level": 1.0
+					},
+					"stack_index": 9,
+					"type": "text"
+				},
+				{
+					"buffer": 6,
+					"file": "/Users/cksgrapes/Documents/Business/TAM/htdocs/marusho/marusho-furisode/dev/sass/init/_reset.scss",
+					"semi_transient": false,
+					"settings":
+					{
+						"buffer_size": 1787,
+						"regions":
+						{
+						},
+						"selection":
+						[
+							[
+								0,
+								0
+							]
+						],
+						"settings":
+						{
+							"bracket_highlighter.busy": false,
+							"bracket_highlighter.locations":
+							{
+								"close":
+								{
+								},
+								"icon":
+								{
+								},
+								"open":
+								{
+								},
+								"unmatched":
+								{
+								}
+							},
+							"bracket_highlighter.regions":
+							[
+								"bh_regex",
+								"bh_regex_center",
+								"bh_regex_open",
+								"bh_regex_close",
+								"bh_regex_content",
+								"bh_curly",
+								"bh_curly_center",
+								"bh_curly_open",
+								"bh_curly_close",
+								"bh_curly_content",
+								"bh_single_quote",
+								"bh_single_quote_center",
+								"bh_single_quote_open",
+								"bh_single_quote_close",
+								"bh_single_quote_content",
+								"bh_angle",
+								"bh_angle_center",
+								"bh_angle_open",
+								"bh_angle_close",
+								"bh_angle_content",
+								"bh_square",
+								"bh_square_center",
+								"bh_square_open",
+								"bh_square_close",
+								"bh_square_content",
+								"bh_round",
+								"bh_round_center",
+								"bh_round_open",
+								"bh_round_close",
+								"bh_round_content",
+								"bh_default",
+								"bh_default_center",
+								"bh_default_open",
+								"bh_default_close",
+								"bh_default_content",
+								"bh_double_quote",
+								"bh_double_quote_center",
+								"bh_double_quote_open",
+								"bh_double_quote_close",
+								"bh_double_quote_content",
+								"bh_unmatched",
+								"bh_unmatched_center",
+								"bh_unmatched_open",
+								"bh_unmatched_close",
+								"bh_unmatched_content",
+								"bh_tag",
+								"bh_tag_center",
+								"bh_tag_open",
+								"bh_tag_close",
+								"bh_tag_content",
+								"bh_c_define",
+								"bh_c_define_center",
+								"bh_c_define_open",
+								"bh_c_define_close",
+								"bh_c_define_content"
+							],
+							"color_scheme": "Packages/User/Color Highlighter/themes/Material-Theme-Darker.tmTheme",
+							"editorconfig": true,
+							"ensure_newline_at_eof_on_save": true,
+							"is_init_dirty_state": false,
+							"origin_encoding": "ASCII",
+							"syntax": "Packages/SCSS/SCSS.tmLanguage",
+							"tab_size": 2,
+							"translate_tabs_to_spaces": true,
+							"trim_trailing_white_space_on_save": true
+						},
+						"translation.x": 0.0,
+						"translation.y": 0.0,
+						"zoom_level": 1.0
+					},
+					"stack_index": 8,
+					"type": "text"
+				},
+				{
+					"buffer": 7,
+					"file": "/Users/cksgrapes/Documents/Business/TAM/htdocs/marusho/marusho-furisode/htdocs/assets/css/style.css",
+					"semi_transient": false,
+					"settings":
+					{
+						"buffer_size": 156107,
+						"regions":
+						{
+						},
+						"selection":
+						[
+							[
+								56542,
+								56542
+							]
+						],
+						"settings":
+						{
+							"bracket_highlighter.busy": false,
+							"bracket_highlighter.locations":
+							{
+								"close":
+								{
+									"1":
+									[
+										56623,
+										56624
+									]
+								},
+								"icon":
+								{
+									"1":
+									[
+										"Packages/BracketHighlighter/icons/curly_bracket.png",
+										"brackethighlighter.default"
+									]
+								},
+								"open":
+								{
+									"1":
+									[
+										56426,
+										56427
+									]
+								},
+								"unmatched":
+								{
+								}
+							},
+							"bracket_highlighter.regions":
+							[
+								"bh_regex",
+								"bh_regex_center",
+								"bh_regex_open",
+								"bh_regex_close",
+								"bh_regex_content",
+								"bh_curly",
+								"bh_curly_center",
+								"bh_curly_open",
+								"bh_curly_close",
+								"bh_curly_content",
+								"bh_single_quote",
+								"bh_single_quote_center",
+								"bh_single_quote_open",
+								"bh_single_quote_close",
+								"bh_single_quote_content",
+								"bh_angle",
+								"bh_angle_center",
+								"bh_angle_open",
+								"bh_angle_close",
+								"bh_angle_content",
+								"bh_square",
+								"bh_square_center",
+								"bh_square_open",
+								"bh_square_close",
+								"bh_square_content",
+								"bh_round",
+								"bh_round_center",
+								"bh_round_open",
+								"bh_round_close",
+								"bh_round_content",
+								"bh_default",
+								"bh_default_center",
+								"bh_default_open",
+								"bh_default_close",
+								"bh_default_content",
+								"bh_double_quote",
+								"bh_double_quote_center",
+								"bh_double_quote_open",
+								"bh_double_quote_close",
+								"bh_double_quote_content",
+								"bh_unmatched",
+								"bh_unmatched_center",
+								"bh_unmatched_open",
+								"bh_unmatched_close",
+								"bh_unmatched_content",
+								"bh_tag",
+								"bh_tag_center",
+								"bh_tag_open",
+								"bh_tag_close",
+								"bh_tag_content",
+								"bh_c_define",
+								"bh_c_define_center",
+								"bh_c_define_open",
+								"bh_c_define_close",
+								"bh_c_define_content"
+							],
+							"color_scheme": "Packages/User/Color Highlighter/themes/Material-Theme-Darker.tmTheme",
+							"editorconfig": true,
+							"ensure_newline_at_eof_on_save": true,
+							"is_init_dirty_state": false,
+							"origin_encoding": "UTF-8",
+							"syntax": "Packages/CSS/CSS.sublime-syntax",
+							"tab_size": 2,
+							"translate_tabs_to_spaces": true,
+							"trim_trailing_white_space_on_save": true
+						},
+						"translation.x": 0.0,
+						"translation.y": 75525.0,
+						"zoom_level": 1.0
+					},
+					"stack_index": 4,
+					"type": "text"
+				},
+				{
+					"buffer": 8,
+					"semi_transient": false,
+					"settings":
+					{
+						"buffer_size": 694,
+						"regions":
+						{
+						},
+						"selection":
+						[
+							[
+								304,
+								308
+							]
+						],
+						"settings":
+						{
+							"bracket_highlighter.busy": false,
+							"bracket_highlighter.locations":
+							{
+								"close":
+								{
+								},
+								"icon":
+								{
+								},
+								"open":
+								{
+								},
+								"unmatched":
+								{
+								}
+							},
+							"bracket_highlighter.regions":
+							[
+								"bh_regex",
+								"bh_regex_center",
+								"bh_regex_open",
+								"bh_regex_close",
+								"bh_regex_content",
+								"bh_curly",
+								"bh_curly_center",
+								"bh_curly_open",
+								"bh_curly_close",
+								"bh_curly_content",
+								"bh_single_quote",
+								"bh_single_quote_center",
+								"bh_single_quote_open",
+								"bh_single_quote_close",
+								"bh_single_quote_content",
+								"bh_angle",
+								"bh_angle_center",
+								"bh_angle_open",
+								"bh_angle_close",
+								"bh_angle_content",
+								"bh_square",
+								"bh_square_center",
+								"bh_square_open",
+								"bh_square_close",
+								"bh_square_content",
+								"bh_round",
+								"bh_round_center",
+								"bh_round_open",
+								"bh_round_close",
+								"bh_round_content",
+								"bh_default",
+								"bh_default_center",
+								"bh_default_open",
+								"bh_default_close",
+								"bh_default_content",
+								"bh_double_quote",
+								"bh_double_quote_center",
+								"bh_double_quote_open",
+								"bh_double_quote_close",
+								"bh_double_quote_content",
+								"bh_unmatched",
+								"bh_unmatched_center",
+								"bh_unmatched_open",
+								"bh_unmatched_close",
+								"bh_unmatched_content",
+								"bh_tag",
+								"bh_tag_center",
+								"bh_tag_open",
+								"bh_tag_close",
+								"bh_tag_content",
+								"bh_c_define",
+								"bh_c_define_center",
+								"bh_c_define_open",
+								"bh_c_define_close",
+								"bh_c_define_content"
+							],
+							"default_dir": "/Users/cksgrapes/Documents/Business/TAM/htdocs/marusho/marusho-furisode",
+							"is_init_dirty_state": true,
+							"is_xml": false,
+							"syntax": "Packages/CSS/CSS.sublime-syntax",
+							"tab_size": 2,
+							"translate_tabs_to_spaces": true
+						},
+						"translation.x": 0.0,
+						"translation.y": 0.0,
+						"zoom_level": 1.0
+					},
+					"stack_index": 1,
+					"type": "text"
+				},
+				{
+					"buffer": 9,
+					"file": "/Users/cksgrapes/Documents/Business/TAM/htdocs/marusho/marusho-furisode/dev/sass/init/_utility.scss",
+					"semi_transient": false,
+					"settings":
+					{
+						"buffer_size": 188,
+						"regions":
+						{
+						},
+						"selection":
+						[
+							[
+								0,
+								0
+							]
+						],
+						"settings":
+						{
+							"bracket_highlighter.busy": false,
+							"bracket_highlighter.locations":
+							{
+								"close":
+								{
+								},
+								"icon":
+								{
+								},
+								"open":
+								{
+								},
+								"unmatched":
+								{
+								}
+							},
+							"bracket_highlighter.regions":
+							[
+								"bh_regex",
+								"bh_regex_center",
+								"bh_regex_open",
+								"bh_regex_close",
+								"bh_regex_content",
+								"bh_curly",
+								"bh_curly_center",
+								"bh_curly_open",
+								"bh_curly_close",
+								"bh_curly_content",
+								"bh_single_quote",
+								"bh_single_quote_center",
+								"bh_single_quote_open",
+								"bh_single_quote_close",
+								"bh_single_quote_content",
+								"bh_angle",
+								"bh_angle_center",
+								"bh_angle_open",
+								"bh_angle_close",
+								"bh_angle_content",
+								"bh_square",
+								"bh_square_center",
+								"bh_square_open",
+								"bh_square_close",
+								"bh_square_content",
+								"bh_round",
+								"bh_round_center",
+								"bh_round_open",
+								"bh_round_close",
+								"bh_round_content",
+								"bh_default",
+								"bh_default_center",
+								"bh_default_open",
+								"bh_default_close",
+								"bh_default_content",
+								"bh_double_quote",
+								"bh_double_quote_center",
+								"bh_double_quote_open",
+								"bh_double_quote_close",
+								"bh_double_quote_content",
+								"bh_unmatched",
+								"bh_unmatched_center",
+								"bh_unmatched_open",
+								"bh_unmatched_close",
+								"bh_unmatched_content",
+								"bh_tag",
+								"bh_tag_center",
+								"bh_tag_open",
+								"bh_tag_close",
+								"bh_tag_content",
+								"bh_c_define",
+								"bh_c_define_center",
+								"bh_c_define_open",
+								"bh_c_define_close",
+								"bh_c_define_content"
+							],
+							"color_scheme": "Packages/User/Color Highlighter/themes/Material-Theme-Darker.tmTheme",
+							"editorconfig": true,
+							"ensure_newline_at_eof_on_save": true,
+							"is_init_dirty_state": false,
+							"origin_encoding": "ASCII",
+							"syntax": "Packages/SCSS/SCSS.tmLanguage",
+							"tab_size": 2,
+							"translate_tabs_to_spaces": true,
+							"trim_trailing_white_space_on_save": true
+						},
+						"translation.x": 0.0,
+						"translation.y": 0.0,
+						"zoom_level": 1.0
+					},
+					"stack_index": 7,
+					"type": "text"
+				},
+				{
+					"buffer": 10,
+					"file": "/Users/cksgrapes/Documents/Business/TAM/htdocs/marusho/marusho-furisode/htdocs/place/support/index.php",
+					"semi_transient": false,
+					"settings":
+					{
+						"buffer_size": 9884,
+						"regions":
+						{
+						},
+						"selection":
+						[
+							[
+								586,
+								586
+							]
+						],
+						"settings":
+						{
+							"auto_complete": false,
+							"bracket_highlighter.busy": false,
+							"bracket_highlighter.locations":
+							{
+								"close":
+								{
+									"1":
+									[
+										683,
+										684
+									]
+								},
+								"icon":
+								{
+									"1":
+									[
+										"Packages/BracketHighlighter/icons/double_quote.png",
+										"brackethighlighter.default"
+									]
+								},
+								"open":
+								{
+									"1":
+									[
+										574,
+										575
+									]
+								},
+								"unmatched":
+								{
+								}
+							},
+							"bracket_highlighter.regions":
+							[
+								"bh_regex",
+								"bh_regex_center",
+								"bh_regex_open",
+								"bh_regex_close",
+								"bh_regex_content",
+								"bh_curly",
+								"bh_curly_center",
+								"bh_curly_open",
+								"bh_curly_close",
+								"bh_curly_content",
+								"bh_single_quote",
+								"bh_single_quote_center",
+								"bh_single_quote_open",
+								"bh_single_quote_close",
+								"bh_single_quote_content",
+								"bh_angle",
+								"bh_angle_center",
+								"bh_angle_open",
+								"bh_angle_close",
+								"bh_angle_content",
+								"bh_square",
+								"bh_square_center",
+								"bh_square_open",
+								"bh_square_close",
+								"bh_square_content",
+								"bh_round",
+								"bh_round_center",
+								"bh_round_open",
+								"bh_round_close",
+								"bh_round_content",
+								"bh_default",
+								"bh_default_center",
+								"bh_default_open",
+								"bh_default_close",
+								"bh_default_content",
+								"bh_double_quote",
+								"bh_double_quote_center",
+								"bh_double_quote_open",
+								"bh_double_quote_close",
+								"bh_double_quote_content",
+								"bh_unmatched",
+								"bh_unmatched_center",
+								"bh_unmatched_open",
+								"bh_unmatched_close",
+								"bh_unmatched_content",
+								"bh_tag",
+								"bh_tag_center",
+								"bh_tag_open",
+								"bh_tag_close",
+								"bh_tag_content",
+								"bh_c_define",
+								"bh_c_define_center",
+								"bh_c_define_open",
+								"bh_c_define_close",
+								"bh_c_define_content"
+							],
+							"color_scheme": "Packages/User/Color Highlighter/themes/Material-Theme-Darker.tmTheme",
+							"editorconfig": true,
+							"ensure_newline_at_eof_on_save": true,
+							"is_init_dirty_state": false,
+							"is_xml": false,
+							"origin_encoding": "UTF-8",
+							"syntax": "Packages/PHP/PHP.sublime-syntax",
+							"tab_size": 2,
+							"translate_tabs_to_spaces": true,
+							"trim_trailing_white_space_on_save": true
+						},
+						"translation.x": 0.0,
+						"translation.y": 0.0,
+						"zoom_level": 1.0
+					},
+					"stack_index": 10,
+					"type": "text"
+				}
+			]
+		},
+		{
+			"selected": 2,
+			"sheets":
+			[
+				{
+					"buffer": 11,
+					"file": "/Users/cksgrapes/Documents/Business/TAM/htdocs/marusho/marusho-furisode/dev/sass/_layout.scss",
+					"semi_transient": false,
+					"settings":
+					{
+						"buffer_size": 18528,
+						"regions":
+						{
+						},
+						"selection":
+						[
+							[
+								458,
+								458
+							]
+						],
+						"settings":
+						{
+							"bracket_highlighter.busy": false,
+							"bracket_highlighter.locations":
+							{
+								"close":
+								{
+									"1":
+									[
+										457,
+										458
+									]
+								},
+								"icon":
+								{
+									"1":
+									[
+										"Packages/BracketHighlighter/icons/curly_bracket.png",
+										"brackethighlighter.default"
+									]
+								},
+								"open":
+								{
+									"1":
+									[
+										318,
+										319
+									]
+								},
+								"unmatched":
+								{
+								}
+							},
+							"bracket_highlighter.regions":
+							[
+								"bh_regex",
+								"bh_regex_center",
+								"bh_regex_open",
+								"bh_regex_close",
+								"bh_regex_content",
+								"bh_curly",
+								"bh_curly_center",
+								"bh_curly_open",
+								"bh_curly_close",
+								"bh_curly_content",
+								"bh_single_quote",
+								"bh_single_quote_center",
+								"bh_single_quote_open",
+								"bh_single_quote_close",
+								"bh_single_quote_content",
+								"bh_angle",
+								"bh_angle_center",
+								"bh_angle_open",
+								"bh_angle_close",
+								"bh_angle_content",
+								"bh_square",
+								"bh_square_center",
+								"bh_square_open",
+								"bh_square_close",
+								"bh_square_content",
+								"bh_round",
+								"bh_round_center",
+								"bh_round_open",
+								"bh_round_close",
+								"bh_round_content",
+								"bh_default",
+								"bh_default_center",
+								"bh_default_open",
+								"bh_default_close",
+								"bh_default_content",
+								"bh_double_quote",
+								"bh_double_quote_center",
+								"bh_double_quote_open",
+								"bh_double_quote_close",
+								"bh_double_quote_content",
+								"bh_unmatched",
+								"bh_unmatched_center",
+								"bh_unmatched_open",
+								"bh_unmatched_close",
+								"bh_unmatched_content",
+								"bh_tag",
+								"bh_tag_center",
+								"bh_tag_open",
+								"bh_tag_close",
+								"bh_tag_content",
+								"bh_c_define",
+								"bh_c_define_center",
+								"bh_c_define_open",
+								"bh_c_define_close",
+								"bh_c_define_content"
+							],
+							"color_scheme": "Packages/User/Color Highlighter/themes/Material-Theme-Darker.tmTheme",
+							"editorconfig": true,
+							"ensure_newline_at_eof_on_save": true,
+							"is_init_dirty_state": false,
+							"syntax": "Packages/SCSS/SCSS.tmLanguage",
+							"tab_size": 2,
+							"translate_tabs_to_spaces": true,
+							"trim_trailing_white_space_on_save": true
+						},
+						"translation.x": 0.0,
+						"translation.y": 338.0,
+						"zoom_level": 1.0
+					},
+					"stack_index": 3,
+					"type": "text"
+				},
+				{
+					"buffer": 12,
+					"file": "/Users/cksgrapes/Documents/Business/TAM/htdocs/marusho/marusho-furisode/dev/sass/_module.scss",
+					"semi_transient": false,
+					"settings":
+					{
+						"buffer_size": 17553,
+						"regions":
+						{
+						},
+						"selection":
+						[
+							[
+								4777,
+								4777
+							]
+						],
+						"settings":
+						{
+							"auto_indent": true,
+							"bracket_highlighter.busy": false,
+							"bracket_highlighter.locations":
+							{
+								"close":
+								{
+									"1":
+									[
+										4782,
+										4783
+									]
+								},
+								"icon":
+								{
+									"1":
+									[
+										"Packages/BracketHighlighter/icons/curly_bracket.png",
+										"brackethighlighter.default"
+									]
+								},
+								"open":
+								{
+									"1":
+									[
+										4752,
+										4753
+									]
+								},
+								"unmatched":
+								{
+								}
+							},
+							"bracket_highlighter.regions":
+							[
+								"bh_regex",
+								"bh_regex_center",
+								"bh_regex_open",
+								"bh_regex_close",
+								"bh_regex_content",
+								"bh_curly",
+								"bh_curly_center",
+								"bh_curly_open",
+								"bh_curly_close",
+								"bh_curly_content",
+								"bh_single_quote",
+								"bh_single_quote_center",
+								"bh_single_quote_open",
+								"bh_single_quote_close",
+								"bh_single_quote_content",
+								"bh_angle",
+								"bh_angle_center",
+								"bh_angle_open",
+								"bh_angle_close",
+								"bh_angle_content",
+								"bh_square",
+								"bh_square_center",
+								"bh_square_open",
+								"bh_square_close",
+								"bh_square_content",
+								"bh_round",
+								"bh_round_center",
+								"bh_round_open",
+								"bh_round_close",
+								"bh_round_content",
+								"bh_default",
+								"bh_default_center",
+								"bh_default_open",
+								"bh_default_close",
+								"bh_default_content",
+								"bh_double_quote",
+								"bh_double_quote_center",
+								"bh_double_quote_open",
+								"bh_double_quote_close",
+								"bh_double_quote_content",
+								"bh_unmatched",
+								"bh_unmatched_center",
+								"bh_unmatched_open",
+								"bh_unmatched_close",
+								"bh_unmatched_content",
+								"bh_tag",
+								"bh_tag_center",
+								"bh_tag_open",
+								"bh_tag_close",
+								"bh_tag_content",
+								"bh_c_define",
+								"bh_c_define_center",
+								"bh_c_define_open",
+								"bh_c_define_close",
+								"bh_c_define_content"
+							],
+							"color_scheme": "Packages/User/Color Highlighter/themes/Material-Theme-Darker.tmTheme",
+							"editorconfig": true,
+							"ensure_newline_at_eof_on_save": true,
+							"is_init_dirty_state": false,
+							"origin_encoding": "UTF-8",
+							"syntax": "Packages/SCSS/SCSS.tmLanguage",
+							"tab_size": 2,
+							"translate_tabs_to_spaces": true,
+							"trim_trailing_white_space_on_save": true
+						},
+						"translation.x": 0.0,
+						"translation.y": 974.0,
+						"zoom_level": 1.0
+					},
+					"stack_index": 2,
+					"type": "text"
+				},
+				{
+					"buffer": 13,
+					"file": "/Users/cksgrapes/Documents/Business/TAM/htdocs/marusho/marusho-furisode/dev/sass/page/_place.scss",
+					"semi_transient": false,
+					"settings":
+					{
+						"buffer_size": 10953,
+						"regions":
+						{
+						},
+						"selection":
+						[
+							[
+								6528,
+								6528
+							]
+						],
+						"settings":
+						{
+							"bracket_highlighter.busy": false,
+							"bracket_highlighter.locations":
+							{
+								"close":
+								{
+									"1":
+									[
+										6900,
+										6901
+									]
+								},
+								"icon":
+								{
+									"1":
+									[
+										"Packages/BracketHighlighter/icons/curly_bracket.png",
+										"brackethighlighter.default"
+									]
+								},
+								"open":
+								{
+									"1":
+									[
+										6468,
+										6469
+									]
+								},
+								"unmatched":
+								{
+								}
+							},
+							"bracket_highlighter.regions":
+							[
+								"bh_regex",
+								"bh_regex_center",
+								"bh_regex_open",
+								"bh_regex_close",
+								"bh_regex_content",
+								"bh_curly",
+								"bh_curly_center",
+								"bh_curly_open",
+								"bh_curly_close",
+								"bh_curly_content",
+								"bh_single_quote",
+								"bh_single_quote_center",
+								"bh_single_quote_open",
+								"bh_single_quote_close",
+								"bh_single_quote_content",
+								"bh_angle",
+								"bh_angle_center",
+								"bh_angle_open",
+								"bh_angle_close",
+								"bh_angle_content",
+								"bh_square",
+								"bh_square_center",
+								"bh_square_open",
+								"bh_square_close",
+								"bh_square_content",
+								"bh_round",
+								"bh_round_center",
+								"bh_round_open",
+								"bh_round_close",
+								"bh_round_content",
+								"bh_default",
+								"bh_default_center",
+								"bh_default_open",
+								"bh_default_close",
+								"bh_default_content",
+								"bh_double_quote",
+								"bh_double_quote_center",
+								"bh_double_quote_open",
+								"bh_double_quote_close",
+								"bh_double_quote_content",
+								"bh_unmatched",
+								"bh_unmatched_center",
+								"bh_unmatched_open",
+								"bh_unmatched_close",
+								"bh_unmatched_content",
+								"bh_tag",
+								"bh_tag_center",
+								"bh_tag_open",
+								"bh_tag_close",
+								"bh_tag_content",
+								"bh_c_define",
+								"bh_c_define_center",
+								"bh_c_define_open",
+								"bh_c_define_close",
+								"bh_c_define_content"
+							],
+							"color_scheme": "Packages/User/Color Highlighter/themes/Material-Theme-Darker.tmTheme",
+							"editorconfig": true,
+							"ensure_newline_at_eof_on_save": true,
+							"is_init_dirty_state": false,
+							"origin_encoding": "ASCII",
+							"syntax": "Packages/SCSS/SCSS.tmLanguage",
+							"tab_size": 2,
+							"translate_tabs_to_spaces": true,
+							"trim_trailing_white_space_on_save": true
+						},
+						"translation.x": 0.0,
+						"translation.y": 1035.0,
+						"zoom_level": 1.0
+					},
+					"stack_index": 0,
+					"type": "text"
+				},
+				{
+					"buffer": 14,
+					"file": "/Users/cksgrapes/Documents/Business/TAM/htdocs/marusho/marusho-furisode/gulpfile.js",
+					"semi_transient": false,
+					"settings":
+					{
+						"buffer_size": 6007,
+						"regions":
+						{
+						},
+						"selection":
+						[
+							[
+								1308,
+								1310
+							]
+						],
+						"settings":
+						{
+							"bracket_highlighter.busy": false,
+							"bracket_highlighter.locations":
+							{
+								"close":
+								{
+									"1":
+									[
+										1311,
+										1312
+									]
+								},
+								"icon":
+								{
+									"1":
+									[
+										"Packages/BracketHighlighter/icons/curly_bracket.png",
+										"brackethighlighter.default"
+									]
+								},
+								"open":
+								{
+									"1":
+									[
+										1036,
+										1037
+									]
+								},
+								"unmatched":
+								{
+								}
+							},
+							"bracket_highlighter.regions":
+							[
+								"bh_c_define",
+								"bh_c_define_center",
+								"bh_c_define_open",
+								"bh_c_define_close",
+								"bh_c_define_content",
+								"bh_square",
+								"bh_square_center",
+								"bh_square_open",
+								"bh_square_close",
+								"bh_square_content",
+								"bh_regex",
+								"bh_regex_center",
+								"bh_regex_open",
+								"bh_regex_close",
+								"bh_regex_content",
+								"bh_double_quote",
+								"bh_double_quote_center",
+								"bh_double_quote_open",
+								"bh_double_quote_close",
+								"bh_double_quote_content",
+								"bh_round",
+								"bh_round_center",
+								"bh_round_open",
+								"bh_round_close",
+								"bh_round_content",
+								"bh_default",
+								"bh_default_center",
+								"bh_default_open",
+								"bh_default_close",
+								"bh_default_content",
+								"bh_tag",
+								"bh_tag_center",
+								"bh_tag_open",
+								"bh_tag_close",
+								"bh_tag_content",
+								"bh_single_quote",
+								"bh_single_quote_center",
+								"bh_single_quote_open",
+								"bh_single_quote_close",
+								"bh_single_quote_content",
+								"bh_angle",
+								"bh_angle_center",
+								"bh_angle_open",
+								"bh_angle_close",
+								"bh_angle_content",
+								"bh_curly",
+								"bh_curly_center",
+								"bh_curly_open",
+								"bh_curly_close",
+								"bh_curly_content",
+								"bh_unmatched",
+								"bh_unmatched_center",
+								"bh_unmatched_open",
+								"bh_unmatched_close",
+								"bh_unmatched_content"
+							],
+							"color_scheme": "Packages/User/Color Highlighter/themes/Material-Theme-Darker.tmTheme",
+							"editorconfig": true,
+							"ensure_newline_at_eof_on_save": true,
+							"is_init_dirty_state": false,
+							"origin_encoding": "ASCII",
+							"syntax": "Packages/JavaScript/JavaScript.sublime-syntax",
+							"tab_size": 2,
+							"translate_tabs_to_spaces": true,
+							"trim_trailing_white_space_on_save": true
+						},
+						"translation.x": 0.0,
+						"translation.y": 513.0,
+						"zoom_level": 1.0
+					},
+					"stack_index": 14,
+					"type": "text"
+				}
+			]
+		}
+	],
+	"incremental_find":
+	{
+		"height": 30.0
+	},
+	"input":
+	{
+		"height": 66.0
+	},
+	"layout":
+	{
+		"cells":
+		[
+			[
+				0,
+				0,
+				1,
+				1
+			],
+			[
+				1,
+				0,
+				2,
+				1
+			]
+		],
+		"cols":
+		[
+			0.0,
+			0.5,
+			1.0
+		],
+		"rows":
+		[
+			0.0,
+			1.0
+		]
+	},
+	"menu_visible": true,
+	"output.find_results":
+	{
+		"height": 0.0
+	},
+	"pinned_build_system": "",
+	"project": "marusho-furisode.sublime-project",
+	"replace":
+	{
+		"height": 56.0
+	},
+	"save_all_on_build": true,
+	"select_file":
+	{
+		"height": 0.0,
+		"last_filter": "",
+		"selected_items":
+		[
+			[
+				"lay",
+				"dev/css/_layout.scss"
+			],
+			[
+				"optionscss",
+				"dev/scss/base/_option.scss"
+			],
+			[
+				"communi",
+				"dev/scss/project/_community.scss"
+			],
+			[
+				"list",
+				"dev/scss/components/_list.scss"
+			],
+			[
+				"scsslayout",
+				"dev/scss/layout/_contents.scss"
+			],
+			[
+				"listscss",
+				"dev/scss/components/_list.scss"
+			],
+			[
+				"scsscomm",
+				"dev/scss/project/_community.scss"
+			]
+		],
+		"width": 0.0
+	},
+	"select_project":
+	{
+		"height": 500.0,
+		"last_filter": "",
+		"selected_items":
+		[
+		],
+		"width": 380.0
+	},
+	"select_symbol":
+	{
+		"height": 0.0,
+		"last_filter": "",
+		"selected_items":
+		[
+		],
+		"width": 0.0
+	},
+	"selected_group": 1,
+	"settings":
+	{
+	},
+	"show_minimap": true,
+	"show_open_files": true,
+	"show_tabs": true,
+	"side_bar_visible": true,
+	"side_bar_width": 285.0,
+	"status_bar_visible": true,
+	"template_settings":
+	{
+	}
+}

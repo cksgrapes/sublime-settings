@@ -1,0 +1,1456 @@
+{
+	"auto_complete":
+	{
+		"selected_items":
+		[
+			[
+				"awar",
+				"award10_01.png"
+			],
+			[
+				"ve",
+				"vertical-align"
+			],
+			[
+				"da",
+				"data-original"
+			],
+			[
+				"data",
+				"data-original\t(index.ejs)"
+			],
+			[
+				"reporpla",
+				"reportPlaceDetailsUnit"
+			],
+			[
+				"report",
+				"reportSection"
+			],
+			[
+				"panel",
+				"panel-colored\t(index.ejs)"
+			],
+			[
+				"mari",
+				"margin-top"
+			],
+			[
+				"ban",
+				"banquet"
+			],
+			[
+				"ce",
+				"ceremony"
+			],
+			[
+				"siteH",
+				"siteHeading02"
+			],
+			[
+				"footer",
+				"footerGlobalNavigation"
+			],
+			[
+				"photo",
+				"photoCollage\t(index.ejs)"
+			],
+			[
+				"siteHea",
+				"siteHeading01"
+			],
+			[
+				"site",
+				"siteHeading02"
+			],
+			[
+				"siteHeain",
+				"siteHeading02"
+			],
+			[
+				"styleguide",
+				"styleguide_assets"
+			],
+			[
+				"in",
+				"inlineList-icon"
+			],
+			[
+				"con",
+				"conversionArea"
+			],
+			[
+				"add",
+				"addEventListener"
+			],
+			[
+				"button",
+				"button-notEm\t(_components.scss)"
+			],
+			[
+				"button-",
+				"button-disable\t(_components.scss)"
+			],
+			[
+				"colum",
+				"columnSizer\t(index.ejs)"
+			],
+			[
+				"know",
+				"knowhowResume__button"
+			],
+			[
+				"knowhow",
+				"knowhowResume__example"
+			],
+			[
+				"sec",
+				"sectionBlock"
+			],
+			[
+				"text",
+				"textlink"
+			],
+			[
+				"block",
+				"blockquote"
+			],
+			[
+				"icon",
+				"icon-external\t(_header.ejs)"
+			],
+			[
+				"exa",
+				"exam_info\t(style.css)"
+			],
+			[
+				"exam",
+				"exam_img09.jpg\tw:226 h:180"
+			],
+			[
+				"tt",
+				"exam_ttl02.png\tw:377 h:45"
+			],
+			[
+				"search_content",
+				"search_content_item\t(index.html)"
+			],
+			[
+				"卒業",
+				"卒業旅行！国内で人気のエリアはここ！\t(index.html)"
+			],
+			[
+				"bg",
+				"bg_form.gif\tw:770 h:222"
+			],
+			[
+				"leave",
+				"leave_img01.jpg\tw:250 h:160"
+			],
+			[
+				"arrow",
+				"icon_arrow02.png\tw:8 h:12"
+			],
+			[
+				"tit",
+				"ico_title06.png\tw:17 h:23"
+			],
+			[
+				"ico",
+				"ico_title01.png\tw:21 h:21"
+			],
+			[
+				"card_item",
+				"card_item_box"
+			],
+			[
+				"search_list",
+				"search_list_content"
+			],
+			[
+				"subti",
+				"subtitle02"
+			],
+			[
+				"subt",
+				"subtitle02"
+			],
+			[
+				"communi",
+				"community/"
+			],
+			[
+				"list-",
+				"list-inline"
+			],
+			[
+				"com",
+				"community-panel"
+			],
+			[
+				"dum",
+				"dum_img12.jpg\tw:880 h:553"
+			]
+		]
+	},
+	"buffers":
+	[
+		{
+			"file": "/Users/cksgrapes/Documents/Business/TAM/htdocs/amw/mahotasiho/maho/front-page.php",
+			"settings":
+			{
+				"buffer_size": 18084,
+				"encoding": "UTF-8",
+				"line_ending": "Windows"
+			}
+		},
+		{
+			"file": "/Users/cksgrapes/Documents/Business/TAM/htdocs/amw/mahotasiho/sharedstorage/util/pc/css/top.css",
+			"settings":
+			{
+				"buffer_size": 6392,
+				"encoding": "UTF-8",
+				"line_ending": "Unix"
+			}
+		},
+		{
+			"file": "/Users/cksgrapes/Documents/Business/TAM/htdocs/amw/mahotasiho/maho-sp/front-page.php",
+			"settings":
+			{
+				"buffer_size": 13613,
+				"encoding": "UTF-8",
+				"line_ending": "Windows"
+			}
+		},
+		{
+			"file": "/Users/cksgrapes/Documents/Business/TAM/htdocs/amw/mahotasiho/sharedstorage/util/sp/css/index.css",
+			"settings":
+			{
+				"buffer_size": 5645,
+				"encoding": "UTF-8",
+				"line_ending": "Unix"
+			}
+		},
+		{
+			"file": "/Users/cksgrapes/Documents/Business/TAM/htdocs/amw/mahotasiho/maho-fp/front-page.php",
+			"settings":
+			{
+				"buffer_size": 13433,
+				"encoding": "UTF-8",
+				"line_ending": "Windows"
+			}
+		}
+	],
+	"build_system": "",
+	"build_system_choices":
+	[
+	],
+	"build_varint": "",
+	"command_palette":
+	{
+		"height": 354.0,
+		"last_filter": "",
+		"selected_items":
+		[
+			[
+				"add",
+				"Project Manager: Add New Project"
+			],
+			[
+				"html",
+				"Set Syntax: HTML"
+			],
+			[
+				"disa",
+				"Package Control: Disable Package"
+			],
+			[
+				"ena",
+				"Package Control: Enable Package"
+			],
+			[
+				"remo",
+				"Package Control: Remove Package"
+			],
+			[
+				"inst",
+				"Package Control: Install Package"
+			],
+			[
+				"ins",
+				"Package Control: Install Package"
+			],
+			[
+				"list",
+				"Package Control: List Packages"
+			],
+			[
+				"linter",
+				"SublimeLinter: Lint This View"
+			],
+			[
+				"linte",
+				"SublimeLinter: Clear Caches"
+			],
+			[
+				"dis",
+				"Package Control: Disable Package"
+			],
+			[
+				"enable",
+				"Package Control: Enable Package"
+			],
+			[
+				"alignment",
+				"Preferences: Alignment Key Bindings – Default"
+			],
+			[
+				"synhtml",
+				"Set Syntax: HTML"
+			],
+			[
+				"syntahtml",
+				"Set Syntax: HTML"
+			],
+			[
+				"mark",
+				"Set Syntax: Markdown"
+			],
+			[
+				"pack",
+				"Preferences: Browse Packages"
+			],
+			[
+				"material",
+				"Material Theme: Activate theme"
+			],
+			[
+				"toggle",
+				"Word Wrap: Toggle"
+			],
+			[
+				"eme",
+				"Emmet: Next Edit Point"
+			],
+			[
+				"scss",
+				"Set Syntax: SCSS"
+			],
+			[
+				"remoe",
+				"Package Control: Remove Package"
+			],
+			[
+				"promare",
+				"Project Manager: Remove Project"
+			],
+			[
+				"proma",
+				"Project Manager: Add Project"
+			],
+			[
+				"pro",
+				"Project Manager"
+			],
+			[
+				"sass",
+				"Set Syntax: Sass"
+			],
+			[
+				"emme",
+				"Emmet: Reload Extensions"
+			],
+			[
+				"",
+				"Material Theme: Activate theme"
+			],
+			[
+				"insta",
+				"Package Control: Install Package"
+			]
+		],
+		"width": 584.0
+	},
+	"console":
+	{
+		"height": 126.0,
+		"history":
+		[
+			"import urllib.request,os,hashlib; h = 'df21e130d211cfc94d9b0905775a7c0f' + '1e3d39e33b79698005270310898eea76'; pf = 'Package Control.sublime-package'; ipp = sublime.installed_packages_path(); urllib.request.install_opener( urllib.request.build_opener( urllib.request.ProxyHandler()) ); by = urllib.request.urlopen( 'http://packagecontrol.io/' + pf.replace(' ', '%20')).read(); dh = hashlib.sha256(by).hexdigest(); print('Error validating download (got %s instead of %s), please try manual install' % (dh, h)) if dh != h else open(os.path.join( ipp, pf), 'wb' ).write(by)",
+			"import urllib.request,os,hashlib; h = '2915d1851351e5ee549c20394736b442' + '8bc59f460fa1548d1514676163dafc88'; pf = 'Package Control.sublime-package'; ipp = sublime.installed_packages_path(); urllib.request.install_opener( urllib.request.build_opener( urllib.request.ProxyHandler()) ); by = urllib.request.urlopen( 'http://packagecontrol.io/' + pf.replace(' ', '%20')).read(); dh = hashlib.sha256(by).hexdigest(); print('Error validating download (got %s instead of %s), please try manual install' % (dh, h)) if dh != h else open(os.path.join( ipp, pf), 'wb' ).write(by)"
+		]
+	},
+	"distraction_free":
+	{
+		"menu_visible": true,
+		"show_minimap": false,
+		"show_open_files": false,
+		"show_tabs": false,
+		"side_bar_visible": false,
+		"status_bar_visible": false
+	},
+	"expanded_folders":
+	[
+		"/Users/cksgrapes/Documents/Business/TAM/htdocs/amw/mahotasiho",
+		"/Users/cksgrapes/Documents/Business/TAM/htdocs/amw/mahotasiho/maho-fp",
+		"/Users/cksgrapes/Documents/Business/TAM/htdocs/amw/mahotasiho/sharedstorage",
+		"/Users/cksgrapes/Documents/Business/TAM/htdocs/amw/mahotasiho/sharedstorage/js",
+		"/Users/cksgrapes/Documents/Business/TAM/htdocs/amw/mahotasiho/sharedstorage/util",
+		"/Users/cksgrapes/Documents/Business/TAM/htdocs/amw/mahotasiho/sharedstorage/util/sp",
+		"/Users/cksgrapes/Documents/Business/TAM/htdocs/amw/mahotasiho/sharedstorage/util/sp/css"
+	],
+	"file_history":
+	[
+		"/Users/cksgrapes/Documents/Business/TAM/htdocs/amw/mahotasiho/root/maho/front-page.php",
+		"/Users/cksgrapes/Documents/Business/TAM/htdocs/amw/mahotasiho/maho/front-page.php",
+		"/Users/cksgrapes/Documents/Business/TAM/htdocs/amw/mahotasiho/maho-sp/front-page.php",
+		"/Users/cksgrapes/Documents/Business/TAM/htdocs/amw/mahotasiho/maho-fp/front-page.php",
+		"/Users/cksgrapes/Documents/Business/TAM/htdocs/amw/mahotasiho/maho-fp/prize-page-8th.php",
+		"/Users/cksgrapes/Documents/Business/TAM/htdocs/amw/mahotasiho/maho-fp/prize-page.php",
+		"/Users/cksgrapes/Documents/Business/TAM/htdocs/amw/mahotasiho/maho-sp/prize-page.php",
+		"/Users/cksgrapes/Documents/Business/TAM/htdocs/amw/mahotasiho/maho-sp/prize-page-8th.php",
+		"/Users/cksgrapes/Documents/Business/TAM/htdocs/amw/mahotasiho/maho/prize-page.php",
+		"/Users/cksgrapes/Documents/Business/TAM/htdocs/amw/mahotasiho/maho/prize-page-8th.php",
+		"/Users/cksgrapes/Documents/Business/TAM/htdocs/amw/mahotasiho/maho-fp/front-page.php~standard",
+		"/Users/cksgrapes/Documents/Business/TAM/htdocs/amw/mahotasiho/sharedstorage/util/sp/css/index.css",
+		"/Users/cksgrapes/Documents/Business/TAM/htdocs/amw/mahotasiho/maho-sp/front-page.php~standard",
+		"/Users/cksgrapes/Documents/Business/TAM/htdocs/amw/mahotasiho/maho/entrylist.php",
+		"/Users/cksgrapes/Documents/Business/TAM/htdocs/amw/mahotasiho/sharedstorage/util/pc/css/top.css",
+		"/Users/cksgrapes/Documents/Business/TAM/htdocs/amw/mahotasiho/maho/front-page.php160824~",
+		"/Users/cksgrapes/Documents/Business/TAM/htdocs/amw/mahotasiho/maho/front-page.php150901~",
+		"/Users/cksgrapes/Documents/Business/TAM/htdocs/amw/mahotasiho/maho/front-page.php~standard",
+		"/Users/cksgrapes/Documents/Business/TAM/htdocs/amw/mahotasiho/maho/front-page.php170210~",
+		"/Users/cksgrapes/Documents/Business/TAM/htdocs/amw/mahotasiho/maho/entrylist.php~",
+		"/Users/cksgrapes/Documents/Business/TAM/htdocs/amw/mahotasiho/maho-sp/footer.php",
+		"/Users/cksgrapes/Documents/Business/TAM/htdocs/amw/mahotasiho/maho-sp/navigation.php",
+		"/Users/cksgrapes/Documents/Business/TAM/htdocs/amw/mahotasiho/maho-fp/sidebar.php",
+		"/Users/cksgrapes/Documents/Business/TAM/htdocs/amw/mahotasiho/maho-fp/footer.php",
+		"/Users/cksgrapes/Documents/Business/TAM/htdocs/amw/mahotasiho/maho/navigation.php",
+		"/Users/cksgrapes/Documents/Business/TAM/htdocs/amw/mahotasiho/maho/soon.php",
+		"/Users/cksgrapes/Documents/Business/TAM/htdocs/amw/mahotasiho/maho-fp/soon.php",
+		"/Users/cksgrapes/Documents/Business/TAM/htdocs/amw/mahotasiho/maho-sp/soon.php",
+		"/Users/cksgrapes/Documents/Business/TAM/htdocs/amw/mahotasiho/maho-sp/entrylist.php",
+		"/Users/cksgrapes/Documents/Business/TAM/htdocs/amw/mahotasiho/maho-fp/entrylist.php",
+		"/Users/cksgrapes/Documents/Business/TAM/htdocs/amw/mahotasiho/maho-sp/header.php",
+		"/Users/cksgrapes/Documents/Business/TAM/htdocs/amw/mahotasiho/maho/header.php",
+		"/Users/cksgrapes/Documents/Business/TAM/htdocs/amw/mahotasiho/maho-sp/functions.php",
+		"/Users/cksgrapes/Documents/Business/TAM/htdocs/amw/mahotasiho/maho/functions.php",
+		"/Users/cksgrapes/Documents/Business/TAM/htdocs/amw/mahotasiho/sharedstorage/util/sp/css/outline.css",
+		"/Users/cksgrapes/Documents/Business/TAM/htdocs/amw/mahotasiho/maho-sp/archive-outline.php",
+		"/Users/cksgrapes/Documents/Business/TAM/htdocs/amw/mahotasiho/front-page.php",
+		"/Users/cksgrapes/Documents/Business/TAM/htdocs/amw/mahotasiho/sharedstorage/util/pc/css/selection.css",
+		"/Users/cksgrapes/Documents/Business/TAM/htdocs/amw/mahotasiho/maho-sp/page-selection.php",
+		"/Users/cksgrapes/Documents/Business/TAM/htdocs/amw/mahotasiho/maho-fp/page-selection.php",
+		"/Users/cksgrapes/Documents/Business/TAM/htdocs/amw/mahotasiho/maho/page-selection.php",
+		"/Users/cksgrapes/Documents/Business/TAM/htdocs/amw/mahotasiho/sharedstorage/util/pc/css/entrylist.css",
+		"/Users/cksgrapes/Documents/Business/TAM/htdocs/amw/mahotasiho/sharedstorage/util/pc/css/entrylist.css150626~",
+		"/Users/cksgrapes/Documents/Business/TAM/htdocs/mielparque/dev/ejs/kumamoto/blog/details.ejs",
+		"/Users/cksgrapes/Documents/Business/TAM/htdocs/mielparque/dev/ejs/kumamoto/blog/index.ejs",
+		"/Users/cksgrapes/Documents/Business/TAM/htdocs/mielparque/dev/ejs/kumamoto/report/details.ejs",
+		"/Users/cksgrapes/Documents/Business/TAM/htdocs/mielparque/dev/ejs/kumamoto/inc/_header.ejs",
+		"/Users/cksgrapes/Documents/Business/TAM/htdocs/mielparque/dev/ejs/kumamoto/inc/_sub-footer.ejs",
+		"/Users/cksgrapes/Documents/Business/TAM/htdocs/mielparque/dev/ejs/kumamoto/faq/index.ejs",
+		"/Users/cksgrapes/Documents/Business/TAM/htdocs/mielparque/dev/data/site.json",
+		"/Users/cksgrapes/Documents/Business/TAM/htdocs/mielparque/dev/ejs/kumamoto/ceremony/index.ejs",
+		"/Users/cksgrapes/Documents/Business/TAM/htdocs/mielparque/dev/ejs/kumamoto/inc/_footer.ejs",
+		"/Users/cksgrapes/Documents/Business/TAM/htdocs/mielparque/mt/extlib/URI/URL.pm",
+		"/Users/cksgrapes/Documents/Business/TAM/htdocs/mielparque/dev/css/_variables.scss",
+		"/Users/cksgrapes/Documents/Business/TAM/htdocs/mielparque/dev/css/kumamoto/style.scss",
+		"/Users/cksgrapes/Documents/Business/TAM/htdocs/mielparque/dev/css/_adjustment.scss",
+		"/Users/cksgrapes/Documents/Business/TAM/htdocs/mielparque/dev/data/list.json",
+		"/Users/cksgrapes/Documents/Business/TAM/htdocs/mielparque/dev/css/_components.scss",
+		"/Users/cksgrapes/Documents/Business/TAM/htdocs/mielparque/dev/css/_layout.scss",
+		"/Users/cksgrapes/Documents/Business/TAM/htdocs/mielparque/dev/js/common.js",
+		"/Users/cksgrapes/Documents/Business/TAM/htdocs/mielparque/dev/ejs/kumamoto/report/index.ejs",
+		"/Users/cksgrapes/Documents/Business/TAM/htdocs/mielparque/dev/ejs/kumamoto/banquet/index.ejs",
+		"/Users/cksgrapes/Documents/Business/TAM/htdocs/mielparque/dev/ejs/kumamoto/index.ejs",
+		"/Users/cksgrapes/Desktop/logo.svg",
+		"/Users/cksgrapes/Documents/Business/TAM/htdocs/mielparque/dev/ejs/kumamoto/inc/_svgsprite.ejs",
+		"/Users/cksgrapes/Documents/Business/TAM/htdocs/mielparque/node_modules/weinre/web/client/inspector.css",
+		"/Users/cksgrapes/Documents/Business/TAM/htdocs/mielparque/dev/ejs/kumamoto/inc/_conversion-unit.ejs",
+		"/Users/cksgrapes/Documents/Business/TAM/htdocs/mielparque/mt/mt-static/plugins/TinyMCE/tiny_mce/plugins/table/css/table.css",
+		"/Users/cksgrapes/Documents/Business/TAM/htdocs/mielparque/dev/css/_plugin.scss",
+		"/Users/cksgrapes/Documents/Business/TAM/htdocs/mielparque/dev/js/top.js",
+		"/Users/cksgrapes/Documents/Business/TAM/htdocs/mielparque/.scss-lint.yml",
+		"/Users/cksgrapes/Documents/Business/TAM/htdocs/mielparque/.scss.yml",
+		"/Users/cksgrapes/Documents/Business/TAM/htdocs/mielparque/dev/css/common.scss",
+		"/Users/cksgrapes/Library/Application Support/Sublime Text 3/Packages/User/SublimeLinter.sublime-settings",
+		"/Users/cksgrapes/Library/Application Support/Sublime Text 3/Packages/User/Preferences.sublime-settings",
+		"/Users/cksgrapes/Library/Application Support/Sublime Text 3/Packages/Alignment/Default (OSX).sublime-keymap",
+		"/Users/cksgrapes/Library/Application Support/Sublime Text 3/Packages/User/Default (OSX).sublime-keymap",
+		"/Users/cksgrapes/Library/Application Support/Sublime Text 3/Packages/User/Base File.sublime-settings",
+		"/Users/cksgrapes/Documents/Business/TAM/htdocs/mielparque/gulpfile.js",
+		"/Users/cksgrapes/Documents/Business/TAM/htdocs/mielparque/dev/css/print.scss",
+		"/Users/cksgrapes/Documents/Business/TAM/htdocs/mielparque/release/assets/css/common.css",
+		"/Users/cksgrapes/Documents/Business/TAM/htdocs/mielparque/release/kumamoto/ceremony/index.html",
+		"/Users/cksgrapes/Documents/Business/TAM/htdocs/mielparque/dev/ejs/kumamoto/inc/_meta.ejs",
+		"/Users/cksgrapes/Documents/Business/TAM/htdocs/mielparque/dev/ejs/kumamoto/styleguide.ejs",
+		"/Users/cksgrapes/Documents/Business/TAM/htdocs/mielparque/dev/ejs/kumamoto/ceremony-pattern.ejs",
+		"/Users/cksgrapes/Documents/Business/TAM/htdocs/mielparque/dev/ejs/inc/_meta.ejs",
+		"/Users/cksgrapes/Documents/Business/TAM/htdocs/mielparque/dev/ejs/inc/_header.ejs",
+		"/Users/cksgrapes/Documents/Business/TAM/htdocs/mielparque/hologram_config.yml",
+		"/Users/cksgrapes/Documents/Business/TAM/htdocs/mielparque/dev/ejs/styleguide.ejs",
+		"/Users/cksgrapes/Documents/Business/TAM/htdocs/mielparque/dev/css/_jquery.bxslider.scss",
+		"/Users/cksgrapes/Documents/Business/TAM/htdocs/mielparque/dev/js/lib/jquery.bxslider.min.js",
+		"/Users/cksgrapes/Documents/Business/TAM/htdocs/mielparque/dev/css/_base.scss",
+		"/Users/cksgrapes/Documents/Business/TAM/htdocs/mielparque/dev/css/_mixin.scss",
+		"/Users/cksgrapes/Documents/Business/TAM/htdocs/mielparque/dev/ejs/inc/_footer.ejs",
+		"/Users/cksgrapes/.bashrc",
+		"/Users/cksgrapes/Documents/Business/TAM/htdocs/mielparque/dev/ejs/index.ejs",
+		"/Users/cksgrapes/.bash_profile",
+		"/Users/cksgrapes/Documents/Business/TAM/htdocs/mielparque/mt/mt-config.cgi",
+		"/Users/cksgrapes/Documents/Business/TAM/htdocs/mielparque/mt/mt-config.cgi-original",
+		"/Users/cksgrapes/Documents/Business/TAM/htdocs/mielparque/node_modules/gulp-combine-media-queries/index.js",
+		"/Users/cksgrapes/Documents/Business/TAM/htdocs/mielparque/package.json",
+		"/Users/cksgrapes/Documents/Project/mashiromasaki/dev/css/_mixin.scss",
+		"/Users/cksgrapes/Documents/Project/mashiromasaki/dev/css/_components.scss",
+		"/Users/cksgrapes/Documents/Project/mashiromasaki/dev/css/_plugin.scss",
+		"/Users/cksgrapes/Documents/Project/mashiromasaki/dev/ejs/inc/_meta.ejs",
+		"/Users/cksgrapes/Documents/Project/mashiromasaki/dev/ejs/inc/_header.ejs",
+		"/Users/cksgrapes/Documents/Project/mashiromasaki/dev/ejs/archive.ejs",
+		"/Users/cksgrapes/Documents/Project/mashiromasaki/dev/ejs/inc/_footer.ejs",
+		"/Users/cksgrapes/Documents/Project/mashiromasaki/dev/ejs/index.ejs",
+		"/Users/cksgrapes/Documents/Project/mashiromasaki/dev/ejs/archive-2.ejs",
+		"/Users/cksgrapes/Documents/Project/mashiromasaki/dev/ejs/single.ejs",
+		"/Users/cksgrapes/Documents/Project/mashiromasaki/dev/ejs/archive-blog.ejs",
+		"/Users/cksgrapes/Documents/Project/mashiromasaki/dev/ejs/single-blog.ejs",
+		"/Users/cksgrapes/Documents/Project/mashiromasaki/dev/ejs/single-offline.ejs",
+		"/Users/cksgrapes/Documents/Project/mashiromasaki/dev/ejs/archive-offline.ejs",
+		"/Users/cksgrapes/Downloads/infinite-scroll-master/jquery.infinitescroll.js",
+		"/Users/cksgrapes/Documents/Project/mashiromasaki/dev/css/_variables.scss",
+		"/Users/cksgrapes/Documents/Project/mashiromasaki/dev/css/_base.scss",
+		"/Users/cksgrapes/Documents/Project/mashiromasaki/gulpfile.js",
+		"/Users/cksgrapes/Documents/Project/mashiromasaki/.htpasswd",
+		"/Users/cksgrapes/Documents/Project/mashiromasaki/dev/img/logo.svg",
+		"/Users/cksgrapes/Documents/Project/mashiromasaki/release/assets/img/logo.svg",
+		"/Users/cksgrapes/Documents/Project/mashiromasaki/dev/css/common.scss",
+		"/Users/cksgrapes/Documents/Project/mashiromasaki/dev/css/_layout.scss",
+		"/Users/cksgrapes/Documents/Project/mashiromasaki/dev/data/site.json",
+		"/Users/cksgrapes/Documents/Project/mashiromasaki/node_modules/gulp-combine-media-queries/index.js",
+		"/Users/cksgrapes/Documents/Business/TAM/htdocs/onward/jpresskids/static/index.html",
+		"/Users/cksgrapes/Documents/Business/TAM/htdocs/onward/jpresskids/static/collection/2016autumn-winter-04/02.html"
+	],
+	"find":
+	{
+		"height": 70.0
+	},
+	"find_in_files":
+	{
+		"height": 158.0,
+		"where_history":
+		[
+			"/Users/cksgrapes/Documents/Business/TAM/htdocs/amw/mahotasiho",
+			"/Users/cksgrapes/Documents/Business/TAM/htdocs/amw/mahotasiho/maho",
+			"/Users/cksgrapes/Documents/Business/TAM/htdocs/mielparque/dev/ejs/kumamoto",
+			"/Users/cksgrapes/Documents/Business/TAM/htdocs/sprix/foresta/dev/scss",
+			"/Users/cksgrapes/Documents/Business/TAM/htdocs/sprix/foresta/dev/jade",
+			"/Users/cksgrapes/Documents/Business/TAM/htdocs/sprix/foresta/dev/scss",
+			"/Users/cksgrapes/Documents/Business/TAM/htdocs/sprix/foresta/dev/jade/_include"
+		]
+	},
+	"find_state":
+	{
+		"case_sensitive": false,
+		"find_history":
+		[
+			"fopen",
+			"award9_img01.jpg",
+			"受賞作品発表",
+			"第10回",
+			"nominate_page",
+			"$nominate_page",
+			"29",
+			"30",
+			"300",
+			"29",
+			"第9回",
+			"selection-main-image01.png",
+			"よくあるご質問",
+			"cardList_heading",
+			"6",
+			"10",
+			"7",
+			"8px",
+			"<img src=\"\">",
+			"20",
+			"blogArticle",
+			"overflow",
+			"<a ",
+			"alt=\"\"",
+			" alt=\"\"",
+			"alt=\"\"",
+			"alt=\"\" ",
+			"alt=\"\"",
+			"30",
+			"class=\"cls-1\" ",
+			"layer2",
+			"category",
+			"pageNavigation",
+			"em\">",
+			"span",
+			"args.local_img_path",
+			"newsList",
+			"big",
+			"ウェディングレポート",
+			"conversionLargeUnit",
+			"conver",
+			"class=\"faqUnit_items\"",
+			"faqUnit_items",
+			"ウェディングレポート",
+			"\n  display: flex;\n  justify-content: space-between;\n  padding: 15px 0;\n",
+			"15",
+			"<li>",
+			"li>",
+			" col",
+			"reportSection-rightImage ",
+			"reportSection reportSection-rightImage",
+			"photoCollage_item",
+			"200",
+			"298",
+			"ceremony01_",
+			"var",
+			"sitehead",
+			"siteheading",
+			"披露宴会場",
+			"\"",
+			"\"../",
+			"\"",
+			"offset",
+			"y\"",
+			" lazy\"",
+			"y\"",
+			"e lazy\"",
+			"lazy\"",
+			"src=\"<%- args.global_img_path %>dummy.png\" data-original=\"(.+?)\"",
+			"trigger",
+			"cateogry",
+			"t06",
+			"06",
+			"et02",
+			"t02",
+			"t03",
+			"t02",
+			"t01",
+			"et01",
+			"ceremony",
+			"#ceremony",
+			"id=\"ceremony",
+			"挙式",
+			"ceremony",
+			"$(this)",
+			"$this",
+			"icon-chevron-02",
+			"banner-card_link:hover",
+			"banner-card_link",
+			"crumbs_link",
+			"paragra",
+			".slick-slide",
+			"ceremony01",
+			"description",
+			"banner-card_image",
+			"}\nbanner-card_image",
+			"local_img_path",
+			"src=\"\"",
+			"img",
+			"include('../../",
+			"include('../",
+			"plan_logo",
+			"banner_img",
+			"<%- args.local_img_path %>(.+?)_img",
+			">aboutBanner",
+			"aboutBanner_banner",
+			"img",
+			"/kumamoto/hero",
+			"_img",
+			"<%- args.local_img_path %>(.+?)_img(.+?)\"?",
+			"<%- args.local_img_path %>(.+?)_img(.+?)\".",
+			"<%- args.local_img_path %>(.+?)_img(.+?)\" ?",
+			"<%- args.local_img_path %>(.+?)_img(.+?)\"",
+			"<%- args.local_img_path %>(.+)?_img(.+)?.jpg",
+			"<%- args.local_img_path %>(.+)?_img.jpg",
+			"more",
+			"15px",
+			"full",
+			"panel-full",
+			"panel-fu",
+			"descri",
+			"heading",
+			"banner",
+			"subGlobalNavigation",
+			"footer",
+			"slider_",
+			"ude('../i",
+			"siteHeading01"
+		],
+		"highlight": true,
+		"in_selection": false,
+		"preserve_case": false,
+		"regex": true,
+		"replace_history":
+		[
+			"src=\"$1\"",
+			"<%- args.local_img_path %>img_$1",
+			">banner_aboutBanner",
+			"aboutBanner",
+			"",
+			"<h2 class=\"heading-02\">$1</h2>",
+			"<h2 class=\"heading-02\"><span>$1</span></h2>",
+			"あああああああああああああああああああああああああああああああああああああああああ",
+			"<option value=\"\">$1</option>",
+			"<optgroup label=\"$1\"></optgroup>",
+			"<dt class=\"search_list_title search_list_ico04\">アクセスが便利な駅</dt>",
+			"<dt class=\"search_list_title search_list_ico03\">イベント会場</dt>",
+			"○○○○駅",
+			"○○○○○"
+		],
+		"reverse": false,
+		"show_context": true,
+		"use_buffer2": true,
+		"whole_word": false,
+		"wrap": true
+	},
+	"groups":
+	[
+		{
+			"selected": 4,
+			"sheets":
+			[
+				{
+					"buffer": 0,
+					"file": "/Users/cksgrapes/Documents/Business/TAM/htdocs/amw/mahotasiho/maho/front-page.php",
+					"semi_transient": false,
+					"settings":
+					{
+						"buffer_size": 18084,
+						"regions":
+						{
+							"TagLint":
+							{
+								"flags": 2356,
+								"icon": "dot",
+								"regions":
+								[
+									[
+										13080,
+										13082
+									]
+								],
+								"scope": "variable.parameter"
+							}
+						},
+						"selection":
+						[
+							[
+								11276,
+								11279
+							]
+						],
+						"settings":
+						{
+							"auto_complete": false,
+							"bracket_highlighter.busy": false,
+							"bracket_highlighter.locations":
+							{
+								"close":
+								{
+								},
+								"icon":
+								{
+								},
+								"open":
+								{
+								},
+								"unmatched":
+								{
+								}
+							},
+							"bracket_highlighter.regions":
+							[
+								"bh_c_define",
+								"bh_c_define_center",
+								"bh_c_define_open",
+								"bh_c_define_close",
+								"bh_c_define_content",
+								"bh_square",
+								"bh_square_center",
+								"bh_square_open",
+								"bh_square_close",
+								"bh_square_content",
+								"bh_regex",
+								"bh_regex_center",
+								"bh_regex_open",
+								"bh_regex_close",
+								"bh_regex_content",
+								"bh_unmatched",
+								"bh_unmatched_center",
+								"bh_unmatched_open",
+								"bh_unmatched_close",
+								"bh_unmatched_content",
+								"bh_round",
+								"bh_round_center",
+								"bh_round_open",
+								"bh_round_close",
+								"bh_round_content",
+								"bh_default",
+								"bh_default_center",
+								"bh_default_open",
+								"bh_default_close",
+								"bh_default_content",
+								"bh_tag",
+								"bh_tag_center",
+								"bh_tag_open",
+								"bh_tag_close",
+								"bh_tag_content",
+								"bh_single_quote",
+								"bh_single_quote_center",
+								"bh_single_quote_open",
+								"bh_single_quote_close",
+								"bh_single_quote_content",
+								"bh_angle",
+								"bh_angle_center",
+								"bh_angle_open",
+								"bh_angle_close",
+								"bh_angle_content",
+								"bh_curly",
+								"bh_curly_center",
+								"bh_curly_open",
+								"bh_curly_close",
+								"bh_curly_content",
+								"bh_double_quote",
+								"bh_double_quote_center",
+								"bh_double_quote_open",
+								"bh_double_quote_close",
+								"bh_double_quote_content"
+							],
+							"color_scheme": "Packages/User/Color Highlighter/themes/Material-Theme-Darker.tmTheme",
+							"is_init_dirty_state": false,
+							"is_xml": false,
+							"origin_encoding": "UTF-8",
+							"syntax": "Packages/PHP/PHP.sublime-syntax",
+							"tab_size": 4,
+							"translate_tabs_to_spaces": true
+						},
+						"translation.x": 0.0,
+						"translation.y": 5995.0,
+						"zoom_level": 1.0
+					},
+					"stack_index": 2,
+					"type": "text"
+				},
+				{
+					"buffer": 1,
+					"file": "/Users/cksgrapes/Documents/Business/TAM/htdocs/amw/mahotasiho/sharedstorage/util/pc/css/top.css",
+					"semi_transient": false,
+					"settings":
+					{
+						"buffer_size": 6392,
+						"regions":
+						{
+						},
+						"selection":
+						[
+							[
+								5292,
+								5292
+							]
+						],
+						"settings":
+						{
+							"bracket_highlighter.busy": false,
+							"bracket_highlighter.locations":
+							{
+								"close":
+								{
+									"1":
+									[
+										5302,
+										5303
+									]
+								},
+								"icon":
+								{
+									"1":
+									[
+										"Packages/BracketHighlighter/icons/curly_bracket.png",
+										"brackethighlighter.default"
+									]
+								},
+								"open":
+								{
+									"1":
+									[
+										5263,
+										5264
+									]
+								},
+								"unmatched":
+								{
+								}
+							},
+							"bracket_highlighter.regions":
+							[
+								"bh_c_define",
+								"bh_c_define_center",
+								"bh_c_define_open",
+								"bh_c_define_close",
+								"bh_c_define_content",
+								"bh_square",
+								"bh_square_center",
+								"bh_square_open",
+								"bh_square_close",
+								"bh_square_content",
+								"bh_regex",
+								"bh_regex_center",
+								"bh_regex_open",
+								"bh_regex_close",
+								"bh_regex_content",
+								"bh_unmatched",
+								"bh_unmatched_center",
+								"bh_unmatched_open",
+								"bh_unmatched_close",
+								"bh_unmatched_content",
+								"bh_round",
+								"bh_round_center",
+								"bh_round_open",
+								"bh_round_close",
+								"bh_round_content",
+								"bh_default",
+								"bh_default_center",
+								"bh_default_open",
+								"bh_default_close",
+								"bh_default_content",
+								"bh_tag",
+								"bh_tag_center",
+								"bh_tag_open",
+								"bh_tag_close",
+								"bh_tag_content",
+								"bh_single_quote",
+								"bh_single_quote_center",
+								"bh_single_quote_open",
+								"bh_single_quote_close",
+								"bh_single_quote_content",
+								"bh_angle",
+								"bh_angle_center",
+								"bh_angle_open",
+								"bh_angle_close",
+								"bh_angle_content",
+								"bh_curly",
+								"bh_curly_center",
+								"bh_curly_open",
+								"bh_curly_close",
+								"bh_curly_content",
+								"bh_double_quote",
+								"bh_double_quote_center",
+								"bh_double_quote_open",
+								"bh_double_quote_close",
+								"bh_double_quote_content"
+							],
+							"color_scheme": "Packages/User/Color Highlighter/themes/Material-Theme-Darker.tmTheme",
+							"is_init_dirty_state": false,
+							"origin_encoding": "UTF-8",
+							"syntax": "Packages/CSS/CSS.sublime-syntax",
+							"tab_size": 2,
+							"translate_tabs_to_spaces": true
+						},
+						"translation.x": 0.0,
+						"translation.y": 6629.0,
+						"zoom_level": 1.0
+					},
+					"stack_index": 3,
+					"type": "text"
+				},
+				{
+					"buffer": 2,
+					"file": "/Users/cksgrapes/Documents/Business/TAM/htdocs/amw/mahotasiho/maho-sp/front-page.php",
+					"semi_transient": false,
+					"settings":
+					{
+						"buffer_size": 13613,
+						"regions":
+						{
+						},
+						"selection":
+						[
+							[
+								8396,
+								8389
+							]
+						],
+						"settings":
+						{
+							"auto_complete": false,
+							"bracket_highlighter.busy": false,
+							"bracket_highlighter.locations":
+							{
+								"close":
+								{
+									"1":
+									[
+										8991,
+										8993
+									]
+								},
+								"icon":
+								{
+									"1":
+									[
+										"Packages/BracketHighlighter/icons/tag.png",
+										"brackethighlighter.default"
+									]
+								},
+								"open":
+								{
+									"1":
+									[
+										8389,
+										8391
+									]
+								},
+								"unmatched":
+								{
+								}
+							},
+							"bracket_highlighter.regions":
+							[
+								"bh_c_define",
+								"bh_c_define_center",
+								"bh_c_define_open",
+								"bh_c_define_close",
+								"bh_c_define_content",
+								"bh_square",
+								"bh_square_center",
+								"bh_square_open",
+								"bh_square_close",
+								"bh_square_content",
+								"bh_regex",
+								"bh_regex_center",
+								"bh_regex_open",
+								"bh_regex_close",
+								"bh_regex_content",
+								"bh_unmatched",
+								"bh_unmatched_center",
+								"bh_unmatched_open",
+								"bh_unmatched_close",
+								"bh_unmatched_content",
+								"bh_round",
+								"bh_round_center",
+								"bh_round_open",
+								"bh_round_close",
+								"bh_round_content",
+								"bh_default",
+								"bh_default_center",
+								"bh_default_open",
+								"bh_default_close",
+								"bh_default_content",
+								"bh_tag",
+								"bh_tag_center",
+								"bh_tag_open",
+								"bh_tag_close",
+								"bh_tag_content",
+								"bh_single_quote",
+								"bh_single_quote_center",
+								"bh_single_quote_open",
+								"bh_single_quote_close",
+								"bh_single_quote_content",
+								"bh_angle",
+								"bh_angle_center",
+								"bh_angle_open",
+								"bh_angle_close",
+								"bh_angle_content",
+								"bh_curly",
+								"bh_curly_center",
+								"bh_curly_open",
+								"bh_curly_close",
+								"bh_curly_content",
+								"bh_double_quote",
+								"bh_double_quote_center",
+								"bh_double_quote_open",
+								"bh_double_quote_close",
+								"bh_double_quote_content"
+							],
+							"color_scheme": "Packages/User/Color Highlighter/themes/Material-Theme-Darker.tmTheme",
+							"is_init_dirty_state": false,
+							"is_xml": false,
+							"origin_encoding": "UTF-8",
+							"syntax": "Packages/PHP/PHP.sublime-syntax",
+							"translate_tabs_to_spaces": false
+						},
+						"translation.x": 0.0,
+						"translation.y": 5359.0,
+						"zoom_level": 1.0
+					},
+					"stack_index": 1,
+					"type": "text"
+				},
+				{
+					"buffer": 3,
+					"file": "/Users/cksgrapes/Documents/Business/TAM/htdocs/amw/mahotasiho/sharedstorage/util/sp/css/index.css",
+					"semi_transient": false,
+					"settings":
+					{
+						"buffer_size": 5645,
+						"regions":
+						{
+						},
+						"selection":
+						[
+							[
+								4564,
+								4564
+							]
+						],
+						"settings":
+						{
+							"bracket_highlighter.busy": false,
+							"bracket_highlighter.locations":
+							{
+								"close":
+								{
+									"1":
+									[
+										4585,
+										4586
+									]
+								},
+								"icon":
+								{
+									"1":
+									[
+										"Packages/BracketHighlighter/icons/curly_bracket.png",
+										"brackethighlighter.default"
+									]
+								},
+								"open":
+								{
+									"1":
+									[
+										4546,
+										4547
+									]
+								},
+								"unmatched":
+								{
+								}
+							},
+							"bracket_highlighter.regions":
+							[
+								"bh_c_define",
+								"bh_c_define_center",
+								"bh_c_define_open",
+								"bh_c_define_close",
+								"bh_c_define_content",
+								"bh_square",
+								"bh_square_center",
+								"bh_square_open",
+								"bh_square_close",
+								"bh_square_content",
+								"bh_regex",
+								"bh_regex_center",
+								"bh_regex_open",
+								"bh_regex_close",
+								"bh_regex_content",
+								"bh_unmatched",
+								"bh_unmatched_center",
+								"bh_unmatched_open",
+								"bh_unmatched_close",
+								"bh_unmatched_content",
+								"bh_round",
+								"bh_round_center",
+								"bh_round_open",
+								"bh_round_close",
+								"bh_round_content",
+								"bh_default",
+								"bh_default_center",
+								"bh_default_open",
+								"bh_default_close",
+								"bh_default_content",
+								"bh_tag",
+								"bh_tag_center",
+								"bh_tag_open",
+								"bh_tag_close",
+								"bh_tag_content",
+								"bh_single_quote",
+								"bh_single_quote_center",
+								"bh_single_quote_open",
+								"bh_single_quote_close",
+								"bh_single_quote_content",
+								"bh_angle",
+								"bh_angle_center",
+								"bh_angle_open",
+								"bh_angle_close",
+								"bh_angle_content",
+								"bh_curly",
+								"bh_curly_center",
+								"bh_curly_open",
+								"bh_curly_close",
+								"bh_curly_content",
+								"bh_double_quote",
+								"bh_double_quote_center",
+								"bh_double_quote_open",
+								"bh_double_quote_close",
+								"bh_double_quote_content"
+							],
+							"color_scheme": "Packages/User/Color Highlighter/themes/Material-Theme-Darker.tmTheme",
+							"is_init_dirty_state": false,
+							"origin_encoding": "UTF-8",
+							"syntax": "Packages/CSS/CSS.sublime-syntax",
+							"tab_size": 2,
+							"translate_tabs_to_spaces": true
+						},
+						"translation.x": 0.0,
+						"translation.y": 5926.0,
+						"zoom_level": 1.0
+					},
+					"stack_index": 4,
+					"type": "text"
+				},
+				{
+					"buffer": 4,
+					"file": "/Users/cksgrapes/Documents/Business/TAM/htdocs/amw/mahotasiho/maho-fp/front-page.php",
+					"semi_transient": false,
+					"settings":
+					{
+						"buffer_size": 13433,
+						"regions":
+						{
+							"TagLint":
+							{
+								"flags": 2356,
+								"icon": "dot",
+								"regions":
+								[
+									[
+										749,
+										752
+									]
+								],
+								"scope": "variable.parameter"
+							}
+						},
+						"selection":
+						[
+							[
+								6325,
+								6325
+							]
+						],
+						"settings":
+						{
+							"auto_complete": false,
+							"bracket_highlighter.busy": false,
+							"bracket_highlighter.locations":
+							{
+								"close":
+								{
+									"1":
+									[
+										6321,
+										6324
+									]
+								},
+								"icon":
+								{
+									"1":
+									[
+										"Packages/BracketHighlighter/icons/tag.png",
+										"brackethighlighter.default"
+									]
+								},
+								"open":
+								{
+									"1":
+									[
+										6207,
+										6210
+									]
+								},
+								"unmatched":
+								{
+								}
+							},
+							"bracket_highlighter.regions":
+							[
+								"bh_round",
+								"bh_round_center",
+								"bh_round_open",
+								"bh_round_close",
+								"bh_round_content",
+								"bh_unmatched",
+								"bh_unmatched_center",
+								"bh_unmatched_open",
+								"bh_unmatched_close",
+								"bh_unmatched_content",
+								"bh_default",
+								"bh_default_center",
+								"bh_default_open",
+								"bh_default_close",
+								"bh_default_content",
+								"bh_square",
+								"bh_square_center",
+								"bh_square_open",
+								"bh_square_close",
+								"bh_square_content",
+								"bh_single_quote",
+								"bh_single_quote_center",
+								"bh_single_quote_open",
+								"bh_single_quote_close",
+								"bh_single_quote_content",
+								"bh_angle",
+								"bh_angle_center",
+								"bh_angle_open",
+								"bh_angle_close",
+								"bh_angle_content",
+								"bh_curly",
+								"bh_curly_center",
+								"bh_curly_open",
+								"bh_curly_close",
+								"bh_curly_content",
+								"bh_c_define",
+								"bh_c_define_center",
+								"bh_c_define_open",
+								"bh_c_define_close",
+								"bh_c_define_content",
+								"bh_regex",
+								"bh_regex_center",
+								"bh_regex_open",
+								"bh_regex_close",
+								"bh_regex_content",
+								"bh_double_quote",
+								"bh_double_quote_center",
+								"bh_double_quote_open",
+								"bh_double_quote_close",
+								"bh_double_quote_content",
+								"bh_tag",
+								"bh_tag_center",
+								"bh_tag_open",
+								"bh_tag_close",
+								"bh_tag_content"
+							],
+							"color_scheme": "Packages/User/Color Highlighter/themes/Material-Theme-Darker.tmTheme",
+							"is_init_dirty_state": false,
+							"is_xml": false,
+							"origin_encoding": "UTF-8",
+							"syntax": "Packages/PHP/PHP.sublime-syntax",
+							"translate_tabs_to_spaces": false
+						},
+						"translation.x": 0.0,
+						"translation.y": 2986.0,
+						"zoom_level": 1.0
+					},
+					"stack_index": 0,
+					"type": "text"
+				}
+			]
+		}
+	],
+	"incremental_find":
+	{
+		"height": 30.0
+	},
+	"input":
+	{
+		"height": 66.0
+	},
+	"layout":
+	{
+		"cells":
+		[
+			[
+				0,
+				0,
+				1,
+				1
+			]
+		],
+		"cols":
+		[
+			0.0,
+			1.0
+		],
+		"rows":
+		[
+			0.0,
+			1.0
+		]
+	},
+	"menu_visible": true,
+	"output.find_results":
+	{
+		"height": 0.0
+	},
+	"pinned_build_system": "",
+	"project": "AMW-mahoTaisho.sublime-project",
+	"replace":
+	{
+		"height": 114.0
+	},
+	"save_all_on_build": true,
+	"select_file":
+	{
+		"height": 0.0,
+		"last_filter": "",
+		"selected_items":
+		[
+			[
+				"lay",
+				"dev/css/_layout.scss"
+			],
+			[
+				"optionscss",
+				"dev/scss/base/_option.scss"
+			],
+			[
+				"communi",
+				"dev/scss/project/_community.scss"
+			],
+			[
+				"list",
+				"dev/scss/components/_list.scss"
+			],
+			[
+				"scsslayout",
+				"dev/scss/layout/_contents.scss"
+			],
+			[
+				"listscss",
+				"dev/scss/components/_list.scss"
+			],
+			[
+				"scsscomm",
+				"dev/scss/project/_community.scss"
+			]
+		],
+		"width": 0.0
+	},
+	"select_project":
+	{
+		"height": 500.0,
+		"last_filter": "",
+		"selected_items":
+		[
+		],
+		"width": 380.0
+	},
+	"select_symbol":
+	{
+		"height": 0.0,
+		"last_filter": "",
+		"selected_items":
+		[
+		],
+		"width": 0.0
+	},
+	"selected_group": 0,
+	"settings":
+	{
+	},
+	"show_minimap": true,
+	"show_open_files": true,
+	"show_tabs": true,
+	"side_bar_visible": true,
+	"side_bar_width": 285.0,
+	"status_bar_visible": true,
+	"template_settings":
+	{
+	}
+}
